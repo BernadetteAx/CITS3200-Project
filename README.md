@@ -6,7 +6,7 @@ CITS3200 capstone project — a multiplayer online game built for Yi Fei Wu, Uni
 
 ## Status
 
-🚧 Not started yet — this repo currently just holds project setup and docs.
+Not started yet — this repo currently just holds project setup and docs.
 
 ## Stack
 
