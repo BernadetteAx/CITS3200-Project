@@ -19,12 +19,12 @@ _(Fill in once decided — see /decisions for the reasoning when you do.)_
 
 UWA ID | Name | GitHub Username  
 --- | --- | ---  
-23957309 | Abbey Boyle  |    
-24223498 | Angela Hewitt	 |   
-24224304 | Bernadette Arto | 
-23356687 | Alon Tucker	 |   
+23957309 | Abbey Boyle  |    JubileeBee
+24223498 | Angela Hewitt	 |   Angela74180
+24224304 | Bernadette Arto | BernadetteAx
+23356687 | Alon Tucker	 |   ATcoding613
 23867057 | Namgay Choden | 
-24167087 | Jo Magnampo	 |   
+24167087 | Jo Magnampo	 |   JoLZ18
 
 ## Client
 
@@ -35,6 +35,7 @@ UWA ID | Name | GitHub Username
 
 ```
 docs/                   Project documentation
+├── .github/            Templates for GitHub actions
 ├── decisions/           Architecture decisions — one file per decision
 └── meeting-notes/        Notes from client/team/supervisor meetings
 CONTRIBUTING.md          How we work: branches, commits, PRs

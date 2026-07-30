@@ -1,6 +1,6 @@
 # 0001 — [Decision title]
 
-**Status:** Proposed / Accepted / Superseded
+**Status:** Proposed / Accepted / Declined
 
 ## Context
 
