@@ -45,9 +45,10 @@ As actual code gets added (client/, server/, etc.) this README will change
 
 ## Documentation
 
-- [Architecture decisions](/decisions)
-- [Meeting notes](/meeting-notes)
+- [GitHub Contributions](/docs/.github)
+- [Architecture decisions](/docs/decisions)
+- [Meeting notes](/docs/meeting-notes)
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+See [CONTRIBUTING.md](/CONTRIBUTING.md).
