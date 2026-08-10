@@ -1,0 +1,82 @@
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lobby.css" />
+
+  <button class="instructions-trigger" id="openInstructionsBtn" title="How to Play">?</button>
+
+  <header>
+    <h1 class="lobby-title">CHAOS AUCTION</h1>
+    <p class="lobby-subtext">GATHER YOUR CREW. BID WISELY. SURVIVE THE MISSION.</p>
+    <div class="room-code">
+      <span>ROOM CODE:</span>
+      <span class="code" id="roomCode">7F2Q</span>
+      <button class="copy-btn" id="copyCodeBtn">COPY</button>
+    </div>
+  </header>
+
+  <div class="lobby-card">
+    <h2>PLAYERS IN LOBBY</h2>
+
+    <div class="player-list" id="playerList">
+      <div class="player-tile" data-state="ready" style="--player-color:#4e7f6a;">
+        <span class="player-name"><span class="avatar-dot"></span>BERNIE<span class="host-tag">HOST</span></span>
+        <span class="status-pill">READY</span>
+      </div>
+      <div class="player-tile" data-state="ready" style="--player-color:#00b4ff;">
+        <span class="player-name"><span class="avatar-dot"></span>ALON</span>
+        <span class="status-pill">READY</span>
+      </div>
+      <div class="player-tile" data-state="waiting" style="--player-color:#ff9b4e;">
+        <span class="player-name"><span class="avatar-dot"></span>ANGELA</span>
+        <span class="status-pill">WAITING</span>
+      </div>
+      <div class="player-tile empty-slot">
+        <span class="player-name">WAITING FOR PLAYER…</span>
+      </div>
+    </div>
+
+    <p class="player-count" id="playerCount">3 / 8 PLAYERS · MIN 3 TO START</p>
+
+    <div class="lobby-actions">
+      <button class="lobby-btn ready-toggle" id="readyToggleBtn" data-ready="false">MARK READY</button>
+      <button class="lobby-btn primary" id="startGameBtn" disabled>START GAME</button>
+      <button class="lobby-btn secondary" id="leaveLobbyBtn">LEAVE LOBBY</button>
+    </div>
+
+    <p class="helper-note">ONLY THE HOST CAN START ONCE EVERYONE IS READY</p>
+  </div>
+
+  <!-- Instructions popup -->
+  <div class="result-popup hidden" id="instructions-popup">
+    <div class="result-box">
+      <div class="result-title">HOW TO PLAY</div>
+      <div class="result-sub">CHAOS AUCTION · CO-OP SURVIVAL</div>
+
+      <div class="instructions-steps">
+        <div class="instructions-step">
+          <span class="step-num">1</span>
+          <span class="step-text">Each round, the auction presents a pair of items. <b>Bid together</b> as a team to win the ones you'll need.</span>
+        </div>
+        <div class="instructions-step">
+          <span class="step-num">2</span>
+          <span class="step-text">Your crew is dropped into a randomly-generated <b>Mission</b> which is a run of Challenges you must get through.</span>
+        </div>
+        <div class="instructions-step">
+          <span class="step-num">3</span>
+          <span class="step-text">Each Challenge can be solved by one of a few possible items. Got the right one? <b>Clean solve.</b> Missing it? You'll find the <b>long way round</b>... it works, just costs you points.</span>
+        </div>
+        <div class="instructions-step">
+          <span class="step-num">4</span>
+          <span class="step-text">There's no losing outright just how <b>chaotic</b> your run gets. Everyone wins or loses together.</span>
+        </div>
+      </div>
+
+      <div class="result-definition-section">
+        No accounts needed! Just share the room code above with 2-7 friends and mark ready when you're in.
+      </div>
+
+      <button class="result-btn" id="closeInstructionsBtn">GOT IT</button>
+    </div>
+  </div>
+
+  <script src="lobby.js"></script>
