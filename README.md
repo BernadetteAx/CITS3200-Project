@@ -23,7 +23,7 @@ UWA ID | Name | GitHub Username
 24223498 | Angela Hewitt	 |   Angela74180
 24224304 | Bernadette Arto | BernadetteAx
 23356687 | Alon Tucker	 |   ATcoding613
-23867057 | Namgay Choden | 
+23867057 | Namgay Choden | Nchoden
 24167087 | Jo Magnampo	 |   JoLZ18
 
 ## Client
