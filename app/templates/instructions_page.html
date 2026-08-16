@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Instructions{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='Instructions/instructions.js') }}"></script>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<h1>Instructions will go here</h1>
+<button onclick="check_js()">Check Instructions Page correctly connected to Instructions JavaScript</button>
+{% endblock %}
