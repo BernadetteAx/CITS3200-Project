@@ -1,0 +1,21 @@
+from flask import render_template
+from app import app
+
+@app.route('/')
+@app.route('/index')
+@app.route('/home')
+def index():
+    return render_template('home_page.html')
+
+
+@app.route('/host')
+def host():
+    return render_template('host_game_page.html')
+
+@app.route('/join')
+def join():
+    return render_template('join_game_page.html')
+
+@app.route('/instructions')
+def instructions():
+    return render_template('instructions_page.html')

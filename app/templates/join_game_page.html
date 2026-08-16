@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Join Game{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='Join_Game/join_game.js') }}"></script>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<h1>Join Game Page Content will go here</h1>
+<button onclick="check_js()">Check Join Game Page correctly connected to Join Game JavaScript</button>
+{% endblock %}
