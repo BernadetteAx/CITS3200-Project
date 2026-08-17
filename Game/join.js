@@ -12,6 +12,11 @@ const openInstructionsBtn = document.getElementById("openInstructionsBtn");
 const closeInstructionsBtn = document.getElementById("closeInstructionsBtn");
 const instructionsPopup = document.getElementById("instructions-popup");
 
+// Find the temporary error popup elements
+const testErrorBtn = document.getElementById("testErrorBtn");
+const errorPopup = document.getElementById("error-popup");
+const closeErrorBtn = document.getElementById("closeErrorBtn");
+
 playerNameInput.addEventListener("input", function () {
 
     const playerName = playerNameInput.value.trim();
@@ -77,4 +82,20 @@ openInstructionsBtn.addEventListener("click", function () {
 closeInstructionsBtn.addEventListener("click", function () {
     instructionsPopup.classList.remove("show");
     instructionsPopup.classList.add("hidden");
+});
+
+// Show the error popup
+testErrorBtn.addEventListener("click", function () {
+   // show error pop up
+    errorPopup.classList.remove("hidden");
+
+    // auto close error pop up
+    setTimeout(function () {
+        errorPopup.classList.add("hidden");
+    }, 1900);
+});
+
+// Close the error popup
+closeErrorBtn.addEventListener("click", function () {
+    errorPopup.classList.add("hidden");
 });
