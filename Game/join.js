@@ -7,6 +7,11 @@ const playerNameInput = document.getElementById("playerName");
 // Find the Join Game button
 const joinGameBtn = document.getElementById("joinGameBtn");
 
+// Find the instructions popup and buttons
+const openInstructionsBtn = document.getElementById("openInstructionsBtn");
+const closeInstructionsBtn = document.getElementById("closeInstructionsBtn");
+const instructionsPopup = document.getElementById("instructions-popup");
+
 playerNameInput.addEventListener("input", function () {
 
     const playerName = playerNameInput.value.trim();
@@ -60,4 +65,16 @@ joinGameBtn.addEventListener("click", function () {
     // Go to the lobby page
     window.location.href = "lobby.html";
 
+});
+
+// Open instructions when ? is clicked
+openInstructionsBtn.addEventListener("click", function () {
+    instructionsPopup.classList.remove("hidden");
+    instructionsPopup.classList.add("show");
+});
+
+// Close instructions when GOT IT is clicked
+closeInstructionsBtn.addEventListener("click", function () {
+    instructionsPopup.classList.remove("show");
+    instructionsPopup.classList.add("hidden");
 });
