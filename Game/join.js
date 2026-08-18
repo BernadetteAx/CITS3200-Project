@@ -17,6 +17,13 @@ const testErrorBtn = document.getElementById("testErrorBtn");
 const errorPopup = document.getElementById("error-popup");
 const closeErrorBtn = document.getElementById("closeErrorBtn");
 
+// Find the player name error popup
+const nameErrorPopup = document.getElementById("name-error-popup");
+const closeNameErrorBtn = document.getElementById("closeNameErrorBtn");
+
+// Find the Host Game button
+const hostGameBtn = document.getElementById("hostGameBtn");
+
 playerNameInput.addEventListener("input", function () {
 
     const playerName = playerNameInput.value.trim();
@@ -72,6 +79,32 @@ joinGameBtn.addEventListener("click", function () {
 
 });
 
+// Run this function when the Host Game button is clicked
+hostGameBtn.addEventListener("click", function () {
+
+    // Get the player's name
+    const playerName = playerNameInput.value.trim();
+
+    if (playerName === "") {
+
+        // Show the player name error popup
+        nameErrorPopup.classList.remove("hidden");
+    
+        // Automatically close popup after 1.9 seconds
+        setTimeout(function () {
+            nameErrorPopup.classList.add("hidden");
+        }, 1900);
+    
+        return;
+    }
+
+    // Name fields have been entered
+    // Go to the lobby page
+    window.location.href = "lobby.html";
+
+});
+
+
 // Open instructions when ? is clicked
 openInstructionsBtn.addEventListener("click", function () {
     instructionsPopup.classList.remove("hidden");
@@ -98,4 +131,9 @@ testErrorBtn.addEventListener("click", function () {
 // Close the error popup
 closeErrorBtn.addEventListener("click", function () {
     errorPopup.classList.add("hidden");
+});
+
+// Close the player name error popup
+closeNameErrorBtn.addEventListener("click", function () {
+    nameErrorPopup.classList.add("hidden");
 });
