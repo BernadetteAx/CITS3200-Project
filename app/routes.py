@@ -14,8 +14,12 @@ def host():
 
 @app.route('/join')
 def join():
-    return render_template('join_game_page.html')
+    return render_template('join.html')
 
 @app.route('/instructions')
 def instructions():
     return render_template('instructions_page.html')
+
+@app.route("/lobby")
+def lobby():
+    return render_template("lobby.html")

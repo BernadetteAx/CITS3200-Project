@@ -10,7 +10,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/static/css/join.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/join.css') }}">
 
 </head>
 
@@ -42,9 +42,16 @@
 
         <input type="text" id="sessionCode" placeholder="ENTER CODE" maxlength="6" disabled>
 
-
         <button id="joinGameBtn" disabled>
             JOIN GAME
+        </button>
+        
+        <div class="join-divider">
+            <span>OR</span>
+        </div>
+        
+        <button id="hostGameBtn">
+            HOST A GAME
         </button>
         
         <button id="testErrorBtn">
@@ -74,6 +81,27 @@
         </div>
 
     </div>
+
+    <!-- Missing player name popup -->
+<div class="error-popup hidden" id="name-error-popup">
+
+    <div class="error-box">
+
+        <div class="error-title">
+            ENTER PLAYER NAME
+        </div>
+
+        <div class="error-text">
+            PLEASE ENTER YOUR NAME FIRST!
+        </div>
+
+        <button id="closeNameErrorBtn">
+            OK
+        </button>
+
+    </div>
+
+</div>
 
     <!-- Instructions popup -->
     <div class="result-popup hidden" id="instructions-popup">
@@ -135,7 +163,7 @@
     </div>
 
 
-    <script src="/static/js/join.js"></script>
+    <script src="{{ url_for('static', filename='js/join.js') }}"></script>
 </body>
 
 </html>
