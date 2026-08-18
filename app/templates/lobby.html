@@ -1,6 +1,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="lobby.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/lobby.css') }}">
 
   <button class="instructions-trigger" id="openInstructionsBtn" title="How to Play">?</button>
 
@@ -79,4 +79,4 @@
     </div>
   </div>
 
-  <script src="lobby.js"></script>
+  <script src="{{ url_for('static', filename='js/lobby.js') }}"></script>
