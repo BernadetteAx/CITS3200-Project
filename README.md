@@ -31,18 +31,6 @@ UWA ID | Name | GitHub Username
 - **Client:** [Yi Fei Wu / Canva]
 - **Contact:** [yi.feiwu@canva.com]
 
-## Repo layout (so far)
-
-```
-docs/                   Project documentation
-├── .github/            Templates for GitHub actions
-├── decisions/           Architecture decisions — one file per decision
-└── meeting-notes/        Notes from client/team/supervisor meetings
-CONTRIBUTING.md          How we work: branches, commits, PRs
-```
-
-As actual code gets added (client/, server/, etc.) this README will change
-
 ## Documentation
 
 - [GitHub Contributions](/docs/.github)
