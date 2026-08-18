@@ -10,7 +10,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/static/css/join.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/join.css') }}">
 
 </head>
 
@@ -163,7 +163,7 @@
     </div>
 
 
-    <script src="/static/js/join.js"></script>
+    <script src="{{ url_for('static', filename='js/join.js') }}"></script>
 </body>
 
 </html>
