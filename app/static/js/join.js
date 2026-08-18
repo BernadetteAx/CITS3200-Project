@@ -75,7 +75,7 @@ joinGameBtn.addEventListener("click", function () {
 
     // Both fields have been entered
     // Go to the lobby page
-    window.location.href = "lobby.html";
+    window.location.href = "/lobby";
 
 });
 
@@ -100,7 +100,7 @@ hostGameBtn.addEventListener("click", function () {
 
     // Name fields have been entered
     // Go to the lobby page
-    window.location.href = "lobby.html";
+    window.location.href = "/lobby";
 
 });
 
