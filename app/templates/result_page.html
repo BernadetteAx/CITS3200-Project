@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Game Results</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lobby.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="result-header">
+        <h1>GAME OVER</h1>
+    </header>
+
+    <!-- Final Score - FR21 -->
+    <section class="final-score">
+        <h2>FINAL SCORE</h2>
+
+        <!-- Placeholder until scoring system is finalised -->
+        <div class="score-display">
+            <span id="final-score">---</span>
+        </div>
+
+    </section>
+
+
+    <!-- Leftover Money -->
+    <section class="money-section">
+        <h2>LEFTOVER MONEY</h2>
+
+        <div class="money-display">
+            <span id="leftover-money">$---</span>
+        </div>
+    </section>
+
+
+    <!-- Mission Results - FR20 / FR22 -->
+    <section class="mission-results">
+
+        <h2>MISSION RESULTS</h2>
+
+        <div class="mission-list">
+
+            <!-- Mission 1 -->
+            <div class="mission-card">
+                <div class="mission-info">
+                    <h3>MISSION 1</h3>
+                    <p>Difficulty: <span class="difficulty">---</span></p>
+                </div>
+
+                <div class="mission-status">
+                    <p>Score: <span class="mission-score">---</span></p>
+                </div>
+            </div>
+
+
+            <!-- Mission 2 -->
+            <div class="mission-card">
+                <div class="mission-info">
+                    <h3>MISSION 2</h3>
+                    <p>Difficulty: <span class="difficulty">---</span></p>
+                </div>
+
+                <div class="mission-status">
+                    <p>Score: <span class="mission-score">---</span></p>
+                </div>
+            </div>
+
+
+            <!-- Mission 3 -->
+            <div class="mission-card">
+                <div class="mission-info">
+                    <h3>MISSION 3</h3>
+                    <p>Difficulty: <span class="difficulty">---</span></p>
+                </div>
+
+                <div class="mission-status">
+                    <p>Score: <span class="mission-score">---</span></p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Navigation -->
+    <section class="result-actions">
+
+        <a href="/app/templates/home_page.html" class="result-button">
+            RETURN HOME
+        </a>
+
+    </section>
+
+</body>
+</html>
