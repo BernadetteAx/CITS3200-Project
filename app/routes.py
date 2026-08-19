@@ -23,3 +23,7 @@ def instructions():
 @app.route("/lobby")
 def lobby():
     return render_template("lobby.html")
+
+@app.route('/auction')
+def auction():
+    return render_template('auction.html')
