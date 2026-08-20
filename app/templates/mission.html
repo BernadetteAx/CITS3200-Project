@@ -28,6 +28,17 @@
 {% block content %}
 <button class="instructions-trigger" id="instructionsBtn" title="How this page works">?</button>
 
+<div
+  class="countdown-track"
+  role="progressbar"
+  aria-label="Time remaining"
+  aria-valuemin="0"
+  aria-valuemax="60"
+  aria-valuenow="60"
+>
+  <div class="countdown-fill" id="countdownFill"></div>
+</div>
+
 <header>
   <div class="mission-tag">
     <span class="mission-tag-label">MISSION</span>
@@ -39,15 +50,18 @@
   <div class="game-tag-label">
     <span class="game-label">2 OF 6</span>
   </div>
-  <div class="progress-track" aria-hidden="true">
+<!--   <div class="progress-track" aria-hidden="true">
     <div class="progress-fill" id="progressFill" style="width: 33%;"></div>
-  </div>
+  </div> -->
 </header>
 
 <div class="mission-card">
 
   <!-- challeneg description -->
   <section class="challenge-block">
+    <challenge class="challenge-icon" id="challengeIcon">
+      <img src="{{ url_for('static', filename='images/icons8-mountain-64.png') }}" alt="Challenge Icon">
+    </challenge>
     <h2 class="challenge-name" id="challengeName">Scale the Wall</h2>
     <p class="challenge-desc" id="challengeDesc">
       A sheer stone wall blocks the only way forward. The crew needs to get
@@ -81,11 +95,11 @@
         <span class="item-status-pill">Owned</span>
       </button>
 
-      <button class="item-card" data-item-id="apple" data-status="used" disabled>
+      <button class="item-card" data-item-id="armored-boot" data-status="used" disabled>
         <span class="item-icon">
-          <img src="{{ url_for('static', filename='images/apple-64.png') }}" alt="Apple">
+          <img src="{{ url_for('static', filename='images/icons8-armored-boot-64.png') }}" alt="Armored Boot">
         </span>
-        <span class="item-name">Apple</span>
+        <span class="item-name">Armored Boot</span>
         <span class="item-status-pill">Used</span>
       </button>
     </div>
@@ -106,26 +120,26 @@
     <div class="hotbar-slot filled" data-item-id="rope" data-status="available" title="Rope">
       <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Rope">
     </div>
-    <div class="hotbar-slot filled" data-item-id="id-card" data-status="used" title="Stolen ID Card (used)">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Stolen ID Card">
+    <div class="hotbar-slot filled" data-item-id="armored-boot" data-status="used" title="armored boot (used)">
+      <img src="{{ url_for('static', filename='images/icons8-armored-boot-32.png') }}" alt="armored boot">
     </div>
-    <div class="hotbar-slot filled" data-item-id="water-bottle" data-status="available" title="Water Bottle">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Water Bottle">
+    <div class="hotbar-slot filled" data-item-id="camping-tent" data-status="available" title="Camping Tent">
+      <img src="{{ url_for('static', filename='images/icons8-camping-tent-32.png') }}" alt="Camping Tent">
     </div>
-    <div class="hotbar-slot filled" data-item-id="lockpicks" data-status="used" title="Lock Picks (used)">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Lock Picks">
+    <div class="hotbar-slot filled" data-item-id="" data-status="used" title="Compasss (used)">
+      <img src="{{ url_for('static', filename='images/icons8-compass-32.png') }}" alt="Compass">
     </div>
-    <div class="hotbar-slot filled" data-item-id="axe" data-status="available" title="Axe">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Axe">
+    <div class="hotbar-slot filled" data-item-id="credit-card" data-status="available" title="Credit Card">
+      <img src="{{ url_for('static', filename='images/icons8-credit-card-32.png') }}" alt="Credit Card">
     </div>
-    <div class="hotbar-slot filled" data-item-id="snow-shoes" data-status="available" title="Snow Shoes">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Snow Shoes">
+    <div class="hotbar-slot filled" data-item-id="german-hat" data-status="available" title="German Hat">
+      <img src="{{ url_for('static', filename='images/icons8-german-hat-32.png') }}" alt="German Hat">
     </div>
-    <div class="hotbar-slot filled" data-item-id="scuba-gear" data-status="available" title="Scuba Gear">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Scuba Gear">
+    <div class="hotbar-slot filled" data-item-id="gps-signal" data-status="available" title="GPS Signal">
+      <img src="{{ url_for('static', filename='images/icons8-gps-signal-32.png') }}" alt="GPS Signal">
     </div>
-    <div class="hotbar-slot filled" data-item-id="radio" data-status="available" title="Radio">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Radio">
+    <div class="hotbar-slot filled" data-item-id="rmap" data-status="available" title="Map">
+      <img src="{{ url_for('static', filename='images/icons8-map-32.png') }}" alt="Map">
     </div>
   </div>
 </div>
@@ -144,6 +158,9 @@
 <!-- challenge instructions popup -->
 <div class="result-popup hidden" id="instructionsPopup">
   <div class="result-box">
+    <challenge class="challenge-icon" id="instructionsIcon">
+      <img src="{{ url_for('static', filename='images/icons8-about-64.png') }}" alt="Challenge Icon">
+    </challenge>
     <div class="result-title">HOW CHALLENGES WORK</div>
     <div class="instructions-steps">
       <div class="instructions-step">

@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const feedbackPopup = document.getElementById("feedbackPopup");
   const feedbackBox = document.getElementById("feedbackBox");
-  const feedbackIcon = document.getElementById("feedbackIcon");
   const feedbackTitle = document.getElementById("feedbackTitle");
   const feedbackSub = document.getElementById("feedbackSub");
   const feedbackClose = document.getElementById("feedbackClose");
@@ -21,6 +20,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const instructionsClose = document.getElementById("instructionsClose");
 
   let selectedCard = null;
+
+  const countdownFill = document.getElementById("countdownFill");
+  const countdownTrack = countdownFill.parentElement;
+  const duration = 60 * 1000; // 1 minute
+  const startTime = Date.now();
+
+  const countdown = setInterval(() => {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, duration - elapsed);
+    const percent = (remaining / duration) * 100;
+
+    countdownFill.style.width = `${percent}%`;
+    countdownTrack.setAttribute(
+      "aria-valuenow",
+      Math.ceil(remaining / 1000)
+    );
+
+    if (remaining === 0) {
+      clearInterval(countdown);
+      // TODO: time-up behaviour here
+    }
+  }, 50);
 
   // selecting one of the usable items
   itemGrid.addEventListener("click", (e) => {
@@ -79,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showFeedback({ outcome, title, sub }) {
     feedbackBox.dataset.outcome = outcome; // "success" | "fail"
-    feedbackIcon.textContent = outcome === "success" ? "✅" : "🔁";
     feedbackTitle.textContent = title;
     feedbackSub.textContent = sub;
     openPopup(feedbackPopup);
