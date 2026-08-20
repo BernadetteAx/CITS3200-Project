@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Challenge{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mission.css') }}">
+{% endblock %}
+
+{% block scripts %}
+<script defer src="{{ url_for('static', filename='js/mission.js') }}"></script>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<button class="instructions-trigger" id="instructionsBtn" title="How this page works">?</button>
+
+<header>
+  <div class="mission-tag">
+    <span class="mission-tag-label">MISSION</span>
+    <span class="mission-tag-name" id="missionName">The Heist</span>
+  </div>
+  <h1 class="challenge-progress" id="challengeProgress">CHALLENGE 2 OF 6</h1>
+  <div class="progress-track" aria-hidden="true">
+    <div class="progress-fill" id="progressFill" style="width: 33%;"></div>
+  </div>
+</header>
+
+<div class="mission-card">
+
+  <!-- challeneg description -->
+  <section class="challenge-block">
+    <h2 class="challenge-name" id="challengeName">Scale the Wall</h2>
+    <p class="challenge-desc" id="challengeDesc">
+      A sheer stone wall blocks the only way forward. The crew needs to get
+      their whole team over it before the guards finish their patrol loop.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- owned items that can be used or should we remove this and just put all items here so they can pick? -->
+  <section class="items-block">
+    <div class="section-heading-row">
+      <h3 class="section-heading">USABLE ITEMS</h3>
+      <span class="section-hint">Pick one for your team to use</span>
+    </div>
+
+    <div class="item-grid" id="itemGrid">
+      <button class="item-card" data-item-id="water-bottle" data-status="available">
+        <span class="item-icon">
+          <img src="{{ url_for('static', filename='images/sport-bottle-white-64.png') }}" alt="Water Bottle">
+        </span>
+        <span class="item-name">Water Bottle</span>
+        <span class="item-status-pill">Owned</span>
+      </button>
+
+      <button class="item-card" data-item-id="axe" data-status="available">
+        <span class="item-icon">
+          <img src="{{ url_for('static', filename='images/axe-white-64.png') }}" alt="Axe">
+        </span>
+        <span class="item-name">Axe</span>
+        <span class="item-status-pill">Owned</span>
+      </button>
+
+      <button class="item-card" data-item-id="apple" data-status="used" disabled>
+        <span class="item-icon">
+          <img src="{{ url_for('static', filename='images/apple-64.png') }}" alt="Apple">
+        </span>
+        <span class="item-name">Apple</span>
+        <span class="item-status-pill">Used</span>
+      </button>
+    </div>
+
+    <div class="items-actions">
+      <button class="lobby-btn primary" id="useItemBtn" disabled>USE SELECTED ITEM</button>
+      <button class="lobby-btn secondary" id="continueBtn">CONTINUE WITHOUT ITEM</button>
+    </div>
+    <p class="helper-note">No matching item? Your team can push on without one.</p>
+  </section>
+
+</div>
+
+<!-- the full team inventory and used are unavailable -->
+<div class="hotbar">
+  <div class="hotbar-label" id="hotbarLabel">TEAM INVENTORY · 6/8 AVAILABLE</div>
+  <div class="hotbar-slots" id="hotbarSlots">
+    <div class="hotbar-slot filled" data-item-id="rope" data-status="available" title="Rope">
+      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Rope">
+    </div>
+    <div class="hotbar-slot filled" data-item-id="id-card" data-status="used" title="Stolen ID Card (used)">
+      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Stolen ID Card">
+    </div>
+    <div class="hotbar-slot filled" data-item-id="water-bottle" data-status="available" title="Water Bottle">
+      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Water Bottle">
+    </div>
+    <div class="hotbar-slot filled" data-item-id="lockpicks" data-status="used" title="Lock Picks (used)">
+      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Lock Picks">
+    </div>
+    <div class="hotbar-slot filled" data-item-id="axe" data-status="available" title="Axe">
+      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Axe">
+    </div>
+    <div class="hotbar-slot filled" data-item-id="snow-shoes" data-status="available" title="Snow Shoes">
+      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Snow Shoes">
+    </div>
+    <div class="hotbar-slot filled" data-item-id="scuba-gear" data-status="available" title="Scuba Gear">
+      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Scuba Gear">
+    </div>
+    <div class="hotbar-slot filled" data-item-id="radio" data-status="available" title="Radio">
+      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Radio">
+    </div>
+  </div>
+</div>
+
+<!-- outcome feedback (placeholder for backend) -->
+<div class="result-popup hidden" id="feedbackPopup">
+  <div class="result-box" id="feedbackBox">
+    <div class="result-title" id="feedbackTitle">OBSTACLE CLEARED</div>
+    <p class="result-sub" id="feedbackSub">
+      The team used the Rope to haul themselves over the wall. On to the next challenge.
+    </p>
+    <button class="result-btn" id="feedbackClose">CONTINUE</button>
+  </div>
+</div>
+
+<!-- challenge instructions popup -->
+<div class="result-popup hidden" id="instructionsPopup">
+  <div class="result-box">
+    <div class="result-title">HOW CHALLENGES WORK</div>
+    <div class="instructions-steps">
+      <div class="instructions-step">
+        <span class="step-num">1</span>
+        <span class="step-text">Read the <b>challenge</b> your mission has thrown at the team.</span>
+      </div>
+      <div class="instructions-step">
+        <span class="step-num">2</span>
+        <span class="step-text">Check which of your team's <b>items</b> could get you through it.</span>
+      </div>
+      <div class="instructions-step">
+        <span class="step-num">3</span>
+        <span class="step-text">Pick an item, or <b>continue without one</b> if nothing fits.</span>
+      </div>
+      <div class="instructions-step">
+        <span class="step-num">4</span>
+        <span class="step-text">Once an item is used, it becomes <b>unavailable</b> for the rest of the mission.</span>
+      </div>
+    </div>
+    <div class="result-definition-section">
+      page currently only frontend (ill remove this note later)
+    </div>
+    <button class="result-btn" id="instructionsClose">GOT IT</button>
+  </div>
+</div>
+{% endblock %}
