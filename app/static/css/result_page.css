@@ -1,0 +1,254 @@
+:root {
+    --font-press: "Press Start 2P", system-ui;
+
+    --bg: #000000;
+    --card-bg: #111111;
+    --key-bg: #272626;
+    --tile-border: #3a3a3a;
+
+    --text-main: #ffffff;
+    --text-muted: #aaaaaa;
+    --text-dark: #666666;
+
+    --correct: #4e7f6a;
+    --incorrect: #ff3b3b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: var(--font-press);
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 24px 16px 60px;
+}
+
+
+/* HEADER*/
+
+.result-header {
+    width: 100%;
+    max-width: 640px;
+
+    text-align: center;
+
+    padding: 50px 16px 100px;
+    
+}
+
+.result-header h1 {
+    font-size: clamp(3.0rem, 5vw, 3.0rem);
+    letter-spacing: 0.06em;
+
+    margin: 0;
+}
+
+
+/*General*/
+
+.final-score,
+.money-section,
+.mission-results {
+    width: min(92vw, 560px);
+
+    background: var(--card-bg);
+
+    border: 5px solid #ffffff;
+    border-radius: 3px;
+
+    padding: 24px 22px;
+
+    margin-top: 22px;
+}
+
+.final-score h2,
+.money-section h2,
+.mission-results h2 {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+
+    text-align: center;
+
+    margin: 0 0 20px;
+}
+
+
+/*FINAL SCORE*/
+
+.score-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--key-bg);
+
+    border: 2px solid var(--tile-border);
+
+    min-height: 90px;
+
+    padding: 18px;
+}
+
+#final-score {
+    font-size: clamp(1.3rem, 6vw, 2rem);
+    color: var(--correct);
+
+    letter-spacing: 0.08em;
+}
+
+
+/* LEFTOVER MONEY */
+
+.money-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--key-bg);
+
+    border: 2px solid var(--tile-border);
+
+    min-height: 70px;
+}
+
+#leftover-money {
+    font-size: clamp(0.9rem, 4vw, 1.3rem);
+    color: #ffffff;
+}
+
+
+/* MISSION RESULTS*/
+
+.mission-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.mission-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--key-bg);
+
+    border: 2px solid var(--tile-border);
+    border-radius: 4px;
+
+    padding: 14px 16px;
+
+    min-height: 75px;
+}
+
+.mission-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.mission-info h3 {
+    font-size: 0.8rem;
+
+    margin: 0;
+
+    letter-spacing: 0.04em;
+}
+
+.mission-info p {
+    font-size: 0.7rem;
+
+    margin: 0;
+
+    color: var(--text-muted);
+
+    line-height: 1.7;
+}
+
+.difficulty {
+    color: #ffffff;
+}
+
+
+/* MISSION SCORE */
+
+.mission-status {
+    text-align: right;
+
+    min-width: 90px;
+}
+
+.mission-status p {
+    font-size: 0.7rem;
+
+    margin: 0;
+
+    color: var(--text-muted);
+
+    line-height: 1.7;
+}
+
+.mission-score {
+    color: var(--correct);
+}
+
+.result-actions {
+    width: min(92vw, 560px);
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 22px;
+}
+
+.result-button {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 14px 20px;
+
+    background: #ffffff;
+    color: #000000;
+
+    border: none;
+    border-radius: 4px;
+
+    font-family: var(--font-press);
+    font-size: 0.6rem;
+
+    letter-spacing: 0.05em;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s ease,
+        background 0.1s ease;
+}
+
+.result-button:hover {
+    background: var(--correct);
+    color: #ffffff;
+}
+
+.result-button:active {
+    transform: scale(0.97);
+}
+
+
