@@ -27,3 +27,11 @@ def lobby():
 @app.route('/auction')
 def auction():
     return render_template('auction.html')
+
+
+
+
+# This html page is just for testing and is temporary
+@app.route('/mission')
+def mission():
+    return render_template('test-mission.html')
