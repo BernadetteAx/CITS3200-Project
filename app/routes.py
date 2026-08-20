@@ -23,3 +23,7 @@ def instructions():
 @app.route("/lobby")
 def lobby():
     return render_template("lobby.html")
+
+@app.route("/result_page")
+def result_page():
+    return render_template("result_page.html")
