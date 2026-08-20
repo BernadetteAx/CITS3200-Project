@@ -58,6 +58,20 @@ header {
   letter-spacing: 0.05em;
 }
 
+.game-tag-label {
+  font-size: 0.5rem;
+  color: #888;
+  letter-spacing: 0.08em;
+}
+
+.game-label {
+  font-size: 0.5rem;
+  color: #888;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
 h1.challenge-progress {
   font-size: clamp(1rem, 4.5vw, 1.4rem);
   letter-spacing: 0.06em;

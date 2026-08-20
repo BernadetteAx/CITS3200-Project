@@ -1,3 +1,16 @@
+  <!-- 
+  the top line i want to chaneg layout
+  maybe CHALLENGE then 2 of 6 under smaller so two lines rn too big
+  add something above mission description maybe an image?
+  - maybe is winter add mountain idk
+  should i spread out the page more horizontally?
+  - they said people be playing on computers so maybe horiztonal is ideal
+  - but vertical is easier for layout 
+  POPUP
+  - maybe add an image again to the top? the title feels too close
+  chnage description at bottom 
+  -->
+
 {% extends "base.html" %}
 
 {% block title %}Challenge{% endblock %}
@@ -18,9 +31,14 @@
 <header>
   <div class="mission-tag">
     <span class="mission-tag-label">MISSION</span>
+  </div>
+  <div class="mission-tag">
     <span class="mission-tag-name" id="missionName">The Heist</span>
   </div>
-  <h1 class="challenge-progress" id="challengeProgress">CHALLENGE 2 OF 6</h1>
+  <h1 class="challenge-progress" id="challengeProgress">CHALLENGE</h1>
+  <div class="game-tag-label">
+    <span class="game-label">2 OF 6</span>
+  </div>
   <div class="progress-track" aria-hidden="true">
     <div class="progress-fill" id="progressFill" style="width: 33%;"></div>
   </div>
