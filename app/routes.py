@@ -27,3 +27,7 @@ def lobby():
 @app.route('/auction')
 def auction():
     return render_template('auction.html')
+
+@app.route('/mission')
+def mission():
+    return render_template('mission.html')

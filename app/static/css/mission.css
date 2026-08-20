@@ -1,0 +1,525 @@
+
+:root {
+  --font-press: "Press Start 2P", system-ui;
+
+  --bg: #000000;
+  --tile-border: #3a3a3a;
+  --text-main: #ffffff;
+
+  --correct: #4e7f6a;
+  --incorrect: #ff3b3b;
+
+  --key-bg: #272626;
+  --key-text-color: #ffffff;
+
+  --horizontal-spacing-0-5: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-press);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* 32px top space for the fixed countdown line */
+  padding: 32px 16px 60px;
+}
+
+header {
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+  padding: 2px 16px 12px;
+}
+
+.countdown-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  height: 8px;
+  background: var(--key-bg);
+}
+
+.countdown-fill {
+  width: 100%;
+  height: 100%;
+  background: var(--correct);
+}
+
+.mission-tag {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.mission-tag-label {
+  font-size: 0.5rem;
+  color: #888;
+  letter-spacing: 0.08em;
+}
+
+.mission-tag-name {
+  font-size: 0.75rem;
+  color: var(--correct);
+  letter-spacing: 0.05em;
+}
+
+.game-tag-label {
+  font-size: 0.5rem;
+  color: #888;
+  letter-spacing: 0.08em;
+}
+
+.game-label {
+  font-size: 0.5rem;
+  color: #888;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+h1.challenge-progress {
+  font-size: clamp(1rem, 4.5vw, 1.4rem);
+  letter-spacing: 0.06em;
+  margin: 0 0 14px;
+}
+
+.progress-track {
+  width: min(92vw, 420px);
+  height: 8px;
+  margin: 0 auto;
+  background: var(--key-bg);
+  border: 2px solid var(--tile-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--correct);
+  transition: width 0.3s ease;
+}
+
+/* main block */
+
+.mission-card {
+  background: #111;
+  border: 5px solid #fff;
+  border-radius: 0px;
+  width: min(92vw, 560px);
+  padding: 28px 22px;
+  margin: 0px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--tile-border);
+  border: none;
+  margin: 0;
+}
+
+.section-heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.section-heading {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.section-hint {
+  font-size: 0.45rem;
+  color: #888;
+  letter-spacing: 0.04em;
+}
+
+/* challenge description */
+
+.challenge-block {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.challenge-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.challenge-name {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.challenge-desc {
+  font-size: 0.6rem;
+  line-height: 2;
+  color: #ccc;
+  max-width: 46ch;
+  margin: 0;
+}
+
+/* item grid */
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.item-card {
+  font-family: var(--font-press);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--key-bg);
+  border: 2px solid var(--tile-border);
+  border-radius: 4px;
+  padding: 16px 10px 12px;
+  cursor: pointer;
+  color: var(--text-main);
+  transition: border-color 0.12s ease, transform 0.1s ease, background 0.12s ease;
+}
+
+.item-card:hover:not(:disabled) {
+  border-color: var(--correct);
+  transform: translateY(-2px);
+}
+
+.item-card:active:not(:disabled) { transform: scale(0.97); }
+
+.item-card[data-selected="true"] {
+  border-color: var(--correct);
+  background: #16241f;
+  box-shadow: 0 0 0 2px var(--correct);
+}
+
+.item-card .item-icon { font-size: 1.6rem; }
+
+.item-card .item-name {
+  font-size: 0.5rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.item-status-pill {
+  font-size: 0.4rem;
+  padding: 4px 8px;
+  border-radius: 2px;
+  background: var(--tile-border);
+  color: #ccc;
+  letter-spacing: 0.04em;
+}
+
+.item-card[data-status="available"] .item-status-pill {
+  background: var(--correct);
+  color: #fff;
+}
+
+.item-card[data-status="used"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.item-card[data-status="used"] .item-status-pill {
+  background: var(--incorrect);
+  color: #fff;
+}
+
+.items-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.helper-note {
+  text-align: center;
+  font-size: 0.45rem;
+  color: #666;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+/* buttons (used from lobby) */
+
+.lobby-btn {
+  font-family: var(--font-press);
+  font-size: 0.65rem;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: transform 0.1s ease, background 0.1s ease, opacity 0.15s ease;
+}
+
+.lobby-btn:active { transform: scale(0.97); }
+
+.lobby-btn.primary {
+  background: #fff;
+  color: #000;
+}
+.lobby-btn.primary:hover:not(:disabled) { background: var(--correct); color: #fff; }
+.lobby-btn.primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.lobby-btn.secondary {
+  background: var(--key-bg);
+  color: #fff;
+}
+.lobby-btn.secondary:hover { background: #3a3a3a; }
+
+/* team inventory hotbar */
+
+.hotbar {
+  width: min(92vw, 560px);
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.hotbar-label {
+  font-size: 0.5rem;
+  color: #888;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.hotbar-slots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hotbar-slot {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--key-bg);
+  border: 2px solid var(--tile-border);
+  transition: border-color 0.12s ease, opacity 0.12s ease;
+}
+
+.hotbar-slot.filled {
+  border-color: var(--correct);
+}
+
+.hotbar-slot.filled img {
+  width: 26px;
+  height: 26px;
+}
+
+.hotbar-slot.empty {
+  color: #555;
+  font-size: 1rem;
+  border-style: dashed;
+}
+
+/* an item used on a challenge becomes unavailable */
+.hotbar-slot.filled[data-status="used"] {
+  border-color: var(--incorrect);
+  opacity: 0.35;
+}
+
+.hotbar-slot.filled[data-status="used"]::after {
+  content: "✕";
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--incorrect);
+  color: #fff;
+  font-size: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+/* outcome /instructions popup */
+
+.result-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.result-popup.show { opacity: 1; pointer-events: all; }
+.result-popup.hidden { display: none; }
+
+.result-box {
+  background: #111;
+  border: 4px solid #fff;
+  padding: 15px 26px;
+  text-align: left;
+  max-width: 420px;
+  width: 90vw;
+  max-height: 82vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 6px 6px 0px #ffffff22;
+  animation: pixelPop 0.35s ease;
+}
+
+.result-box[data-outcome="fail"] { box-shadow: 6px 6px 0px #ff3b3b22; }
+
+@keyframes pixelPop {
+  0%   { transform: scale(0.85); opacity: 0; }
+  60%  { transform: scale(1.04); }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+.result-icon { font-size: 34px; line-height: 1; }
+
+.result-title {
+  font-family: var(--font-press);
+  font-size: 0.9rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.result-sub {
+  font-family: var(--font-press);
+  font-size: 0.55rem;
+  color: #aaa;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.instructions-steps {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.instructions-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.instructions-step .step-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  background: var(--key-bg);
+  color: var(--correct);
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--correct);
+}
+
+.instructions-step .step-text {
+  font-size: 0.55rem;
+  line-height: 1.9;
+  color: #ddd;
+}
+
+.instructions-step .step-text b {
+  color: var(--correct);
+}
+
+.result-definition-section {
+  width: 100%;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid #2dff9b33;
+  text-align: left;
+  font-size: 0.45rem;
+  color: #999;
+  line-height: 1.9;
+}
+
+.result-btn {
+  font-family: var(--font-press);
+  font-size: 0.6rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 2px;
+  margin-top: 4px;
+  transition: transform 0.1s ease, background 0.1s ease;
+  align-self: center;
+}
+
+.result-btn:hover { background: var(--correct); color: #fff; }
+.result-btn:active { transform: scale(0.96); }
+
+.instructions-trigger {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--key-bg);
+  color: #fff;
+  border: 2px solid var(--tile-border);
+  font-family: var(--font-press);
+  font-size: 0.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.instructions-trigger:hover { background: var(--correct); border-color: var(--correct); }
+
+@media (max-width: 600px) {
+  .mission-card { padding: 22px 16px; }
+  .item-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+}
