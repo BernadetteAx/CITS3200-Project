@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Auction{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auction.css') }}">
+{% endblock %}
+
+{% block scripts %}
+<script defer src="{{ url_for('static', filename='js/auction.js') }}"></script>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<button class="instructions-trigger" id="helpBtn" title="How voting works">?</button>
+
+<header>
+  <h1 class="lobby-title">AUCTION</h1>
+  <p class="lobby-subtext">ROUND 2 &nbsp;·&nbsp; VOTE FOR THE ITEM YOUR TEAM SHOULD BUY</p>
+</header>
+
+<div class="status-row">
+  <div class="status-pill-box">
+    <span class="label">BUDGET</span>
+    <span class="value" id="budgetValue">$100</span>
+  </div>
+  <div class="status-pill-box timer" id="timerPill">
+    <span class="label">TIME LEFT</span>
+    <span class="value" id="timerValue">01:00</span>
+  </div>
+</div>
+
+<div class="lobby-card">
+  <h2>AVAILABLE ITEMS</h2>
+
+  <div class="item-grid" id="itemGrid">
+    <div class="item-tile" data-item="axe" data-state="idle">
+      <div class="item-image">
+        <img src="{{ url_for('static', filename='images/axe-white-64.png') }}" alt="Axe">
+      </div>
+      <div class="item-name">Axe</div>
+      <div class="item-desc">Chops through obstacles and enemies with ease. A reliable choice for gathering and close-range combat.</div>
+      <div class="item-footer">
+        <span class="cost-tag">$20</span>
+        <span class="vote-check">TAP TO VOTE</span>
+      </div>
+    </div>
+
+    <div class="item-tile" data-item="water-bottle" data-state="idle">
+      <div class="item-image">
+        <img src="{{ url_for('static', filename='images/sport-bottle-white-64.png') }}" alt="Water Bottle">
+      </div>
+      <div class="item-name">Water Bottle</div>
+      <div class="item-desc">Keeps you hydrated and ready for the long haul. A simple essential for staying prepared on the move.</div>
+      <div class="item-footer">
+        <span class="cost-tag">$5</span>
+        <span class="vote-check">TAP TO VOTE</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="vote-progress">
+    <span id="voteCountText">1 / 4 TEAMMATES HAVE VOTED</span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div class="tie-warning">
+    <span class="warn-icon">⚠</span>
+    <span class="warn-text">Votes stay hidden until the round ends. If the vote ties, <b style="color:var(--incorrect)">no item is purchased</b> this round so talk it out with your team.</span>
+  </div>
+
+  <div class="lobby-actions">
+    <button class="lobby-btn primary" id="finishBtn">FINISHED VOTING</button>
+    <button class="lobby-btn secondary" id="skipBtn">CONTINUE WITHOUT BUYING</button>
+  </div>
+
+  <p class="helper-note">You can change your vote anytime before the timer runs out.</p>
+</div>
+
+<div class="hotbar">
+  <div class="hotbar-label">TEAM INVENTORY · 2/8 SLOTS FILLED</div>
+  <div class="hotbar-slots">
+    <div class="hotbar-slot filled" title="Shovel">
+      <img src="{{ url_for('static', filename='images/shovel-32.png') }}" alt="Shovel">
+    </div>
+    <div class="hotbar-slot filled" title="Cat">
+      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Cat">
+    </div>
+    <div class="hotbar-slot empty">＋</div>
+    <div class="hotbar-slot empty">＋</div>
+    <div class="hotbar-slot empty">＋</div>
+    <div class="hotbar-slot empty">＋</div>
+    <div class="hotbar-slot empty">＋</div>
+    <div class="hotbar-slot empty">＋</div>
+  </div>
+</div>
+
+<!-- Instructions popup -->
+<div class="result-popup hidden" id="helpPopup">
+  <div class="result-box">
+    <div class="result-title">HOW VOTING WORKS</div>
+
+    <div class="instructions-steps">
+      <div class="instructions-step">
+        <span class="step-num">1</span>
+        <span class="step-text">Tap an item to cast your vote. Tap the other item to <b>change your mind</b> — votes stay open until time runs out.</span>
+      </div>
+      <div class="instructions-step">
+        <span class="step-num">2</span>
+        <span class="step-text">Voting is <b>anonymous</b>. Nobody can see who voted for what, only how many teammates have voted.</span>
+      </div>
+      <div class="instructions-step">
+        <span class="step-num">3</span>
+        <span class="step-text">The item with the <b>most votes</b> is purchased automatically when time runs out.</span>
+      </div>
+      <div class="instructions-step">
+        <span class="step-num">4</span>
+        <span class="step-text">If it's a <b>tie</b>, nothing is bought. Talk to your team, or hit Finished Voting early once you've agreed.</span>
+      </div>
+    </div>
+
+    <button class="result-btn" id="closeHelp">GOT IT</button>
+  </div>
+</div>
+
+<!-- voting result popup -->
+<div class="result-popup hidden" id="resultPopup">
+  <div class="result-box">
+    <div class="result-icon" id="resultIcon">
+      <img src="{{ url_for('static', filename='images/sport-bottle-white64.png') }}" alt="Water Bottle">
+    </div>
+    <div class="result-title" id="resultTitle">ITEM PURCHASED</div>
+    <div class="result-sub" id="resultSub">Your team bought the Water Bottle for $5.</div>
+    <button class="result-btn" id="closeResult">CONTINUE</button>
+  </div>
+</div>
+{% endblock %}

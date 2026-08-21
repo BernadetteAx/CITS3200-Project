@@ -24,6 +24,15 @@ def instructions():
 def lobby():
     return render_template("lobby.html")
 
+@app.route('/auction')
+def auction():
+    return render_template('auction.html')
+
+@app.route('/mission')
+def mission():
+    return render_template('mission.html')
+
 @app.route("/result_page")
 def result_page():
     return render_template("result_page.html")
+
