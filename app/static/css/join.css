@@ -43,12 +43,41 @@ h1 {
     margin-bottom: 30px;
 }
 
+.logo {
+  
+  width: min(35vw, 230px);
+  
+  height: auto;
+  
+  display: block;
+  
+  margin: 0 auto;
+
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+
+  margin-bottom: 10px;
+}
+
+.logo-divider {
+ 
+     width: 80%;
+ 
+    border: none;
+ 
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+ 
+    margin: 10px auto 0;
+ 
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
 .join-card {
     background: #111;
 
     border: 5px solid #fff;
 
     border-radius: 3px;
+
+    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.6);
 
     width: min(92vw, 560px);
 
@@ -59,7 +88,10 @@ h1 {
     flex-direction: column;
 
     gap: 20px;
+
 }
+
+
 
 .join-card h2 {
     font-size: 0.8rem;
