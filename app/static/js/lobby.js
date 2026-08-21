@@ -47,5 +47,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // start the game
 startGameBtn.addEventListener("click", () => {
-  window.location.href = "auction.html";
+  window.location.href = "/auction";
 });

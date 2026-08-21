@@ -5,7 +5,7 @@ from app import app
 @app.route('/index')
 @app.route('/home')
 def index():
-    return render_template('home_page.html')
+    return render_template('join.html')
 
 
 @app.route('/host')
