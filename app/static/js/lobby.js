@@ -44,3 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("chaosAuctionFirstVisit", "false");
   }
 });
+
+// start the game
+startGameBtn.addEventListener("click", () => {
+  window.location.href = "/auction";
+});

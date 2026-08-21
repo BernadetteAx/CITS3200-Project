@@ -49,13 +49,21 @@ h1.lobby-title {
   line-height: 1.8;
 }
 
+.lobby-subsubtext {
+  font-size: 0.5rem;
+  color: #888;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
 /* budget and timer is the current status */
 .status-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin: 18px auto 0;
+  margin: 5px auto 0;
 }
 
 .status-pill-box {

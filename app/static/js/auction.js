@@ -24,7 +24,7 @@ tiles.forEach(tile => {
 });
 
 // timer countdown
-let secondsLeft = 45;
+let secondsLeft = 60;
 const timerValue = document.getElementById('timerValue');
 const timerPill = document.getElementById('timerPill');
 const timerInterval = setInterval(() => {

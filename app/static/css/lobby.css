@@ -87,7 +87,7 @@ h1.lobby-title {
 .lobby-card {
   background: #111;
   border: 5px solid #fff;
-  border-radius: 3px;
+  border-radius: 0px;
   width: min(92vw, 560px);
   padding: 28px 22px;
   margin: 28px auto 0;
