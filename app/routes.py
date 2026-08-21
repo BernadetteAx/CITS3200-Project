@@ -31,3 +31,8 @@ def auction():
 @app.route('/mission')
 def mission():
     return render_template('mission.html')
+
+@app.route("/result_page")
+def result_page():
+    return render_template("result_page.html")
+
