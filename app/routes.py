@@ -24,6 +24,10 @@ def instructions():
 def lobby():
     return render_template("lobby.html")
 
+@app.route('/start-game')
+def start_game():
+    return render_template('start_game.html')
+
 @app.route('/auction')
 def auction():
     return render_template('auction.html')
