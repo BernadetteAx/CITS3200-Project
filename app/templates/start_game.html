@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Start Game{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/start_game.css') }}">
+{% endblock %}
+
+{% block scripts %}
+<script defer src="{{ url_for('static', filename='js/start_game.js') }}"></script>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+<button
+    class="instructions-trigger"
+    id="helpBtn"
+    title="How the auction works"
+>
+    ?
+</button>
+
+<header class="start-header">
+
+    <p class="game-label">CHAOS AUCTION</p>
+
+    <h1 class="start-title">
+        GET READY
+    </h1>
+
+    <p class="start-subtext">
+        YOUR AUCTION IS ABOUT TO BEGIN
+    </p>
+
+</header>
+
+
+<main class="start-card">
+
+    <h2>BEFORE YOU START</h2>
+
+    <div class="game-summary">
+
+        <div class="summary-item">
+            <span class="summary-value">$100</span>
+            <span class="summary-label">TEAM BUDGET</span>
+        </div>
+
+        <div class="summary-item">
+            <span class="summary-value">8</span>
+            <span class="summary-label">AUCTION ROUNDS</span>
+        </div>
+
+        <div class="summary-item">
+            <span class="summary-value">???</span>
+            <span class="summary-label">MISSION</span>
+        </div>
+
+    </div>
+
+
+    <div class="briefing-list">
+
+        <div class="briefing-row">
+            <span class="briefing-number">1</span>
+
+            <div class="briefing-text">
+                <span class="briefing-heading">
+                    SHARE YOUR BUDGET
+                </span>
+
+                <span class="briefing-description">
+                    Your team has $100 to spend across the entire auction.
+                </span>
+            </div>
+        </div>
+
+
+        <div class="briefing-row">
+            <span class="briefing-number">2</span>
+
+            <div class="briefing-text">
+                <span class="briefing-heading">
+                    CHOOSE CAREFULLY
+                </span>
+
+                <span class="briefing-description">
+                    Each round presents two items. Vote together for the one
+                    your team should buy.
+                </span>
+            </div>
+        </div>
+
+
+        <div class="briefing-row">
+            <span class="briefing-number">3</span>
+
+            <div class="briefing-text">
+                <span class="briefing-heading">
+                    EXPECT THE UNKNOWN
+                </span>
+
+                <span class="briefing-description">
+                    Your mission stays hidden until the auction is complete,
+                    so prepare for anything.
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="start-actions">
+
+        <button
+            class="start-btn primary"
+            id="startAuctionBtn"
+        >
+            START AUCTION
+        </button>
+
+    </div>
+
+    <p class="helper-note">
+        CHOOSE WISELY. YOU DON'T KNOW WHAT'S COMING.
+    </p>
+
+</main>
+
+
+<!-- Auction help popup -->
+
+<div class="result-popup hidden" id="helpPopup">
+
+    <div class="result-box">
+
+        <div class="result-title">
+            AUCTION BRIEFING
+        </div>
+
+        <div class="instructions-steps">
+
+            <div class="instructions-step">
+                <span class="step-num">1</span>
+
+                <span class="step-text">
+                    Your team begins with a shared
+                    <b>$100 budget</b>.
+                </span>
+            </div>
+
+
+            <div class="instructions-step">
+                <span class="step-num">2</span>
+
+                <span class="step-text">
+                    Each auction round presents
+                    <b>two possible items</b>.
+                </span>
+            </div>
+
+
+            <div class="instructions-step">
+                <span class="step-num">3</span>
+
+                <span class="step-text">
+                    Discuss your options and
+                    <b>vote as a team</b>.
+                </span>
+            </div>
+
+
+            <div class="instructions-step">
+                <span class="step-num">4</span>
+
+                <span class="step-text">
+                    Once the auction ends, your
+                    <b>mission is revealed</b>.
+                </span>
+            </div>
+
+        </div>
+
+        <button class="result-btn" id="closeHelpBtn">
+            GOT IT
+        </button>
+
+    </div>
+
+</div>
+
+{% endblock %}
