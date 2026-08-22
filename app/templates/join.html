@@ -21,26 +21,34 @@
         ?
     </button>
 
-    <h1>CHAOS AUCTION</h1>
+    <h1 class="lobby-title">CHAOS AUCTION</h1>
+    <p class="lobby-subtext">GATHER YOUR CREW. CHOOSE WISELY. SURVIVE THE MISSION.</p>
 
 
     <div class="join-card">
+    
 
         <h2>JOIN A GAME</h2>
 
-
-        <label for="playerName">
-            PLAYER NAME
-        </label>
-
-        <input type="text" id="playerName" placeholder="ENTER NAME" maxlength="20">
-
-
-        <label for="sessionCode">
-            SESSION CODE
-        </label>
-
-        <input type="text" id="sessionCode" placeholder="ENTER CODE" maxlength="6" disabled>
+        <div class="field">
+            <label for="playerName">
+                PLAYER NAME
+            </label>
+            <div class="input-row">  
+                <input type="text" id="playerName" value="" maxlength="20">
+                <button type="button" class="dice-btn" id="rerollBtn" title="Randomize name">🎲</button>
+            </div>
+        </div>       
+        
+        
+        <div class="field">   
+            <label for="sessionCode">
+                SESSION CODE
+            </label>
+            
+            <input type="text" id="sessionCode" placeholder="ENTER CODE" maxlength="6" disabled>
+        </div>
+      
 
         <button id="joinGameBtn" disabled>
             JOIN GAME

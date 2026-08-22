@@ -43,12 +43,83 @@ h1 {
     margin-bottom: 30px;
 }
 
+
+
+.lobby-subtext {
+
+  font-size: 0.6rem;
+
+  color: #aaa;
+
+  letter-spacing: 0.05em;
+
+  line-height: 1.8;
+
+  margin-bottom: 30px;
+  
+}
+
+.field {
+  
+  margin-bottom: 18px;
+
+}
+
+.input-row {
+
+  display: flex;
+
+  align-items: stretch;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+  
+}
+
+.input-row input {
+  
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+
+
+
+.dice-btn {
+
+  flex-shrink: 0;
+
+  width: 46px;
+
+  border-radius: 4px;
+
+  border: 2px solid rgba(255,255,255,0.12);
+
+  background: rgba(255,255,255,0.06);
+
+  color: #fff;
+
+  font-size: 1.1rem;
+
+  cursor: pointer;
+
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.dice-btn:hover { background: rgba(255,255,255,0.014);}
+.dice-btn:active { transform: scale(0.92) rotate(20deg);}
+
 .join-card {
     background: #111;
 
     border: 5px solid #fff;
 
     border-radius: 3px;
+
+    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.6);
 
     width: min(92vw, 560px);
 
@@ -59,7 +130,10 @@ h1 {
     flex-direction: column;
 
     gap: 20px;
+
 }
+
+
 
 .join-card h2 {
     font-size: 0.8rem;
@@ -72,11 +146,22 @@ h1 {
 }
 
 label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
     font-size: 0.6rem;
 
     color: #aaa;
 
     letter-spacing: 0.05em;
+
+}
+
+* {
+
+  box-sizing: border-box; /*paddong/border no longer add to width*/
 }
 
 input {
@@ -95,6 +180,8 @@ input {
     font-size: 0.65rem;
 
     outline: none;
+
+    width: 100%; 
 }
 
 input:focus {
