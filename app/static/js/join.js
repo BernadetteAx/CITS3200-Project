@@ -137,3 +137,36 @@ closeErrorBtn.addEventListener("click", function () {
 closeNameErrorBtn.addEventListener("click", function () {
     nameErrorPopup.classList.add("hidden");
 });
+
+
+//Function Requirements to randomly generate a name
+
+//Mock up names randomizing two words 
+const adjectives = ["Swift", "Clever", "Brave" , "Lucky", "Mighty", "Sneaky", "Turbo", "Feral", "Golden", "Cosmic"];
+const animals = ["Tiger", "Falcon", "Panda", "Wolf", "Eagle", "Otter", "Raptor", "Cobra", "Yeti", "Lynx"];
+
+ function randomName() {
+    const adj = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const animal = animals[Math.floor(Math.random() * animals.length)];
+    const num = Math.floor(Math.random() * 100);
+    return `${adj}${animal}${num}`;
+  }
+
+  const nameInput = document.getElementById('playerName');
+  nameInput.value = randomName();
+  sessionCodeInput.disabled = false;
+
+  document.getElementById('rerollBtn').addEventListener('click', () => {
+    nameInput.value = randomName();
+    sessionCodeInput.disabled = false;
+  });
+
+  document.getElementById('joinGameBtn').addEventListener('click', () => {
+    const name = nameInput.value.trim() || randomName();
+    const code = document.getElementById('sessionCode').value.trim().toUpperCase();
+    if (!code) {
+      alert('Enter a room code to join.');
+      return;
+    }
+    alert(`Joining room ${code} as ${name}...`);
+  });
