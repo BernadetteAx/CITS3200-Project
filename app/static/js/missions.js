@@ -41,96 +41,204 @@ Artifact Heist  | Heist         | true          | true      | true      | true  
 
 location_challenges = {
     "Arctic Tundra": {
-        "Environmental Obstacle": {
-            "Blizzard":{"items": [], "description": [], "failure_description":[]}, 
-            "Temperature Drop":{"items": [], "description": [], "failure_description":[]}, 
-            "Frozen Lake":{"items": [], "description": [], "failure_description":[]}, 
-            "Ice Cliff":{"items": [], "description": [], "failure_description":[]}, 
-            "Cliff":{"items": [], "description": [], "failure_description":[]}, 
-            "Bear":{"items": [], "description": [], "failure_description":[]}
-        },
-        "Manmade Obstacle":         {"Dam":{"items": [], "description": [], "failure_description":[]}, "Giant Wall":{"items": [], "description": [], "failure_description":[]}, "Checkpoint":{"items": [], "description": [], "failure_description":[]}, "Blockade":{"items": [], "description": [], "failure_description":[]}, "Collapsed Bridge":{"items": [], "description": [], "failure_description":[]}, "Building":{"items": [], "description": [], "failure_description":[]}, "Foretfied Structure":{"items": [], "description": [], "failure_description":[]}},
-        "Getaway":                  {"Land Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Snow Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Water Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Air Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Use Stealth":{"items": [], "description": [], "failure_description":[]}, "Mislead Pursuers":{"items": [], "description": [], "failure_description":[]}},
-        "Security Obstacle":        {"Deactivate Security Cameras":{"items": [], "description": [], "failure_description":[]}, "Deactivate Alarms":{"items": [], "description": [], "failure_description":[]}, "Distract Guards":{"items": [], "description": [], "failure_description":[]}, "Find Another Entrance":{"items": [], "description": [], "failure_description":[]}, "Sneak Through":{"items": [], "description": [], "failure_description":[]}},
-        "Steal":                    {"Break into the Vault":{"items": [], "description": [], "failure_description":[]}, "Open the crate":{"items": [], "description": [], "failure_description":[]}, "Pickpocket it":{"items": [], "description": [], "failure_description":[]}},
-        "Make Repairs":             {"Repair Vehicle":{"items": [], "description": [], "failure_description":[]}, "Repair Enviro-Dome":{"items": [], "description": [], "failure_description":[]}, "Repair Collapsed Wall":{"items": [], "description": [], "failure_description":[]}}, 
-        "System Failure":           {"Central Heating Offline":{"items": [], "description": [], "failure_description":[]}, "Main Reactor Failure":{"items": [], "description": [], "failure_description":[]}, "Communications System Failure":{"items": [], "description": [], "failure_description":[]}},
-        "Find Water":               {"Find Water":{"items": [], "description": [], "failure_description":[]}},
-        "Find Shelter":             {"Find Civilization":{"items": [], "description": [], "failure_description":[]}, "Find Shelter":{"items": [], "description": [], "failure_description":[]}},
-        "Contact Teammate/s":       {"Contact Stranded Teammate":{"items": [], "description": [], "failure_description":[]}, "Contact Rescue Team":{"items": [], "description": [], "failure_description":[]}, "Alert Another Team":{"items": [], "description": [], "failure_description":[]}},
-        "Travel To Rendezvouz":     {"Land Based Travel":{"items": [], "description": [], "failure_description":[]}, "Snow Based Travel":{"items": [], "description": [], "failure_description":[]}, "Water Based Travel":{"items": [], "description": [], "failure_description":[]}, "Air Based Travel":{"items": [], "description": [], "failure_description":[]}},
+        "Environmental Obstacle":   ["Blizzard", "Temperature Drop", "Frozen Lake", "Ice Cliff", "Cliff", "Bear"],
+        "Manmade Obstacle":         ["Dam", "Giant Wall", "Checkpoint", "Blockade", "Collapsed Bridge", "Building", "Fortefied Structure"],
+        "Getaway":                  ["Land Based Getaway", "Snow Based Getaway", "Water Based Getaway", "Air Based Getaway", "Use Stealth", "Mislead Pursuers"],
+        "Security Obstacle":        ["Deactivate Security Cameras", "Deactivate Alarms", "Distract Guards", "Find Another Entrance", "Sneak Through"],
+        "Steal":                    ["Break into the Vault", "Open the crate", "Pickpocket it"],
+        "Make Repairs":             ["Repair Vehicle", "Repair Enviro-Dome", "Repair Collapsed Wall"], 
+        "System Failure":           ["Central Heating Offline", "Main Reactor Failure", "Communications System Failure"],
+        "Find Water":               ["Find Water"],
+        "Find Shelter":             ["Find Civilization", "Find Shelter"],
+        "Contact Teammate/s":       ["Contact Stranded Teammate", "Contact Rescue Team", "Alert Another Team"],
+        "Travel To Rendezvouz":     ["Land Based Travel", "Snow Based Travel", "Water Based Travel", "Air Based Travel"],
     },  
 
     "Desert": {
-        "Environmental Obstacle":   {"Sand Storm":{"items": [], "description": [], "failure_description":[]}, "Heat Wave":{"items": [], "description": [], "failure_description":[]}, "Venemous Snake":{"items": [], "description": [], "failure_description":[]}, "Sand Dunes":{"items": [], "description": [], "failure_description":[]}, "Quick Sand":{"items": [], "description": [], "failure_description":[]}, "Mirages":{"items": [], "description": [], "failure_description":[]}, "Nest of Scorpions":{"items": [], "description": [], "failure_description":[]}},
-        "Manmade Obstacle":         {"Giant Wall":{"items": [], "description": [], "failure_description":[]}, "Checkpoint":{"items": [], "description": [], "failure_description":[]}, "Blockade":{"items": [], "description": [], "failure_description":[]}, "Collapsed Bridge":{"items": [], "description": [], "failure_description":[]}, "Building":{"items": [], "description": [], "failure_description":[]}, "Foretfied Structure":{"items": [], "description": [], "failure_description":[]}},
-        "Getaway":                  {"Land Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Sand Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Air Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Use Stealth":{"items": [], "description": [], "failure_description":[]}, "Mislead Pursuers":{"items": [], "description": [], "failure_description":[]}},
-        "Security Obstacle":        {"Deactivate Security Cameras":{"items": [], "description": [], "failure_description":[]}, "Deactivate Alarms":{"items": [], "description": [], "failure_description":[]}, "Distract Guards":{"items": [], "description": [], "failure_description":[]}, "Find Another Entrance":{"items": [], "description": [], "failure_description":[]}, "Sneak Through":{"items": [], "description": [], "failure_description":[]}},
-        "Steal":                    {"Break into the Vault":{"items": [], "description": [], "failure_description":[]}, "Open the crate":{"items": [], "description": [], "failure_description":[]}, "Pickpocket it":{"items": [], "description": [], "failure_description":[]}},
-        "Make Repairs":             {"Repair Vehicle":{"items": [], "description": [], "failure_description":[]}, "Repair Enviro-Dome":{"items": [], "description": [], "failure_description":[]}, "Repair Collapsed Wall":{"items": [], "description": [], "failure_description":[]}, "Repair Solar Panels":{"items": [], "description": [], "failure_description":[]}}, 
-        "System Failure":           {"Cooling Offline":{"items": [], "description": [], "failure_description":[]}, "Main Reactor Failure":{"items": [], "description": [], "failure_description":[]}, "Communications System Failure":{"items": [], "description": [], "failure_description":[]}},
-        "Find Water":               {"Find Water":{"items": [], "description": [], "failure_description":[]}},
-        "Find Shelter":             {"Find Civilization":{"items": [], "description": [], "failure_description":[]}, "Find Shelter":{"items": [], "description": [], "failure_description":[]}},
-        "Contact Teammate/s":       {"Contact Stranded Teammate":{"items": [], "description": [], "failure_description":[]}, "Contact Rescue Team":{"items": [], "description": [], "failure_description":[]}, "Alert Another Team":{"items": [], "description": [], "failure_description":[]}},
-        "Travel To Rendezvouz":     {"Land Based Travel":{"items": [], "description": [], "failure_description":[]}, "Sand Based Travel":{"items": [], "description": [], "failure_description":[]}, "Air Based Travel":{"items": [], "description": [], "failure_description":[]}},
+        "Environmental Obstacle":   ["Sand Storm", "Heat Wave", "Venemous Snake", "Sand Dunes", "Quick Sand", "Mirages", "Nest of Scorpions"],
+        "Manmade Obstacle":         ["Giant Wall", "Checkpoint", "Blockade", "Collapsed Bridge", "Building", "Fortefied Structure"],
+        "Getaway":                  ["Land Based Getaway", "Sand Based Getaway", "Air Based Getaway", "Use Stealth", "Mislead Pursuers"],
+        "Security Obstacle":        ["Deactivate Security Cameras", "Deactivate Alarms", "Distract Guards", "Find Another Entrance", "Sneak Through"],
+        "Steal":                    ["Break into the Vault", "Open the crate", "Pickpocket it"],
+        "Make Repairs":             ["Repair Vehicle", "Repair Enviro-Dome", "Repair Collapsed Wall", "Repair Solar Panels"], 
+        "System Failure":           ["Cooling Offline", "Main Reactor Failure", "Communications System Failure"],
+        "Find Water":               ["Find Water"],
+        "Find Shelter":             ["Find Civilization", "Find Shelter"],
+        "Contact Teammate/s":       ["Contact Stranded Teammate", "Contact Rescue Team", "Alert Another Team"],
+        "Travel To Rendezvouz":     ["Land Based Travel", "Sand Based Travel", "Air Based Travel"],
     },  
 
     "Jungle": {
-        "Environmental Obstacle":   {"Fire":{"items": [], "description": [], "failure_description":[]}, "Flash Flood":{"items": [], "description": [], "failure_description":[]}, "River":{"items": [], "description": [], "failure_description":[]}, "Fallen Trees Block Path":{"items": [], "description": [], "failure_description":[]}, "Quick Sand":{"items": [], "description": [], "failure_description":[]}, "Cliff":{"items": [], "description": [], "failure_description":[]}, "Cyclone":{"items": [], "description": [], "failure_description":[]}, "Swamp":{"items": [], "description": [], "failure_description":[]}, "Deadly Insects":{"items": [], "description": [], "failure_description":[]}, "Crocodile":{"items": [], "description": [], "failure_description":[]}},
-        "Manmade Obstacle":         {"Dam":{"items": [], "description": [], "failure_description":[]}, "Giant Wall":{"items": [], "description": [], "failure_description":[]}, "Checkpoint":{"items": [], "description": [], "failure_description":[]}, "Blockade":{"items": [], "description": [], "failure_description":[]}, "Collapsed Bridge":{"items": [], "description": [], "failure_description":[]}, "Building":{"items": [], "description": [], "failure_description":[]}, "Foretfied Structure":{"items": [], "description": [], "failure_description":[]}},
-        "Getaway":                  {"Land Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Water Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Air Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Use Stealth":{"items": [], "description": [], "failure_description":[]}, "Mislead Pursuers":{"items": [], "description": [], "failure_description":[]}},
-        "Security Obstacle":        {"Deactivate Security Cameras":{"items": [], "description": [], "failure_description":[]}, "Deactivate Alarms":{"items": [], "description": [], "failure_description":[]}, "Distract Guards":{"items": [], "description": [], "failure_description":[]}, "Find Another Entrance":{"items": [], "description": [], "failure_description":[]}, "Sneak Through":{"items": [], "description": [], "failure_description":[]}},
-        "Steal":                    {"Break into the Vault":{"items": [], "description": [], "failure_description":[]}, "Open the crate":{"items": [], "description": [], "failure_description":[]}, "Pickpocket it":{"items": [], "description": [], "failure_description":[]}},
-        "Make Repairs":             {"Repair Vehicle":{"items": [], "description": [], "failure_description":[]}, "Repair Enviro-Dome":{"items": [], "description": [], "failure_description":[]}, "Repair Collapsed Wall":{"items": [], "description": [], "failure_description":[]}}, 
-        "System Failure":           {"Main Reactor Failure":{"items": [], "description": [], "failure_description":[]}, "Communications System Failure":{"items": [], "description": [], "failure_description":[]}},
-        "Find Water":               {"Find Water":{"items": [], "description": [], "failure_description":[]}},
-        "Find Shelter":             {"Find Civilization":{"items": [], "description": [], "failure_description":[]}, "Find Shelter":{"items": [], "description": [], "failure_description":[]}},
-        "Contact Teammate/s":       {"Contact Stranded Teammate":{"items": [], "description": [], "failure_description":[]}, "Contact Rescue Team":{"items": [], "description": [], "failure_description":[]}, "Alert Another Team":{"items": [], "description": [], "failure_description":[]}},
-        "Travel To Rendezvouz":     {"Land Based Travel":{"items": [], "description": [], "failure_description":[]}, "Water Based Travel":{"items": [], "description": [], "failure_description":[]}, "Air Based Travel":{"items": [], "description": [], "failure_description":[]}},
+        "Environmental Obstacle":   ["Fire", "Flash Flood", "River", "Fallen Trees Block Path", "Quick Sand", "Cliff", "Cyclone", "Swamp", "Deadly Insects", "Crocodile"],
+        "Manmade Obstacle":         ["Dam", "Giant Wall", "Checkpoint", "Blockade", "Collapsed Bridge", "Building", "Fortefied Structure"],
+        "Getaway":                  ["Land Based Getaway", "Water Based Getaway", "Air Based Getaway", "Use Stealth", "Mislead Pursuers"],
+        "Security Obstacle":        ["Deactivate Security Cameras", "Deactivate Alarms", "Distract Guards", "Find Another Entrance", "Sneak Through"],
+        "Steal":                    ["Break into the Vault", "Open the crate", "Pickpocket it"],
+        "Make Repairs":             ["Repair Vehicle", "Repair Enviro-Dome", "Repair Collapsed Wall"], 
+        "System Failure":           ["Main Reactor Failure", "Communications System Failure"],
+        "Find Water":               ["Find Water"],
+        "Find Shelter":             ["Find Civilization", "Find Shelter"],
+        "Contact Teammate/s":       ["Contact Stranded Teammate", "Contact Rescue Team", "Alert Another Team"],
+        "Travel To Rendezvouz":     ["Land Based Travel", "Water Based Travel", "Air Based Travel"],
     },   
 
     "City": {
-        "Environmental Obstacle":   {"Sand Storm":{"items": [], "description": [], "failure_description":[]}, "Blizzard":{"items": [], "description": [], "failure_description":[]}, "Temperature Drop":{"items": [], "description": [], "failure_description":[]}, "Fire":{"items": [], "description": [], "failure_description":[]}, "Flash Flood":{"items": [], "description": [], "failure_description":[]}, "River":{"items": [], "description": [], "failure_description":[]}, "Fallen Trees Block Path":{"items": [], "description": [], "failure_description":[]}, "Heat Wave":{"items": [], "description": [], "failure_description":[]}, "Cyclone":{"items": [], "description": [], "failure_description":[]}},
-        "Manmade Obstacle":         {"Dam":{"items": [], "description": [], "failure_description":[]}, "Giant Wall":{"items": [], "description": [], "failure_description":[]}, "Checkpoint":{"items": [], "description": [], "failure_description":[]}, "Blockade":{"items": [], "description": [], "failure_description":[]}, "Collapsed Bridge":{"items": [], "description": [], "failure_description":[]}, "Traffic":{"items": [], "description": [], "failure_description":[]}, "Building":{"items": [], "description": [], "failure_description":[]}},
-        "Getaway":                  {"Land Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Water Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Air Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Use Stealth":{"items": [], "description": [], "failure_description":[]}, "Mislead Pursuers":{"items": [], "description": [], "failure_description":[]}},
-        "Security Obstacle":        {"Deactivate Security Cameras":{"items": [], "description": [], "failure_description":[]}, "Deactivate Alarms":{"items": [], "description": [], "failure_description":[]}, "Distract Guards":{"items": [], "description": [], "failure_description":[]}, "Find Another Entrance":{"items": [], "description": [], "failure_description":[]}, "Sneak Through":{"items": [], "description": [], "failure_description":[]}},
-        "Steal":                    {"Break into the Vault":{"items": [], "description": [], "failure_description":[]}, "Open the crate":{"items": [], "description": [], "failure_description":[]}, "Pickpocket it":{"items": [], "description": [], "failure_description":[]}},
-        "Make Repairs":             {"Repair Vehicle":{"items": [], "description": [], "failure_description":[]}, "Repair Collapsed Wall":{"items": [], "description": [], "failure_description":[]}, "Repair Solar Panels":{"items": [], "description": [], "failure_description":[]}}, 
-        "System Failure":           {"Central Heating Offline":{"items": [], "description": [], "failure_description":[]}, "Cooling Offline":{"items": [], "description": [], "failure_description":[]}, "Main Reactor Failure":{"items": [], "description": [], "failure_description":[]}, "Communications System Failure":{"items": [], "description": [], "failure_description":[]}},
-        "Find Water":               {"Find Water":{"items": [], "description": [], "failure_description":[]}},
-        "Find Shelter":             {"Find Shelter":{"items": [], "description": [], "failure_description":[]}},
-        "Contact Teammate/s":       {"Contact Stranded Teammate":{"items": [], "description": [], "failure_description":[]}, "Contact Rescue Team":{"items": [], "description": [], "failure_description":[]}, "Alert Another Team":{"items": [], "description": [], "failure_description":[]}},
-        "Travel To Rendezvouz":     {"Land Based Travel":{"items": [], "description": [], "failure_description":[]}, "Water Based Travel":{"items": [], "description": [], "failure_description":[]}, "Air Based Travel":{"items": [], "description": [], "failure_description":[]}},
+        "Environmental Obstacle":   ["Sand Storm", "Blizzard", "Temperature Drop", "Fire", "Flash Flood", "River", "Fallen Trees Block Path", "Heat Wave", "Cyclone"],
+        "Manmade Obstacle":         ["Dam", "Giant Wall", "Checkpoint", "Blockade", "Collapsed Bridge", "Traffic", "Building"],
+        "Getaway":                  ["Land Based Getaway", "Water Based Getaway", "Air Based Getaway", "Use Stealth", "Mislead Pursuers"],
+        "Security Obstacle":        ["Deactivate Security Cameras", "Deactivate Alarms", "Distract Guards", "Find Another Entrance", "Sneak Through"],
+        "Steal":                    ["Break into the Vault", "Open the crate", "Pickpocket it"],
+        "Make Repairs":             ["Repair Vehicle", "Repair Collapsed Wall", "Repair Solar Panels"], 
+        "System Failure":           ["Central Heating Offline", "Cooling Offline", "Main Reactor Failure", "Communications System Failure"],
+        "Find Water":               ["Find Water"],
+        "Find Shelter":             ["Find Shelter"],
+        "Contact Teammate/s":       ["Contact Stranded Teammate", "Contact Rescue Team", "Alert Another Team"],
+        "Travel To Rendezvouz":     ["Land Based Travel", "Water Based Travel", "Air Based Travel"],
     },   
 
     "Ocean": {
-        "Environmental Obstacle":   {"Cyclone":{"items": [], "description": [], "failure_description":[]}, "Collosal Wave":{"items": [], "description": [], "failure_description":[]}, "Shark Attack":{"items": [], "description": [], "failure_description":[]}, "Underwater Earthquake":{"items": [], "description": [], "failure_description":[]}, "Shallow Reef":{"items": [], "description": [], "failure_description":[]}},
-        "Manmade Obstacle":         {"Blockade":{"items": [], "description": [], "failure_description":[]}, "Sea Mines":{"items": [], "description": [], "failure_description":[]}, "Ship Graveyard":{"items": [], "description": [], "failure_description":[]}, "Pirates":{"items": [], "description": [], "failure_description":[]}},
-        "Getaway":                  {"Water Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Air Based Getaway":{"items": [], "description": [], "failure_description":[]}, "Use Stealth":{"items": [], "description": [], "failure_description":[]}, "Mislead Pursuers":{"items": [], "description": [], "failure_description":[]}},
-        "Security Obstacle":        {"Distract Guards":{"items": [], "description": [], "failure_description":[]}, "Find Another Entrance":{"items": [], "description": [], "failure_description":[]}, "Sneak Through":{"items": [], "description": [], "failure_description":[]}},
-        "Steal":                    {"Break into the Vault":{"items": [], "description": [], "failure_description":[]}, "Open the crate":{"items": [], "description": [], "failure_description":[]}, "Pickpocket it":{"items": [], "description": [], "failure_description":[]}},
-        "Make Repairs":             {"Repair Vehicle":{"items": [], "description": [], "failure_description":[]}, "Repair Enviro-Dome":{"items": [], "description": [], "failure_description":[]}, "Repair Collapsed Wall":{"items": [], "description": [], "failure_description":[]}, "Repair Exit Hatch":{"items": [], "description": [], "failure_description":[]}, "Repair Solar Panels":{"items": [], "description": [], "failure_description":[]}}, 
-        "System Failure":           {"Central Heating Offline":{"items": [], "description": [], "failure_description":[]}, "Main Reactor Failure":{"items": [], "description": [], "failure_description":[]}, "Communications System Failure":{"items": [], "description": [], "failure_description":[]}, "Air Recycling System Offline":{"items": [], "description": [], "failure_description":[]}},
-        "Find Water":               {"Find Water":{"items": [], "description": [], "failure_description":[]}},
-        "Find Shelter":             {"Find Civilization":{"items": [], "description": [], "failure_description":[]}, "Find Shelter":{"items": [], "description": [], "failure_description":[]}},
-        "Contact Teammate/s":       {"Contact Stranded Teammate":{"items": [], "description": [], "failure_description":[]}, "Contact Rescue Team":{"items": [], "description": [], "failure_description":[]}, "Alert Another Team":{"items": [], "description": [], "failure_description":[]}},
-        "Travel To Rendezvouz":     {"Water Based Travel":{"items": [], "description": [], "failure_description":[]}, "Air Based Travel":{"items": [], "description": [], "failure_description":[]}},
+        "Environmental Obstacle":   ["Cyclone", "Collosal Wave", "Shark Attack", "Underwater Earthquake", "Shallow Reef"],
+        "Manmade Obstacle":         ["Blockade", "Sea Mines", "Ship Graveyard", "Pirates"],
+        "Getaway":                  ["Water Based Getaway", "Air Based Getaway", "Use Stealth", "Mislead Pursuers"],
+        "Security Obstacle":        ["Distract Guards", "Find Another Entrance", "Sneak Through"],
+        "Steal":                    ["Break into the Vault", "Open the crate", "Pickpocket it"],
+        "Make Repairs":             ["Repair Vehicle", "Repair Enviro-Dome", "Repair Collapsed Wall", "Repair Exit Hatch", "Repair Solar Panels"], 
+        "System Failure":           ["Central Heating Offline", "Main Reactor Failure", "Communications System Failure", "Air Recycling System Offline"],
+        "Find Water":               ["Find Water"],
+        "Find Shelter":             ["Find Civilization", "Find Shelter"],
+        "Contact Teammate/s":       ["Contact Stranded Teammate", "Contact Rescue Team", "Alert Another Team"],
+        "Travel To Rendezvouz":     ["Water Based Travel", "Air Based Travel"],
     },
 
     "Volcano": {
-        "Environmental Obstacle":   {"Earthquake":{"items": [], "description": [], "failure_description":[]}, "Eruption":{"items": [], "description": [], "failure_description":[]}},
-        "Manmade Obstacle":         {1:{"items": [], "description": [], "failure_description":[]}},
-        "Getaway":                  {1:{"items": [], "description": [], "failure_description":[]}},
-        "Security Obstacle":        {1:{"items": [], "description": [], "failure_description":[]}},
-        "Steal":                    {1:{"items": [], "description": [], "failure_description":[]}},
-        "Make Repairs":             {"Repair Vehicle":{"items": [], "description": [], "failure_description":[]}, "Repair Enviro-Dome":{"items": [], "description": [], "failure_description":[]}, "Repair Collapsed Wall":{"items": [], "description": [], "failure_description":[]}, "Repair Exit Hatch":{"items": [], "description": [], "failure_description":[]}, "Repair Rover":{"items": [], "description": [], "failure_description":[]}}, 
-        "System Failure":           {"Cooling Offline":{"items": [], "description": [], "failure_description":[]}, "Geo-Thermal Reactor Failure":{"items": [], "description": [], "failure_description":[]}, "Communications System Failure":{"items": [], "description": [], "failure_description":[]}, "Air Recycling System Offline":{"items": [], "description": [], "failure_description":[]}},
-        "Find Water":               {"Find Water":{"items": [], "description": [], "failure_description":[]}},
-        "Find Shelter":             {"Find Civilization":{"items": [], "description": [], "failure_description":[]}, "Find Shelter":{"items": [], "description": [], "failure_description":[]}},
-        "Contact Teammate/s":       {"Contact Stranded Teammate":{"items": [], "description": [], "failure_description":[]}, "Contact Rescue Team":{"items": [], "description": [], "failure_description":[]}, "Alert Another Team":{"items": [], "description": [], "failure_description":[]}},
-        "Travel To Rendezvouz":     {"Land Based Travel":{"items": [], "description": [], "failure_description":[]}, "Air Based Travel":{"items": [], "description": [], "failure_description":[]}},
+        "Environmental Obstacle":   ["Earthquake", "Eruption"],
+        "Manmade Obstacle":         [],
+        "Getaway":                  [],
+        "Security Obstacle":        [],
+        "Steal":                    [],
+        "Make Repairs":             ["Repair Vehicle", "Repair Enviro-Dome", "Repair Collapsed Wall", "Repair Exit Hatch", "Repair Rover"], 
+        "System Failure":           ["Cooling Offline", "Geo-Thermal Reactor Failure", "Communications System Failure", "Air Recycling System Offline"],
+        "Find Water":               ["Find Water"],
+        "Find Shelter":             ["Find Civilization", "Find Shelter"],
+        "Contact Teammate/s":       ["Contact Stranded Teammate", "Contact Rescue Team", "Alert Another Team"],
+        "Travel To Rendezvouz":     ["Land Based Travel", "Air Based Travel"],
     },
 
+}
+
+
+
+
+
+challenges = {
+    'Contact Teammate/s': {
+        'Alert Another Team': {"items":{}, "desc": "", "failure_desc": ""},
+        'Contact Rescue Team': {"items":{}, "desc": "", "failure_desc": ""},
+        'Contact Stranded Teammate': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'Environmental Obstacle': {
+        'Bear': {"items":{}, "desc": "", "failure_desc": ""},
+        'Blizzard': {"items":{}, "desc": "", "failure_desc": ""},
+        'Cliff': {"items":{}, "desc": "", "failure_desc": ""},
+        'Collosal Wave': {"items":{}, "desc": "", "failure_desc": ""},
+        'Crocodile': {"items":{}, "desc": "", "failure_desc": ""},
+        'Cyclone': {"items":{}, "desc": "", "failure_desc": ""},
+        'Deadly Insects': {"items":{}, "desc": "", "failure_desc": ""},
+        'Earthquake': {"items":{}, "desc": "", "failure_desc": ""},
+        'Eruption': {"items":{}, "desc": "", "failure_desc": ""},
+        'Fallen Trees Block Path': {"items":{}, "desc": "", "failure_desc": ""},
+        'Fire': {"items":{}, "desc": "", "failure_desc": ""},
+        'Flash Flood': {"items":{}, "desc": "", "failure_desc": ""},
+        'Frozen Lake': {"items":{}, "desc": "", "failure_desc": ""},
+        'Heat Wave': {"items":{}, "desc": "", "failure_desc": ""},
+        'Ice Cliff': {"items":{}, "desc": "", "failure_desc": ""},
+        'Mirages': {"items":{}, "desc": "", "failure_desc": ""},
+        'Nest of Scorpions': {"items":{}, "desc": "", "failure_desc": ""},
+        'Quick Sand': {"items":{}, "desc": "", "failure_desc": ""},
+        'River': {"items":{}, "desc": "", "failure_desc": ""},
+        'Sand Dunes': {"items":{}, "desc": "", "failure_desc": ""},
+        'Sand Storm': {"items":{}, "desc": "", "failure_desc": ""},
+        'Shallow Reef': {"items":{}, "desc": "", "failure_desc": ""},
+        'Shark Attack': {"items":{}, "desc": "", "failure_desc": ""},
+        'Swamp': {"items":{}, "desc": "", "failure_desc": ""},
+        'Temperature Drop': {"items":{}, "desc": "", "failure_desc": ""},
+        'Underwater Earthquake': {"items":{}, "desc": "", "failure_desc": ""},
+        'Venemous Snake': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'Find Shelter': {
+        'Find Civilization': {"items":{}, "desc": "", "failure_desc": ""}, 
+        'Find Shelter': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'Find Water': {
+        'Find Water': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'Getaway': {
+        'Air Based Getaway': {"items":{}, "desc": "", "failure_desc": ""},
+        'Land Based Getaway': {"items":{}, "desc": "", "failure_desc": ""},
+        'Mislead Pursuers': {"items":{}, "desc": "", "failure_desc": ""},
+        'Sand Based Getaway': {"items":{}, "desc": "", "failure_desc": ""},
+        'Snow Based Getaway': {"items":{}, "desc": "", "failure_desc": ""},
+        'Use Stealth': {"items":{}, "desc": "", "failure_desc": ""},
+        'Water Based Getaway': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'Make Repairs': {
+        'Repair Collapsed Wall': {"items":{}, "desc": "", "failure_desc": ""},
+        'Repair Enviro-Dome': {"items":{}, "desc": "", "failure_desc": ""},
+        'Repair Exit Hatch': {"items":{}, "desc": "", "failure_desc": ""},
+        'Repair Rover': {"items":{}, "desc": "", "failure_desc": ""},
+        'Repair Solar Panels': {"items":{}, "desc": "", "failure_desc": ""},
+        'Repair Vehicle': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'Manmade Obstacle': {
+        'Blockade': {"items":{}, "desc": "", "failure_desc": ""},
+        'Building': {"items":{}, "desc": "", "failure_desc": ""},
+        'Checkpoint': {"items":{}, "desc": "", "failure_desc": ""},
+        'Collapsed Bridge': {"items":{}, "desc": "", "failure_desc": ""},
+        'Dam': {"items":{}, "desc": "", "failure_desc": ""},
+        'Fortefied Structure': {"items":{}, "desc": "", "failure_desc": ""},
+        'Giant Wall': {"items":{}, "desc": "", "failure_desc": ""},
+        'Pirates': {"items":{}, "desc": "", "failure_desc": ""},
+        'Sea Mines': {"items":{}, "desc": "", "failure_desc": ""},
+        'Ship Graveyard': {"items":{}, "desc": "", "failure_desc": ""},
+        'Traffic': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'Security Obstacle': {
+        'Deactivate Alarms': {"items":{}, "desc": "", "failure_desc": ""},
+        'Deactivate Security Cameras': {"items":{}, "desc": "", "failure_desc": ""},
+        'Distract Guards': {"items":{}, "desc": "", "failure_desc": ""},
+        'Find Another Entrance': {"items":{}, "desc": "", "failure_desc": ""},
+        'Sneak Through': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'Steal': {
+        'Break into the Vault': {"items":{}, "desc": "", "failure_desc": ""},
+        'Open the crate': {"items":{}, "desc": "", "failure_desc": ""},
+        'Pickpocket it': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'System Failure': {
+        'Air Recycling System Offline': {"items":{}, "desc": "", "failure_desc": ""},
+        'Central Heating Offline': {"items":{}, "desc": "", "failure_desc": ""},
+        'Communications System Failure': {"items":{}, "desc": "", "failure_desc": ""},
+        'Cooling Offline': {"items":{}, "desc": "", "failure_desc": ""},
+        'Geo-Thermal Reactor Failure': {"items":{}, "desc": "", "failure_desc": ""},
+        'Main Reactor Failure': {"items":{}, "desc": "", "failure_desc": ""}
+    },
+
+    'Travel To Rendezvouz': {
+        'Air Based Travel': {"items":{}, "desc": "", "failure_desc": ""},
+        'Land Based Travel': {"items":{}, "desc": "", "failure_desc": ""},
+        'Sand Based Travel': {"items":{}, "desc": "", "failure_desc": ""},
+        'Snow Based Travel': {"items":{}, "desc": "", "failure_desc": ""},
+        'Water Based Travel': {"items":{}, "desc": "", "failure_desc": ""}
+    }
 }
 
 
@@ -141,7 +249,7 @@ function get_mission(){
     mission_location = possible_locations[Math.floor(Math.random() * possible_locations.length)];
 
     // Viable Missions for each location are stored inside each 
-    viable_missions = [];
+    viable_missions = {"items":{}, "desc": "", "failure_desc": ""};
 
     for (var mission in mission_structures){
         if (mission_structures[mission][1][mission_location]){
@@ -158,7 +266,7 @@ function get_mission(){
 
     selected_challenges = "\n";
     for (var challenge_type of mission_challenges){
-        all_possible_challenges = Object.keys(location_challenges[mission_location][challenge_type]);
+        all_possible_challenges = location_challenges[mission_location][challenge_type];
         selected_challenges += "\n - " + all_possible_challenges[Math.floor(Math.random() * all_possible_challenges.length)];
     };
 
