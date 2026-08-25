@@ -225,7 +225,9 @@ input:focus {
   font-size: 0.55rem;
 }
 
-#closeErrorBtn {
+#closeErrorBtn,
+#closeNameErrorBtn,
+#closeCodeErrorBtn {
   font-family: var(--font-press);
 
   background: #fff;
@@ -239,7 +241,9 @@ input:focus {
   cursor: pointer;
 }
 
-#closeErrorBtn:hover {
+#closeErrorBtn:hover,
+#closeNameErrorBtn:hover,
+#closeCodeErrorBtn:hover {
   background: var(--correct);
   color: #fff;
 }
