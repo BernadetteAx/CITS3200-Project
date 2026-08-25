@@ -7,6 +7,9 @@ const playerNameInput = document.getElementById("playerName");
 // Find the Join Game button
 const joinGameBtn = document.getElementById("joinGameBtn");
 
+// Find the Host Game button
+const hostGameBtn = document.getElementById("hostGameBtn");
+
 // Find the instructions popup and buttons
 const openInstructionsBtn = document.getElementById("openInstructionsBtn");
 const closeInstructionsBtn = document.getElementById("closeInstructionsBtn");
@@ -21,119 +24,152 @@ const closeErrorBtn = document.getElementById("closeErrorBtn");
 const nameErrorPopup = document.getElementById("name-error-popup");
 const closeNameErrorBtn = document.getElementById("closeNameErrorBtn");
 
-// Find the Host Game button
-const hostGameBtn = document.getElementById("hostGameBtn");
+// Find the session code error popup
+const codeErrorPopup = document.getElementById("code-error-popup");
+const closeCodeErrorBtn = document.getElementById("closeCodeErrorBtn");
 
+
+// PLAYER NAME INPUT
 playerNameInput.addEventListener("input", function () {
 
     const playerName = playerNameInput.value.trim();
 
     if (playerName === "") {
+        // No name = cannot enter a session code or join
+        sessionCodeInput.value = "";
         sessionCodeInput.disabled = true;
+
+        joinGameBtn.disabled = true;
+        hostGameBtn.disabled = false;
     }
     else {
+        // Name entered = allow session code entry
         sessionCodeInput.disabled = false;
     }
 
 });
 
+
+// SESSION CODE INPUT
 sessionCodeInput.addEventListener("input", function () {
 
     const sessionCode = sessionCodeInput.value.trim();
 
     if (sessionCode === "") {
+        // No code = can host, cannot join
         joinGameBtn.disabled = true;
+        hostGameBtn.disabled = false;
     }
     else {
+        // Code entered = can join, cannot host
         joinGameBtn.disabled = false;
+        hostGameBtn.disabled = true;
     }
 
 });
 
 
-// Run this function when the Join Game button is clicked
+// JOIN GAME
 joinGameBtn.addEventListener("click", function () {
 
-    // Get what the user typed
+    const playerName = playerNameInput.value.trim();
     const sessionCode = sessionCodeInput.value.trim();
-    const playerName = playerNameInput.value.trim();
 
-
-    // Check if session code is empty
-    if (sessionCode === "") {
-        alert("Please enter a session code");
-        return;
-    }
-
-
-    // Check if player name is empty
+    // Must have a player name
     if (playerName === "") {
-        alert("Please enter your player name");
-        return;
-    }
-
-
-    // Both fields have been entered
-    // Go to the lobby page
-    window.location.href = "/lobby";
-
-});
-
-// Run this function when the Host Game button is clicked
-hostGameBtn.addEventListener("click", function () {
-
-    // Get the player's name
-    const playerName = playerNameInput.value.trim();
-
-    if (playerName === "") {
-
-        // Show the player name error popup
         nameErrorPopup.classList.remove("hidden");
-    
-        // Automatically close popup after 1.9 seconds
+
         setTimeout(function () {
             nameErrorPopup.classList.add("hidden");
-        }, 1900);
-    
+        }, 2700);
+
         return;
     }
 
-    // Name fields have been entered
-    // Go to the lobby page
+    // Must have a session code
+    if (sessionCode === "") {
+        codeErrorPopup.classList.remove("hidden");
+
+        setTimeout(function () {
+            codeErrorPopup.classList.add("hidden");
+        }, 2700);
+
+        return;
+    }
+
+    // Name + session code entered = join game
     window.location.href = "/lobby";
 
 });
 
 
-// Open instructions when ? is clicked
+// HOST GAME
+hostGameBtn.addEventListener("click", function () {
+
+    const playerName = playerNameInput.value.trim();
+    const sessionCode = sessionCodeInput.value.trim();
+
+    // Must have a player name
+    if (playerName === "") {
+        nameErrorPopup.classList.remove("hidden");
+
+        setTimeout(function () {
+            nameErrorPopup.classList.add("hidden");
+        }, 2700);
+
+        return;
+    }
+
+    // Cannot host if a session code has been entered
+    if (sessionCode !== "") {
+        return;
+    }
+
+    // Name entered + no session code = host game
+    window.location.href = "/lobby";
+
+});
+
+
+// OPEN INSTRUCTIONS
 openInstructionsBtn.addEventListener("click", function () {
     instructionsPopup.classList.remove("hidden");
     instructionsPopup.classList.add("show");
 });
 
-// Close instructions when GOT IT is clicked
+
+// CLOSE INSTRUCTIONS
 closeInstructionsBtn.addEventListener("click", function () {
     instructionsPopup.classList.remove("show");
     instructionsPopup.classList.add("hidden");
 });
 
-// Show the error popup
+
+// TEST INVALID SESSION CODE POPUP
 testErrorBtn.addEventListener("click", function () {
-   // show error pop up
+
     errorPopup.classList.remove("hidden");
 
-    // auto close error pop up
     setTimeout(function () {
         errorPopup.classList.add("hidden");
     }, 1900);
+
 });
 
-// Close the error popup
+
+// CLOSE INVALID SESSION CODE POPUP
 closeErrorBtn.addEventListener("click", function () {
     errorPopup.classList.add("hidden");
 });
 
-// Close the player name error popup
+
+// CLOSE PLAYER NAME ERROR POPUP
 closeNameErrorBtn.addEventListener("click", function () {
     nameErrorPopup.classList.add("hidden");
+});
+
+
+// CLOSE SESSION CODE ERROR POPUP
+closeCodeErrorBtn.addEventListener("click", function () {
+    codeErrorPopup.classList.add("hidden");
 });
