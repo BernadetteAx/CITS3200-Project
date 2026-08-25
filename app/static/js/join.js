@@ -1,33 +1,26 @@
-// Find the session code input
+// Join page inputs and buttons
 const sessionCodeInput = document.getElementById("sessionCode");
-
-// Find the player name input
 const playerNameInput = document.getElementById("playerName");
-
-// Find the Join Game button
 const joinGameBtn = document.getElementById("joinGameBtn");
-
-// Find the Host Game button
 const hostGameBtn = document.getElementById("hostGameBtn");
 
-// Find the instructions popup and buttons
+// Instructions popup
 const openInstructionsBtn = document.getElementById("openInstructionsBtn");
 const closeInstructionsBtn = document.getElementById("closeInstructionsBtn");
 const instructionsPopup = document.getElementById("instructions-popup");
 
-// Find the temporary error popup elements
+// Invalid session code popup
 const testErrorBtn = document.getElementById("testErrorBtn");
 const errorPopup = document.getElementById("error-popup");
 const closeErrorBtn = document.getElementById("closeErrorBtn");
 
-// Find the player name error popup
+// Player name error popup
 const nameErrorPopup = document.getElementById("name-error-popup");
 const closeNameErrorBtn = document.getElementById("closeNameErrorBtn");
 
-// Find the session code error popup
+// Missing session code popup
 const codeErrorPopup = document.getElementById("code-error-popup");
 const closeCodeErrorBtn = document.getElementById("closeCodeErrorBtn");
-
 
 // PLAYER NAME INPUT
 playerNameInput.addEventListener("input", function () {
@@ -49,7 +42,6 @@ playerNameInput.addEventListener("input", function () {
 
 });
 
-
 // SESSION CODE INPUT
 sessionCodeInput.addEventListener("input", function () {
 
@@ -67,7 +59,6 @@ sessionCodeInput.addEventListener("input", function () {
     }
 
 });
-
 
 // JOIN GAME
 joinGameBtn.addEventListener("click", function () {
@@ -102,7 +93,6 @@ joinGameBtn.addEventListener("click", function () {
 
 });
 
-
 // HOST GAME
 hostGameBtn.addEventListener("click", function () {
 
@@ -130,20 +120,17 @@ hostGameBtn.addEventListener("click", function () {
 
 });
 
-
 // OPEN INSTRUCTIONS
 openInstructionsBtn.addEventListener("click", function () {
     instructionsPopup.classList.remove("hidden");
     instructionsPopup.classList.add("show");
 });
 
-
 // CLOSE INSTRUCTIONS
 closeInstructionsBtn.addEventListener("click", function () {
     instructionsPopup.classList.remove("show");
     instructionsPopup.classList.add("hidden");
 });
-
 
 // TEST INVALID SESSION CODE POPUP
 testErrorBtn.addEventListener("click", function () {
@@ -156,18 +143,15 @@ testErrorBtn.addEventListener("click", function () {
 
 });
 
-
 // CLOSE INVALID SESSION CODE POPUP
 closeErrorBtn.addEventListener("click", function () {
     errorPopup.classList.add("hidden");
 });
 
-
 // CLOSE PLAYER NAME ERROR POPUP
 closeNameErrorBtn.addEventListener("click", function () {
     nameErrorPopup.classList.add("hidden");
 });
-
 
 // CLOSE SESSION CODE ERROR POPUP
 closeCodeErrorBtn.addEventListener("click", function () {
