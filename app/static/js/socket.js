@@ -38,14 +38,16 @@ let playerId = localStorage.getItem('playerId') || null;
 // e.g. a data attribute on the page, or a variable already set by your
 // Flask template. Adjust this line to match how join.js/lobby.js
 // currently pass the code around
-const sessionCode = document.body.dataset.sessionCode;
+const sessionCode = sessionStorage.getItem("sessionCode");
+const playerName = sessionStorage.getItem("playerName");
 
 // fired once the connection is established
 socket.on('connect', () => {
   socket.emit('join_session', {
     sessionCode,
-    name: window.currentPlayerName, // however your app currently stores the player's chosen name
+    name: playerName,
     playerId,
+    isHost: sessionStorage.getItem('isHost') === 'true',
   });
 });
 

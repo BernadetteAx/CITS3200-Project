@@ -51,6 +51,7 @@ def handle_join_session(payload):
 
     session_code = payload['sessionCode']
     session = get_or_create_session(session_code)
+    is_host = payload.get('isHost', False)
 
     # RECONNECT SUPPORT: if the client already has a playerId saved from
     # before (e.g. their WiFi dropped and the page reconnected), reuse
@@ -68,6 +69,10 @@ def handle_join_session(payload):
             'connected': True,
         }
         session['players'][player_id] = player
+        
+    # If this player created the game, remember them as the host
+    if is_host and session['host_id'] is None:
+        session['host_id'] = player_id
 
     # JOIN_ROOM is Flask-SocketIO's version of "put this connection in
     # the group of sockets that belong to session ABCD". Once a
@@ -103,14 +108,26 @@ def handle_player_ready(payload):
     player['ready'] = bool(payload.get('ready'))
     broadcast_lobby_state(session_code, session)
 
-    # PHASE TRANSITION example: once every player has readied up (and
-    # there are enough players), move the game forward. Copy this
-    # "check a condition across all players, then change phase and
-    # broadcast it" pattern in auction.py/mission.py.
+    # PHASE TRANSITION:
+    # Once every player has readied up and there are enough players,
+    # the host can move the game forward.
+    # Copy this "check a condition across all players, then change phase
+    # and broadcast it" pattern in auction.py/mission.py.
+@socketio.on('start_game')
+def handle_start_game(payload):
+    session_code = payload['sessionCode']
+    session = get_or_create_session(session_code)
+
+    # Make sure only the host can start the game
+    if payload['playerId'] != session['host_id']:
+        return
+
     all_ready = all(p['ready'] for p in session['players'].values())
+
     if all_ready and len(session['players']) >= 3:
         session['phase'] = 'auction'
         emit('game_started', {'phase': session['phase']}, room=session_code)
+
         # TODO (auction teammate): initialise session['auction'] = {...}
         # here, then call a broadcast_auction_state(session_code, session)
         # function (mirroring broadcast_lobby_state below) so clients get
@@ -124,7 +141,7 @@ def broadcast_lobby_state(session_code, session):
     "build the payload, then emit it to the room" function per phase.
     """
     players = [
-        {'id': pid, 'name': p['name'], 'ready': p['ready'], 'connected': p['connected']}
+        {'id': pid, 'name': p['name'], 'ready': p['ready'], 'connected': p['connected'],'isHost': pid == session['host_id']}
         for pid, p in session['players'].items()
     ]
     emit('lobby_state', {'players': players, 'phase': session['phase']}, room=session_code)

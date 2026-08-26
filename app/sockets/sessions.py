@@ -17,6 +17,7 @@ sessions = {}
 # Shape of one entry once created:
 # sessions["ABCD"] = {
 #     "phase": "lobby",              # which part of the game we're in
+#     "host_id": None,               # player ID of the person hosting
 #     "players": {
 #         "player-id-1": {"name": "...", "ready": False, "connected": True},
 #         ...
@@ -36,6 +37,7 @@ def get_or_create_session(session_code):
     if session_code not in sessions:
         sessions[session_code] = {
             "phase": "lobby",
+            "host_id": None,
             "players": {},
         }
     return sessions[session_code]
