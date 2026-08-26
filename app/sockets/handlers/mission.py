@@ -13,4 +13,4 @@
 #   }
 
 # This file just needs to be imported somewhere (see handlers/__init__.py)
-# for its @socketio.on(...) decorators to take effect once you add them.
+# for its @socketio.on(...) decorators to take effect once you add them

@@ -10,10 +10,10 @@
 // that we'd otherwise have to build by hand
 //
 // the pattern to remember is the same as before:
-//   1. Open the connection (happens automatically when this file loads).
-//   2. Tell the server who you are (join_session).
+//   1. Open the connection (happens automatically when this file loads)
+//   2. Tell the server who you are (join_session)
 //   3. Listen for named events from the server, and update the screen
-//      based on whatever the server says the current state is.
+//      based on whatever the server says the current state is
 //   4. When the player does something, emit a small message describing
 //      what they want — never calculate the outcome yourself client-side
 //
@@ -88,4 +88,4 @@ window.getSessionCode = () => sessionCode;
 // auction.js and mission.js will follow the identical shape once their
 // Python handlers (auction.py, mission.py) are built — listen for
 // 'auction_state'/'mission_state', emit 'place_bid'/'item_used' with
-// sessionCode + playerId included in the payload every time.
+// sessionCode + playerId included in the payload every time

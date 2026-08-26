@@ -11,14 +11,14 @@
 # everyone instantly, instead of everyone having to keep asking "did
 # anything change yet?" every second. Flask-SocketIO is a library that
 # adds this on top of Flask (which normally only does the
-# "letter and one reply" style of request).
+# "letter and one reply" style of request)
 #
 # THE BIG IDEA OF THIS WHOLE PROJECT:
 # The server is the ONE source of truth for what's happening in a game.
 # Browsers (clients) NEVER decide game outcomes themselves — they just
 # say "I'd like to do X" and the server decides whether that's allowed,
 # updates its own copy of the game state, and then tells EVERYONE in
-# that session what the new state is.
+# that session what the new state is
 #
 #   Client:  "I want to ready up"  -->  emits 'player_ready'
 #   Server:  updates its state, then emits 'lobby_state' to the whole room
@@ -28,8 +28,9 @@
 # using the @socketio.on(...) decorator. Flask-SocketIO calls the
 # matching function automatically whenever a client emits that event —
 # you never have to write your own "which event was this?" dispatch
-# code (unlike the raw `ws` library in Node, where we built that by hand).
+# code (unlike the raw `ws` library in Node, where we built that by hand)
 
+#if you get an error here make sure to download socketio and flask_socketio using pip install socketio flask_socketio
 from flask_socketio import emit, join_room
 from app.extensions import socketio
 from app.sockets.sessions import get_or_create_session
