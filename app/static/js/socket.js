@@ -28,11 +28,12 @@
 const socket = io();
 
 // RECONNECT SUPPORT:
-// localStorage survives page refreshes (unlike normal JS variables),
-// so we use it to remember "who am I" across reconnects/refreshes —
-// letting the server recognise a returning player as the SAME player
+// sessionStorage survives page refreshes and navigation in this tab, while
+// keeping each browser tab as a separate player. localStorage is shared by
+// every tab, which would make test players look like the same person.
+// This lets the server recognise a reconnecting player as the SAME player.
 // (see the reconnect handling in handlers/lobby.py's handle_join_session)
-let playerId = localStorage.getItem('playerId') || null;
+let playerId = sessionStorage.getItem('playerId') || null;
 
 // read the session code from wherever your app currently stores it —
 // e.g. a data attribute on the page, or a variable already set by your
@@ -54,7 +55,7 @@ socket.on('connect', () => {
 // server assigns us our official playerId on first join — save it
 socket.on('joined', (payload) => {
   playerId = payload.playerId;
-  localStorage.setItem('playerId', playerId);
+  sessionStorage.setItem('playerId', playerId);
 });
 
 // exported (via `window`) so lobby.js/auction.js/mission.js can use the

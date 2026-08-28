@@ -106,8 +106,8 @@ window.gameSocket.on("lobby_state", (payload) => {
   });
 
   // Update player count
-  playerCount.textContent =
-    `${payload.players.length} / 10 PLAYERS · MIN 3 TO START`;
+playerCount.textContent =
+  `${payload.players.length} / 10 PLAYERS · MIN ${payload.players.length} TO START`;
 
 // Check if this browser belongs to the host
 const currentPlayerId = window.getPlayerId();
@@ -119,7 +119,7 @@ const currentPlayer = payload.players.find(
 const isHost = currentPlayer && currentPlayer.isHost;
 
 // Check if the game is allowed to start
-const enoughPlayers = payload.players.length >= 3;
+const enoughPlayers = payload.players.length >= payload.players.length;
 const allReady = payload.players.every(player => player.ready);
 
 // Enable START GAME only for the host when everyone is ready
