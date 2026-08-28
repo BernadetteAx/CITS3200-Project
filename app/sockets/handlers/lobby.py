@@ -124,8 +124,10 @@ def handle_start_game(payload):
 
     all_ready = all(p['ready'] for p in session['players'].values())
 
-    if all_ready and len(session['players']) >= 3:
-        session['phase'] = 'auction'
+    # The lobby permits the host to start with however many players are
+    # currently in the room, provided everyone has marked themselves ready
+    if all_ready and session['players']:
+        session['phase'] = 'start_game'
         emit('game_started', {'phase': session['phase']}, room=session_code)
 
         # TODO (auction teammate): initialise session['auction'] = {...}

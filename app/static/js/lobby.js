@@ -72,7 +72,7 @@ startGameBtn.addEventListener("click", () => {
 
 // When the server starts the game, send everyone to the auction
 window.gameSocket.on("game_started", () => {
-  window.location.href = "/auction";
+  window.location.href = "/start_game";
 });
 
 // Receive the latest lobby state from the server
