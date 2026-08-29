@@ -88,7 +88,11 @@ joinGameBtn.addEventListener("click", function () {
         return;
     }
 
-    // Name + session code entered = join game
+    // Save player details for the lobby
+    sessionStorage.setItem("playerName", playerName);
+    sessionStorage.setItem("sessionCode", sessionCode.toUpperCase());
+
+    // Go to lobby
     window.location.href = "/lobby";
 
 });
@@ -115,7 +119,18 @@ hostGameBtn.addEventListener("click", function () {
         return;
     }
 
-    // Name entered + no session code = host game
+    // Generate a random 4-character session code
+    const generatedCode = Math.random()
+        .toString(36)
+        .substring(2, 6)
+        .toUpperCase();
+
+    // Save host details for the lobby
+    sessionStorage.setItem("playerName", playerName);
+    sessionStorage.setItem("sessionCode", generatedCode);
+    sessionStorage.setItem("isHost", "true");
+
+    // Go to lobby
     window.location.href = "/lobby";
 
 });
