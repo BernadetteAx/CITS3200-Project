@@ -41,3 +41,10 @@ def get_or_create_session(session_code):
             "players": {},
         }
     return sessions[session_code]
+
+def get_session(session_code):
+    """
+    Look up an existing session without creating a new one.
+    Returns None if the session code does not exist.
+    """
+    return sessions.get(session_code)

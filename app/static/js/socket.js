@@ -58,6 +58,14 @@ socket.on('joined', (payload) => {
   sessionStorage.setItem('playerId', playerId);
 });
 
+// Invalid session code
+socket.on('invalid_session', () => {
+  sessionStorage.setItem('invalidSession', 'true');
+  sessionStorage.removeItem('sessionCode');
+  sessionStorage.removeItem('playerId');
+  window.location.href = '/join';
+});
+
 // exported (via `window`) so lobby.js/auction.js/mission.js can use the
 // same connection and helpers without opening their own separate socket
 window.gameSocket = socket;

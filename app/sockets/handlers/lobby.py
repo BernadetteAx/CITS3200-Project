@@ -33,7 +33,7 @@
 #if you get an error here make sure to download socketio and flask_socketio using pip install socketio flask_socketio
 from flask_socketio import emit, join_room
 from app.extensions import socketio
-from app.sockets.sessions import get_or_create_session
+from app.sockets.sessions import get_or_create_session, get_session
 
 
 @socketio.on('join_session')
@@ -50,8 +50,17 @@ def handle_join_session(payload):
     from flask import request  # local import keeps this file's top imports focused
 
     session_code = payload['sessionCode']
-    session = get_or_create_session(session_code)
     is_host = payload.get('isHost', False)
+
+    # Hosts create a session, joining players must use an existing session
+    if is_host:
+        session = get_or_create_session(session_code)
+    else:
+        session = get_session(session_code)
+
+        if session is None:
+            emit('invalid_session')
+            return
 
     # RECONNECT SUPPORT: if the client already has a playerId saved from
     # before (e.g. their WiFi dropped and the page reconnected), reuse

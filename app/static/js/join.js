@@ -10,9 +10,26 @@ const closeInstructionsBtn = document.getElementById("closeInstructionsBtn");
 const instructionsPopup = document.getElementById("instructions-popup");
 
 // Invalid session code popup
-const testErrorBtn = document.getElementById("testErrorBtn");
 const errorPopup = document.getElementById("error-popup");
 const closeErrorBtn = document.getElementById("closeErrorBtn");
+
+// Restore player name after returning from an invalid session code
+const savedPlayerName = sessionStorage.getItem("playerName");
+
+if (savedPlayerName) {
+    playerNameInput.value = savedPlayerName;
+    sessionCodeInput.disabled = false;
+}
+
+// Show invalid session popup if the server rejected the code
+if (sessionStorage.getItem("invalidSession") === "true") {
+    errorPopup.classList.remove("hidden");
+    sessionStorage.removeItem("invalidSession");
+
+    setTimeout(function () {
+        errorPopup.classList.add("hidden");
+    }, 3000);
+}
 
 // Player name error popup
 const nameErrorPopup = document.getElementById("name-error-popup");
@@ -92,6 +109,10 @@ joinGameBtn.addEventListener("click", function () {
     sessionStorage.setItem("playerName", playerName);
     sessionStorage.setItem("sessionCode", sessionCode.toUpperCase());
 
+    // This player is joining, not hosting
+    sessionStorage.removeItem("isHost");
+    sessionStorage.removeItem("playerId");
+
     // Go to lobby
     window.location.href = "/lobby";
 
@@ -128,6 +149,7 @@ hostGameBtn.addEventListener("click", function () {
     // Save host details for the lobby
     sessionStorage.setItem("playerName", playerName);
     sessionStorage.setItem("sessionCode", generatedCode);
+    sessionStorage.removeItem("playerId");
     sessionStorage.setItem("isHost", "true");
 
     // Go to lobby
@@ -145,17 +167,6 @@ openInstructionsBtn.addEventListener("click", function () {
 closeInstructionsBtn.addEventListener("click", function () {
     instructionsPopup.classList.remove("show");
     instructionsPopup.classList.add("hidden");
-});
-
-// TEST INVALID SESSION CODE POPUP
-testErrorBtn.addEventListener("click", function () {
-
-    errorPopup.classList.remove("hidden");
-
-    setTimeout(function () {
-        errorPopup.classList.add("hidden");
-    }, 1900);
-
 });
 
 // CLOSE INVALID SESSION CODE POPUP
