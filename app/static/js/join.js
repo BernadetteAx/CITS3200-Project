@@ -13,12 +13,18 @@ const instructionsPopup = document.getElementById("instructions-popup");
 const errorPopup = document.getElementById("error-popup");
 const closeErrorBtn = document.getElementById("closeErrorBtn");
 
-// Restore player name after returning from an invalid session code
 const savedPlayerName = sessionStorage.getItem("playerName");
+const savedSessionCode = sessionStorage.getItem("sessionCode");
 
 if (savedPlayerName) {
     playerNameInput.value = savedPlayerName;
     sessionCodeInput.disabled = false;
+}
+
+if (savedSessionCode) {
+    sessionCodeInput.value = savedSessionCode;
+    joinGameBtn.disabled = false;
+    hostGameBtn.disabled = true;
 }
 
 // Show invalid session popup if the server rejected the code
@@ -105,13 +111,21 @@ joinGameBtn.addEventListener("click", function () {
         return;
     }
 
-    // Save player details for the lobby
-    sessionStorage.setItem("playerName", playerName);
-    sessionStorage.setItem("sessionCode", sessionCode.toUpperCase());
+    // Get the session this player was previously in
+    const previousSessionCode = sessionStorage.getItem("sessionCode");
+    const newSessionCode = sessionCode.toUpperCase();
 
-    // This player is joining, not hosting
+    // If joining a different game, they need a new player ID
+    if (previousSessionCode !== newSessionCode) {
+        sessionStorage.removeItem("playerId");
+    }
+
+    // Save player details
+    sessionStorage.setItem("playerName", playerName);
+    sessionStorage.setItem("sessionCode", newSessionCode);
+
+    // This player is joining, not creating a new game
     sessionStorage.removeItem("isHost");
-    sessionStorage.removeItem("playerId");
 
     // Go to lobby
     window.location.href = "/lobby";

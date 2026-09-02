@@ -38,5 +38,13 @@ helpPopup.addEventListener("click", (event) => {
 
 
 startAuctionBtn.addEventListener("click", () => {
-    window.location.href = "/auction";
+    window.gameSocket.emit("start_auction", {
+        sessionCode: window.getSessionCode(),
+        playerId: window.getPlayerId()
+    });
+});
+
+window.gameSocket.on("auction_started", (payload) => {
+    sessionStorage.setItem("auctionStartTime", payload.auctionStartTime);
+    window.location.replace("/auction");
 });
