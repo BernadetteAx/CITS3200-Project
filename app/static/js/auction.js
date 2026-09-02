@@ -24,17 +24,33 @@ tiles.forEach(tile => {
 });
 
 // timer countdown
-let secondsLeft = 60;
 const timerValue = document.getElementById('timerValue');
 const timerPill = document.getElementById('timerPill');
-const timerInterval = setInterval(() => {
-  secondsLeft = Math.max(0, secondsLeft - 1);
+
+const auctionStartTime = Number(sessionStorage.getItem('auctionStartTime'));
+
+function updateTimer() {
+  const elapsed = Math.floor((Date.now() / 1000) - auctionStartTime);
+  const secondsLeft = Math.max(0, 60 - elapsed);
+
   const m = String(Math.floor(secondsLeft / 60)).padStart(2, '0');
   const s = String(secondsLeft % 60).padStart(2, '0');
+
   timerValue.textContent = `${m}:${s}`;
-  if (secondsLeft <= 10) timerPill.classList.add('low');
-  if (secondsLeft === 0) clearInterval(timerInterval);
-}, 1000);
+
+  if (secondsLeft <= 10) {
+    timerPill.classList.add('low');
+  }
+
+  if (secondsLeft === 0 && timerInterval) {
+    clearInterval(timerInterval);
+  }
+}
+
+let timerInterval = null;
+
+updateTimer();
+timerInterval = setInterval(updateTimer, 1000);
 
 // instructions popup
 const helpBtn = document.getElementById('helpBtn');

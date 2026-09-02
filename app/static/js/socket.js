@@ -54,8 +54,28 @@ socket.on('connect', () => {
 
 // server assigns us our official playerId on first join — save it
 socket.on('joined', (payload) => {
+
   playerId = payload.playerId;
   sessionStorage.setItem('playerId', playerId);
+
+  if (payload.auctionStartTime) {
+    sessionStorage.setItem('auctionStartTime', payload.auctionStartTime);
+  }
+
+  const phasePages = {
+    lobby: "/lobby",
+    start_game: "/start_game",
+    auction: "/auction",
+    mission: "/mission",
+    result_page: "/result_page"
+  };
+
+  const currentPage = window.location.pathname;
+  const correctPage = phasePages[payload.phase];
+
+  if (correctPage && currentPage !== correctPage) {
+    window.location.replace(correctPage);
+  }
 });
 
 // Invalid session code
@@ -70,7 +90,16 @@ socket.on('invalid_session', () => {
 // same connection and helpers without opening their own separate socket
 window.gameSocket = socket;
 window.getPlayerId = () => playerId;
-window.getSessionCode = () => sessionCode;
+window.getSessionCode = () => sessionStorage.getItem("sessionCode");
+
+// If the player presses Back during the game, return to the Join page
+window.addEventListener("pageshow", (event) => {
+  const gamePages = ["/lobby", "/start_game", "/auction", "/mission", "/result_page"];
+
+  if (event.persisted && gamePages.includes(window.location.pathname)) {
+    window.location.replace("/join");
+  }
+});
 
 // =====================================================================
 // WHAT TO ADD TO lobby.js / auction.js / mission.js (generated example)
