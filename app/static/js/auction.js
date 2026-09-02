@@ -7,6 +7,8 @@ const finishBtn = document.getElementById("finishBtn");
 const skipBtn = document.getElementById("skipBtn");
 const timerValue = document.getElementById("timerValue");
 const timerPill = document.getElementById("timerPill");
+const countdownFill = document.getElementById("countdownFill");
+const countdownTrack = document.getElementById("countdownTrack");
 const inventory = document.getElementById("inventorySlots");
 const inventoryLabel = document.getElementById("inventoryLabel");
 const resultPopup = document.getElementById("resultPopup");
@@ -41,14 +43,24 @@ function render(state) {
   skipBtn.disabled = !voting;
   inventoryLabel.textContent = `TEAM INVENTORY · ${state.purchasedItems.length}/8 SLOTS FILLED`;
   inventory.innerHTML = state.purchasedItems.map((item) => `<div class="hotbar-slot filled" title="${item.name}"><img src="/static/images/${item.image}" alt="${item.name}"></div>`).join("") + Array.from({length: Math.max(0, 8 - state.purchasedItems.length)}, () => '<div class="hotbar-slot empty">＋</div>').join("");
+  if (state.status !== "voting") {
+    countdownFill.style.width = "0%";
+    countdownTrack.setAttribute("aria-valuenow", "0");
+  } else {
+    tickTimer();
+  }
   state.status === "resolved" ? showResult(state.roundResult) : hideResult();
 }
 
 function tickTimer() {
   if (!latestState || latestState.status !== "voting" || !latestState.endsAt) return;
   const seconds = Math.max(0, Math.ceil(latestState.endsAt - Date.now() / 1000));
+  const percent = Math.min(100, Math.max(0, (latestState.endsAt - Date.now() / 1000) / 60 * 100));
   timerValue.textContent = `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
   timerPill.classList.toggle("low", seconds <= 10);
+  countdownFill.style.width = `${percent}%`;
+  countdownFill.classList.toggle("low", seconds <= 10);
+  countdownTrack.setAttribute("aria-valuenow", String(seconds));
 }
 setInterval(tickTimer, 250);
 

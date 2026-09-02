@@ -15,6 +15,10 @@
 {% block content %}
 <button class="instructions-trigger" id="helpBtn" title="How voting works">?</button>
 
+<div class="countdown-track" id="countdownTrack" role="progressbar" aria-label="Auction time remaining" aria-valuemin="0" aria-valuemax="60" aria-valuenow="60">
+  <div class="countdown-fill" id="countdownFill"></div>
+</div>
+
 <header>
   <h1 class="lobby-title">AUCTION</h1>
   <p class="lobby-subtext">VOTE FOR THE ITEM YOUR TEAM SHOULD BUY</p>

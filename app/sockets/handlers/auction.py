@@ -3,10 +3,12 @@ from flask_socketio import emit
 from app.extensions import socketio
 from app.sockets.sessions import get_session
 
-ROUND_SECONDS, RESULT_SECONDS = 60, 3
+ROUND_SECONDS, RESULT_SECONDS = 60, 2
 
 #prices and pairs are deliberately server-side. The browser may only select an id from the pair currently being auctioned.
 #generated some for now until we get the missions file in
+#make sure image sizes are consistent 
+#use the 64px versions for the main auction cards, use 32px versions for the inventory hotbar
 ITEM_PAIRS = [
  ({"id":"axe","name":"Axe","cost":20,"image":"axe-white-64.png","description":"Chops through obstacles and enemies with ease."},{"id":"water-bottle","name":"Water Bottle","cost":5,"image":"sport-bottle-white-64.png","description":"Keeps your team hydrated for the long haul."}),
  ({"id":"shovel","name":"Shovel","cost":15,"image":"shovel-32.png","description":"Useful for digging, clearing, and improvised defence."},{"id":"map","name":"Map","cost":10,"image":"icons8-map-64.png","description":"Helps the team find a safer route."}),
@@ -47,7 +49,7 @@ def _state(session, player_id=None):
     return state
 
 def broadcast_auction_state(session_code, session):
-    # Individual votes remain anonymous and background tasks can broadcast too
+    #individual votes remain anonymous and background tasks can broadcast too
     socketio.emit("auction_state", _state(session), room=session_code)
 
 def emit_auction_state_to_player(session, player_id):
