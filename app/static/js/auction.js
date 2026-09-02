@@ -54,14 +54,26 @@ function render(state) {
 
 function tickTimer() {
   if (!latestState || latestState.status !== "voting" || !latestState.endsAt) return;
-  const seconds = Math.max(0, Math.ceil(latestState.endsAt - Date.now() / 1000));
-  const percent = Math.min(100, Math.max(0, (latestState.endsAt - Date.now() / 1000) / 60 * 100));
-  timerValue.textContent = `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
+
+  const seconds = Math.max(
+    0,
+    Math.ceil(latestState.endsAt - Date.now() / 1000)
+  );
+  const percent = Math.min(
+    100,
+    Math.max(0, (latestState.endsAt - Date.now() / 1000) / 60 * 100)
+  );
+
+  timerValue.textContent =
+    `${String(Math.floor(seconds / 60)).padStart(2, "0")}:` +
+    `${String(seconds % 60).padStart(2, "0")}`;
+
   timerPill.classList.toggle("low", seconds <= 10);
   countdownFill.style.width = `${percent}%`;
   countdownFill.classList.toggle("low", seconds <= 10);
   countdownTrack.setAttribute("aria-valuenow", String(seconds));
 }
+
 setInterval(tickTimer, 250);
 
 function showResult(result) {
