@@ -96,6 +96,9 @@ def handle_join_session(payload):
     emit('joined', {'playerId': player_id})
 
     broadcast_lobby_state(session_code, session)
+    if session.get('auction') and session['phase'] in ('auction', 'mission'):
+        from app.sockets.handlers.auction import emit_auction_state_to_player
+        emit_auction_state_to_player(session, player_id)
 
 
 @socketio.on('player_ready')
@@ -136,6 +139,9 @@ def handle_start_game(payload):
     # The lobby permits the host to start with however many players are
     # currently in the room, provided everyone has marked themselves ready
     if all_ready and session['players']:
+        # Initialise shared auction state before players navigate away.
+        from app.sockets.handlers.auction import initialise_auction
+        initialise_auction(session)
         session['phase'] = 'start_game'
         emit('game_started', {'phase': session['phase']}, room=session_code)
 
