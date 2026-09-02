@@ -15,10 +15,14 @@
 {% block content %}
 <button class="instructions-trigger" id="helpBtn" title="How voting works">?</button>
 
+<div class="countdown-track" id="countdownTrack" role="progressbar" aria-label="Auction time remaining" aria-valuemin="0" aria-valuemax="60" aria-valuenow="60">
+  <div class="countdown-fill" id="countdownFill"></div>
+</div>
+
 <header>
   <h1 class="lobby-title">AUCTION</h1>
   <p class="lobby-subtext">VOTE FOR THE ITEM YOUR TEAM SHOULD BUY</p>
-  <p class="lobby-subsubtext">2 OF 8</p>
+  <p class="lobby-subsubtext" id="roundText">1 OF 8</p>
 </header>
 
 <div class="status-row">
@@ -35,31 +39,7 @@
 <div class="lobby-card">
   <h2>AVAILABLE ITEMS</h2>
 
-  <div class="item-grid" id="itemGrid">
-    <div class="item-tile" data-item="axe" data-state="idle">
-      <div class="item-image">
-        <img src="{{ url_for('static', filename='images/axe-white-64.png') }}" alt="Axe">
-      </div>
-      <div class="item-name">Axe</div>
-      <div class="item-desc">Chops through obstacles and enemies with ease. A reliable choice for gathering and close-range combat.</div>
-      <div class="item-footer">
-        <span class="cost-tag">$20</span>
-        <span class="vote-check">TAP TO VOTE</span>
-      </div>
-    </div>
-
-    <div class="item-tile" data-item="water-bottle" data-state="idle">
-      <div class="item-image">
-        <img src="{{ url_for('static', filename='images/sport-bottle-white-64.png') }}" alt="Water Bottle">
-      </div>
-      <div class="item-name">Water Bottle</div>
-      <div class="item-desc">Keeps you hydrated and ready for the long haul. A simple essential for staying prepared on the move.</div>
-      <div class="item-footer">
-        <span class="cost-tag">$5</span>
-        <span class="vote-check">TAP TO VOTE</span>
-      </div>
-    </div>
-  </div>
+  <div class="item-grid" id="itemGrid"></div>
 
   <div class="vote-progress">
     <span id="voteCountText">1 / 4 TEAMMATES HAVE VOTED</span>
@@ -80,21 +60,8 @@
 </div>
 
 <div class="hotbar">
-  <div class="hotbar-label">TEAM INVENTORY · 2/8 SLOTS FILLED</div>
-  <div class="hotbar-slots">
-    <div class="hotbar-slot filled" title="Shovel">
-      <img src="{{ url_for('static', filename='images/shovel-32.png') }}" alt="Shovel">
-    </div>
-    <div class="hotbar-slot filled" title="Cat">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Cat">
-    </div>
-    <div class="hotbar-slot empty">＋</div>
-    <div class="hotbar-slot empty">＋</div>
-    <div class="hotbar-slot empty">＋</div>
-    <div class="hotbar-slot empty">＋</div>
-    <div class="hotbar-slot empty">＋</div>
-    <div class="hotbar-slot empty">＋</div>
-  </div>
+  <div class="hotbar-label" id="inventoryLabel">TEAM INVENTORY · 0/8 SLOTS FILLED</div>
+  <div class="hotbar-slots" id="inventorySlots"></div>
 </div>
 
 <!-- Instructions popup -->
