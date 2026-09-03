@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/result_page.css') }}">
 <script src="{{ url_for('static', filename='js/result_page.js') }}" defer></script>
+
+    <!-- UI redesign layer: loaded last, restyles result_page.css without editing it. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme_redesign_v2.css') }}">
 </head>
 
 <body>
