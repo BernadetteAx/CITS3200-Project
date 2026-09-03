@@ -112,6 +112,9 @@ def handle_join_session(payload):
     if session.get('auction') and session['phase'] in ('auction', 'mission'):
         from app.sockets.handlers.auction import emit_auction_state_to_player
         emit_auction_state_to_player(session, player_id)
+    if session.get('mission') and session['phase'] == 'mission':
+        from app.sockets.handlers.mission import emit_mission_state_to_player
+        emit_mission_state_to_player(session)
 
 @socketio.on('disconnect')
 def handle_disconnect():
