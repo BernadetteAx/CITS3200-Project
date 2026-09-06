@@ -8,8 +8,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/app/static/css/result_page.css">
-    <script src="/app/static/js/result_page.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result_page.css') }}">
+<script src="{{ url_for('static', filename='js/result_page.js') }}" defer></script>
 </head>
 
 <body>
@@ -93,7 +93,7 @@
     <!-- Navigation -->
     <section class="result-actions">
 
-        <a href="/app/templates/home_page.html" class="result-button">
+        <a href="/join" class="result-button">
             RETURN HOME
         </a>
 

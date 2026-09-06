@@ -5,7 +5,7 @@ from app import app
 @app.route('/index')
 @app.route('/home')
 def index():
-    return render_template('home_page.html')
+    return render_template('join.html')
 
 
 @app.route('/host')
@@ -24,6 +24,10 @@ def instructions():
 def lobby():
     return render_template("lobby.html")
 
+@app.route('/start_game')
+def start_game():
+    return render_template('start_game.html')
+
 @app.route('/auction')
 def auction():
     return render_template('auction.html')
@@ -32,6 +36,15 @@ def auction():
 
 
 # This html page is just for testing and is temporary
-@app.route('/mission')
+@app.route('/test_mission')
 def mission():
     return render_template('test-mission.html')
+  
+@app.route('/mission')
+def mission():
+    return render_template('mission.html')
+
+@app.route("/result_page")
+def result_page():
+    return render_template("result_page.html")
+
