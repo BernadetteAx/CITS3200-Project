@@ -13,7 +13,7 @@ mission_structures = {
     "Get Rescued":              ["Survival",   {"Arctic Tundra": true,   "Desert": true,   "Jungle": true,   "City": false,  "Ocean": true,  "Volcano": true},     ["Environmental Obstacle",  "Find Water",               "Environmental Obstacle",   "Find Shelter",         "Contact Teammate/s",       "Travel To Rendezvouz"  ]],
     // Deactivate Bomb
     // Loot Wreck (Jungle - Aeroplane, Ocean - Ship)
-    // Destroy our info in enemy base
+    // Destroy our team's info in enemy base
     // Make a switch
     // Smuggle Goods?
     // Answer a Distress Signal
