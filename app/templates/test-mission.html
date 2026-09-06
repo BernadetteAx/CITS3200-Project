@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Test - Missions{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/missions.js') }}"></script>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<button onclick="get_mission()" style="margin: 10px">Generate a mission</button>
+
+<div id="mission_contents" style="margin: 10px">No Mission Yet</div>
+{% endblock %}

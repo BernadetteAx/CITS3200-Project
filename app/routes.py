@@ -32,6 +32,14 @@ def start_game():
 def auction():
     return render_template('auction.html')
 
+
+
+
+# This html page is just for testing and is temporary
+@app.route('/test_mission')
+def mission():
+    return render_template('test-mission.html')
+  
 @app.route('/mission')
 def mission():
     return render_template('mission.html')
