@@ -37,7 +37,7 @@ def auction():
 
 # This html page is just for testing and is temporary
 @app.route('/test_mission')
-def mission():
+def test_mission():
     return render_template('test-mission.html')
   
 @app.route('/mission')
