@@ -285,9 +285,7 @@ label { color: var(--text-muted); }
   transform: translateY(-1px);
 }
 
-/* -------------------------------------------------------------------- */
-/* 4. BUTTON SYSTEM — rounded, chunky, tactile                           */
-/* -------------------------------------------------------------------- */
+
 .lobby-btn,
 .start-btn,
 #joinGameBtn,
