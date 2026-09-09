@@ -33,7 +33,7 @@
 #if you get an error here make sure to download socketio and flask_socketio using pip install socketio flask_socketio
 from flask_socketio import emit, join_room
 from app.extensions import socketio
-from app.sockets.sessions import get_or_create_session, get_session, sessions
+from app.sockets.sessions import get_or_create_session, get_session, sessions, change_host
 import time
 
 
@@ -98,8 +98,9 @@ def handle_join_session(payload):
     # this handler — the equivalent of `socket.send(...)` in the Node version.
     joined_data = {
         'playerId': player_id,
-        'phase': session['phase']
-    }
+        'phase': session['phase'],
+        'isHost': player_id == session['host_id']
+}
 
     # If the auction has already started, tell this player when it started
     # so their timer can match everyone else's timer
@@ -116,6 +117,40 @@ def handle_join_session(payload):
         from app.sockets.handlers.mission import emit_mission_state_to_player
         emit_mission_state_to_player(session)
 
+def reassign_host_after_disconnect(session_code, old_host_id):
+    """
+    Wait 30 seconds after the host disconnects.
+    If they have not reconnected, give host to another connected player.
+    """
+    socketio.sleep(30)
+
+    session = get_session(session_code)
+
+    # Session may no longer exist
+    if session is None:
+        return
+
+    # Make sure this player is still the host
+    if session["host_id"] != old_host_id:
+        return
+
+    old_host = session["players"].get(old_host_id)
+
+    # Host rejoined during the 30 seconds
+    if old_host and old_host["connected"]:
+        return
+
+    new_host_id = change_host(session)
+
+    if new_host_id:
+        socketio.emit(
+            'host_changed',
+            {'hostId': new_host_id},
+            room=session_code
+    )
+
+    broadcast_lobby_state(session_code, session)
+
 @socketio.on('disconnect')
 def handle_disconnect():
     from flask import request
@@ -129,6 +164,16 @@ def handle_disconnect():
                 player['socket_id'] = None
 
                 broadcast_lobby_state(session_code, session)
+
+                # If the host disconnected, give them 30 seconds to reconnect
+                # before transferring host to another connected player.
+                if player_id == session['host_id']:
+                    socketio.start_background_task(
+                        reassign_host_after_disconnect,
+                        session_code,
+                        player_id
+                    )
+
                 return
 
 
@@ -221,4 +266,8 @@ def broadcast_lobby_state(session_code, session):
         {'id': pid, 'name': p['name'], 'ready': p['ready'], 'connected': p['connected'],'isHost': pid == session['host_id']}
         for pid, p in session['players'].items()
     ]
-    emit('lobby_state', {'players': players, 'phase': session['phase']}, room=session_code)
+    socketio.emit(
+    'lobby_state',
+    {'players': players, 'phase': session['phase']},
+    room=session_code
+    )

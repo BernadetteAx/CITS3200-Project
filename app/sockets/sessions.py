@@ -48,3 +48,16 @@ def get_session(session_code):
     Returns None if the session code does not exist.
     """
     return sessions.get(session_code)
+
+
+def change_host(session):
+    """
+    Change the host to the first connected player available.
+    Returns the new host's player ID, or None if nobody is connected.
+    """
+    for player_id, player in session["players"].items():
+        if player["connected"]:
+            session["host_id"] = player_id
+            return player_id
+
+    return None
