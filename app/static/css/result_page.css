@@ -263,61 +263,118 @@ body {
     outline-offset: 3px;
 }
 
+/* Loading and connection message */
+.result-header #result-message {
+    margin: 20px 0 0;
+    font-size: 0.7rem;
+    line-height: 1.9;
+    color: var(--text-muted);
+}
 
-/* MOBILE */
+/* results Summary */
+.mission-results .result-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
 
-@media (max-width: 600px) {
+.mission-results .result-summary p {
+    margin: 0;
+    padding: 16px;
+    background: var(--key-bg);
+    border: 1px solid var(--tile-border);
+    border-radius: 6px;
+    font-size: 0.7rem;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
 
-    body {
-        padding: 24px 14px 50px;
-    }
+.mission-results .result-summary span {
+    color: var(--text-main);
+}
 
-    .result-header {
-        padding: 40px 10px 55px;
-    }
+.mission-results #challenges-passed {
+    color: var(--correct);
+}
 
-    .result-header h1 {
-        font-size: 2rem;
-    }
+.mission-results #challenges-failed {
+    color: var(--incorrect);
+}
 
-    .final-score,
-    .money-section,
-    .mission-results {
-        width: 100%;
+/* section headings */
+.mission-results .result-section-heading {
+    margin: 28px 0 18px;
+    font-size: 0.8rem;
+    line-height: 1.8;
+}
 
-        padding: 26px 18px;
-    }
+/* challenge cards */
+.mission-results #challenge-results {
+    grid-template-columns: minmax(0, 1fr);
+}
 
-    .final-score h2,
-    .money-section h2,
-    .mission-results h2 {
-        font-size: 0.85rem;
-    }
+.mission-results .mission-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
 
-    .mission-card {
-        padding: 16px 14px;
+.mission-results .mission-card .mission-info,
+.mission-results .mission-card .mission-status {
+    min-width: 0;
+}
 
-        gap: 14px;
-    }
+.mission-results .mission-card .mission-status {
+    text-align: left;
+}
 
-    .mission-info h3 {
-        font-size: 0.75rem;
-    }
+.mission-results .mission-card[data-outcome="success"] {
+    border-left: 4px solid var(--correct);
+}
 
-    .mission-info p,
-    .mission-status p {
-        font-size: 0.65rem;
-    }
+.mission-results .mission-card[data-outcome="fail"] {
+    border-left: 4px solid var(--incorrect);
+}
 
-    .mission-status {
-        min-width: 85px;
-    }
+.mission-results .mission-card[data-outcome="success"] .challenge-outcome {
+    color: var(--correct);
+}
 
-    .result-actions {
-        width: 100%;
-    }
+.mission-results .mission-card[data-outcome="fail"] .challenge-outcome {
+    color: var(--incorrect);
+}
 
-    .result-button {
-        font-size: 0.75rem;
-    }
+/* purchased and used items */
+.mission-results .result-inventory {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.mission-results .result-inventory-section {
+    min-width: 0;
+}
+
+.mission-results .result-item-list {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.mission-results .result-item-list li,
+.mission-results .result-inventory-section p,
+.mission-results #challenge-results > p {
+    font-size: 0.7rem;
+    line-height: 2;
+    color: var(--text-muted);
+    overflow-wrap: anywhere;
+}
+
+.mission-results .result-item-list li {
+    margin-bottom: 10px;
+}
+
+/* hide conditional content until needed */
+.mission-results [hidden] {
+    display: none !important;
 }

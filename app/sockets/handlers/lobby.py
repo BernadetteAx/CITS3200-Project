@@ -35,6 +35,7 @@ from flask_socketio import emit, join_room
 from app.extensions import socketio
 from app.sockets.sessions import get_or_create_session, get_session, sessions, change_host
 import time
+from app.services.scoring_service import build_result_state
 
 
 @socketio.on('join_session')
@@ -116,6 +117,17 @@ def handle_join_session(payload):
     if session.get('mission') and session['phase'] == 'mission':
         from app.sockets.handlers.mission import emit_mission_state_to_player
         emit_mission_state_to_player(session)
+        
+    # send stored results for when a player arrives or reconnects.
+    if session['phase'] == 'result_page':
+        result_state = build_result_state(session)
+
+        if result_state is None:
+            emit('result_error', {
+                'message': 'Results are not available for this game yet.'
+            })
+        else:
+            emit('result_state', result_state)
 
 def reassign_host_after_disconnect(session_code, old_host_id):
     """
