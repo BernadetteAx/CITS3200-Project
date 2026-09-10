@@ -57,6 +57,7 @@ socket.on('joined', (payload) => {
 
   playerId = payload.playerId;
   sessionStorage.setItem('playerId', playerId);
+  sessionStorage.setItem('isHost', payload.isHost ? 'true' : 'false');
 
   if (payload.auctionStartTime) {
     sessionStorage.setItem('auctionStartTime', payload.auctionStartTime);
@@ -76,6 +77,12 @@ socket.on('joined', (payload) => {
   if (correctPage && currentPage !== correctPage) {
     window.location.replace(correctPage);
   }
+});
+
+// Keep this browser's host status updated if the host changes
+socket.on('host_changed', (payload) => {
+  const amIHost = payload.hostId === playerId;
+  sessionStorage.setItem('isHost', amIHost ? 'true' : 'false');
 });
 
 // Invalid session code
