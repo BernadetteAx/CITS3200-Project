@@ -1,106 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
 
-    <title>Game Results</title>
+{% block title %}Game Results{% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/result_page.css') }}">
-<script src="{{ url_for('static', filename='js/result_page.js') }}" defer></script>
+{% block styles %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/result_page.css') }}"
+>
+{% endblock %}
 
-    <!-- UI redesign layer: loaded last, restyles result_page.css without editing it. -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme_redesign_v2.css') }}">
-</head>
+{% block scripts %}
+<script
+    defer
+    src="{{ url_for('static', filename='js/result_page.js') }}"
+></script>
+{% endblock %}
 
-<body>
+{% block header %}
+<header class="result-header">
+    <h1>GAME RESULTS</h1>
+    <p id="result-message" role="status" aria-live="polite">
+        Loading your team's results…
+    </p>
+</header>
+{% endblock %}
 
-    <!-- Header -->
-    <header class="result-header">
-        <h1>GAME OVER</h1>
-    </header>
+{% block content %}
 
-    <!-- Final Score - FR21 -->
-    <section class="final-score">
-        <h2>FINAL SCORE</h2>
+<!-- Final score recorded by Mission -->
+<section class="final-score">
+    <h2>FINAL SCORE</h2>
+    <div class="score-display">
+        <span id="final-score">---</span>
+    </div>
+</section>
 
-        <!-- Placeholder until scoring system is finalised -->
-        <div class="score-display">
-            <span id="final-score">---</span>
-        </div>
+<!-- Remaining auction budget -->
+<section class="money-section">
+    <h2>LEFTOVER MONEY</h2>
+    <div class="money-display">
+        <span id="leftover-money">$---</span>
+    </div>
+</section>
 
-    </section>
+<!-- Keep the results inside the existing themes missions grid area -->
+<section class="mission-results">
+    <h2>MISSION RESULTS</h2>
 
+    <div class="result-summary">
+        <p>
+            Game status:
+            <span id="completion-status">---</span>
+        </p>
 
-    <!-- Leftover Money -->
-    <section class="money-section">
-        <h2>LEFTOVER MONEY</h2>
+        <!-- Shown only when an overall outcome is provided -->
+        <p id="mission-outcome-row" hidden>
+            Mission outcome:
+            <span id="mission-outcome">---</span>
+        </p>
 
-        <div class="money-display">
-            <span id="leftover-money">$---</span>
-        </div>
-    </section>
+        <p>
+            Challenges completed:
+            <span id="challenges-completed">---</span>
+            /
+            <span id="total-challenges">---</span>
+        </p>
 
+        <p>
+            Challenges passed:
+            <span id="challenges-passed">---</span>
+        </p>
 
-    <!-- Mission Results - FR20 / FR22 -->
-    <section class="mission-results">
+        <p>
+            Challenges failed:
+            <span id="challenges-failed">---</span>
+        </p>
 
-        <h2>MISSION RESULTS</h2>
+        <p>
+            Total penalty points:
+            <span id="total-penalties">---</span>
+        </p>
+    </div>
 
-        <div class="mission-list">
+    <!-- JavaScript generates one card per recorded challenge -->
+    <h3 class="result-section-heading">CHALLENGE RESULTS</h3>
+    <div class="mission-list" id="challenge-results"></div>
 
-            <!-- Mission 1 -->
-            <div class="mission-card">
-                <div class="mission-info">
-                    <h3>MISSION 1</h3>
-                    <p>Difficulty: <span class="difficulty">---</span></p>
-                </div>
+    <div class="result-inventory">
+        <section class="result-inventory-section">
+            <h3 class="result-section-heading">ITEMS PURCHASED</h3>
+            <ul class="result-item-list" id="items-purchased"></ul>
+            <p id="no-purchased-items" hidden>No items purchased.</p>
+        </section>
 
-                <div class="mission-status">
-                    <p>Score: <span class="mission-score">---</span></p>
-                </div>
-            </div>
+        <section class="result-inventory-section">
+            <h3 class="result-section-heading">ITEMS USED</h3>
+            <ul class="result-item-list" id="items-used"></ul>
+            <p id="no-used-items" hidden>No items used.</p>
+        </section>
+    </div>
+</section>
 
+<section class="result-actions">
+    <a href="{{ url_for('join') }}" class="result-button">
+        RETURN HOME
+    </a>
+</section>
 
-            <!-- Mission 2 -->
-            <div class="mission-card">
-                <div class="mission-info">
-                    <h3>MISSION 2</h3>
-                    <p>Difficulty: <span class="difficulty">---</span></p>
-                </div>
-
-                <div class="mission-status">
-                    <p>Score: <span class="mission-score">---</span></p>
-                </div>
-            </div>
-
-
-            <!-- Mission 3 -->
-            <div class="mission-card">
-                <div class="mission-info">
-                    <h3>MISSION 3</h3>
-                    <p>Difficulty: <span class="difficulty">---</span></p>
-                </div>
-
-                <div class="mission-status">
-                    <p>Score: <span class="mission-score">---</span></p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Navigation -->
-    <section class="result-actions">
-
-        <a href="/join" class="result-button">
-            RETURN HOME
-        </a>
-
-    </section>
-
-</body>
-</html>
+{% endblock %}
