@@ -14,4 +14,5 @@ items_dict = {
     "Scuba Gear": {"desc": "A...", "cost": 100},
     "Wire Cutters": {"desc": "A...", "cost": 100},
     "Explosives": {"desc": "A...", "cost": 100},
+    "Water Bottle": {"desc": "A...", "cost": 100},
 }
