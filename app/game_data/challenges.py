@@ -3,7 +3,7 @@ challenges_dict = {
         "Alert Another Team": {
             "challenge_name": "Alert Another Team",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. The other team sees it and is alerted to your position.", "point_value": 70, "point_desc": "The signal fire gets the team's attention and gives them a clear destination to aim for. It does, however, risk attracting unwanted attention."}, 
                 "Handheld Radios": {"use_desc": "You use your handheld radios to call the the other team and alert them to your position.", "point_value": 100, "point_desc": "The radios are perfectly suited for this scenario. Both teams are able to communicate and discuss a rendovouz point."},
@@ -14,28 +14,40 @@ challenges_dict = {
             "final_failure_desc": "Your team is unable to work out how to contact the other team. Without being able to alert them to your position, you'll never be able to rendovouz. Your mission ends here."
         },
 
-        "Contact Rescue Team": {
+        "Contact Rescue Team - Survival": {
             "challenge_name": "Contact Rescue Team",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
+            "viable_mission_types": ["Survival"],
             "items":{
                 "Handheld Radios": {"use_desc": "Using your handheld radios you are able to find an active frequency and call for help.", "point_value": 100, "point_desc": ""},
             }, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "You're team is going to need to get in contact with someone if they hold out any hope of being rescued.",            
+            "continue_failure_desc": "Your team is unable to find a method to get in contact with a rescue team. They are instead forced to make their way to a military base some distance away and petition them for help. The journey takes a long time and a lot of energy.", 
+            "final_failure_desc": "Without the needed supplies to make contact with a rescue crew, your team is forced to attempt to trek to a distant military base and hope that they can help. Your team, out of options and completely exhausted, begins the perilous journey. They will never reach their destination."
+        },
+
+        "Contact Rescue Team - Escape": {
+            "challenge_name": "Contact Rescue Team",
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
+            "viable_mission_types": ["Escape"],
+            "items":{
+                "Handheld Radios": {"use_desc": "Using your handheld radios you are able to find an active frequency and call for help.", "point_value": 100, "point_desc": ""},
+            }, 
+            "desc": "Your team needs to put some distance between you and your captors. You'll need to get in contact with a rescue crew if you want to get out of here.",
+            "continue_failure_desc": "Your team is unable to find a method to get in contact with a rescue team. They are instead forced to make their way to a military base some distance away and petition them for help. The journey takes a long time and a lot of energy.", 
+            "final_failure_desc": "Without the needed supplies to make contact with a rescue crew, your team is forced to attempt to trek to a distant military base and hope that they can help. Your team, out of options and completely exhausted, begins the perilous journey. They will never reach their destination."
         },
 
         "Contact Stranded Teammate": {
             "challenge_name": "Contact Stranded Teammate",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
+            "viable_mission_types": ["Rescue"],
             "items":{
 
             }, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "To have any hope of reconnecting with your teammate, you'll need to find a way to contact them and let know where to meet you.", 
+            "continue_failure_desc": "Without any way of contacting your teammate, you'll be forced to follow their tracks as best you can and attempt to intercept them. This will take a significant amount of time and energy.", 
+            "final_failure_desc": "Without any way of contacting your teammate, your team is forced to attempt to follow them and hope that they can intercept them. Unfortunatlely, the time you lost earlier has put a lot of distance between you and your teammate. Your exhausted crew is unable to reach reach them until it is already too late."
         },
     },
 
@@ -45,7 +57,7 @@ challenges_dict = {
         "Arctic Bear": {
             "challenge_name": "Arctic Bear",
             "viable_locations": ["Arctic Tundra"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the arctic bear and use the gas mask to slip by unscathed.", "point_value": 100, "point_desc": ""},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the arctic bear retreats.", "point_value": 100, "point_desc": ""},
@@ -59,7 +71,7 @@ challenges_dict = {
         "Ash": {
             "challenge_name": "Ash",
             "viable_locations": ["Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
 
             }, 
@@ -72,7 +84,7 @@ challenges_dict = {
         "Blizzard": {
             "challenge_name": "Blizzard",
             "viable_locations": ["Arctic Tundra", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
 
             }, 
@@ -84,7 +96,7 @@ challenges_dict = {
         "Cliff": {
             "challenge_name": "Cliff",
             "viable_locations": ["Arctic Tundra", "Jungle"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
 
             }, 
@@ -97,7 +109,7 @@ challenges_dict = {
         "Collosal Wave": {
             "challenge_name": "Collosal Wave",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -107,7 +119,7 @@ challenges_dict = {
         "Crocodile": {
             "challenge_name": "Crocodile",
             "viable_locations": ["Jungle"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed.", "point_value": 100, "point_desc": ""},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the crocodile retreats.", "point_value": 100, "point_desc": ""},
@@ -121,7 +133,7 @@ challenges_dict = {
         "Cyclone": {
             "challenge_name": "Cyclone",
             "viable_locations": ["Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
 
             }, 
@@ -134,7 +146,7 @@ challenges_dict = {
         "Deadly Insects": {
             "challenge_name": "Deadly Insects",
             "viable_locations": ["Jungle"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to light a large branch on fire. Wielding the branch you are able to pass through, using the flame and smoke to keep the bugs at bay.", "point_value": 90, "point_desc": "The flame is able to easily deal with the swarm of bugs and is well suited to the task. Unfortunately a couple of bugs do get past, but their bites alone are not enough to inflict significant damage."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas. It is too potent for the bugs to pass through. You use the gas mask to pass by unscathed.", "point_value": 100, "point_desc": "The gas is able to easily deal with the swarm of bugs and is well suited to the task."},
@@ -148,7 +160,7 @@ challenges_dict = {
         "Deadly Marshland Gases": {
             "challenge_name": "Deadly Marshland Gases",
             "viable_locations": ["Jungle"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous marshland gases.", "point_value": 100, "point_desc": "The gas mask is ideal for situations just like this. It was the perfect tool to help you pass safely through the marshlands."},
                 "Scuba Gear": {"use_desc": "Your team uses the scuba tanks and masks to breathe safely as make your way through the marshlands.", "point_value": 90, "point_desc": "The scuba gear is very effective and keeps your team safe. It is however, unwieldy and gets snagged on marshland plants and vines, slowing your progress."},
@@ -163,7 +175,7 @@ challenges_dict = {
         "Earthquake": {
             "challenge_name": "Earthquake",
             "viable_locations": ["Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -174,7 +186,7 @@ challenges_dict = {
         "Extreme Heat": {
             "challenge_name": "Extreme Heat",
             "viable_locations": ["Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -185,7 +197,7 @@ challenges_dict = {
         "Fallen Trees Block Path": {
             "challenge_name": "Fallen Trees Block Path",
             "viable_locations": ["Jungle"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -196,7 +208,7 @@ challenges_dict = {
         "Fire": {
             "challenge_name": "Fire",
             "viable_locations": ["Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -207,7 +219,7 @@ challenges_dict = {
         "Flash Flood": {
             "challenge_name": "Flash Flood",
             "viable_locations": ["Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -218,7 +230,7 @@ challenges_dict = {
         "Frozen Lake": {
             "challenge_name": "Frozen Lake",
             "viable_locations": ["Arctic Tundra", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -229,7 +241,7 @@ challenges_dict = {
         "Heat Wave": {
             "challenge_name": "Heat Wave",
             "viable_locations": ["Desert"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -240,7 +252,7 @@ challenges_dict = {
         "Ice Cliff": {
             "challenge_name": "Ice Cliff",
             "viable_locations": ["Arctic Tundra"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Ice Axes": {"use_desc": "You use the Ice Axes to scale the ice cliff.", "point_value": 100, "point_desc": ""},
             }, 
@@ -253,7 +265,7 @@ challenges_dict = {
         "Land Slide": {
             "challenge_name": "Land Slide",
             "viable_locations": ["Jungle", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Ice Axes": {"use_desc": "You wedge the ice axes as deep into the surrounding rock as possible and hold on tight. After the landslide has past, you need to dig yourselves out, but you are otherwise fine.", "point_value": 100, "point_desc": ""},
             }, 
@@ -266,7 +278,7 @@ challenges_dict = {
         "Lava Spout": {
             "challenge_name": "Lava Spout",
             "viable_locations": ["Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -277,7 +289,7 @@ challenges_dict = {
         "Mirages": {
             "challenge_name": "Mirages",
             "viable_locations": ["Desert"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -288,7 +300,7 @@ challenges_dict = {
         "Nest of Scorpions": {
             "challenge_name": "Nest of Scorpions",
             "viable_locations": ["Desert", "Jungle"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You toss the smoking kindling into the nest and the smoke pacifies the scorpions allowing you to pass by unscathed.", "point_value": 100, "point_desc": ""},
                 "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister into the nest, the gas causes the scorpions to scatter allowing you to pass by unscathed.", "point_value": 100, "point_desc": ""},
@@ -302,7 +314,7 @@ challenges_dict = {
         "Quick Sand": {
             "challenge_name": "Quick Sand",
             "viable_locations": ["Desert", "Jungle"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Ice Axes": {"use_desc": "You use wedge the ice axes into the surrounding solid ground and use them to pull yourselves out.", "point_value": 100, "point_desc": ""},
             }, 
@@ -315,7 +327,7 @@ challenges_dict = {
         "River": {
             "challenge_name": "River",
             "viable_locations": ["Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -326,7 +338,7 @@ challenges_dict = {
         "Rockfall": {
             "challenge_name": "Rockfall",
             "viable_locations": ["Arctic Tundra", "Jungle", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -337,7 +349,7 @@ challenges_dict = {
         "Sand Dunes": {
             "challenge_name": "Sand Dunes",
             "viable_locations": ["Desert"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -348,7 +360,7 @@ challenges_dict = {
         "Sand Storm": {
             "challenge_name": "Sand Storm",
             "viable_locations": ["Desert"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -359,7 +371,7 @@ challenges_dict = {
         "Shallow Reef": {
             "challenge_name": "Shallow Reef",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -370,7 +382,7 @@ challenges_dict = {
         "Shark Attack": {
             "challenge_name": "Shark Attack",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the shark retreats.", "point_value": 100, "point_desc": ""},
             }, 
@@ -383,7 +395,7 @@ challenges_dict = {
         "Temperature Drop": {
             "challenge_name": "Temperature Drop",
             "viable_locations": ["Arctic Tundra", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -394,7 +406,7 @@ challenges_dict = {
         "Underwater Earthquake": {
             "challenge_name": "Underwater Earthquake",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -405,7 +417,7 @@ challenges_dict = {
         "Venemous Snake": {
             "challenge_name": "Venemous Snake",
             "viable_locations": ["Desert", "Jungle"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You use the flame to keep the reptile at bay, and pass by unscathed.", "point_value": 100, "point_desc": ""},
                 "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister near the snake, harmlessly incapacitating it and you use the gas mask to slip by unscathed.", "point_value": 100, "point_desc": ""},
@@ -419,7 +431,7 @@ challenges_dict = {
         "Volcanic Gases": {
             "challenge_name": "",
             "viable_locations": ["Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "point_value": 100, "point_desc": ""},
             },
@@ -436,7 +448,7 @@ challenges_dict = {
         "Find Civilization": {
             "challenge_name": "Find Civilization",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -447,7 +459,7 @@ challenges_dict = {
         "Find Shelter": {
             "challenge_name": "Find Shelter",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -460,9 +472,9 @@ challenges_dict = {
 
     "Find Water": {
         "Get Water - Desert": {
-            "challenge_name": "Get Water - Desert",
+            "challenge_name": "Get Water",
             "viable_locations": ["Desert"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -471,9 +483,9 @@ challenges_dict = {
         },
 
         "Get Water - Arctic Tundra": {
-            "challenge_name": "Get Water - Arctic Tundra",
+            "challenge_name": "Get Water",
             "viable_locations": ["Arctic Tundra"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Ice Axes": {"use_desc": "You stumble across a frozen river. You use the ice axes to break through the thick ice and gain access to the flowing water beneath.", "point_value": 80, "point_desc": "The ice axes were an effective tool for overcoming this obstacle."},
                 "Fire Starter Kit": {"use_desc": "You find a large chunk of ice, and using the fire starter kit to create a small fire. The small flame melts some of the ice into water.", "point_value": 70, "point_desc": "Whilst the flame was able to melt the ice, the water it produced dampened the kindling and put the fire out. So, you managed to obtain water, but not as much as you might have wanted."},
@@ -486,9 +498,9 @@ challenges_dict = {
         },
 
         "Get Water - Jungle": {
-            "challenge_name": "Get Water - Jungle",
+            "challenge_name": "Get Water",
             "viable_locations": ["Jungle"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -497,9 +509,9 @@ challenges_dict = {
         },
 
         "Get Water - Ocean": {
-            "challenge_name": "Get Water - Ocean",
+            "challenge_name": "Get Water",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -508,9 +520,9 @@ challenges_dict = {
         },
 
         "Get Water - Volcano": {
-            "challenge_name": "Get Water - Volcano",
+            "challenge_name": "Get Water",
             "viable_locations": ["Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -525,7 +537,7 @@ challenges_dict = {
         "Air Based Getaway": {
             "challenge_name": "Air Based Getaway",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Paraglider": {"use_desc": "Your team finds the highest point they can and paraglide silently away.", "point_value": 80, "point_desc": "The paragliders quickly put some distance between you and your would be pursuors. They are particularly effective due to how silently they move, but once you reach the forested jungle, they become cumbersome and impractical. Fortunately by that point you are pretty much in the clear."},
                 "Helicopter": {"use_desc": "You quickly pile into the helicopter that is standing by and take off.", "point_value": 90, "point_desc": "The helicopter is very efficient at putting putting some distance between you and your would be pursuors. It is very loud, which alerts the guards to your presences, but fortunately you're out of there before they get the chance to follow you."},
@@ -539,7 +551,7 @@ challenges_dict = {
         "Land Based Getaway": {
             "challenge_name": "Land Based Getaway",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -550,7 +562,7 @@ challenges_dict = {
         "Mislead Pursuers": {
             "challenge_name": "Mislead Pursuers",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -561,7 +573,7 @@ challenges_dict = {
         "Sand Based Getaway": {
             "challenge_name": "Sand Based Getaway",
             "viable_locations": ["Desert"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -572,7 +584,7 @@ challenges_dict = {
         "Snow Based Getaway": {
             "challenge_name": "Snow Based Getaway",
             "viable_locations": ["Arctic Tundra"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -583,7 +595,7 @@ challenges_dict = {
         "Use Stealth": {
             "challenge_name": "Use Stealth",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -594,7 +606,7 @@ challenges_dict = {
         "Water Based Getaway": {
             "challenge_name": "Water Based Getaway",
             "viable_locations": ["Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -609,7 +621,7 @@ challenges_dict = {
         "Repair Collapsed Wall": {
             "challenge_name": "Repair Collapsed Wall",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -617,10 +629,10 @@ challenges_dict = {
             "final_failure_desc": ""
         },
 
-        "Repair Collapsed Wall": {
-            "challenge_name": "Repair Collapsed Wall - Ocean",
+        "Repair Collapsed Wall - Ocean": {
+            "challenge_name": "Repair Collapsed Wall",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -631,7 +643,7 @@ challenges_dict = {
         "Repair Enviro-Dome": {
             "challenge_name": "Repair Enviro-Dome",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -639,10 +651,10 @@ challenges_dict = {
             "final_failure_desc": ""
         },
 
-        "Repair Enviro-Dome": {
-            "challenge_name": "Repair Enviro-Dome - Ocean",
+        "Repair Enviro-Dome  - Ocean": {
+            "challenge_name": "Repair Enviro-Dome",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -653,7 +665,7 @@ challenges_dict = {
         "Repair Exit Hatch": {
             "challenge_name": "Repair Exit Hatch",
             "viable_locations": ["Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -664,7 +676,7 @@ challenges_dict = {
         "Repair Rover": {
             "challenge_name": "Repair Rover",
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -675,7 +687,7 @@ challenges_dict = {
         "Repair Solar Panels": {
             "challenge_name": "Repair Solar Panels",
             "viable_locations": ["Desert", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -686,7 +698,7 @@ challenges_dict = {
         "Repair Vehicle": {
             "challenge_name": "Repair Vehicle",
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -701,7 +713,7 @@ challenges_dict = {
         "Blockade": {
             "challenge_name": "Blockade",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -712,7 +724,7 @@ challenges_dict = {
         "Building": {
             "challenge_name": "Building",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -723,7 +735,7 @@ challenges_dict = {
         "Checkpoint": {
             "challenge_name": "Checkpoint",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -734,7 +746,7 @@ challenges_dict = {
         "Collapsed Bridge": {
             "challenge_name": "Collapsed Bridge",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Rope": {"use_desc": "You use the rope and, after numerous tries, manage to lasoo the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "point_value": 60, "point_desc": "Whilst successful, swinging across the bridge was a risky manuever and the set up cost you a lot of time."},
                 "Paraglider": {"use_desc": "Your team find the highest point in the surrounding area and glide across the gap. Everyone reaches the other side safely.", "point_value": 100, "point_desc": "The glider is well suited to this kind of challenge and your team is able to quickly and easily navigate the obstacle."},
@@ -749,7 +761,7 @@ challenges_dict = {
         "Dam": {
             "challenge_name": "Dam",
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -760,7 +772,7 @@ challenges_dict = {
         "Fortefied Structure": {
             "challenge_name": "Fortefied Structure",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -771,7 +783,7 @@ challenges_dict = {
         "Giant Wall": {
             "challenge_name": "Giant Wall",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -782,7 +794,7 @@ challenges_dict = {
         "Pirates": {
             "challenge_name": "Pirates",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -793,7 +805,7 @@ challenges_dict = {
         "Sea Mines": {
             "challenge_name": "Sea Mine",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -804,7 +816,7 @@ challenges_dict = {
         "Ship Graveyard": {
             "challenge_name": "Ship Graveyard",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {},
             "desc": "", 
@@ -815,7 +827,7 @@ challenges_dict = {
         "Traffic": {
             "challenge_name": "Traffic",
             "viable_locations": ["City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -830,7 +842,7 @@ challenges_dict = {
         "Deactivate Alarms": {
             "challenge_name": "Deactivate Alarms",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -841,7 +853,7 @@ challenges_dict = {
         "Deactivate Security Cameras": {
             "challenge_name": "Deactivate Security Cameras",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -852,7 +864,7 @@ challenges_dict = {
         "Distract Guards": {
             "challenge_name": "Distract Guards",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of the guards and they leave their post to investigate.", "point_value": 75, "point_desc": "The fire successfully drew the guards away, but it did cause some significant damage in the process."},
                 "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate.", "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there was someone on the premises."},
@@ -868,7 +880,7 @@ challenges_dict = {
         "Find Another Entrance": {
             "challenge_name": "Find Another Entrance",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -879,7 +891,7 @@ challenges_dict = {
         "Sneak Through": {
             "challenge_name": "Sneak Through",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -890,7 +902,7 @@ challenges_dict = {
         "Get Past the Laser Grid": {
             "challenge_name": "Get Past the Laser Grid",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -905,7 +917,7 @@ challenges_dict = {
         "Break into the Vault": {
             "challenge_name": "Break into the Vaul",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -916,7 +928,7 @@ challenges_dict = {
         "Open the crate": {
             "challenge_name": "Open the crate",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -927,7 +939,7 @@ challenges_dict = {
         "Pickpocket it": {
             "challenge_name": "Pickpocket it",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -938,7 +950,7 @@ challenges_dict = {
         "Retrieve the Item from the Laser Grid": {
             "challenge_name": "Retrieve the Item from the Laser Grid",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Mirror": {"use_desc": "You use the mirror to reflect the lasers away as one of you reaches in and grabs the insert_item_here.", "point_value": 100, "point_desc": "The mirror was an ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the insert_item_here had even been taken."},
                 "Wire Cutters": {"use_desc": "You find the system that powers the laser grid and cut the wires. It deactivates the grid and you are able to grab the insert_item_here.", "point_value": 80, "point_desc": "You were successful in grabbing the insert_item_here, but there was evidence of your theft and the disappearence of the insert_item_here was quickly noticed."},
@@ -956,7 +968,7 @@ challenges_dict = {
         "Air Recycling System Offline": {
             "challenge_name": "Air Recycling System Offline",
             "viable_locations": ["Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, filtering the air and making it breathable.", "point_value": 100, "point_desc": ""},
             }, 
@@ -969,7 +981,7 @@ challenges_dict = {
         "Central Heating Offline": {
             "challenge_name": "Central Heating Offline",
             "viable_locations": ["Arctic Tundra", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -980,7 +992,7 @@ challenges_dict = {
         "Communications System Failure": {
             "challenge_name": "Communications System Failure",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -991,7 +1003,7 @@ challenges_dict = {
         "Cooling Offline": {
             "challenge_name": "Cooling Offline",
             "viable_locations": ["Desert", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -1002,7 +1014,7 @@ challenges_dict = {
         "Geo-Thermal Reactor Failure": {
             "challenge_name": "Geo-Thermal Reactor Failure",
             "viable_locations": ["Arctic Tundra", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -1013,7 +1025,7 @@ challenges_dict = {
         "Main Reactor Failure": {
             "challenge_name": "Main Reactor Failure",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -1028,7 +1040,7 @@ challenges_dict = {
         "Air Based Travel": {
             "challenge_name": "Air Based Travel",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -1039,7 +1051,7 @@ challenges_dict = {
         "Land Based Travel": {
             "challenge_name": "Land Based Travel",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -1050,7 +1062,7 @@ challenges_dict = {
         "Sand Based Travel": {
             "challenge_name": "Sand Based Travel",
             "viable_locations": ["Desert"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -1061,7 +1073,7 @@ challenges_dict = {
         "Snow Based Travel": {
             "challenge_name": "Snow Based Travel",
             "viable_locations": ["Arctic Tundra"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
@@ -1072,7 +1084,7 @@ challenges_dict = {
         "Water Based Travel": {
             "challenge_name": "Water Based Travel",
             "viable_locations": ["Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
             "desc": "", 
