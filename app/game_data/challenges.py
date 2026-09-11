@@ -623,89 +623,91 @@ challenges_dict = {
         "Repair Collapsed Wall": {
             "challenge_name": "Repair Collapsed Wall",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your base has sustained damage to one of the outward-facing walls. You'll need to repair it.", 
+            "continue_failure_desc": "Without the proper tools to mend it, your team is forced to try and make do. You manage to scavange some old beams from another section of the base and use it to support the wall structure. It takes a long time and is a very exhausting process.", 
+            "final_failure_desc": "Your team attempt to repair the wall using beams, scavanged from a closed off section of your base. Unfortunately, in their rush and exhaustion, their judgment on which beams are structural is severely lacking. It isn't long before another wall collapses, making the base unusable. Your mission ends here."
         },
 
         "Repair Collapsed Wall - Ocean": {
             "challenge_name": "Repair Collapsed Wall",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your base has sustained damage to one of the outward-facing walls and a whole quadrant of your base is flooded and sealed off. You'll need to repair the wall before you can even think about pumping the water out",
+            "continue_failure_desc": "Without the proper tools to mend it, your team is forced to leave the section closed off. Your team is forced to constantly navigate in open ocean to access the other sections of the base. It takes a long time and is a very exhausting process.", 
+            "final_failure_desc": "Your team attempt to repair the wall using beams, scavanged from a closed off section of your base. Unfortunately, in their rush and exhaustion, their judgment on which beams are structural is severely lacking. It isn't long before another wall collapses flooding the rest of the base. Your mission ends here."
         },
 
         "Repair Enviro-Dome": {
             "challenge_name": "Repair Enviro-Dome",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your base has sustained damage to it's enviro-dome, housing numerous samples your team has collected from their time here. You'll need to work fast, but carefully to repair it, before the samples become inmpacted.", 
+            "continue_failure_desc": "Without the right eqipment there's nothing you can do. You manage to rescue the samples and some are still holding out, but years of work have been lost. It takes a long time to rehouse the remaining samples.", 
+            "final_failure_desc": "Without the correct equipment, the enviro dome is beyond repair. And with the time your team lost earlier, all the samples have been destroyed. Your mission ends here."
         },
 
         "Repair Enviro-Dome  - Ocean": {
             "challenge_name": "Repair Enviro-Dome",
             "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your base has sustained damage and flooding to the enviro-dome, housing numerous samples your team has collected from their time here. You'll need to perform any repairs carefully, and quickly before the samples are impacted.",
+            "continue_failure_desc": "Without the right eqipment there's nothing you can do. You manage to rescue the samples and some are still holding out, but years of work have been lost. It takes a long time to rehouse the remaining samples.", 
+            "final_failure_desc": "Without the correct equipment, the enviro dome is beyond repair. And with the time your team lost earlier, all the samples have been destroyed. Your mission ends here."
         },
 
         "Repair Exit Hatch": {
             "challenge_name": "Repair Exit Hatch",
             "viable_locations": ["Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Survival"],
             "items":{}, 
-            "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "failure_items": {
+                "Explosives": {"use_desc": "", "point_value": 0, "point_desc": "You do realise that you're stuck inside the base, right? Not your brightest idea......................................................"},
+            }, 
+            "desc": "In a recent rock fall, your base suffered damage to the exit hatch. It's holding together for now, but there's no telling how long it will be before the door caves and everything beyond it, will find its way in. And besides that, whilst it's broken, your team has no way out.", 
+            "continue_failure_desc": "Without the right equipment all your team can do is hope that it holds. You are, however, trapped. You are forced to re-wire the rover exit hatch to gain access to the outside of the base. It takes a long time, and squeezing through the tiny gap is an arduous feat.", 
+            "final_failure_desc": "Whilst the hatch held out for a long time, it can't hold out for ever. The time you lost earlier catches up with you. Your team is trapped inside the base with no exit and no time to come up with an alternate way out, when the hatch caves. Your mission ends here."
         },
 
         "Repair Rover": {
             "challenge_name": "Repair Rover",
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your friendly little rover 'Georgie' has suffered damage in a recent rockfall. You'll need it to be in working condition if you hope to collect any more samples before they are destroyed by changing outside conditions.", 
+            "continue_failure_desc": "Unfortunately, without the proper equipment, there's nothing you can do for your little rover, 'Georgie'. Your team is forced to collect samples by hand before external conditions change and destroy the samples. It's a dangerous activity and takes a long time and a lot of effort.", 
+            "final_failure_desc": "Without the rover your team will be unable to collect any more samples. You might have had time to collect more samples by hand, but your delays have caught up with you. Changing external conditions have destroyed any more samples you might have been able to retrieve, ending your mission."
         },
 
         "Repair Solar Panels": {
             "challenge_name": "Repair Solar Panels",
             "viable_locations": ["Desert", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "The solar panels that help power vital sections of your base have been knocked out of alignment. You'll need to make a few repairs and get them back in their rightful places if you want to keep getting power.", 
+            "continue_failure_desc": "You manage to re-align the solar panels, but you can't do anything about the repairs. They aren't going to be able to produce much power at all. It took a lot of time and effort to re-align them without the proper tools.", 
+            "final_failure_desc": "In their exhaustion, one of your teammembers makes a mistake whilst re-aligning the solar panels and they dislodge from the base and crash to the ground. Without them vital systems in your base will be unable to function, rendering the base unusable. Your mission ends here."
         },
 
         "Repair Vehicle": {
             "challenge_name": "Repair Vehicle",
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "There is a nearby base that your team needs to gather supplies from. Unfortunately the vehicle that your team uses to make trips has suffered damage and will need to be repaired. ", 
+            "continue_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. You'll be forced to trek to the outposts without it. This is a time consuming process and exhausting.", 
+            "final_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. They are too tired to make the trips without it and are forced to give up the mission."
         },
     },
 
