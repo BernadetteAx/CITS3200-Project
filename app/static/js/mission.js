@@ -10,6 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedbackSub = document.getElementById("feedbackSub");
   const feedbackClose = document.getElementById("feedbackClose");
   const instructionsPopup = document.getElementById("instructionsPopup");
+  const countdownFill = document.getElementById("countdownFill");
+  const countdownTrack = document.getElementById("countdownTrack");
+  const CHALLENGE_SECONDS = 60;
+  let timerChallengeIndex = null;
+  let timerInterval = null;
+  let timerStart = null;
+  let timedOutChallengeIndex = null;
+  let challengeEndsAt = null;
   let state = null;
   let selectedItemId = null;
 
@@ -19,6 +27,36 @@ document.addEventListener("DOMContentLoaded", () => {
     sessionCode: window.getSessionCode(), playerId: window.getPlayerId(),
     challengeIndex: state.currentChallengeIndex, ...extra,
   });
+
+  function tickTimer() {
+    if (!state || state.status !== "active" || !challengeEndsAt) {
+      countdownFill.style.width = "0%";
+      countdownTrack.setAttribute("aria-valuenow", "0");
+      return;
+    }
+    const secondsLeft = Math.max(0, Math.ceil(challengeEndsAt - Date.now() / 1000));
+    const percent = Math.min(100, Math.max(0, secondsLeft / CHALLENGE_SECONDS * 100));
+    countdownFill.style.width = `${percent}%`;
+    countdownFill.classList.toggle("low", secondsLeft <= 10);
+    countdownTrack.setAttribute("aria-valuenow", String(secondsLeft));
+
+    if (secondsLeft <= 0 && timedOutChallengeIndex !== state.currentChallengeIndex) {
+      timedOutChallengeIndex = state.currentChallengeIndex;
+      handleTimeout();
+    }
+  }
+
+  function handleTimeout() {
+    useItemBtn.disabled = true;
+    continueBtn.disabled = true;
+    feedbackBox.dataset.outcome = "fail";
+    feedbackTitle.textContent = "TIME'S UP";
+    feedbackSub.textContent = "Your team ran out of time on this challenge.";
+    show(feedbackPopup);
+    action("mission_timeout");
+  }
+
+  setInterval(tickTimer, 250);
 
   function render(next) {
     state = next;
@@ -33,6 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const image = document.querySelector("#challengeIcon img");
       image.src = `/static/images/${challenge.image}`;
       image.alt = challenge.name;
+
+  
+      if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
+        timerChallengeIndex = state.currentChallengeIndex;
+        challengeEndsAt = Date.now() / 1000 + CHALLENGE_SECONDS;
+        timedOutChallengeIndex = null;
+      }
+      if (state.status !== "active") {
+        challengeEndsAt = null;
+      }
     }
     const active = state.status === "active";
     const available = state.inventory.filter((item) => !item.used);
@@ -78,7 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
   useItemBtn.addEventListener("click", () => action("mission_use_item", { itemId: selectedItemId }));
   continueBtn.addEventListener("click", () => action("mission_continue"));
   feedbackClose.addEventListener("click", () => {
-    if (state && state.status === "resolved") action("mission_advance");
+    if (state && (state.status === "resolved" || timedOutChallengeIndex === state.currentChallengeIndex)) {
+      action("mission_advance");
+    }
   });
   document.getElementById("instructionsBtn").addEventListener("click", () => show(instructionsPopup));
   document.getElementById("instructionsClose").addEventListener("click", () => hide(instructionsPopup));
