@@ -341,7 +341,7 @@ label { color: var(--text-muted); }
 #hostGameBtn:hover,
 #testErrorBtn:hover {
   background: var(--card-hover);
-  border-color: var(--accent-blue);
+  border-color: var(--correct);
   transform: translate(-1px, -3px);
   /* Fixes a pre-existing bug where #hostGameBtn looked disabled on
      hover (opacity:.5, cursor:not-allowed) even though it's a live,
@@ -466,7 +466,7 @@ label { color: var(--text-muted); }
   transition: border-color var(--motion-fast), box-shadow var(--motion-fast);
 }
 .join-card input:focus {
-  border-color: var(--accent-blue);
+  border-color: var(--correct);
   box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.25);
 }
 

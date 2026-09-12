@@ -19,6 +19,12 @@
 
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input {
+  outline: none;
 }
 
 body {
@@ -135,6 +141,25 @@ input:focus {
   border-color: var(--correct);
 }
 
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#joinGameBtn:focus,
+#hostGameBtn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--key-bg) inset;
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  transition: background-color 9999s ease-in-out 0s;
+}
 
 /* =========================
  JOIN + HOST BUTTONS
