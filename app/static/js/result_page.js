@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         result.itemsUsed ?? []
       );
   
-      message.textContent = "Your team's final results.";
+      message.textContent = "YOUR TEAM'S FINAL RESULTS";
     }
   
     if (!socket) {
