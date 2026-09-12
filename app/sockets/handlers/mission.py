@@ -73,13 +73,15 @@ def _action_session(payload):
     return code, session, mission
 
 
-def _resolve(code, session, mission, item=None):
+def _resolve(code, session, mission, item=None, timed_out=False):
     challenge = mission["challenges"][mission["current_challenge_index"]]
     if item:
         mission["used_items"].append(item["id"])
         successful = item["id"] in challenge["success_items"]
         title = "Obstacle Cleared" if successful else "A Costly Detour"
         description = f"The {item['name']} gets the team past the challenge." if successful else f"The {item['name']} was not enough; the team takes a longer route."
+    elif timed_out:
+        successful, title, description = False, "Time Ran Out", "The team ran out of time and had to take the longer route."
     else:
         successful, title, description = False, "Forced to Double Back", "No item was used, so the team took the longer route."
     penalty = 0 if successful else 10
@@ -108,6 +110,11 @@ def mission_use_item(payload):
 def mission_continue(payload):
     code, session, mission = _action_session(payload)
     if session and mission["status"] == "active": _resolve(code, session, mission)
+
+@socketio.on("mission_timeout")
+def mission_timeout(payload):
+    code, session, mission = _action_session(payload)
+    if session and mission["status"] == "active": _resolve(code, session, mission, timed_out=True)
 
 
 @socketio.on("mission_advance")

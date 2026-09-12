@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let timerChallengeIndex = null;
   let timerInterval = null;
   let timerStart = null;
+  let timedOutChallengeIndex = null;
   let challengeEndsAt = null;
   let state = null;
   let selectedItemId = null;
@@ -38,6 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
     countdownFill.style.width = `${percent}%`;
     countdownFill.classList.toggle("low", secondsLeft <= 10);
     countdownTrack.setAttribute("aria-valuenow", String(secondsLeft));
+
+    if (secondsLeft <= 0 && timedOutChallengeIndex !== state.currentChallengeIndex) {
+      timedOutChallengeIndex = state.currentChallengeIndex;
+      handleTimeout();
+    }
+  }
+
+  function handleTimeout() {
+    useItemBtn.disabled = true;
+    continueBtn.disabled = true;
+    feedbackBox.dataset.outcome = "fail";
+    feedbackTitle.textContent = "TIME'S UP";
+    feedbackSub.textContent = "Your team ran out of time on this challenge.";
+    show(feedbackPopup);
+    action("mission_timeout");
   }
 
   setInterval(tickTimer, 250);
@@ -60,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
         timerChallengeIndex = state.currentChallengeIndex;
         challengeEndsAt = Date.now() / 1000 + CHALLENGE_SECONDS;
+        timedOutChallengeIndex = null;
       }
       if (state.status !== "active") {
         challengeEndsAt = null;
@@ -109,7 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
   useItemBtn.addEventListener("click", () => action("mission_use_item", { itemId: selectedItemId }));
   continueBtn.addEventListener("click", () => action("mission_continue"));
   feedbackClose.addEventListener("click", () => {
-    if (state && state.status === "resolved") action("mission_advance");
+    if (state && (state.status === "resolved" || timedOutChallengeIndex === state.currentChallengeIndex)) {
+      action("mission_advance");
+    }
   });
   document.getElementById("instructionsBtn").addEventListener("click", () => show(instructionsPopup));
   document.getElementById("instructionsClose").addEventListener("click", () => hide(instructionsPopup));
