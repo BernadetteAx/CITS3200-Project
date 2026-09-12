@@ -662,11 +662,28 @@ body:has(.hotbar) {
 .game-tag-label .game-label,
 .section-hint { color: var(--text-dim); }
 
-.mission-tag-name { color: var(--correct); }
+.mission-tag-name {
+  color: var(--correct);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
 
 .challenge-desc {
   color: var(--text-muted);
   max-width: 60ch;
+}
+
+h1.challenge-progress {
+  font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+}
+
+@media (max-width: 600px) {
+  .mission-tag-name {
+    font-size: 1.3rem;
+  }
+
+  h1.challenge-progress {
+    font-size: 1.45rem;
+  }
 }
 
 .countdown-track { background: var(--surface); }
