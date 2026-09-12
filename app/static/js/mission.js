@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function render(next) {
     state = next;
+    console.log("MISSION STATE:", state);
     if (state.phase === "result_page") return window.location.replace("/result_page");
     const challenge = state.challenge;
     document.getElementById("missionName").textContent = state.missionName;
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("challengeName").textContent = challenge.name;
       document.getElementById("challengeDesc").textContent = challenge.description;
       const image = document.querySelector("#challengeIcon img");
-      image.src = `/static/images/${challenge.image}`;
+      image.src = `/static/images/${challenge.image || "icons8-mountain-64.png"}`;
       image.alt = challenge.name;
     }
     const active = state.status === "active";

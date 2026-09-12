@@ -1,7 +1,7 @@
 import random
-from mission_structs import missions_list as missions_list
-from items import items_dict as items_dict
-from challenges import challenges_dict as challenges_dict
+from .mission_structs import missions_list
+from .items import items_dict
+from .challenges import challenges_dict
 
 # Some locations repeated more as they have more missions available at that location
 possible_locations = ["Arctic Tundra", "Arctic Tundra", "Desert", "Desert", "Jungle", "Jungle", "City", "Ocean", "Volcano"]
