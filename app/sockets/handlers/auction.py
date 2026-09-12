@@ -83,9 +83,14 @@ def _advance(session_code, resolved_round):
         auction["status"] = "complete"
         #expose the final inventory at session level for the mission phase, without making it depend on auction implementation details
         session["purchased_items"] = list(auction["purchased_items"])
-        from app.sockets.handlers.mission import initialise_mission, broadcast_mission_state
+        from app.sockets.handlers.mission import (
+            broadcast_mission_state,
+            initialise_mission,
+            start_mission_timer,
+        )
         initialise_mission(session)
         session["phase"] = "mission"
+        start_mission_timer(session_code, session)
         broadcast_auction_state(session_code, session)
         broadcast_mission_state(session_code, session)
         socketio.emit("auction_complete", {"purchasedItems":auction["purchased_items"]}, room=session_code)

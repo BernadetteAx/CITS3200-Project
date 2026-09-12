@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedbackSub = document.getElementById("feedbackSub");
   const feedbackClose = document.getElementById("feedbackClose");
   const instructionsPopup = document.getElementById("instructionsPopup");
+  const timerValue = document.getElementById("timerValue");
+  const timerPill = document.getElementById("timerPill");
+  const countdownFill = document.getElementById("countdownFill");
+  const countdownTrack = document.getElementById("countdownTrack");
   let state = null;
   let selectedItemId = null;
 
@@ -22,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function render(next) {
     state = next;
-    console.log("MISSION STATE:", state);
     if (state.phase === "result_page") return window.location.replace("/result_page");
     const challenge = state.challenge;
     document.getElementById("missionName").textContent = state.missionName;
@@ -68,12 +71,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     useItemBtn.disabled = !active || !selectedItemId;
     continueBtn.disabled = !active;
+    tickTimer();
     if (state.status === "resolved" && state.outcome) {
       feedbackBox.dataset.outcome = state.outcome.success ? "success" : "fail";
       feedbackTitle.textContent = state.outcome.title;
       feedbackSub.textContent = `${state.outcome.description}${state.outcome.penalty ? ` Score -${state.outcome.penalty}.` : ""}`;
       show(feedbackPopup);
     } else hide(feedbackPopup);
+  }
+
+  function tickTimer() {
+    if (!state || state.status !== "active" || !state.endsAt) {
+      countdownFill.style.width = "0%";
+      countdownTrack.setAttribute("aria-valuenow", "0");
+      return;
+    }
+
+    const remaining = Math.max(0, state.endsAt - Date.now() / 1000);
+    const seconds = Math.ceil(remaining);
+    const percent = Math.min(100, Math.max(0, remaining / 60 * 100));
+    timerValue.textContent =
+      `${String(Math.floor(seconds / 60)).padStart(2, "0")}:` +
+      String(seconds % 60).padStart(2, "0");
+    timerPill.classList.toggle("low", seconds <= 10);
+    countdownFill.style.width = `${percent}%`;
+    countdownFill.classList.toggle("low", seconds <= 10);
+    countdownTrack.setAttribute("aria-valuenow", String(seconds));
   }
 
   useItemBtn.addEventListener("click", () => action("mission_use_item", { itemId: selectedItemId }));
@@ -88,4 +111,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   window.gameSocket.on("mission_state", render);
   window.gameSocket.on("mission_complete", () => window.location.replace("/result_page"));
+  setInterval(tickTimer, 250);
 });

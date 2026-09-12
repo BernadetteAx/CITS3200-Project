@@ -2,6 +2,7 @@
 
 import random
 import re
+import time
 
 from flask import request
 from flask_socketio import emit
@@ -15,6 +16,8 @@ from app.sockets.sessions import get_session
 possible_locations = [
     "Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano",
 ]
+
+CHALLENGE_SECONDS = 60
 
 ITEM_NAME_TO_ID = {
     "Fire Starter Kit": "fuel",
@@ -114,6 +117,8 @@ def initialise_mission(session):
             "penalties": 0,
             "status": "active",
             "outcome": None,
+            "ends_at": None,
+            "timer_token": 0,
         }
 
     return session["mission"]
@@ -153,6 +158,7 @@ def _state(session):
         "penalties": mission["penalties"],
         "status": mission["status"],
         "outcome": mission["outcome"],
+        "endsAt": mission["ends_at"],
     }
 
 
@@ -163,6 +169,30 @@ def broadcast_mission_state(session_code, session):
 def emit_mission_state_to_player(session):
     if session.get("mission"):
         emit("mission_state", _state(session))
+
+
+def _challenge_timer(session_code, token):
+    """Resolve the active challenge if its server-side timer expires."""
+    socketio.sleep(CHALLENGE_SECONDS)
+    session = get_session(session_code)
+    if not session or session.get("phase") != "mission":
+        return
+
+    mission = session["mission"]
+    if mission["status"] == "active" and mission["timer_token"] == token:
+        _resolve(session_code, session, mission, reason="timer")
+
+
+def start_mission_timer(session_code, session):
+    """Start the timer for the current mission challenge."""
+    mission = session["mission"]
+    mission["ends_at"] = time.time() + CHALLENGE_SECONDS
+    mission["timer_token"] += 1
+    socketio.start_background_task(
+        _challenge_timer,
+        session_code,
+        mission["timer_token"],
+    )
 
 
 def _action_session(payload):
@@ -177,7 +207,7 @@ def _action_session(payload):
     return code, session, mission
 
 
-def _resolve(code, session, mission, item=None):
+def _resolve(code, session, mission, item=None, reason=None):
     challenge = mission["challenges"][mission["current_challenge_index"]]
     if item:
         mission["used_items"].append(item["id"])
@@ -190,8 +220,12 @@ def _resolve(code, session, mission, item=None):
         )
     else:
         successful = False
-        title = "Forced to Double Back"
-        description = "No item was used, so the team took the longer route."
+        if reason == "timer":
+            title = "Time Ran Out"
+            description = "The team ran out of time and took the longer route."
+        else:
+            title = "Forced to Double Back"
+            description = "No item was used, so the team took the longer route."
 
     penalty = 0 if successful else 10
     mission["penalties"] += penalty
@@ -208,6 +242,7 @@ def _resolve(code, session, mission, item=None):
     mission["outcome"] = outcome
     mission["outcome_log"].append(outcome)
     mission["status"] = "resolved"
+    mission["ends_at"] = None
     broadcast_mission_state(code, session)
     socketio.emit("mission_outcome", outcome, room=code)
 
@@ -253,4 +288,5 @@ def mission_advance(payload):
         socketio.emit("mission_complete", session["mission_result"], room=code)
         return
     mission["status"] = "active"
+    start_mission_timer(code, session)
     broadcast_mission_state(code, session)

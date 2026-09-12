@@ -51,7 +51,30 @@ header {
   width: 100%;
   height: 100%;
   background: var(--correct);
+  transition: width 0.25s linear, background 0.2s ease;
 }
+
+.countdown-fill.low { background: var(--incorrect); }
+
+.mission-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 2px solid var(--tile-border);
+  border-radius: 4px;
+  color: #aaa;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+}
+
+.mission-timer #timerValue {
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.mission-timer.low,
+.mission-timer.low #timerValue { color: var(--incorrect); }
 
 .mission-tag {
   display: flex;
