@@ -447,24 +447,35 @@ challenges_dict = {
     "Find Shelter": {
         "Find Civilization": {
             "challenge_name": "Find Civilization",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your team has been out in the open for too long. You'll need to find your way back to civilization if you have any hope of continuing your mission.", 
+            "continue_failure_desc": "Your team was unable to find their way to nearby civilization. One of your team knows of a location, but it's a long, long trek. You make it, but you entire team is exhausted and lost a lot of time.", 
+            "final_failure_desc": "Unable to find any nearby signs of civilization, your team is forced to keep moving. One of your team is familiar with a location, but it's a long, long distance away. Your team attempts to make the journey, but the exhaustion and time you lost earlier has caught up with you. You never make it to your destination."
+        }, 
+
+        "Find Land": {
+            "challenge_name": "Find Land",
+            "viable_locations": ["Ocean"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{}, 
+            "failure_items": {}, 
+            "desc": "Your team has been out amoung the elements for far too long. You'll need to find some land for your team to re-cooperate on, if you hold out any hope of completing your mission.", 
+            "continue_failure_desc": "Without the proper equipment, your team is unable to locate any land near you and is forced to try an make it to an island a long, long way away. The trip is exhausting and takes longer than you would have hoped.", 
+            "final_failure_desc": "Without the proper equipment, your team is unable to locate any land near you and is forced to try an make it to an island a long, long way away. Your crew sets off for the island they hope will be their salvation, but the exhaustion and time you lost earlier has caught up with you. You never make it to your destination.", 
         }, 
 
         "Find Shelter": {
             "challenge_name": "Find Shelter",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your team has been out in the open too long. Exposure to the elements is starting to slow you down. You'll need to take shelter if you hold out any hope of finishing your mission.", 
+            "continue_failure_desc": "Your team looses time as they search desperately for any structure to shelter them from the elements. But, without the proper equipment, there is nothing they can do. With no shelter, they are forced to continue the mission without rest.", 
+            "final_failure_desc": "Your team searches desperately for any structure they could use as shelter. Unfortunately, the time they lost earlier has left them exposed to the elements for longer than any human should be forced to endure. Without the needed supplies, your team will never be able to find shelter before it's too late. It isn't long before your entire team is lost."
         },
     },
 
