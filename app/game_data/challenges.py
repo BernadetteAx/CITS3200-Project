@@ -683,7 +683,7 @@ challenges_dict = {
             "failure_items": {
                 "Explosives": {"use_desc": "", "point_value": 0, "point_desc": "You do realise that you're stuck inside the base, right? Not your brightest idea......................................................"},
             }, 
-            "desc": "In a recent rock fall, your base suffered damage to the exit hatch. It's holding together for now, but there's no telling how long it will be before the door caves and everything beyond it, will find its way in. And besides that, whilst it's broken, your team has no way out.", 
+            "desc": "In a recent rock fall, your base suffered damage to the exit hatch. It's holding together for now, but there's no telling how long it will be before the door caves and everything beyond it, will find its way in. As well as that, whilst it's broken, your team has no way out.", 
             "continue_failure_desc": "Without the right equipment all your team can do is hope that it holds. You are, however, trapped. You are forced to re-wire the rover exit hatch to gain access to the outside of the base. It takes a long time, and squeezing through the tiny gap is an arduous feat.", 
             "final_failure_desc": "Whilst the hatch held out for a long time, it can't hold out for ever. The time you lost earlier catches up with you. Your team is trapped inside the base with no exit and no time to come up with an alternate way out, when the hatch caves. Your mission ends here."
         },
@@ -860,9 +860,9 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "The area you're attempting to sneak through is rigged with numerous alarms, all set to go off at the slightest disturbance. You'll have to deactivate them before you can proceed.", 
+            "continue_failure_desc": "Without the proper equipment, your team is forced to navigate through the area at a tortoise's pace to avoid triggering any of the alarms. It takes a long time and isn't easy on any of the team.", 
+            "final_failure_desc": "Without the appropriate equipment, your team is unable to deactivate the alarms, so have to try and make it past without triggering any. Unfortunately, your earlier delays have put you behind schedule and you team is forced to move through the area faster than you would have liked. You make it just 20m before the first alarm is triggered. Within a moment there's a cacophany as alarms blare and guards yell. Your team is captured. Your mission ends here."
         },
 
         "Deactivate Security Cameras": {
@@ -871,9 +871,9 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "The area you're attempting to sneak through is under constant video surveillance. You'll need to find a way to deactivate the security cameras if you want to get past.", 
+            "continue_failure_desc": "Without the proper equipment, your is unable to deactivate the cameras. It takes a long time, but your team manages to sneak past, timing their movements with the cameras' rotations. There's a lot of planning and even more backtracking, but you make it past. It just took a long time and a lot of effort.", 
+            "final_failure_desc": "Without the proper equipment, your is unable to deactivate the cameras. You try to sneak by them, attempting to time your movements with the cameras' rotations, but you're in a rush. The time you lost earlier has caught back up with you and you aren't as careful as you need to be. None of you even noticed the camera in the left hall and within moments you are swamped by guards. Your team is captured. Your mission ends here."
         },
         
         "Distract Guards": {
@@ -895,34 +895,34 @@ challenges_dict = {
         "Find Another Entrance": {
             "challenge_name": "Find Another Entrance",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Heist", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
-        },
-        
-        "Sneak Through": {
-            "challenge_name": "Sneak Through",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
-            "items":{}, 
-            "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your team approaches the facility. Unfortunately, your planned entrance is being guarded. If you want to get in, you'll need to find another way.", 
+            "continue_failure_desc": "Your team is unable to find another way in, so are forced to wait for an opportunity to sneak in through the entrance you initially planned. It takes a long, long time but eventually the guards get distracted and you are able to slip by undiscovered.", 
+            "final_failure_desc": "Your team is unable to find another way in, so are forced to wait for an opportunity to sneak in through the entrance you initially planned. It takes a long, long time but eventually the guards get distracted and you attempt to slip by. Unfortunately, your exhausted crew isn't at their prime and one of you trips. Within a moment your entire team is captured. Your mission ends here."
         },
 
+        "Find Another Exit": {
+            "challenge_name": "Find Another Exit",
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_mission_types": ["Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{}, 
+            "failure_items": {}, 
+            "desc": "Your team approaches the exit to the facility. Unfortunately, it's being guarded. If you want to get out, you'll need to find another way.", 
+            "continue_failure_desc": "Your team is unable to find another way out, so are forced to wait for an opportunity to sneak out through the exit you initially planned. It takes a long, long time but eventually the guards get distracted and you are able to slip by undiscovered.", 
+            "final_failure_desc": "Your team is unable to find another way out, so are forced to wait for an opportunity to sneak out through the exit you initially planned. It takes a long, long time but eventually the guards get distracted and you attempt to slip by. Unfortunately, your exhausted crew isn't at their prime and one of you trips. Within a moment your entire team is captured. Your mission ends here."
+        },
+        
         "Get Past the Laser Grid": {
             "challenge_name": "Get Past the Laser Grid",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Surrounding the entire facility is a laser grid. You'll need to find a way to get past it.", 
+            "continue_failure_desc": "Without the correct equipment, you team is forced to wait for a guard to pass through a checkpoint. The laser grid in the section is temporarily disabled and you have just moments to slip by. It's a mad dash, but your team makes it in time. The sprint exhausts them and waiting for a guard has significantly delayed your team's progress.", 
+            "final_failure_desc": "Without the correct equipment, you team is forced to wait for a guard to pass through a checkpoint. The laser grid in the section is temporarily disabled and you have just moments to slip by. The extra energy you used earlier has finally caught up with you. Your team is not able to make it in time and get caught in the laser grid as it comes back online. Alarms blare and within moments your team is swamped by guards. You are captured. Your mission ends here."
         },
     },
 
@@ -930,7 +930,7 @@ challenges_dict = {
 
     "Steal": {
         "Break into the Vault": {
-            "challenge_name": "Break into the Vaul",
+            "challenge_name": "Break into the Vault",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
@@ -967,11 +967,11 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Mirror": {"use_desc": "You use the mirror to reflect the lasers away as one of you reaches in and grabs the insert_item_here.", "point_value": 100, "point_desc": "The mirror was an ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the insert_item_here had even been taken."},
-                "Wire Cutters": {"use_desc": "You find the system that powers the laser grid and cut the wires. It deactivates the grid and you are able to grab the insert_item_here.", "point_value": 80, "point_desc": "You were successful in grabbing the insert_item_here, but there was evidence of your theft and the disappearence of the insert_item_here was quickly noticed."},
+                "Mirror": {"use_desc": "You use the mirror to reflect the lasers away as one of you reaches in and grabs the goods.", "point_value": 100, "point_desc": "The mirror was an ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the goods have even been taken."},
+                "Wire Cutters": {"use_desc": "You find the system that powers the laser grid and cut the wires. It deactivates the grid and you are able to grab the goods.", "point_value": 80, "point_desc": "You were successful in grabbing the goods, but there was evidence of your theft and the disappearence of the item was quickly noticed."},
             }, 
             "failure_items": {},
-            "desc": "You find the insert_item_here, but it's protected by a laser grid.", 
+            "desc": "You find the item, but it's protected by a laser grid.", 
             "continue_failure_desc": "Your team attempts numerous solutions but remains unable to retrieve the item. You are forced to leave empty handed.", 
             "final_failure_desc": "Your team desperately tries to find a way past the lasers. Unfortunately, their exhaustion has made them sloppy, and they accidently trigger the laser system. In seconds the team is captured by armed guards. Your mission ends here."
         },
