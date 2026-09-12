@@ -10,6 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedbackSub = document.getElementById("feedbackSub");
   const feedbackClose = document.getElementById("feedbackClose");
   const instructionsPopup = document.getElementById("instructionsPopup");
+  const countdownFill = document.getElementById("countdownFill");
+  const countdownTrack = document.getElementById("countdownTrack");
+  const CHALLENGE_SECONDS = 60;
+  let timerChallengeIndex = null;
+  let timerInterval = null;
+  let timerStart = null;
+  let challengeEndsAt = null;
   let state = null;
   let selectedItemId = null;
 
@@ -19,6 +26,21 @@ document.addEventListener("DOMContentLoaded", () => {
     sessionCode: window.getSessionCode(), playerId: window.getPlayerId(),
     challengeIndex: state.currentChallengeIndex, ...extra,
   });
+
+  function tickTimer() {
+    if (!state || state.status !== "active" || !challengeEndsAt) {
+      countdownFill.style.width = "0%";
+      countdownTrack.setAttribute("aria-valuenow", "0");
+      return;
+    }
+    const secondsLeft = Math.max(0, Math.ceil(challengeEndsAt - Date.now() / 1000));
+    const percent = Math.min(100, Math.max(0, secondsLeft / CHALLENGE_SECONDS * 100));
+    countdownFill.style.width = `${percent}%`;
+    countdownFill.classList.toggle("low", secondsLeft <= 10);
+    countdownTrack.setAttribute("aria-valuenow", String(secondsLeft));
+  }
+
+  setInterval(tickTimer, 250);
 
   function render(next) {
     state = next;
@@ -33,6 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const image = document.querySelector("#challengeIcon img");
       image.src = `/static/images/${challenge.image}`;
       image.alt = challenge.name;
+
+  
+      if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
+        timerChallengeIndex = state.currentChallengeIndex;
+        challengeEndsAt = Date.now() / 1000 + CHALLENGE_SECONDS;
+      }
+      if (state.status !== "active") {
+        challengeEndsAt = null;
+      }
     }
     const active = state.status === "active";
     const available = state.inventory.filter((item) => !item.used);
