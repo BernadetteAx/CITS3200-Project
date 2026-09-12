@@ -24,7 +24,7 @@ ITEM_PAIRS = [
 def initialise_auction(session):
     if not session.get("auction"):
         session["auction"] = {"round_index":0, "round_progress":0, "current_item_pair":list(ITEM_PAIRS[0]),
-            "votes":{}, "finished_players":set(), "budget":100, "purchased_items":[],
+            "votes":{}, "finished_players":set(), "budget":1000, "purchased_items":[],
             "status":"waiting", "round_result":None, "ends_at":None, "timer_token":0}
     return session["auction"]
 
