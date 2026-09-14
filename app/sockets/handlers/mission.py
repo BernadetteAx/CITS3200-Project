@@ -7,22 +7,32 @@ from flask import request
 from flask_socketio import emit
 
 from app.extensions import socketio
+from app.game_data.get_random_mission import get_mission
 from app.sockets.sessions import get_session
 
 
-# challenge data and the matching item stay on the server
-#challenges are generated rn
-CHALLENGES = [
-    {"id": "wall", "name": "Scale the Wall", "description": "A sheer stone wall blocks the only route forward.", "image": "icons8-mountain-64.png", "success_items": ["axe", "mountain-gear", "toolkit"]},
-    {"id": "lost-route", "name": "Find the Safe Route", "description": "The route markers have vanished in thick fog.", "image": "icons8-map-64.png", "success_items": ["map", "gps", "compass"]},
-    {"id": "broken-vehicle", "name": "Keep Moving", "description": "Your vehicle stalls before the final stretch.", "image": "icons8-sedan-64.png", "success_items": ["toolkit", "fuel", "car", "credit-card"]},
-]
+def _normalise_challenges(generated_mission):
+    challenges = []
+    for index in range(1, 7):
+        challenge = generated_mission[f"challenge_{index}"]
+        name = challenge["challenge_name"]
+        challenges.append({
+            "id": f"challenge-{index}",
+            "name": name,
+            "description": challenge["desc"] or f"Your team faces the challenge: {name}.",
+            "image": "icons8-about-64.png",
+            "success_items": list(challenge.get("items", {})),
+        })
+    return challenges
 
 
 def initialise_mission(session):
-    """Create mission state once, retaining the auction's team inventory."""
+    """Create game-data mission state once, retaining the auction inventory."""
     if not session.get("mission"):
-        session["mission"] = {"challenges": [dict(c) for c in CHALLENGES], "current_challenge_index": 0,
+        generated_mission = get_mission()
+        session["mission"] = {"mission_name": generated_mission["mission"],
+            "mission_description": generated_mission["mission_description"],
+            "challenges": _normalise_challenges(generated_mission), "current_challenge_index": 0,
             "inventory": [dict(item) for item in session.get("purchased_items", [])], "used_items": [],
             "outcome_log": [], "score": 100, "penalties": 0, "status": "active", "outcome": None}
     return session["mission"]
@@ -45,7 +55,8 @@ def _state(session):
     current = mission["challenges"][index] if index < len(mission["challenges"]) else None
     used = set(mission["used_items"])
     inventory = [{**item, "used": item["id"] in used} for item in mission["inventory"]]
-    return {"phase": session["phase"], "missionName": "The Heist", "currentChallengeIndex": index,
+    return {"phase": session["phase"], "missionName": mission["mission_name"],
+        "missionDescription": mission["mission_description"], "currentChallengeIndex": index,
         "totalChallenges": len(mission["challenges"]), "challenge": current, "inventory": inventory,
         "usedItems": list(mission["used_items"]), "outcomeLog": list(mission["outcome_log"]),
         "score": mission["score"], "penalties": mission["penalties"], "status": mission["status"], "outcome": mission["outcome"]}
@@ -77,7 +88,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
     challenge = mission["challenges"][mission["current_challenge_index"]]
     if item:
         mission["used_items"].append(item["id"])
-        successful = item["id"] in challenge["success_items"]
+        successful = item["name"] in challenge["success_items"]
         title = "Obstacle Cleared" if successful else "A Costly Detour"
         description = f"The {item['name']} gets the team past the challenge." if successful else f"The {item['name']} was not enough; the team takes a longer route."
     elif timed_out:

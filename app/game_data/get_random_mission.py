@@ -1,7 +1,7 @@
 import random
-from mission_structs import missions_list as missions_list
-from items import items_dict as items_dict
-from challenges import challenges_dict as challenges_dict
+from .mission_structs import missions_list
+from .items import items_dict
+from .challenges import challenges_dict
 
 # Some locations repeated more as they have more missions available at that location
 possible_locations = ["Arctic Tundra", "Arctic Tundra", "Desert", "Desert", "Jungle", "Jungle", "City", "Ocean", "Volcano"]
@@ -24,6 +24,9 @@ def get_mission():
     # Select a random mission from that list
     selected_mission_dict = mission_options[random.randint(0, len(mission_options)-1)]
     randomised_mission["mission"] = selected_mission_dict["mission_name"]
+    randomised_mission["mission_description"] = (
+        f"Complete the {selected_mission_dict['mission_name']} mission in the {mission_location}."
+    )
     
     # Choose a challenge for each of the 6 challenges in teh mission
     challenge_nums = ["challenge_1", "challenge_2", "challenge_3", "challenge_4", "challenge_5", "challenge_6"]
