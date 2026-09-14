@@ -3,7 +3,7 @@ challenges_dict = {
         "Alert Another Team": {
             "challenge_name": "Alert Another Team",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
+            "viable_mission_types": ["Heist", "Rescue Op"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. The other team sees it and is alerted to your position.", "point_value": 70, "point_desc": "The signal fire gets the team's attention and gives them a clear destination to aim for. It does, however, risk attracting unwanted attention."}, 
                 "Handheld Radios": {"use_desc": "You use your handheld radios to call the the other team and alert them to your position.", "point_value": 100, "point_desc": "The radios are perfectly suited for this scenario. Both teams are able to communicate and discuss a rendezvouz point."},
