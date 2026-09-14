@@ -47,7 +47,7 @@ def _build_mission_item_pairs(generated_mission):
     pairs = []
     fallback_items = [_mission_item(name) for name in ITEM_IMAGES]
     used_item_ids = set()
-    for index in range(1, 7):
+    for index in range(1, 9):
         challenge_items = list(generated_mission[f"challenge_{index}"].get("items", {}))
         choices = [
             _mission_item(name)

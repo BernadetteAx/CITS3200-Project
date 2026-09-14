@@ -13,7 +13,7 @@ from app.sockets.sessions import get_session
 
 def _normalise_challenges(generated_mission):
     challenges = []
-    for index in range(1, 7):
+    for index in range(1, 9):
         challenge = generated_mission[f"challenge_{index}"]
         name = challenge["challenge_name"]
         challenges.append({
