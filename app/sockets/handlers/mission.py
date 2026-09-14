@@ -26,10 +26,10 @@ def _normalise_challenges(generated_mission):
     return challenges
 
 
-def initialise_mission(session):
+def initialise_mission(session, generated_mission=None):
     """Create game-data mission state once, retaining the auction inventory."""
     if not session.get("mission"):
-        generated_mission = get_mission()
+        generated_mission = generated_mission or get_mission()
         session["mission"] = {"mission_name": generated_mission["mission"],
             "mission_description": generated_mission["mission_description"],
             "challenges": _normalise_challenges(generated_mission), "current_challenge_index": 0,
