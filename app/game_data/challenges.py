@@ -6,12 +6,12 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. The other team sees it and is alerted to your position.", "point_value": 70, "point_desc": "The signal fire gets the team's attention and gives them a clear destination to aim for. It does, however, risk attracting unwanted attention."}, 
-                "Handheld Radios": {"use_desc": "You use your handheld radios to call the the other team and alert them to your position.", "point_value": 100, "point_desc": "The radios are perfectly suited for this scenario. Both teams are able to communicate and discuss a rendovouz point."},
+                "Handheld Radios": {"use_desc": "You use your handheld radios to call the the other team and alert them to your position.", "point_value": 100, "point_desc": "The radios are perfectly suited for this scenario. Both teams are able to communicate and discuss a rendezvouz point."},
                 "Mirror": {"use_desc": "You use the mirror to reflect light in the direction of the other team. They see it and are able to track it back, alerting them to your position.", "point_value": 60, "point_desc": "The mirror was able to attract the other team's attention, but it was hard to trace back to an origin and took a while for them to even notice it in the first place."},
             }, 
             "desc": "To be able to continue your mission you are going to need to be able to alert the other team to your position.",
-            "continue_failure_desc": "Without the right equipment, your team is unable to alert the other team to your presence. You'll just have to continue the mission and hope that they will know where to rendovouz. This will take a long time and slow your team down.", 
-            "final_failure_desc": "Your team is unable to work out how to contact the other team. Without being able to alert them to your position, you'll never be able to rendovouz. Your mission ends here."
+            "continue_failure_desc": "Without the right equipment, your team is unable to alert the other team to your presence. You'll just have to continue the mission and hope that they will know where to rendezvouz. This will take a long time and slow your team down.", 
+            "final_failure_desc": "Your team is unable to work out how to contact the other team. Without being able to alert them to your position, you'll never be able to rendezvouz. Your mission ends here."
         },
 
         "Contact Rescue Team - Survival": {
@@ -1058,9 +1058,9 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using air based transport.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
         },
 
         "Land Based Travel": {
@@ -1069,9 +1069,9 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using on-the-ground transport.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
         },
 
         "Sand Based Travel": {
@@ -1080,9 +1080,9 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is over the dunes.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
         },
 
         "Snow Based Travel": {
@@ -1091,9 +1091,9 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is over the ice and snow.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
         },
 
         "Water Based Travel": {
@@ -1102,9 +1102,9 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{}, 
             "failure_items": {}, 
-            "desc": "", 
-            "continue_failure_desc": "", 
-            "final_failure_desc": ""
+            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using water based transport.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to swim the distance. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt to swim the distance. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut through rough waters. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team struggles to stay afloat in teh raging waters. It isn't long before catastrophe. Your team never makes it to their destination."
         },
     }
 }
