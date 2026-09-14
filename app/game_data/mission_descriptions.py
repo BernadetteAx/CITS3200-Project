@@ -48,7 +48,10 @@ def get_mission_desc(location, mission):
 # print(get_mission_desc("Jungle", "Artifact Heist"))
 # print(get_mission_desc("City", "Artifact Heist"))
 
-print(get_mission_desc("Arctic Tundra", "Jewel Heist"))
+# print(get_mission_desc("Arctic Tundra", "Jewel Heist"))
+# print(get_mission_desc("Desert", "Jewel Heist"))
+# print(get_mission_desc("Jungle", "Jewel Heist"))
+# print(get_mission_desc("City", "Jewel Heist"))
 
 
 

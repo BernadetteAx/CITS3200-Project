@@ -13,9 +13,9 @@ location_info = {
     "Desert": {
         "opening_sentence_location": "Your mission is to take place in the middle of the scorching desert",
         "artifact_to_steal": "Scarab's Eye",
-        "artifact_desc": "Scarabs Eye, the carapase of an ancient scarab, fashioned into a broach. The shell has been bejweled with thousands of precious stones to resemble a human eye. It is believed to cast judgement upon all those it's gaze falls upon",
-        "jewel_to_steal": "Sol's Rival",
-        "jewel_desc": "Sol's Rival, a near perfect black opal hewn from desert rock. The gem is so dark as to rival the light of the sun, hence it's name. It is worth over 66 million dollars",
+        "artifact_desc": "Scarabs Eye, the carapase of an ancient scarab, fashioned into a broach. The shell has been bejweled with thousands of precious stones to resemble a human eye. It is believed to cast judgement upon all those its gaze falls upon",
+        "jewel_to_steal": "Sol's End",
+        "jewel_desc": "Sol's End, a near perfect black opal hewn from desert rock. So named as the gem is so dark as to oppose the very light of the sun. It is worth over 66 million dollars",
     },
     
     "Jungle": {
@@ -31,7 +31,7 @@ location_info = {
         "artifact_to_steal": "Rabbit's Foot",
         "artifact_desc": "Rabbit's Foot, an intricate wooden object, carved from the bough of a sacred tree, shaped to resemble the foot of a rabbit. It is believed to bring good luck to all those who come in contact with it and is the origin of the myth of the lucky rabbit's foot",
         "jewel_to_steal": "Maiden's Tears",
-        "jewel_desc": "Maiden's Tears, a stunning sapphire that formed in the shape of teardrop. The jewel has been the cause of more than one war and is now worth over 51 million dollars.",
+        "jewel_desc": "Maiden's Tears, a stunning sapphire that formed in the shape of teardrop. The jewel has been the cause of more than one war and is now worth over 51 million dollars",
     },
     
     "Ocean": {

@@ -1,7 +1,6 @@
 import random
-from mission_structs import missions_list as missions_list
-from items import items_dict as items_dict
-from challenges import challenges_dict as challenges_dict
+from mission_structs import missions_list
+from challenges import challenges_dict
 from mission_descriptions import get_mission_desc
 from location_info import possible_locations
 from location_info import location_info
