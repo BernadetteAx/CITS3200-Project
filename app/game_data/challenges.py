@@ -392,6 +392,17 @@ challenges_dict = {
             "final_failure_desc": ""
         },
 
+        "Sinkhole": {
+            "challenge_name": "Sinkhole",
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {}, 
+            "failure_items": {},
+            "desc": "", 
+            "continue_failure_desc": "", 
+            "final_failure_desc": ""
+        },
+
         "Temperature Drop": {
             "challenge_name": "Temperature Drop",
             "viable_locations": ["Arctic Tundra", "City"],
