@@ -1,9 +1,8 @@
 import random
-from mission_structs import missions_list
-from challenges import challenges_dict
-from mission_descriptions import get_mission_desc
-from location_info import possible_locations
-from location_info import location_info
+from .challenges import challenges_dict
+from .location_info import possible_locations
+from .mission_descriptions import get_mission_desc
+from .mission_structs import missions_list
 
 
 def get_mission():
@@ -24,7 +23,9 @@ def get_mission():
     selected_mission_dict = mission_options[random.randint(0, len(mission_options)-1)]
     randomised_mission["mission"] = selected_mission_dict["mission_name"]
 
-    randomised_mission["mission_desc"] = get_mission_desc(mission_location, selected_mission_dict["mission_name"])
+    randomised_mission["mission_description"] = get_mission_desc(
+        mission_location, selected_mission_dict["mission_name"]
+    )
     
     # Choose a challenge for each of the 6 challenges in teh mission
     challenge_nums = ["challenge_1", "challenge_2", "challenge_3", "challenge_4", "challenge_5", "challenge_6"]
