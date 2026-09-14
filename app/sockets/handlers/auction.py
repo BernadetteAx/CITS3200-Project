@@ -1,8 +1,10 @@
 import time
 import re
+from random import choice
 from flask_socketio import emit
 from app.extensions import socketio
 from app.game_data.get_random_mission import get_mission
+from app.game_data.items import items_dict
 from app.sockets.sessions import get_session
 
 ROUND_SECONDS, RESULT_SECONDS = 60, 2
@@ -34,33 +36,49 @@ def _mission_item(name):
     existing = ITEM_IMAGES.get(name)
     if existing:
         return dict(existing)
+    item_data = items_dict.get(name, {})
     return {
         "id": _item_id(name),
         "name": name,
-        "cost": 20,
+        "cost": item_data.get("cost", 20),
         "image": "icons8-about-64.png",
-        "description": f"Useful for the {name.lower()} challenge.",
+        "description": item_data.get("desc", f"Useful for the {name.lower()} challenge."),
     }
 
 
 def _build_mission_item_pairs(generated_mission):
-    pairs = []
-    fallback_items = [_mission_item(name) for name in ITEM_IMAGES]
+    winning_items = []
     used_item_ids = set()
     for index in range(1, 9):
         challenge_items = list(generated_mission[f"challenge_{index}"].get("items", {}))
-        choices = [
+        available = [
             _mission_item(name)
             for name in challenge_items
             if _mission_item(name)["id"] not in used_item_ids
         ]
-        choices.extend(
-            item for item in fallback_items
-            if item["id"] not in used_item_ids
-            and item["id"] not in {choice["id"] for choice in choices}
-        )
-        pair = choices[:2]
-        used_item_ids.update(item["id"] for item in pair)
+        winning_item = choice(available) if available else None
+        winning_items.append(winning_item)
+        if winning_item:
+            used_item_ids.add(winning_item["id"])
+
+    random_items = [
+        _mission_item(name)
+        for name in items_dict
+        if _mission_item(name)["id"] not in used_item_ids
+    ]
+    pairs = []
+    for winning_item in winning_items:
+        random_item = choice(random_items)
+        random_items.remove(random_item)
+        used_item_ids.add(random_item["id"])
+        pair = [random_item]
+        if winning_item:
+            pair.insert(0, winning_item)
+        else:
+            second_random = choice(random_items)
+            random_items.remove(second_random)
+            used_item_ids.add(second_random["id"])
+            pair.append(second_random)
         pairs.append(tuple(pair))
     return pairs
 
