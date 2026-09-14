@@ -1,6 +1,7 @@
 example_mission = {
     "location": "Jungle", 
     "mission": "Artifact Heist", 
+    "mission_desc": "Your mission is to take place deep in the heart of the jungle. \n\nYour team has been hired to retrieve a very important artifact. The Scarabs Eye, the carapase of an ancient scarab, fashioned into a broach. The shell has been bejweled with thousands of precious stones to resemble a human eye. It is believed to cast judgement upon all those its gaze falls upon. \n\nThe Scarab's Eye was recently stolen by a powerful group of individuals. It is being held inside a fortified base deep in the jungle. Your job is to steal it back and return it to it's proper owners. \n\nIt will be a challenging mission, but your team has a reputation for such things.\n\nLet's see if you're up to the task.",
     "challenge_1": {
         "challenge_name": "Deadly Marshland Gases",
         "viable_locations": ["Jungle"],

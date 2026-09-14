@@ -1,10 +1,9 @@
 import random
-from mission_structs import missions_list as missions_list
-from items import items_dict as items_dict
-from challenges import challenges_dict as challenges_dict
-
-# Some locations repeated more as they have more missions available at that location
-possible_locations = ["Arctic Tundra", "Arctic Tundra", "Desert", "Desert", "Jungle", "Jungle", "City", "Ocean", "Volcano"]
+from mission_structs import missions_list
+from challenges import challenges_dict
+from mission_descriptions import get_mission_desc
+from location_info import possible_locations
+from location_info import location_info
 
 
 def get_mission():
@@ -24,6 +23,8 @@ def get_mission():
     # Select a random mission from that list
     selected_mission_dict = mission_options[random.randint(0, len(mission_options)-1)]
     randomised_mission["mission"] = selected_mission_dict["mission_name"]
+
+    randomised_mission["mission_desc"] = get_mission_desc(mission_location, selected_mission_dict["mission_name"])
     
     # Choose a challenge for each of the 6 challenges in teh mission
     challenge_nums = ["challenge_1", "challenge_2", "challenge_3", "challenge_4", "challenge_5", "challenge_6"]
@@ -47,13 +48,27 @@ def get_mission():
 
 
 
+
+######################################DEAL WITH insert_item_here
 # mission_dict = get_mission()
 # print(mission_dict["location"])
 # print(mission_dict["mission"])
+# print(mission_dict["mission_desc"])
 # print()
 # print(mission_dict["challenge_1"]["challenge_name"])
+# print(mission_dict["challenge_1"]["desc"])
+# print()
 # print(mission_dict["challenge_2"]["challenge_name"])
+# print(mission_dict["challenge_2"]["desc"])
+# print()
 # print(mission_dict["challenge_3"]["challenge_name"])
+# print(mission_dict["challenge_3"]["desc"])
+# print()
 # print(mission_dict["challenge_4"]["challenge_name"])
+# print(mission_dict["challenge_4"]["desc"])
+# print()
 # print(mission_dict["challenge_5"]["challenge_name"])
+# print(mission_dict["challenge_5"]["desc"])
+# print()
 # print(mission_dict["challenge_6"]["challenge_name"])
+# print(mission_dict["challenge_6"]["desc"])
