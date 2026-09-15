@@ -1,11 +1,6 @@
 import time
-import re
-from random import choice
 from flask_socketio import emit
 from app.extensions import socketio
-from app.game_data.get_random_mission import get_mission
-from app.game_data.items import items_dict
-from app.sockets.handlers import mission
 from app.sockets.sessions import get_session
 
 ROUND_SECONDS, RESULT_SECONDS = 60, 2
@@ -26,71 +21,9 @@ ITEM_PAIRS = [
     ({"id":"armor","name":"Armoured Boots","cost":20,"image":"icons8-armored-boot-64.png","description":"Protect your feet through hazardous ground."},{"id":"cat","name":"Cat","cost":5,"image":"cat-32.png","description":"Morale support for the journey ahead."}),
 ]
 
-ITEM_IMAGES = {item["name"]: item for pair in ITEM_PAIRS for item in pair}
-
-
-def _item_id(name):
-    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-
-
-def _mission_item(name):
-    existing = ITEM_IMAGES.get(name)
-    if existing:
-        return dict(existing)
-    item_data = items_dict.get(name, {})
-    return {
-        "id": _item_id(name),
-        "name": name,
-        "cost": item_data.get("cost", 20),
-        "image": item_data.get("image") or "icons8-idea-64.png",
-        "hotbar_image": item_data.get("hotbar_image") or "icons8-idea-32.png",
-        "description": item_data.get("desc", f"Useful for the {name.lower()} challenge."),
-    }
-
-
-def _build_mission_item_pairs(generated_mission):
-    winning_items = []
-    used_item_ids = set()
-    for index in range(1, 9):
-        challenge_items = list(generated_mission[f"challenge_{index}"].get("items", {}))
-        available = [
-            _mission_item(name)
-            for name in challenge_items
-            if _mission_item(name)["id"] not in used_item_ids
-        ]
-        winning_item = choice(available) if available else None
-        winning_items.append(winning_item)
-        if winning_item:
-            used_item_ids.add(winning_item["id"])
-
-    random_items = [
-        _mission_item(name)
-        for name in items_dict
-        if _mission_item(name)["id"] not in used_item_ids
-    ]
-    pairs = []
-    for winning_item in winning_items:
-        random_item = choice(random_items)
-        random_items.remove(random_item)
-        used_item_ids.add(random_item["id"])
-        pair = [random_item]
-        if winning_item:
-            pair.insert(0, winning_item)
-        else:
-            second_random = choice(random_items)
-            random_items.remove(second_random)
-            used_item_ids.add(second_random["id"])
-            pair.append(second_random)
-        pairs.append(tuple(pair))
-    return pairs
-
-def initialise_auction(session, generated_mission=None):
+def initialise_auction(session):
     if not session.get("auction"):
-        generated_mission = generated_mission or get_mission()
-        item_pairs = _build_mission_item_pairs(generated_mission)
-        session["generated_mission"] = generated_mission
-        session["auction"] = {"item_pairs": item_pairs, "round_index":0, "round_progress":0,
-            "current_item_pair":list(item_pairs[0]),
+        session["auction"] = {"round_index":0, "round_progress":0, "current_item_pair":list(ITEM_PAIRS[0]),
             "votes":{}, "finished_players":set(), "budget":1000, "purchased_items":[],
             "status":"waiting", "round_result":None, "ends_at":None, "timer_token":0}
     return session["auction"]
@@ -106,9 +39,8 @@ def _player_ids(session):
 
 def _state(session, player_id=None):
     auction = session["auction"]
-    item_pairs = auction["item_pairs"]
-    pair = item_pairs[auction["round_index"]] if auction["round_index"] < len(item_pairs) else ()
-    state = {"phase":session["phase"], "round":auction["round_index"] + 1, "totalRounds":len(item_pairs),
+    pair = ITEM_PAIRS[auction["round_index"]] if auction["round_index"] < len(ITEM_PAIRS) else ()
+    state = {"phase":session["phase"], "round":auction["round_index"] + 1, "totalRounds":len(ITEM_PAIRS),
         "items":list(pair), "budget":auction["budget"], "purchasedItems":auction["purchased_items"],
         "voteCount":len(auction["votes"]), "playerCount":len(_player_ids(session)),
         "finishedCount":len(auction["finished_players"]), "status":auction["status"],
@@ -134,7 +66,7 @@ def _timer(session_code, token):
 
 def _start_round(session_code, session):
     auction = session["auction"]
-    auction.update({"current_item_pair":list(auction["item_pairs"][auction["round_index"]]),
+    auction.update({"current_item_pair":list(ITEM_PAIRS[auction["round_index"]]),
         "round_progress":auction["round_index"], "votes":{}, "finished_players":set(), "status":"voting", "round_result":None,
         "ends_at":time.time()+ROUND_SECONDS, "timer_token":auction["timer_token"]+1})
     broadcast_auction_state(session_code, session)
@@ -147,12 +79,12 @@ def _advance(session_code, resolved_round):
     auction = session["auction"]
     if auction["status"] != "resolved" or auction["round_index"] != resolved_round: return
     auction["round_index"] += 1
-    if auction["round_index"] == len(auction["item_pairs"]):
+    if auction["round_index"] == len(ITEM_PAIRS):
         auction["status"] = "complete"
         #expose the final inventory at session level for the mission phase, without making it depend on auction implementation details
         session["purchased_items"] = list(auction["purchased_items"])
         from app.sockets.handlers.mission import initialise_mission, broadcast_mission_state
-        initialise_mission(session, session.get("generated_mission"))
+        initialise_mission(session)
         session["phase"] = "mission"
         broadcast_auction_state(session_code, session)
         broadcast_mission_state(session_code, session)
@@ -163,7 +95,7 @@ def _advance(session_code, resolved_round):
 def _resolve(session_code, session, reason):
     auction = session["auction"]
     if auction["status"] != "voting": return False
-    pair = auction["item_pairs"][auction["round_index"]]
+    pair = ITEM_PAIRS[auction["round_index"]]
     counts = {item["id"]:0 for item in pair} | {"skip":0}
     for choice in auction["votes"].values(): counts[choice] += 1
     highest = max(counts.values())
@@ -187,7 +119,7 @@ def begin_auction(payload):
     code = payload.get("sessionCode") if isinstance(payload, dict) else None
     session = get_session(code)
     if not session or not _valid_player(session, payload) or payload["playerId"] != session["host_id"] or session["phase"] != "start_game": return
-    initialise_auction(session, session.get("generated_mission"))
+    initialise_auction(session)
     session["phase"] = "auction"
     _start_round(code, session)
     emit("auction_started", room=code)
@@ -197,7 +129,7 @@ def auction_vote(payload):
     code = payload.get("sessionCode") if isinstance(payload, dict) else None; session = get_session(code)
     if not session or session.get("phase") != "auction": return
     player, auction = _valid_player(session, payload), session["auction"]
-    choices = {item["id"] for item in auction["item_pairs"][auction["round_index"]]}
+    choices = {item["id"] for item in ITEM_PAIRS[auction["round_index"]]}
     if not player or auction["status"] != "voting" or player in auction["finished_players"] or payload.get("itemId") not in choices: return
     auction["votes"][player] = payload["itemId"]
     broadcast_auction_state(code, session); emit_auction_state_to_player(session, player)
