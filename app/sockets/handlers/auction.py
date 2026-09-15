@@ -41,7 +41,7 @@ def _mission_item(name):
         "id": _item_id(name),
         "name": name,
         "cost": item_data.get("cost", 20),
-        "image": "icons8-about-64.png",
+        "image": item_data.get("image") or "icons8-about-64.png",
         "description": item_data.get("desc", f"Useful for the {name.lower()} challenge."),
     }
 
