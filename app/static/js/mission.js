@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (state.phase === "result_page") return window.location.replace("/result_page");
     const challenge = state.challenge;
     document.getElementById("missionName").textContent = state.missionName;
-    document.getElementById("missionDescription").textContent = state.missionDescription;
     document.getElementById("challengeCount").textContent = `${Math.min(state.currentChallengeIndex + 1, state.totalChallenges)} OF ${state.totalChallenges}`;
     if (challenge) {
       document.getElementById("challengeProgress").textContent = `CHALLENGE ${state.currentChallengeIndex + 1}`;

@@ -1,4 +1,4 @@
-from .location_info import location_info
+from location_info import location_info
 
 mission_desc_struc = {
     "Train Heist": 				"<opening_sentence_location>. \n\nYou were recently contacted by an unknown employer with a job for your team. A train job.\nWhilt your employer isn't exactly forthcoming with the details, you get the basics: \n\nYour employer is interested in getting their hands on a specific piece of cargo owned by a rival. They had been planning to steal it directly from the source, but a change of plans now means that the cargo is being transported via train to a new, more secure facility. This is your employer's last chance to get their hands on the goods.\n\nIt will be a challenging mission, but your team has a reputation for such things. You'll need to boost the goods whilst the train is in motion and deliver them to your employer.\n\nLet's see if you're up to the task.",
