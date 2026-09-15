@@ -15,4 +15,10 @@ items_dict = {
     "Wire Cutters": {"desc": "A heavy-duty hand tool for cutting through wire and metal fencing.", "cost": 100},
     "Explosives": {"desc": "A demolition pack capable of breaking through solid barriers and clearing obstacles.", "cost": 100},
     "Water Bottle": {"desc": "A durable, refillable bottle filled with clean drinking water.", "cost": 100},
+
+    "Credit Card": {"desc": "An emergency resource for an unexpected problem.", "cost": 50},
+    "Map": {"desc": "Helps the team find a safer route.", "cost": 30},
+    "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80},
+    "Fuel": {"desc": "Keep the vehicle moving when every kilometre matters.", "cost": 40},
+    "Compass": {"desc": "A simple backup when technology fails.", "cost": 30},
 }
