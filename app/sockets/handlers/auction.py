@@ -5,6 +5,7 @@ from flask_socketio import emit
 from app.extensions import socketio
 from app.game_data.get_random_mission import get_mission
 from app.game_data.items import items_dict
+from app.sockets.handlers import mission
 from app.sockets.sessions import get_session
 
 ROUND_SECONDS, RESULT_SECONDS = 60, 2
@@ -41,7 +42,8 @@ def _mission_item(name):
         "id": _item_id(name),
         "name": name,
         "cost": item_data.get("cost", 20),
-        "image": "icons8-about-64.png",
+        "image": item_data.get("image") or "icons8-idea-64.png",
+        "hotbar_image": item_data.get("hotbar_image") or "icons8-idea-32.png",
         "description": item_data.get("desc", f"Useful for the {name.lower()} challenge."),
     }
 
