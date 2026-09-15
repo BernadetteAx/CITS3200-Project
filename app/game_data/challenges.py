@@ -5,9 +5,9 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Rescue Op"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. The other team sees it and is alerted to your position.", "point_value": 70, "point_desc": "The signal fire gets the team's attention and gives them a clear destination to aim for. It does, however, risk attracting unwanted attention."}, 
-                "Handheld Radios": {"use_desc": "You use your handheld radios to call the the other team and alert them to your position.", "point_value": 100, "point_desc": "The radios are perfectly suited for this scenario. Both teams are able to communicate and discuss a rendezvouz point."},
-                "Mirror": {"use_desc": "You use the mirror to reflect light in the direction of the other team. They see it and are able to track it back, alerting them to your position.", "point_value": 60, "point_desc": "The mirror was able to attract the other team's attention, but it was hard to trace back to an origin and took a while for them to even notice it in the first place."},
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. The other team sees it and is alerted to your position.", "used": True, "point_value": 70, "point_desc": "The signal fire gets the team's attention and gives them a clear destination to aim for. It does, however, risk attracting unwanted attention."}, 
+                "Handheld Radios": {"use_desc": "You use your handheld radios to call the the other team and alert them to your position.", "used": True, "point_value": 100, "point_desc": "The radios are perfectly suited for this scenario. Both teams are able to communicate and discuss a rendezvouz point."},
+                "Mirror": {"use_desc": "You use the mirror to reflect light in the direction of the other team. They see it and are able to track it back, alerting them to your position.", "used": False, "point_value": 60, "point_desc": "The mirror was able to attract the other team's attention, but it was hard to trace back to an origin and took a while for them to even notice it in the first place."},
             }, 
             "failure_items": {},
             "desc": "To be able to continue your mission you are going to need to be able to alert the other team to your position.",
@@ -20,7 +20,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Handheld Radios": {"use_desc": "Using your handheld radios you are able to find an active frequency and call for help.", "point_value": 100, "point_desc": "Incomplete"},
+                "Handheld Radios": {"use_desc": "Using your handheld radios you are able to find an active frequency and call for help.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "You're team is going to need to get in contact with someone if they hold out any hope of being rescued.",            
@@ -33,7 +33,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Escape"],
             "items":{
-                "Handheld Radios": {"use_desc": "Using your handheld radios you are able to find an active frequency and call for help.", "point_value": 100, "point_desc": "Incomplete"},
+                "Handheld Radios": {"use_desc": "Using your handheld radios you are able to find an active frequency and call for help.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Your team needs to put some distance between you and your captors. You'll need to get in contact with a rescue crew if you want to get out of here.",
@@ -46,7 +46,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Rescue"],
             "items":{
-                "Handheld Radios": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Handheld Radios": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "To have any hope of reconnecting with your teammate, you'll need to find a way to contact them and let know where to meet you.", 
@@ -63,8 +63,8 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the arctic bear and use the gas mask to slip by unscathed.", "point_value": 100, "point_desc": "Incomplete"},
-                "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the arctic bear retreats.", "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the arctic bear and use the gas mask to slip by unscathed.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the arctic bear retreats.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -77,7 +77,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -90,7 +90,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Snow Boots": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Snow Boots": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -102,7 +102,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Ice Axes": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -115,7 +115,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Scuba Gear": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -127,8 +127,8 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed.", "point_value": 100, "point_desc": "Incomplete"},
-                "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the crocodile retreats.", "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the crocodile retreats.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -141,7 +141,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Tent": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Tent": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -154,8 +154,8 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to light a large branch on fire. Wielding the branch you are able to pass through, using the flame and smoke to keep the bugs at bay.", "point_value": 90, "point_desc": "The flame is able to easily deal with the swarm of bugs and is well suited to the task. Unfortunately a couple of bugs do get past, but their bites alone are not enough to inflict significant damage."},
-                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas. It is too potent for the bugs to pass through. You use the gas mask to pass by unscathed.", "point_value": 100, "point_desc": "The gas is able to easily deal with the swarm of bugs and is well suited to the task."},
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to light a large branch on fire. Wielding the branch you are able to pass through, using the flame and smoke to keep the bugs at bay.", "used": True, "point_value": 90, "point_desc": "The flame is able to easily deal with the swarm of bugs and is well suited to the task. Unfortunately a couple of bugs do get past, but their bites alone are not enough to inflict significant damage."},
+                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas. It is too potent for the bugs to pass through. You use the gas mask to pass by unscathed.", "used": True, "point_value": 100, "point_desc": "The gas is able to easily deal with the swarm of bugs and is well suited to the task."},
             }, 
             "failure_items": {},
             "desc": "Your team stumbles across swarm of deadly insects, all fairly intent upon biting you. You'll need to get past them to progress.", 
@@ -168,11 +168,11 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous marshland gases.", "point_value": 100, "point_desc": "The gas mask is ideal for situations just like this. It was the perfect tool to help you pass safely through the marshlands."},
-                "Scuba Gear": {"use_desc": "Your team uses the scuba tanks and masks to breathe safely as make your way through the marshlands.", "point_value": 90, "point_desc": "The scuba gear is very effective and keeps your team safe. It is however, unwieldy and gets snagged on marshland plants and vines, slowing your progress."},
+                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous marshland gases.", "used": False, "point_value": 100, "point_desc": "The gas mask is ideal for situations just like this. It was the perfect tool to help you pass safely through the marshlands."},
+                "Scuba Gear": {"use_desc": "Your team uses the scuba tanks and masks to breathe safely as make your way through the marshlands.", "used": True, "point_value": 90, "point_desc": "The scuba gear is very effective and keeps your team safe. It is however, unwieldy and gets snagged on marshland plants and vines, slowing your progress."},
             },
             "failure_items": {
-                "Fire Starter Kit": {"use_desc": "You use the fire starter to create a small flame. Within an instant, your entire team is wiped out.", "point_value": 0, "point_desc": "This is what we call a bad idea. Turns out those deadly gases were not only toxic, but also highly flammable. The ensuing fireball that consumed your team was so explosive that your first clue that anything went wrong would have been you, knocking on the pearly gates."}},
+                "Fire Starter Kit": {"use_desc": "You use the fire starter to create a small flame. Within an instant, your entire team is wiped out.", "used": True, "point_value": 0, "point_desc": "This is what we call a bad idea. Turns out those deadly gases were not only toxic, but also highly flammable. The ensuing fireball that consumed your team was so explosive that your first clue that anything went wrong would have been you, knocking on the pearly gates."}},
             "desc": "Your team comes across an expansive stretch of marshland that you will be forced to cross if you want to continue your mission. Unfortunately, pockets of the marshland are full of deadly gases, invisible to the human eye.", 
             "continue_failure_desc": "Your team is forced to navigate around the marshlands. This takes a significant amount of time and the longer trip significantly tires your team out.", 
             "final_failure_desc": "In desperation, your team tries to progress through the marshlands without the correct equipment. As the marshland gases slowly invade their systems, they find it harder and harder to stay awake. The exhaustion overtakes them and they rest for what they plan to only be a minute. They are claimed by the jungle."
@@ -183,7 +183,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Ice Axes": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -196,7 +196,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Still-suit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Still-suit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -209,7 +209,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Axe": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Axe": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -222,7 +222,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Water Bottle": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -235,7 +235,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -248,7 +248,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Skates": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Ice Skates": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -261,7 +261,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Still-suit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Still-suit": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -274,7 +274,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "You use the Ice Axes to scale the ice cliff.", "point_value": 100, "point_desc": "Incomplete"},
+                "Ice Axes": {"use_desc": "You use the Ice Axes to scale the ice cliff.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -287,7 +287,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "You wedge the ice axes as deep into the surrounding rock as possible and hold on tight. After the landslide has past, you need to dig yourselves out, but you are otherwise fine.", "point_value": 100, "point_desc": "Incomplete"},
+                "Ice Axes": {"use_desc": "You wedge the ice axes as deep into the surrounding rock as possible and hold on tight. After the landslide has past, you need to dig yourselves out, but you are otherwise fine.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -300,7 +300,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Still-suit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Still-suit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -313,7 +313,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -326,8 +326,8 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You toss the smoking kindling into the nest and the smoke pacifies the scorpions allowing you to pass by unscathed.", "point_value": 100, "point_desc": "Incomplete"},
-                "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister into the nest, the gas causes the scorpions to scatter allowing you to pass by unscathed.", "point_value": 100, "point_desc": "Incomplete"},
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You toss the smoking kindling into the nest and the smoke pacifies the scorpions allowing you to pass by unscathed.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister into the nest, the gas causes the scorpions to scatter allowing you to pass by unscathed.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -340,7 +340,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "You use wedge the ice axes into the surrounding solid ground and use them to pull yourselves out.", "point_value": 100, "point_desc": "Incomplete"},
+                "Ice Axes": {"use_desc": "You use wedge the ice axes into the surrounding solid ground and use them to pull yourselves out.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -353,7 +353,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -366,7 +366,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Helmet": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Helmet": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -379,7 +379,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Dune Buggy": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Dune Buggy": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -392,7 +392,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Shovel": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Shovel": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -405,7 +405,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Scuba Gear": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -418,7 +418,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the shark retreats.", "point_value": 100, "point_desc": "Incomplete"},
+                "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the shark retreats.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -431,7 +431,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Grapling Hook": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Grapling Hook": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -444,7 +444,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Blanket": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Blanket": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -457,7 +457,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Scuba Gear": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -470,8 +470,8 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You use the flame to keep the reptile at bay, and pass by unscathed.", "point_value": 100, "point_desc": "Incomplete"},
-                "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister near the snake, harmlessly incapacitating it and you use the gas mask to slip by unscathed.", "point_value": 100, "point_desc": "Incomplete"},
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You use the flame to keep the reptile at bay, and pass by unscathed.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister near the snake, harmlessly incapacitating it and you use the gas mask to slip by unscathed.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -484,7 +484,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -501,7 +501,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team has been out in the open for too long. You'll need to find your way back to civilization if you have any hope of continuing your mission.", 
@@ -514,7 +514,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team has been out amoung the elements for far too long. You'll need to find some land for your team to re-cooperate on, if you hold out any hope of completing your mission.", 
@@ -527,7 +527,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team has been out in the open too long. Exposure to the elements is starting to slow you down. You'll need to take shelter if you hold out any hope of finishing your mission.", 
@@ -544,7 +544,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Water Bottle": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "In such a harsh environment, your team finds that they have become severely dehydrated. You'll need to find a source of water if you have any hope of continuing your mission.", 
@@ -557,9 +557,9 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "You stumble across a frozen river. You use the ice axes to break through the thick ice and gain access to the flowing water beneath.", "point_value": 80, "point_desc": "The ice axes were an effective tool for overcoming this obstacle."},
-                "Fire Starter Kit": {"use_desc": "You find a large chunk of ice, and using the fire starter kit to create a small fire. The small flame melts some of the ice into water.", "point_value": 70, "point_desc": "Whilst the flame was able to melt the ice, the water it produced dampened the kindling and put the fire out. So, you managed to obtain water, but not as much as you might have wanted."},
-                "Mirror": {"use_desc": "You find a large chunk of ice and use the mirror to focus a beam of sunlight on it. Very slowly the ice melts into water.", "point_value": 50, "point_desc": "The mirror did successfully help you obtain water, it took a long time and produceed barely enough water."},
+                "Ice Axes": {"use_desc": "You stumble across a frozen river. You use the ice axes to break through the thick ice and gain access to the flowing water beneath.", "used": True, "point_value": 80, "point_desc": "The ice axes were an effective tool for overcoming this obstacle."},
+                "Fire Starter Kit": {"use_desc": "You find a large chunk of ice, and using the fire starter kit to create a small fire. The small flame melts some of the ice into water.", "used": True, "point_value": 70, "point_desc": "Whilst the flame was able to melt the ice, the water it produced dampened the kindling and put the fire out. So, you managed to obtain water, but not as much as you might have wanted."},
+                "Mirror": {"use_desc": "You find a large chunk of ice and use the mirror to focus a beam of sunlight on it. Very slowly the ice melts into water.", "used": False, "point_value": 50, "point_desc": "The mirror did successfully help you obtain water, it took a long time and produceed barely enough water."},
             }, 
             "failure_items": {}, 
             "desc": "In such a harsh environment, your team finds that they have become severely dehydrated. You'll need to find a source of water if you have any hope of continuing your mission.", 
@@ -572,7 +572,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Water Bottle": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "So much exertion has left your team severely dehydrated. You'll need to find a source of clean water if you have any hope of continuing your mission.", 
@@ -585,7 +585,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Water Bottle": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "In such a harsh environment, your team finds that they have become severely dehydrated. You'll need to find a source of water if you have any hope of continuing your mission.",  
@@ -598,7 +598,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Water Bottle": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "In such a harsh environment, your team finds that they have become severely dehydrated. You'll need to find a source of water if you have any hope of continuing your mission.", 
@@ -615,8 +615,8 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Paraglider": {"use_desc": "Your team finds the highest point they can and paraglide silently away.", "point_value": 80, "point_desc": "The paragliders quickly put some distance between you and your would be pursuors. They are particularly effective due to how silently they move, but once you reach the forested jungle, they become cumbersome and impractical. Fortunately by that point you are pretty much in the clear."},
-                "Helicopter": {"use_desc": "You quickly pile into the helicopter that is standing by and take off.", "point_value": 90, "point_desc": "The helicopter is very efficient at putting putting some distance between you and your would be pursuors. It is very loud, which alerts the guards to your presences, but fortunately you're out of there before they get the chance to follow you."},
+                "Paraglider": {"use_desc": "Your team finds the highest point they can and paraglide silently away.", "used": False, "point_value": 80, "point_desc": "The paragliders quickly put some distance between you and your would be pursuors. They are particularly effective due to how silently they move, but once you reach the forested jungle, they become cumbersome and impractical. Fortunately by that point you are pretty much in the clear."},
+                "Helicopter": {"use_desc": "You quickly pile into the helicopter that is standing by and take off.", "used": False, "point_value": 90, "point_desc": "The helicopter is very efficient at putting putting some distance between you and your would be pursuors. It is very loud, which alerts the guards to your presences, but fortunately you're out of there before they get the chance to follow you."},
             }, 
             "failure_items": {},
             "desc": "Your team is going to need to get away, and fast. The only way out, from your current position, is by air.", 
@@ -629,7 +629,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Armoured Truck": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Armoured Truck": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team is going to need to get away, and fast. The only way out, is overland land.", 
@@ -642,7 +642,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Fire Starter Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team isn't going to be able to outmaneuver your pursuers. Looks like you'll have to out-think them instead and lead them in the wrong direction before doubling back.", 
@@ -655,7 +655,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Dune Buggy": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Dune Buggy": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team is going to need to get away, and fast. The only way out, is across the dunes.", 
@@ -668,7 +668,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Snow Mobile": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Snow Mobile": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team is going to need to get away, and fast. The only way out, is over the freshly powdered snow.", 
@@ -681,10 +681,10 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {
-                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly.", "point_value": 0, "point_desc": "What about an armoured truck struck you as particularly sneaky. Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed rpg and your team was no more. Let's try a subtler approach next time, huh?"},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly.", "used": True, "point_value": 0, "point_desc": "What about an armoured truck struck you as particularly sneaky. Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed rpg and your team was no more. Let's try a subtler approach next time, huh?"},
             }, 
             "desc": "Your opponents are well equipped, your team isn't going to be able to outmaneuver or outgun them. Looks like you're going to have to perform a sneaky getaway.", 
             "continue_failure_desc": "Without any better ideas, your team is forced to camp out in a cramped storage cupboard until an opportunity presents itself to slip by undetected. It took a long time though and your team is in no way happy about it.", 
@@ -696,7 +696,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team is going to need to get away, and fast. The only way out, is via the water.", 
@@ -713,7 +713,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your base has sustained damage to one of the outward-facing walls. You'll need to repair it.", 
@@ -726,7 +726,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your base has sustained damage to one of the outward-facing walls and a whole quadrant of your base is flooded and sealed off. You'll need to repair the wall before you can even think about pumping the water out",
@@ -739,7 +739,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your base has sustained damage to it's enviro-dome, housing numerous samples your team has collected from their time here. You'll need to work fast, but carefully to repair it, before the samples become inmpacted.", 
@@ -752,7 +752,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your base has sustained damage and flooding to the enviro-dome, housing numerous samples your team has collected from their time here. You'll need to perform any repairs carefully, and quickly before the samples are impacted.",
@@ -765,10 +765,10 @@ challenges_dict = {
             "viable_locations": ["Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {
-                "Explosives": {"use_desc": "", "point_value": 0, "point_desc": "You do realise that you're stuck inside the base, right? Not your brightest idea......................................................"},
+                "Explosives": {"use_desc": "", "used": True, "point_value": 0, "point_desc": "You do realise that you're stuck inside the base, right? Not your brightest idea......................................................"},
             }, 
             "desc": "In a recent rock fall, your base suffered damage to the exit hatch. It's holding together for now, but there's no telling how long it will be before the door caves and everything beyond it, will find its way in. As well as that, whilst it's broken, your team has no way out.", 
             "continue_failure_desc": "Without the right equipment all your team can do is hope that it holds. You are, however, trapped. You are forced to re-wire the rover exit hatch to gain access to the outside of the base. It takes a long time, and squeezing through the tiny gap is an arduous feat.", 
@@ -780,7 +780,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your friendly little rover 'Georgie' has suffered damage in a recent rockfall. You'll need it to be in working condition if you hope to collect any more samples before they are destroyed by changing outside conditions.", 
@@ -793,7 +793,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "The solar panels that help power vital sections of your base have been knocked out of alignment. You'll need to make a few repairs and get them back in their rightful places if you want to keep getting power.", 
@@ -806,7 +806,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "There is a nearby base that your team needs to gather supplies from. Unfortunately the vehicle that your team uses to make trips has suffered damage and will need to be repaired. ", 
@@ -823,7 +823,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -836,7 +836,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -849,7 +849,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -862,9 +862,9 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Rope": {"use_desc": "You use the rope and, after numerous tries, manage to lasoo the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "point_value": 60, "point_desc": "Whilst successful, swinging across the bridge was a risky manuever and the set up cost you a lot of time."},
-                "Paraglider": {"use_desc": "Your team find the highest point in the surrounding area and glide across the gap. Everyone reaches the other side safely.", "point_value": 100, "point_desc": "The glider is well suited to this kind of challenge and your team is able to quickly and easily navigate the obstacle."},
-                "Grapling Hook": {"use_desc": "The team are able to hook the grapling hook on the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "point_value": 75, "point_desc": "Whilst swinging across the bridge was a somewhat risky manuever, the grapling hooks were efficient and ensured that the lines were well secured."},
+                "Rope": {"use_desc": "You use the rope and, after numerous tries, manage to lasoo the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "used": False, "point_value": 60, "point_desc": "Whilst successful, swinging across the bridge was a risky manuever and the set up cost you a lot of time."},
+                "Paraglider": {"use_desc": "Your team find the highest point in the surrounding area and glide across the gap. Everyone reaches the other side safely.", "used": False, "point_value": 100, "point_desc": "The glider is well suited to this kind of challenge and your team is able to quickly and easily navigate the obstacle."},
+                "Grapling Hook": {"use_desc": "The team are able to hook the grapling hook on the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "used": False, "point_value": 75, "point_desc": "Whilst swinging across the bridge was a somewhat risky manuever, the grapling hooks were efficient and ensured that the lines were well secured."},
             }, 
             "failure_items": {},
             "desc": "Your team comes across a bridge that has collapsed. You'll need to cross over it to progress.", 
@@ -877,7 +877,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -890,7 +890,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -903,7 +903,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Grapling Hook": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Grapling Hook": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -916,7 +916,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Scuba Gear": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -929,7 +929,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Scuba Gear": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {},
             "desc": "Imcomplete", 
@@ -942,7 +942,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Armoured Truck": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Armoured Truck": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -959,7 +959,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Wire Cutters": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Wire Cutters": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "The area you're attempting to sneak through is rigged with numerous alarms, all set to go off at the slightest disturbance. You'll have to deactivate them before you can proceed.", 
@@ -972,7 +972,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Wire Cutters": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Wire Cutters": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "The area you're attempting to sneak through is under constant video surveillance. You'll need to find a way to deactivate the security cameras if you want to get past.", 
@@ -985,10 +985,10 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of the guards and they leave their post to investigate.", "point_value": 75, "point_desc": "The fire successfully drew the guards away, but it did cause some significant damage in the process."},
-                "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate.", "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there was someone on the premises."},
-                "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The glint of the mirror attracts the attention of the closest guards and they leave their post to investigate.", "point_value": 80, "point_desc": "The mirror successfully attracted the attention of the guards, its subtlety did not raise suspicion, but not all of the guards left their post to investigate."},
-                "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister towards the guards, knocking them out. You use the gas mask to slip past.", "point_value": 60, "point_desc": "Not the cleanest of maneuvers. Whilst it did successfully incapacitate the relevant guards, there was a risk that someone would stumble across the bodies and sound the alarm."},
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of the guards and they leave their post to investigate.", "used": True, "point_value": 75, "point_desc": "The fire successfully drew the guards away, but it did cause some significant damage in the process."},
+                "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there was someone on the premises."},
+                "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The glint of the mirror attracts the attention of the closest guards and they leave their post to investigate.", "used": True, "point_value": 80, "point_desc": "The mirror successfully attracted the attention of the guards, its subtlety did not raise suspicion, but not all of the guards left their post to investigate."},
+                "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister towards the guards, knocking them out. You use the gas mask to slip past.", "used": True, "point_value": 60, "point_desc": "Not the cleanest of maneuvers. Whilst it did successfully incapacitate the relevant guards, there was a risk that someone would stumble across the bodies and sound the alarm."},
             }, 
             "failure_items": {},
             "desc": "Your team spots guards posted at several points around the perimeter. You are going to need to distract them to be able to slip by.", 
@@ -1001,7 +1001,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team approaches the facility. Unfortunately, your planned entrance is being guarded. If you want to get in, you'll need to find another way.", 
@@ -1014,7 +1014,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team approaches the exit to the facility. Unfortunately, it's being guarded. If you want to get out, you'll need to find another way.", 
@@ -1027,7 +1027,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Mirror": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Mirror": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Surrounding the entire facility is a laser grid. You'll need to find a way to get past it.", 
@@ -1044,7 +1044,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Lock Picks": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Lock Picks": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "The item you seek is stored inside a vault. It's locked with a combination. You'll need to find a way inside if you want to retrieve the item.", 
@@ -1057,7 +1057,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Axe": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Axe": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "The item you seek is stored inside a crate. You'll need to find a way to open or break the crate if you want it's contents.", 
@@ -1070,7 +1070,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "You watch as an armed guard takes the item and slips it into their pocket for safe keeping. You'll need to find a way to get it off them", 
@@ -1083,8 +1083,8 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Mirror": {"use_desc": "You use the mirror to reflect the lasers away as one of you reaches in and grabs the goods.", "point_value": 100, "point_desc": "The mirror was an ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the goods have even been taken."},
-                "Wire Cutters": {"use_desc": "You find the system that powers the laser grid and cut the wires. It deactivates the grid and you are able to grab the goods.", "point_value": 80, "point_desc": "You were successful in grabbing the goods, but there was evidence of your theft and the disappearence of the item was quickly noticed."},
+                "Mirror": {"use_desc": "You use the mirror to reflect the lasers away as one of you reaches in and grabs the goods.", "used": False, "point_value": 100, "point_desc": "The mirror was an ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the goods have even been taken."},
+                "Wire Cutters": {"use_desc": "You find the system that powers the laser grid and cut the wires. It deactivates the grid and you are able to grab the goods.", "used": False, "point_value": 80, "point_desc": "You were successful in grabbing the goods, but there was evidence of your theft and the disappearence of the item was quickly noticed."},
             }, 
             "failure_items": {},
             "desc": "You find the item, but it's protected by a laser grid. You'll need to find a way to get the item past it.", 
@@ -1101,7 +1101,7 @@ challenges_dict = {
             "viable_locations": ["Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, filtering the air and making it breathable.", "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, filtering the air and making it breathable.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -1114,7 +1114,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Blanket": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Blanket": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -1127,7 +1127,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Handheld Radios": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Handheld Radios": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -1140,7 +1140,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Still-suit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Still-suit": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -1153,7 +1153,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -1166,7 +1166,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Imcomplete", 
@@ -1183,7 +1183,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Helicopter": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Helicopter": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using air based transport.", 
@@ -1196,7 +1196,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Armoured Truck": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Armoured Truck": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using on-the-ground transport.", 
@@ -1209,7 +1209,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Dune Buggy": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Dune Buggy": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is over the dunes.", 
@@ -1222,7 +1222,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Snow Mobile": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Snow Mobile": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is over the ice and snow.", 
@@ -1235,7 +1235,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Incomplete", "point_value": 100, "point_desc": "Incomplete"},
+                "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using water based transport.", 
