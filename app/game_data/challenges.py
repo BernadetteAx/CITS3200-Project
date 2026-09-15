@@ -440,7 +440,7 @@ challenges_dict = {
         },
         
         "Volcanic Gases": {
-            "challenge_name": "",
+            "challenge_name": "Volcanic Gases",
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
