@@ -43,32 +43,5 @@ def get_mission():
         selected_challenge_dict = challenge_options[random.randint(0, len(challenge_options)-1)]
         randomised_mission[challenge_num] = selected_challenge_dict
         
-
+    
     return randomised_mission
-
-
-
-
-######################################DEAL WITH insert_item_here
-# mission_dict = get_mission()
-# print(mission_dict["location"])
-# print(mission_dict["mission"])
-# print(mission_dict["mission_desc"])
-# print()
-# print(mission_dict["challenge_1"]["challenge_name"])
-# print(mission_dict["challenge_1"]["desc"])
-# print()
-# print(mission_dict["challenge_2"]["challenge_name"])
-# print(mission_dict["challenge_2"]["desc"])
-# print()
-# print(mission_dict["challenge_3"]["challenge_name"])
-# print(mission_dict["challenge_3"]["desc"])
-# print()
-# print(mission_dict["challenge_4"]["challenge_name"])
-# print(mission_dict["challenge_4"]["desc"])
-# print()
-# print(mission_dict["challenge_5"]["challenge_name"])
-# print(mission_dict["challenge_5"]["desc"])
-# print()
-# print(mission_dict["challenge_6"]["challenge_name"])
-# print(mission_dict["challenge_6"]["desc"])
