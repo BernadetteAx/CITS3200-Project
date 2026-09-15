@@ -34,3 +34,5 @@ def get_mission_desc(location, mission):
 
     return mission_desc
 
+
+# get_mission_desc(", mission)

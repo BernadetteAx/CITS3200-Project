@@ -52,6 +52,7 @@ def get_mission():
 
 ######################################DEAL WITH insert_item_here
 # mission_dict = get_mission()
+# print(mission_dict)
 # print(mission_dict["location"])
 # print(mission_dict["mission"])
 # print(mission_dict["mission_desc"])
