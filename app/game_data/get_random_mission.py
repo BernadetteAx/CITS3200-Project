@@ -4,6 +4,7 @@ from challenges import challenges_dict
 from mission_descriptions import get_mission_desc
 from location_info import possible_locations
 from location_info import location_info
+from example_mission import example_mission
 
 
 def get_mission():
@@ -43,7 +44,7 @@ def get_mission():
         selected_challenge_dict = challenge_options[random.randint(0, len(challenge_options)-1)]
         randomised_mission[challenge_num] = selected_challenge_dict
         
-
+    return example_mission
     return randomised_mission
 
 
