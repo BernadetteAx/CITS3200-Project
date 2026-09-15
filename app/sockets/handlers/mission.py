@@ -7,13 +7,13 @@ from flask import request
 from flask_socketio import emit
 
 from app.extensions import socketio
-from app.game_data.get_random_mission import get_mission
+from app.game_data.example_mission import example_mission
 from app.sockets.sessions import get_session
 
 
 def _normalise_challenges(generated_mission):
     challenges = []
-    for index in range(1, 9):
+    for index in range(1, 7):
         challenge = generated_mission[f"challenge_{index}"]
         name = challenge["challenge_name"]
         challenges.append({
@@ -29,10 +29,9 @@ def _normalise_challenges(generated_mission):
 def initialise_mission(session, generated_mission=None):
     """Create game-data mission state once, retaining the auction inventory."""
     if not session.get("mission"):
-        generated_mission = generated_mission or get_mission()
-        session["mission"] = {"mission_name": generated_mission["mission"],
-            "mission_description": generated_mission["mission_description"],
-            "challenges": _normalise_challenges(generated_mission), "current_challenge_index": 0,
+        session["mission"] = {"mission_name": example_mission["mission"],
+            "mission_description": example_mission["mission_desc"],
+            "challenges": _normalise_challenges(example_mission), "current_challenge_index": 0,
             "inventory": [dict(item) for item in session.get("purchased_items", [])], "used_items": [],
             "outcome_log": [], "score": 100, "penalties": 0, "status": "active", "outcome": None}
     return session["mission"]
