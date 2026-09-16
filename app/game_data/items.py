@@ -16,6 +16,7 @@ items_dict = {
     "Water Bottle": {"desc": "A durable, refillable bottle filled with clean drinking water.", "cost": 100,"image": "sport-bottle-64.png", "hotbar_image": "icons8-idea-32.png"},
 
 
+
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
     "Fuel": {"desc": "Keep the vehicle moving when every kilometre matters.", "cost": 40, "image": "icons8-idea-64.png", "hotbar_image": "icons8-idea-32.png"},
     "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},

@@ -119,13 +119,13 @@ body {
 
     border: 2px solid var(--tile-border);
 
-    min-height: 90px;
+    min-height: 100px;
 
-    padding: 18px;
+    padding: 22px;
 }
 
 #leftover-money {
-    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    font-size: clamp(1.6rem, 6vw, 2.3rem);
     color: #ffffff;
 }
 
