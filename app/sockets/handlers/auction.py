@@ -1,9 +1,9 @@
 import time
 import re
-from random import choice
+from random import sample
 from flask_socketio import emit
 from app.extensions import socketio
-from app.game_data.get_random_mission import get_mission
+from app.game_data.example_mission import example_mission
 from app.game_data.items import items_dict
 from app.sockets.handlers import mission
 from app.sockets.sessions import get_session
@@ -34,59 +34,75 @@ def _item_id(name):
 
 
 def _mission_item(name):
+    item_data = items_dict.get(name)
+    if item_data:
+        return {
+            "id": _item_id(name),
+            "name": name,
+            "cost": item_data.get("cost", 20),
+            "image": item_data.get("image") or "icons8-idea-64.png",
+            "hotbar_image": item_data.get("hotbar_image") or "icons8-idea-32.png",
+            "description": item_data.get("desc", f"Useful for the {name.lower()} challenge."),
+        }
     existing = ITEM_IMAGES.get(name)
     if existing:
-        return dict(existing)
-    item_data = items_dict.get(name, {})
+        item = dict(existing)
+        item.setdefault("hotbar_image", item["image"])
+        return item
     return {
         "id": _item_id(name),
         "name": name,
-        "cost": item_data.get("cost", 20),
-        "image": item_data.get("image") or "icons8-idea-64.png",
-        "hotbar_image": item_data.get("hotbar_image") or "icons8-idea-32.png",
-        "description": item_data.get("desc", f"Useful for the {name.lower()} challenge."),
+        "cost": 20,
+        "image": "icons8-idea-64.png",
+        "hotbar_image": "icons8-idea-32.png",
+        "description": f"Useful for the {name.lower()} challenge.",
     }
 
 
 def _build_mission_item_pairs(generated_mission):
-    winning_items = []
-    used_item_ids = set()
-    for index in range(1, 9):
-        challenge_items = list(generated_mission[f"challenge_{index}"].get("items", {}))
+    challenge_item_names = [
+        list(generated_mission[f"challenge_{index}"].get("items", {}))
+        for index in range(1, 7)
+    ]
+
+    def select_unique_mission_items(index, used_item_ids):
+        if index == len(challenge_item_names):
+            return []
         available = [
             _mission_item(name)
-            for name in challenge_items
+            for name in challenge_item_names[index]
             if _mission_item(name)["id"] not in used_item_ids
         ]
-        winning_item = choice(available) if available else None
-        winning_items.append(winning_item)
-        if winning_item:
-            used_item_ids.add(winning_item["id"])
+        for item in available:
+            selected = select_unique_mission_items(
+                index + 1, used_item_ids | {item["id"]}
+            )
+            if selected is not None:
+                return [item, *selected]
+        return None
 
+    mission_items = select_unique_mission_items(0, set())
     random_items = [
         _mission_item(name)
         for name in items_dict
-        if _mission_item(name)["id"] not in used_item_ids
+        if name not in {item["name"] for item in mission_items}
     ]
     pairs = []
-    for winning_item in winning_items:
-        random_item = choice(random_items)
+    for mission_item in mission_items:
+        random_item = sample(random_items, 1)[0]
         random_items.remove(random_item)
-        used_item_ids.add(random_item["id"])
-        pair = [random_item]
-        if winning_item:
-            pair.insert(0, winning_item)
-        else:
-            second_random = choice(random_items)
-            random_items.remove(second_random)
-            used_item_ids.add(second_random["id"])
-            pair.append(second_random)
-        pairs.append(tuple(pair))
+        pairs.append((mission_item, random_item))
+
+    for _ in range(2):
+        random_pair = sample(random_items, 2)
+        pairs.append(tuple(random_pair))
+        for item in random_pair:
+            random_items.remove(item)
     return pairs
 
 def initialise_auction(session, generated_mission=None):
     if not session.get("auction"):
-        generated_mission = generated_mission or get_mission()
+        generated_mission = generated_mission or example_mission
         item_pairs = _build_mission_item_pairs(generated_mission)
         session["generated_mission"] = generated_mission
         session["auction"] = {"item_pairs": item_pairs, "round_index":0, "round_progress":0,
