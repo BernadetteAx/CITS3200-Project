@@ -1,8 +1,10 @@
 import random
-from .challenges import challenges_dict
-from .location_info import possible_locations
-from .mission_descriptions import get_mission_desc
-from .mission_structs import missions_list
+from mission_structs import missions_list
+from challenges import challenges_dict
+from mission_descriptions import get_mission_desc
+from location_info import possible_locations
+from location_info import location_info
+from example_mission import example_mission
 
 
 def get_mission():
@@ -27,13 +29,10 @@ def get_mission():
         mission_location, selected_mission_dict["mission_name"]
     )
     
-    challenge_types = [
-        selected_mission_dict[f"challenge_{index}"]
-        for index in range(1, 7)
-    ]
-    challenge_types.extend(challenge_types[:2])
-    challenge_nums = [f"challenge_{index}" for index in range(1, 9)]
-    for challenge_num, challenge_type in zip(challenge_nums, challenge_types):
+    # Choose a challenge for each of the 6 challenges in teh mission
+    challenge_nums = ["challenge_1", "challenge_2", "challenge_3", "challenge_4", "challenge_5", "challenge_6"]
+    for challenge_num in challenge_nums:
+        challenge_type = selected_mission_dict[challenge_num]
 
         # Add rest option, that catches if there is no option found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         challenge_options = []
@@ -47,7 +46,7 @@ def get_mission():
         selected_challenge_dict = challenge_options[random.randint(0, len(challenge_options)-1)]
         randomised_mission[challenge_num] = selected_challenge_dict
         
-
+    return example_mission
     return randomised_mission
 
 

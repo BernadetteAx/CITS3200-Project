@@ -5,7 +5,6 @@ items_dict = {
     "Gas Mask and Knockout Gas": {"desc": "A protective gas mask paired with a canister of knockout gas.", "cost": 200, "image": "icons8-escape-mask-64.png", "hotbar_image": "icons8-escape-mask-32.png"},
 
     "Ice Axes": {"desc": "A pair of sturdy climbing axes with pointed metal heads for gripping ice.", "cost": 100, "image": "icons8-minecraft-axe-64.png", "hotbar_image": "icons8-minecraft-axe-32.png"},
-
     "Armoured Truck": {"desc": "A land based vehicle with reinforced armour, rugged tyres and room for your team.", "cost": 600, "image": "icons8-tank-64.png", "hotbar_image": "icons8-tank-32.png"},
     "Rope": {"desc": "A long coil of strong rope for climbing, securing equipment and helping teammates across obstacles.", "cost": 100, "image": "icons8-rope-64.png", "hotbar_image": "icons8-rope-32.png"},
     "Paraglider": {"desc": "A lightweight fabric wing with a harness for gliding through the air from an elevated position.", "cost": 100, "image": "icons8-skydiving-gear-64.png", "hotbar_image": "icons8-skydiving-gear-32.png"},
