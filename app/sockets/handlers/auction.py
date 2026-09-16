@@ -34,17 +34,28 @@ def _item_id(name):
 
 
 def _mission_item(name):
+    item_data = items_dict.get(name)
+    if item_data:
+        return {
+            "id": _item_id(name),
+            "name": name,
+            "cost": item_data.get("cost", 20),
+            "image": item_data.get("image") or "icons8-idea-64.png",
+            "hotbar_image": item_data.get("hotbar_image") or "icons8-idea-32.png",
+            "description": item_data.get("desc", f"Useful for the {name.lower()} challenge."),
+        }
     existing = ITEM_IMAGES.get(name)
     if existing:
-        return dict(existing)
-    item_data = items_dict.get(name, {})
+        item = dict(existing)
+        item.setdefault("hotbar_image", item["image"])
+        return item
     return {
         "id": _item_id(name),
         "name": name,
-        "cost": item_data.get("cost", 20),
-        "image": item_data.get("image") or "icons8-idea-64.png",
-        "hotbar_image": item_data.get("hotbar_image") or "icons8-idea-32.png",
-        "description": item_data.get("desc", f"Useful for the {name.lower()} challenge."),
+        "cost": 20,
+        "image": "icons8-idea-64.png",
+        "hotbar_image": "icons8-idea-32.png",
+        "description": f"Useful for the {name.lower()} challenge.",
     }
 
 
