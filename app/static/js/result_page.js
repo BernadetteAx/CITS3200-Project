@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setText("total-challenges", result.totalChallenges);
       setText("challenges-passed", result.challengesPassed);
       setText("challenges-failed", result.challengesFailed);
-      setText("total-penalties", result.totalPenalties);
+      // setText("total-penalties", result.totalPenalties);
   
       const hasOutcome =
         result.missionOutcome != null && result.missionOutcome !== "";
