@@ -13,10 +13,23 @@ items_dict = {
     "Scuba Gear": {"desc": "A set of diving equipment including an air tank, regulator, mask and fins for exploring underwater.", "cost": 100, "image": "icons8-snorkel-64.png", "hotbar_image": "icons8-snorkel-32.png"},
     "Wire Cutters": {"desc": "A heavy-duty hand tool for cutting through wire and metal fencing.", "cost": 100, "image": "icons8-surgical-scissors-64.png", "hotbar_image": "icons8-surgical-scissors-32.png"},
     "Explosives": {"desc": "A demolition pack capable of breaking through solid barriers and clearing obstacles.", "cost": 100, "image": "icons8-grenade-64.png", "hotbar_image": "icons8-grenade-32.png"},
-    "Water Bottle": {"desc": "A durable, refillable bottle filled with clean drinking water.", "cost": 100,"image": "icons8-water-bottle-64.png", "hotbar_image": "icons8-water-bottle-32.png"},
+    "Fuel": {"desc": "Keep the vehicle moving when every kilometre matters.", "cost": 40, "image": "icons8-petrol-64.png", "hotbar_image": "icons8-petrol-32.png"},
+    "Water Bottle": {"desc": "A durable, refillable bottle filled with clean drinking water.", "cost": 100, "image": "water-bottle-64.png", "hotbar_image": "water-bottle-64.png"},
+    
 
 
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
-    "Fuel": {"desc": "Keep the vehicle moving when every kilometre matters.", "cost": 40, "image": "icons8-idea-64.png", "hotbar_image": "icons8-idea-32.png"},
     "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},
+    "Apple": {"desc": "A fresh apple that provides a small snack during your journey.", "cost": 15, "image": "apple-64.png", "hotbar_image": "apple-64.png"},
+    "Armoured Boots": {"desc": "A pair of reinforced boots for protecting your feet on rough terrain.", "cost": 80, "image": "icons8-armored-boot-64.png", "hotbar_image": "icons8-armored-boot-32.png"},
+    "Camping Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
+    "Hat": {"desc": "A sturdy hat that provides basic protection from the sun.", "cost": 20, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},
+    "GPS": {"desc": "A portable navigation device for determining your location and following routes.", "cost": 90, "image": "icons8-gps-signal-64.png", "hotbar_image": "icons8-gps-signal-32.png"},
+    "Map": {"desc": "A detailed paper map showing nearby terrain, landmarks and routes.", "cost": 30, "image": "icons8-map-64.png", "hotbar_image": "icons8-map-32.png"},
+    "Mountain Gear": {"desc": "A set of climbing equipment including a harness, helmet and carabiners for navigating steep terrain.", "cost": 120, "image": "icons8-mountain-64.png", "hotbar_image": "icons8-mountain-32.png"},
+    "Car": {"desc": "A standard passenger car for transporting your team and equipment along roads.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
+    "Toolkit": {"desc": "A portable collection of tools for repairing equipment and carrying out basic mechanical work.", "cost": 100, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
+    "Shovel": {"desc": "A sturdy digging tool for moving soil, clearing debris and uncovering buried objects.", "cost": 60, "image": "shovel-32.png", "hotbar_image": "shovel-32.png"},
+    "Medical Supplies": {"desc": "A pack of medical equipment for treating injured teammates.", "cost": 100, "image": "icons8-intravenous-bag-64.png", "hotbar_image": "icons8-intravenous-bag-32.png"},
+    "Weapons": {"desc": "A collection of weapons for defending your team against threats.", "cost": 150, "image": "icons8-weapons-64.png", "hotbar_image": "icons8-weapons-32.png"},
 }
