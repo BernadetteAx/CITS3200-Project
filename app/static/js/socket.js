@@ -66,6 +66,7 @@ socket.on('joined', (payload) => {
   const phasePages = {
     lobby: "/lobby",
     start_game: "/start_game",
+    mission_discription: "/mission_discription",
     auction: "/auction",
     mission: "/mission",
     result_page: "/result_page"
@@ -101,7 +102,7 @@ window.getSessionCode = () => sessionStorage.getItem("sessionCode");
 
 // If the player presses Back during the game, return to the Join page
 window.addEventListener("pageshow", (event) => {
-  const gamePages = ["/lobby", "/start_game", "/auction", "/mission", "/result_page"];
+  const gamePages = ["/lobby", "/start_game","/mission_description", "/auction", "/mission", "/result_page"];
 
   if (event.persisted && gamePages.includes(window.location.pathname)) {
     window.location.replace("/join");

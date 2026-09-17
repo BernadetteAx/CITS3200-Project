@@ -227,9 +227,7 @@ def handle_start_game(payload):
     # The lobby permits the host to start with however many players are
     # currently in the room, provided everyone has marked themselves ready
     if all_ready and session['players']:
-        # Initialise shared auction state before players navigate away.
-        from app.sockets.handlers.auction import initialise_auction
-        initialise_auction(session)
+        # The auction is initialised after the mission briefing.
         session['phase'] = 'start_game'
         emit('game_started', {'phase': session['phase']}, room=session_code)
 
