@@ -38,12 +38,12 @@ helpPopup.addEventListener("click", (event) => {
 
 
 startAuctionBtn.addEventListener("click", () => {
-    window.gameSocket.emit("begin_auction", {
+    window.gameSocket.emit("begin_mission_description", {
         sessionCode: window.getSessionCode(),
         playerId: window.getPlayerId()
     });
 });
 
-window.gameSocket.on("auction_started", () => {
-    window.location.href = "/auction";
+window.gameSocket.on("mission_description_started", () => {
+    window.location.href = "/mission_description";
 });

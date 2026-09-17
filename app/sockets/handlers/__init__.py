@@ -18,3 +18,4 @@
 from app.sockets.handlers import lobby
 from app.sockets.handlers import auction
 from app.sockets.handlers import mission
+from app.sockets.handlers import mission_description

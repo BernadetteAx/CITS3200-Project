@@ -28,6 +28,10 @@ def lobby():
 def start_game():
     return render_template('start_game.html')
 
+@app.route('/mission_description')
+def mission_description():
+    return render_template('mission_description.html')
+
 @app.route('/auction')
 def auction():
     return render_template('auction.html')

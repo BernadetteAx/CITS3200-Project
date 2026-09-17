@@ -82,6 +82,16 @@ def _build_mission_item_pairs(generated_mission):
         return None
 
     mission_items = select_unique_mission_items(0, set())
+
+    # Some missions use the same useful item for multiple challenges.
+    # If unique items cannot be selected, use one useful item per challenge.
+    if mission_items is None:
+        mission_items = [
+            _mission_item(item_names[0])
+            for item_names in challenge_item_names
+            if item_names
+        ]
+
     random_items = [
         _mission_item(name)
         for name in items_dict
@@ -202,7 +212,7 @@ def _resolve(session_code, session, reason):
 def begin_auction(payload):
     code = payload.get("sessionCode") if isinstance(payload, dict) else None
     session = get_session(code)
-    if not session or not _valid_player(session, payload) or payload["playerId"] != session["host_id"] or session["phase"] != "start_game": return
+    if not session or not _valid_player(session, payload) or payload["playerId"] != session["host_id"] or session["phase"] != "mission_description": return
     initialise_auction(session, session.get("generated_mission"))
     session["phase"] = "auction"
     _start_round(code, session)
