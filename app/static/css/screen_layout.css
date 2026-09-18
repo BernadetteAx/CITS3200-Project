@@ -1,0 +1,224 @@
+html, body.screen-fit { height: 100%; min-height: 0; overflow: hidden; overscroll-behavior: none; }
+body.screen-fit { display: block; width: 100%; max-width: none; margin: 0; padding: 0; }
+.screen-stage { position: fixed; inset: 12px 16px 58px; overflow: hidden; }
+.landing-page .screen-stage { bottom: 12px; }
+.screen-content { position: absolute; left: 50%; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; transform-origin: top center; }
+.screen-content > * { flex-shrink: 0; }
+.screen-fit .hotbar { position: static; width: 100%; min-height: 0; padding: 8px; border: 1px solid var(--tile-border); }
+.screen-fit .hotbar-slots { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); width: 100%; overflow: hidden; max-width: 480px; margin: auto; }
+.screen-fit .hotbar-slot { width: 100%; max-width: 42px; height: auto; aspect-ratio: 1; min-width: 0; }
+.screen-fit .motion-toggle, .screen-fit:has(.hotbar) .motion-toggle { bottom: 8px; }
+.screen-fit .result-icon .equipment-art { width: 100px; }
+.screen-fit .result-box, .screen-fit .error-box { max-height: none; overflow: visible; gap: 12px; padding: 22px; animation: none; }
+.screen-fit .result-popup, .screen-fit .error-popup { overflow: hidden; }
+.screen-fit .instructions-steps { gap: 12px; }
+.screen-fit .instructions-step .step-text { font-size: .6rem; line-height: 1.8; }
+.screen-fit .result-definition-section { font-size: .55rem; padding-top: 12px; }
+.screen-fit .result-sub { font-size: .55rem; }
+.screen-fit header { padding: 4px 40px; }
+.screen-fit header h1 { margin: 0 0 8px; }
+.screen-fit header p { margin: 4px 0; }
+.screen-fit .phase-banner { grid-template-columns: 76px minmax(0, 1fr); padding: 10px; gap: 16px; }
+.screen-fit .lobby-card, .screen-fit .start-card, .screen-fit .mission-card { padding: 20px; gap: 16px; margin: 0; }
+.screen-fit .landing-layout { align-items: stretch; gap: 20px; }
+.screen-fit .adventure-preview { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.screen-fit .preview-topline { margin: 0; }
+.screen-fit .preview-art { aspect-ratio: 16 / 9; flex: 1; min-height: 100px; }
+.screen-fit .preview-caption { min-height: 0; padding: 4px 0; }
+.screen-fit .preview-caption h2 { font-size: .85rem; margin: 0 0 8px; }
+.screen-fit .preview-caption p { font-size: .55rem; }
+.screen-fit .landing-header h1 { font-size: clamp(1.25rem, 3vw, 2rem); margin: 4px 0; }
+.screen-fit .how-it-flows { display: none; }
+.screen-fit .landing-layout .join-card { padding: 22px; gap: 12px; }
+.screen-fit .landing-layout .join-card input, .screen-fit .landing-layout .join-card button { padding: 12px; min-height: 44px; }
+.screen-fit .join-card label { font-size: .6rem; }
+.screen-fit .join-card h2 { font-size: .8rem; }
+.screen-fit .join-intro { margin: 0; font-size: .5rem; }
+.screen-fit .lobby-actions { margin-top: 0; gap: 12px; }
+.screen-fit .lobby-actions button { min-height: 44px; padding: 12px; }
+.screen-fit .helper-note { margin: 0; font-size: .45rem; }
+.screen-fit .status-row { margin: 0; width: min(100%,720px); }
+.screen-fit .status-pill-box { padding: 8px 14px; }
+.screen-fit .auction-item-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.screen-fit .item-tile { padding: 12px; gap: 10px; }
+.screen-fit .item-image { width: 100% !important; height: clamp(100px, 20vh, 180px) !important; padding: 0; border: 1px solid var(--tile-border); background: #10151e; }
+.screen-fit .item-image img { width: 100%; height: 100%; object-fit: contain; }
+.screen-fit .item-desc { font-size: .55rem; line-height: 1.7; }
+.screen-fit .shop-banner { display: none; }
+.screen-fit .tie-warning { font-size: .5rem; margin: 0; padding: 8px; }
+.screen-fit .vote-progress { margin: 0; gap: 6px; }
+.screen-fit .hotbar-label { font-size: .4rem; line-height: 1.6; margin: 0 0 4px; }
+.screen-fit .mission-briefing { padding: 0; gap: 12px; }
+.screen-fit .mission-file, .screen-fit .visual-briefing { padding: 20px; position: static; }
+.screen-fit .story-art { aspect-ratio: 16 / 11; }
+.screen-fit .story-copy { min-height: 0; padding: 10px 0; }
+.screen-fit .mission-description { min-height: 0; font-size: .65rem; line-height: 1.9; }
+.screen-fit .mission-title { font-size: clamp(1rem, 2.4vw, 1.7rem); }
+.screen-fit .file-heading { margin-bottom: 12px; }
+.screen-fit .mission-title { margin-bottom: 12px; }
+.screen-fit .location-row { margin-bottom: 8px; }
+.screen-fit .briefing-section h2 { margin-bottom: 10px; }
+.screen-fit .story-playback { margin-top: 8px; padding-top: 4px; }
+.screen-fit .challenge-scene { max-width: 240px; aspect-ratio: 16 / 10; }
+.screen-fit .mission-item-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.screen-fit .item-card { min-height: 0; padding: 8px; gap: 6px; }
+.screen-fit .item-card .item-name { font-size: .5rem; line-height: 1.6; }
+.screen-fit .item-card .item-status-pill { font-size: .4rem; padding: 4px; }
+.screen-fit .challenge-desc { font-size: .6rem; line-height: 1.8; }
+.screen-fit .challenge-name { font-size: .8rem; }
+.screen-fit .game-summary { gap: 12px; margin: 0; }
+.screen-fit .summary-item { padding: 12px; }
+.screen-fit .instructions-grid { gap: 12px; margin: 0; }
+.screen-fit .instruction-card { padding: 12px; }
+.screen-fit .briefing-list { gap: 10px; margin: 0; }
+.screen-fit .briefing-row { min-height: 0; padding: 12px; gap: 10px; }
+.screen-fit .briefing-heading { font-size: .6rem; line-height: 1.8; }
+.screen-fit .briefing-description { font-size: .5rem; line-height: 1.8; }
+.page-controls { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 8px 0; }
+.page-controls button { padding: 8px 12px; min-height: 36px; margin: 0; font-size: .5rem; }
+.page-controls span { font-size: .45rem; color: var(--text-muted); }
+.equipment-art { display: block; width: 100%; aspect-ratio: 1; background-repeat: no-repeat; image-rendering: pixelated; border-radius: 2px; }
+.item-image .equipment-art { width: auto; height: 100%; max-width: 100%; margin: auto; }
+.item-icon .equipment-art { width: 52px; }
+.hotbar-slot .equipment-art { width: 100%; height: 100%; }
+.result-item-list .equipment-art { width: 40px; flex: 0 0 40px; }
+.screen-fit:has(.final-score) .screen-content { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "header header" "score money" "missions missions" "actions actions"; width: min(100%, 1200px); gap: 12px; align-items: stretch; }
+.screen-fit .result-header { grid-area: header; max-width: none; padding: 0; }
+.screen-fit .final-score { grid-area: score; }
+.screen-fit .money-section { grid-area: money; }
+.screen-fit .mission-results { grid-area: missions; }
+.screen-fit .result-actions { grid-area: actions; }
+.screen-fit .result-header, .screen-fit .mission-results, .screen-fit .result-actions { grid-column: 1 / -1; width: 100%; }
+.screen-fit .final-score, .screen-fit .money-section, .screen-fit .mission-results, .screen-fit .result-actions { margin: 0; }
+.screen-fit #final-score, .screen-fit #leftover-money { font-size: 2rem; line-height: 1.4; }
+.screen-fit .final-score, .screen-fit .money-section { width: 100%; padding: 12px; }
+.screen-fit .final-score h2, .screen-fit .money-section h2 { font-size: .65rem; margin: 0 0 8px; }
+.screen-fit .score-display, .screen-fit .money-display { margin: 0; padding: 0; font-size: 1.5rem; }
+.screen-fit .results-banner { margin-top: 8px; }
+.screen-fit .mission-results { padding: 16px; gap: 12px; }
+.screen-fit .mission-results > h2 { display: none; }
+.screen-fit .mission-results #challenge-results { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 10px; }
+.screen-fit .result-summary { grid-template-columns: repeat(2,minmax(0,1fr)); font-size: .6rem; }
+.screen-fit .mission-results .result-summary { margin-bottom: 12px; gap: 8px; }
+.screen-fit .result-summary p { margin: 0; padding: 8px; font-size: .55rem; }
+.screen-fit .result-challenge-art { width: 76px; aspect-ratio: 1; margin: 0; grid-row: 1 / 3; }
+.screen-fit .result-item-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.screen-fit .result-item-list li { font-size: .5rem; line-height: 1.7; }
+.screen-fit .result-section-heading { margin: 8px 0; font-size: .6rem; }
+.screen-fit #challenge-results > .mission-card { display: grid; grid-template-columns: 76px minmax(0,1fr); gap: 6px 10px; padding: 10px; align-items: start; }
+.screen-fit #challenge-results .mission-info { gap: 4px; }
+.screen-fit #challenge-results .mission-info p, .screen-fit #challenge-results .mission-status p { font-size: .45rem; line-height: 1.8; margin: 0; }
+.screen-fit #challenge-results .mission-info h3 { font-size: .5rem; line-height: 1.8; margin: 0; }
+.screen-fit #challenge-results .mission-status { grid-column: 2; }
+.screen-fit .results-banner { display: grid; grid-template-columns: 70px minmax(0,1fr); padding: 10px; gap: 12px; text-align: left; }
+.screen-fit .results-banner .game-scene { width: 70px; aspect-ratio: 1; }
+.screen-fit .results-banner h2 { font-size: .7rem; }
+.screen-fit .result-header h1 { font-size: 1.6rem; }
+.screen-fit .result-header #result-message { margin: 8px 0 0; font-size: .55rem; }
+.screen-fit .score-display, .screen-fit .money-display { min-height: 56px; }
+.screen-fit .briefing-layout { align-items: stretch; }
+.screen-fit .mission-file, .screen-fit .visual-briefing { height: 100%; display: flex; flex-direction: column; }
+.screen-fit .mission-actions { margin-top: auto; padding-top: 16px; }
+.screen-fit .story-copy { min-height: 150px; flex: 1; }
+.screen-fit .story-playback { margin-top: auto; }
+.screen-fit .auction-item-grid, .screen-fit .mission-item-grid { align-items: stretch; grid-auto-rows: 1fr; }
+.screen-fit .item-tile, .screen-fit .item-card { height: 100%; }
+.screen-stage { bottom: 12px; }
+@media (max-width: 700px) {
+ .screen-stage { inset: 8px 12px; }
+ .screen-content { gap: 8px; }
+ .screen-fit header { padding: 2px 32px; }
+ .screen-fit header h1 { font-size: 1rem; }
+ .screen-fit header p { font-size: .45rem; }
+ .screen-fit .landing-header > p:last-child, .screen-fit .landing-header > .visual-eyebrow { display: none; }
+ .screen-fit .landing-header h1 { font-size: 1rem; }
+ .screen-fit .landing-layout { gap: 10px; }
+ .screen-fit .adventure-preview { padding: 8px; display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; }
+ .screen-fit .preview-topline, .screen-fit .preview-footer { display: none; }
+ .screen-fit .preview-art { aspect-ratio: 1; min-height: 0; }
+ .screen-fit .preview-caption { padding: 0; }
+ .screen-fit .preview-caption #previewCopy { display: none; }
+ .screen-fit .preview-caption h2 { font-size: .65rem; }
+ .screen-fit .preview-caption .visual-eyebrow { font-size: .4rem; }
+ .screen-fit .landing-layout .join-card { padding: 16px; gap: 10px; }
+ .screen-fit .phase-banner { grid-template-columns: 60px minmax(0, 1fr); gap: 10px; padding: 8px; }
+ .screen-fit .phase-banner-copy > p:last-child { display: none; }
+ .screen-fit .phase-banner-copy h2 { font-size: .6rem; margin: 0; }
+ .screen-fit .lobby-card, .screen-fit .start-card, .screen-fit .mission-card { padding: 12px; gap: 10px; }
+ .screen-fit .lobby-card > h2 { font-size: .6rem; margin: 0; }
+ .screen-fit .player-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; }
+ .screen-fit .player-tile { padding: 8px; gap: 6px; }
+ .screen-fit .player-name { font-size: .5rem; }
+ .screen-fit .item-image { height: clamp(70px, 13vh, 100px) !important; }
+ .screen-fit .item-tile { padding: 8px; gap: 8px; }
+ .screen-fit .item-tile .item-name { font-size: .55rem; line-height: 1.5; }
+ .screen-fit .item-desc { font-size: .5rem; line-height: 1.6; }
+ .screen-fit .item-tile .item-footer { flex-direction: column; gap: 6px; }
+ .screen-fit .vote-check { font-size: .4rem; }
+ .screen-fit .item-footer .cost-tag { padding: 4px 6px; font-size: .55rem; }
+ .screen-fit .item-footer .vote-check { padding: 4px; font-size: .35rem; }
+ .screen-fit .vote-progress { font-size: .5rem; line-height: 1.6; }
+ .screen-fit:has(.auction-item-grid) header .lobby-subtext { display: none; }
+ .screen-fit .tie-warning, .screen-fit .helper-note { display: none; }
+ .screen-fit .briefing-layout { gap: 10px; }
+ .screen-fit .mission-file, .screen-fit .visual-briefing { padding: 12px; }
+ .screen-fit .mission-file .divider { margin: 10px 0; }
+ .screen-fit .mission-description { font-size: .55rem; line-height: 1.8; }
+ .screen-fit .story-art { aspect-ratio: 16 / 6; }
+ .screen-fit .story-heading, .screen-fit .story-copy > .story-eyebrow, .screen-fit .story-copy > p:last-child, .screen-fit .story-playback > span { display: none; }
+ .screen-fit .story-copy { padding: 8px 0 0; }
+ .screen-fit .story-copy h2 { font-size: .55rem; margin: 0; }
+ .screen-fit .story-scene-label { font-size: .4rem; padding: 4px; bottom: 6px; left: 6px; }
+ .screen-fit .briefing-footer { display: none; }
+ .screen-fit .mission-actions { margin-top: 10px; }
+ .screen-fit .continue-btn { min-height: 44px; padding: 10px; font-size: .5rem; }
+ .screen-fit .challenge-scene { max-width: 160px; aspect-ratio: 16 / 7; }
+ .screen-fit .challenge-block { gap: 8px; }
+ .screen-fit .challenge-desc { font-size: .5rem; margin: 0; }
+ .screen-fit .challenge-name { font-size: .65rem; margin: 0; }
+ .screen-fit .mission-tag-name { font-size: .8rem; line-height: 1.6; }
+ .screen-fit .section-hint { font-size: .45rem; line-height: 1.6; }
+ .screen-fit .item-icon .equipment-art { width: 40px; max-width: 100%; }
+ .screen-fit .items-block { gap: 8px; }
+ .screen-fit .mission-panel .items-actions { gap: 8px; grid-template-columns: 1fr 1fr; }
+ .screen-fit .mission-panel .items-actions button { font-size: .45rem; padding: 8px; }
+ .screen-fit .instructions-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; }
+ .screen-fit .instruction-card { padding: 8px; }
+ .screen-fit .instruction-card p { font-size: .45rem; line-height: 1.7; }
+ .screen-fit .instruction-card h3 { font-size: .5rem; line-height: 1.7; }
+ .screen-fit .start-card > h2 { margin: 0; }
+ .screen-fit .briefing-list { display: flex; flex-direction: column; gap: 8px; }
+ .screen-fit .briefing-row { display: flex; flex-direction: row; align-items: center; padding: 10px; }
+ .screen-fit .briefing-number { width: 28px; height: 28px; flex: 0 0 28px; font-size: .55rem; }
+ .screen-fit .briefing-heading { font-size: .55rem; }
+ .screen-fit .result-title { font-size: .85rem; }
+ .screen-fit .instructions-step .step-text { font-size: .55rem; }
+ .screen-fit .instructions-step { gap: 10px; }
+ .screen-fit .result-summary { grid-template-columns: 1fr; gap: 6px; }
+ .screen-fit .result-summary p { padding: 8px; font-size: .55rem; line-height: 1.7; }
+ .screen-fit .mission-results #challenge-results { grid-template-columns: 1fr; }
+ .screen-fit .results-banner { display: none; }
+ .screen-fit .story-copy { min-height: 70px; }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+ .screen-fit .landing-layout { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+ .screen-fit .landing-header h1 { font-size: 1rem; }
+ .screen-fit .landing-layout .join-card { gap: 8px; padding: 12px; }
+ .screen-fit .join-intro, .screen-fit .join-card h2 { display: none; }
+ .screen-fit .landing-layout .join-card input, .screen-fit .landing-layout .join-card button { min-height: 36px; padding: 8px; }
+ .screen-fit .adventure-preview { display: flex; flex-direction: column; justify-content: center; }
+ .screen-fit .preview-art { width: 100%; max-height: 140px; aspect-ratio: 16 / 9; }
+ .screen-fit .briefing-layout { grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); }
+ .screen-fit .story-art { aspect-ratio: 16 / 9; }
+ .screen-fit .mission-panel { grid-template-columns: minmax(0,1fr) 1px minmax(0,1.3fr); gap: 12px; }
+ .screen-fit .mission-panel .divider { display: block; width: 1px; height: 100%; }
+ .screen-fit .mission-panel .challenge-block, .screen-fit .mission-panel .items-block { width: 100%; }
+ .screen-fit .screen-content:has(.auction-item-grid) { display: grid; grid-template-columns: minmax(140px,.6fr) minmax(0,1.4fr); gap: 10px; }
+ .screen-fit .screen-content:has(.auction-item-grid) > header, .screen-fit .screen-content:has(.auction-item-grid) > .status-row, .screen-fit .screen-content:has(.auction-item-grid) > .hotbar { grid-column: 1; }
+ .screen-fit .screen-content:has(.auction-item-grid) > .lobby-card { grid-column: 2; grid-row: 1 / 4; }
+ .screen-fit .item-image { height: 70px !important; }
+ .screen-fit .lobby-card .lobby-actions { flex-direction: row; }
+ .screen-fit .lobby-actions button { font-size: .4rem; padding: 8px; }
+ .screen-fit .item-tile { gap: 6px; padding: 6px; }
+ .screen-fit .item-desc { font-size: .45rem; line-height: 1.5; }
+}

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Mission Briefing{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mission_description.css') }}">
+{% endblock %}
+
+{% block scripts %}
+<script defer src="{{ url_for('static', filename='js/mission_description.js') }}"></script>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+<main class="mission-briefing">
+
+    <header class="briefing-header">
+        <p class="game-label">CHALLENGE CATASTROPHE</p>
+        <p class="classified-label">CLASSIFIED // MISSION BRIEFING</p>
+    </header>
+
+    <div class="briefing-layout">
+    <section class="mission-file" aria-label="Mission details">
+
+        <div class="file-heading">
+            <span class="file-label">YOUR MISSION</span>
+            <span class="status-label">TOP SECRET</span>
+        </div>
+
+        <h1 id="missionTitle" class="mission-title"></h1>
+
+        <div class="location-row">
+            <span class="location-label">LOCATION</span>
+            <span id="missionLocation" class="location-value"></span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="briefing-section">
+            <h2>MISSION BRIEFING</h2>
+
+            <p id="missionDescription" class="mission-description"></p>
+            <span id="typingCursor" class="typing-cursor">|</span>
+        </div>
+
+        <div class="mission-actions">
+            <button
+                id="continueAuctionBtn"
+                class="continue-btn"
+                disabled
+            >
+                CONTINUE TO ITEM SHOP
+            </button>
+        </div>
+
+    </section>
+
+    <aside class="visual-briefing" aria-label="Visual mission story">
+        <div class="story-heading">
+            <span class="file-label">FIELD INTEL</span>
+            <span id="storyCounter" class="story-counter">01 / 03</span>
+        </div>
+        <div id="storyArt" class="story-art" role="img" aria-label="Waiting for mission intel"
+             data-atlas="{{ url_for('static', filename='images/briefing/mission-scenes-v1.png') }}"
+             data-preparation="{{ url_for('static', filename='images/briefing/team-preparation-v1.png') }}">
+            <span id="storySceneLabel" class="story-scene-label">ACQUIRING INTEL…</span>
+        </div>
+        <div class="story-copy">
+            <p id="storyEyebrow" class="story-eyebrow">YOUR MISSION, IN PICTURES</p>
+            <h2 id="storyTitle">Every mission starts with a plan.</h2>
+            <p id="storyCaption">Your team's field intel will appear here once the briefing arrives.</p>
+        </div>
+        <div class="story-chapters" aria-hidden="true">
+            <span class="story-chapter is-current"></span>
+            <span class="story-chapter"></span>
+            <span class="story-chapter"></span>
+        </div>
+        <div class="story-playback">
+            <span>LOCATION / OBJECTIVE / PREPARATION</span>
+        </div>
+    </aside>
+    </div>
+
+    <p class="briefing-footer">
+        READ CAREFULLY. PREPARE YOUR TEAM. CHOOSE YOUR ITEMS WISELY.
+    </p>
+
+</main>
+
+{% endblock %}

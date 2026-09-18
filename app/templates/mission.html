@@ -13,6 +13,7 @@
 {% block header %}{% endblock %}
 
 {% block content %}
+{% from '_game_visuals.html' import scene %}
 <button class="instructions-trigger" id="instructionsBtn" title="How this page works">?</button>
 
 <div
@@ -27,15 +28,224 @@
   <div class="countdown-fill" id="countdownFill"></div>
 </div>
 
+<!-- animated mission journey -->
+<div class="mission-transition" id="missionTransition" aria-hidden="true">
+
+  <div class="journey-scene">
+
+    <div class="journey-background-particles" id="journeyBackgroundParticles"></div>
+
+    <div class="journey-map">
+
+      <div class="journey-grid"></div>
+
+      <div class="journey-map-title">
+        <span>MISSION ROUTE</span>
+      </div>
+
+      <svg class="journey-path" viewBox="0 0 1000 600" preserveAspectRatio="none">
+        <!-- Pixel-stepped route -->
+        <path
+          class="journey-path-shadow"
+          d="M 90 480
+            H 150 V 430
+            H 190 V 380
+            H 230 V 330
+            H 250 V 300
+            H 300 V 340
+            H 350 V 390
+            H 390 V 450
+            H 430 V 500
+            H 470 V 460
+            H 510 V 400
+            H 550 V 320
+            H 590 V 240
+            H 610 V 190
+            H 650 V 230
+            H 690 V 290
+            H 730 V 350
+            H 770 V 390
+            H 810 V 330
+            H 850 V 250
+            H 890 V 170
+            H 930 V 110"
+        />
+
+        <path
+          class="journey-path-glow"
+          d="M 90 480
+            H 150 V 430
+            H 190 V 380
+            H 230 V 330
+            H 250 V 300
+            H 300 V 340
+            H 350 V 390
+            H 390 V 450
+            H 430 V 500
+            H 470 V 460
+            H 510 V 400
+            H 550 V 320
+            H 590 V 240
+            H 610 V 190
+            H 650 V 230
+            H 690 V 290
+            H 730 V 350
+            H 770 V 390
+            H 810 V 330
+            H 850 V 250
+            H 890 V 170
+            H 930 V 110"
+        />
+
+        <path
+          class="journey-path-line"
+          id="journeyPathLine"
+          d="M 90 480
+            H 150 V 430
+            H 190 V 380
+            H 230 V 330
+            H 250 V 300
+            H 300 V 340
+            H 350 V 390
+            H 390 V 450
+            H 430 V 500
+            H 470 V 460
+            H 510 V 400
+            H 550 V 320
+            H 590 V 240
+            H 610 V 190
+            H 650 V 230
+            H 690 V 290
+            H 730 V 350
+            H 770 V 390
+            H 810 V 330
+            H 850 V 250
+            H 890 V 170
+            H 930 V 110"
+        />
+
+        <path
+          class="journey-path-energy"
+          id="journeyPathEnergy"
+          d="M 90 480
+            H 150 V 430
+            H 190 V 380
+            H 230 V 330
+            H 250 V 300
+            H 300 V 340
+            H 350 V 390
+            H 390 V 450
+            H 430 V 500
+            H 470 V 460
+            H 510 V 400
+            H 550 V 320
+            H 590 V 240
+            H 610 V 190
+            H 650 V 230
+            H 690 V 290
+            H 730 V 350
+            H 770 V 390
+            H 810 V 330
+            H 850 V 250
+            H 890 V 170
+            H 930 V 110"
+        />
+      </svg>
+
+      <div class="journey-node" id="journeyNode1" data-node="1"
+          style="left: 9%; top: 80%;">
+        <div class="node-pulse"></div>
+        <div class="node-ring"></div>
+        <div class="node-core">1</div>
+        <div class="node-label">CHALLENGE 1</div>
+      </div>
+
+      <div class="journey-node" id="journeyNode2" data-node="2"
+          style="left: 25%; top: 50%;">
+        <div class="node-pulse"></div>
+        <div class="node-ring"></div>
+        <div class="node-core">2</div>
+        <div class="node-label">CHALLENGE 2</div>
+      </div>
+
+      <div class="journey-node" id="journeyNode3" data-node="3"
+          style="left: 43%; top: 83.33%;">
+        <div class="node-pulse"></div>
+        <div class="node-ring"></div>
+        <div class="node-core">3</div>
+        <div class="node-label">CHALLENGE 3</div>
+      </div>
+
+      <div class="journey-node" id="journeyNode4" data-node="4"
+          style="left: 61%; top: 31.67%;">
+        <div class="node-pulse"></div>
+        <div class="node-ring"></div>
+        <div class="node-core">4</div>
+        <div class="node-label">CHALLENGE 4</div>
+      </div>
+
+      <div class="journey-node" id="journeyNode5" data-node="5"
+          style="left: 77%; top: 65%;">
+        <div class="node-pulse"></div>
+        <div class="node-ring"></div>
+        <div class="node-core">5</div>
+        <div class="node-label">CHALLENGE 5</div>
+      </div>
+
+      <div class="journey-node" id="journeyNode6" data-node="6"
+          style="left: 93%; top: 18.33%;">
+        <div class="node-pulse"></div>
+        <div class="node-ring"></div>
+        <div class="node-core">6</div>
+        <div class="node-label">FINAL CHALLENGE</div>
+      </div>
+
+
+            
+            <div class="journey-runner" id="journeyRunner">
+
+              <div class="runner-trail"></div>
+
+              <div class="runner-glow"></div>
+
+              <div class="runner-sprite">✦</div>
+
+            </div>
+            
+      <div
+        class="journey-particles"
+        id="journeyParticles"
+      ></div>
+
+      <div
+        class="arrival-burst"
+        id="arrivalBurst"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
 <header>
   <div class="mission-tag">
     <span class="mission-tag-label">MISSION</span>
   </div>
+
   <h1 class="challenge-progress" id="challengeProgress">CHALLENGE</h1>
+
   <div class="mission-tag">
     <span class="mission-tag-name" id="missionName">Mission</span>
   </div>
-  <p class="mission-description" id="missionDescription">Waiting for the mission details...</p>
+
   <div class="game-tag-label">
     <span class="game-label" id="challengeCount">—</span>
   </div>
@@ -45,10 +255,11 @@
 
   <!-- challeneg description -->
   <section class="challenge-block">
+    {{ scene(3, 'An adventure team assessing a route obstacle', 'game', 'challenge-scene', 'challengeScene') }}
     <challenge class="challenge-icon" id="challengeIcon">
       <img src="{{ url_for('static', filename='images/icons8-mountain-64.png') }}" alt="Challenge Icon">
     </challenge>
-    <h2 class="challenge-name" id="challengeName">Scale the Wall</h2>
+    <h2 class="challenge-name" id="challengeName">Loading challenge…</h2>
     <p class="challenge-desc" id="challengeDesc">
       Waiting for the team's mission state…
     </p>
@@ -56,7 +267,7 @@
 
   <div class="divider"></div>
 
-  <!-- owned items that can be used or should we remove this and just put all items here so they can pick? -->
+  <!-- item cards are rendered entirely by mission.js from state.inventory -->
   <section class="items-block">
     <div class="section-heading-row">
       <h3 class="section-heading">USABLE ITEMS</h3>
@@ -64,78 +275,30 @@
     </div>
 
     <div class="item-grid mission-item-grid" id="itemGrid">
-      <button class="item-card" data-item-id="water-bottle" data-status="available">
-        <span class="item-icon">
-          <img src="{{ url_for('static', filename='images/sport-bottle-white-64.png') }}" alt="Water Bottle">
-        </span>
-        <span class="item-name">Water Bottle</span>
-        <span class="item-status-pill">Owned</span>
-      </button>
-
-      <button class="item-card" data-item-id="axe" data-status="available">
-        <span class="item-icon">
-          <img src="{{ url_for('static', filename='images/axe-white-64.png') }}" alt="Axe">
-        </span>
-        <span class="item-name">Axe</span>
-        <span class="item-status-pill">Owned</span>
-      </button>
-
-      <button class="item-card" data-item-id="armored-boot" data-status="used" disabled>
-        <span class="item-icon">
-          <img src="{{ url_for('static', filename='images/icons8-armored-boot-64.png') }}" alt="Armored Boot">
-        </span>
-        <span class="item-name">Armour</span>
-        <span class="item-status-pill">Used</span>
-      </button>
+      <p class="empty-inventory">Loading your team's equipment…</p>
     </div>
 
     <div class="items-actions">
       <button class="lobby-btn primary" id="useItemBtn" disabled>USE SELECTED ITEM</button>
-      <button class="lobby-btn secondary" id="continueBtn">CONTINUE WITHOUT ITEM</button>
+      <button class="lobby-btn secondary" id="continueBtn" disabled>CONTINUE WITHOUT ITEM</button>
     </div>
     <p class="helper-note">No matching item? Your team can push on without one.</p>
   </section>
 
 </div>
 
-<!-- the full team inventory and used are unavailable -->
+<!-- full team inventory -->
 <div class="hotbar">
-  <div class="hotbar-label" id="hotbarLabel">TEAM INVENTORY · 6/8 AVAILABLE</div>
-  <div class="hotbar-slots" id="hotbarSlots">
-    <div class="hotbar-slot filled" data-item-id="rope" data-status="available" title="Rope">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Rope">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="armored-boot" data-status="used" title="armored boot (used)">
-      <img src="{{ url_for('static', filename='images/icons8-armored-boot-32.png') }}" alt="armored boot">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="camping-tent" data-status="available" title="Camping Tent">
-      <img src="{{ url_for('static', filename='images/icons8-camping-tent-32.png') }}" alt="Camping Tent">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="" data-status="used" title="Compasss (used)">
-      <img src="{{ url_for('static', filename='images/icons8-compass-32.png') }}" alt="Compass">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="credit-card" data-status="available" title="Credit Card">
-      <img src="{{ url_for('static', filename='images/icons8-credit-card-32.png') }}" alt="Credit Card">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="german-hat" data-status="available" title="German Hat">
-      <img src="{{ url_for('static', filename='images/icons8-german-hat-32.png') }}" alt="German Hat">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="gps-signal" data-status="available" title="GPS Signal">
-      <img src="{{ url_for('static', filename='images/icons8-gps-signal-32.png') }}" alt="GPS Signal">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="rmap" data-status="available" title="Map">
-      <img src="{{ url_for('static', filename='images/icons8-map-32.png') }}" alt="Map">
-    </div>
-  </div>
+  <div class="hotbar-label" id="hotbarLabel">Loading team inventory…</div>
+  <div class="hotbar-slots" id="hotbarSlots"></div>
 </div>
 
-<!-- outcome feedback (placeholder for backend) -->
+
+<!-- outcome feedback -->
 <div class="result-popup hidden" id="feedbackPopup">
   <div class="result-box" id="feedbackBox">
-    <div class="result-title" id="feedbackTitle">OBSTACLE CLEARED</div>
-    <p class="result-sub" id="feedbackSub">
-      The team used the Rope to haul themselves over the wall. On to the next challenge.
-    </p>
+    <div class="result-title" id="feedbackTitle"></div>
+    <p class="result-sub" id="feedbackSub"></p>
     <button class="result-btn" id="feedbackClose">CONTINUE</button>
   </div>
 </div>
@@ -166,7 +329,7 @@
       </div>
     </div>
     <div class="result-definition-section">
-      page currently only frontend (ill remove this note later)
+      Every choice affects your team's shared score. Talk through the options together.
     </div>
     <button class="result-btn" id="instructionsClose">GOT IT</button>
   </div>

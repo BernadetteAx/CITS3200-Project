@@ -1,5 +1,17 @@
 from flask import render_template
 from app import app
+from app.game_data.mission_structs import missions_list
+from app.game_data.location_info import location_info
+
+
+@app.context_processor
+def visual_catalog():
+    return {"game_visual_catalog": {
+        "missions": [{"name": mission["mission_name"], "locations": mission["location_options"]}
+                     for mission in missions_list],
+        "targets": {location: {"artifact": info["artifact_to_steal"], "jewel": info["jewel_to_steal"]}
+                    for location, info in location_info.items()},
+    }}
 
 @app.route('/')
 @app.route('/index')
@@ -27,6 +39,10 @@ def lobby():
 @app.route('/start_game')
 def start_game():
     return render_template('start_game.html')
+
+@app.route('/mission_description')
+def mission_description():
+    return render_template('mission_description.html')
 
 @app.route('/auction')
 def auction():

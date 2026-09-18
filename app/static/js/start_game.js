@@ -3,7 +3,7 @@ const startAuctionBtn = document.getElementById("startAuctionBtn");
 const helpBtn = document.getElementById("helpBtn");
 const helpPopup = document.getElementById("helpPopup");
 const closeHelpBtn = document.getElementById("closeHelpBtn");
-const ICONS = ["$"];
+
 
 
 function showHelp() {
@@ -47,38 +47,16 @@ function typeText(el, text, speed = 200) {
         if (i === text.length) clearInterval(interval);
     }, speed);
 }
-typeText(document.querySelector(".start-title"), "GET READY");
-
-
-function spawnFloatingIcon() {
-    const container = document.getElementById("floatingIcons");
-    const icon = document.createElement("span");
-
-    icon.className = "floating-icon";
-    icon.textContent = ICONS[Math.floor(Math.random() * ICONS.length)];
-
-    icon.style.left = `${Math.random() * 100}%`;
-    icon.style.fontSize = `${1 + Math.random() * 1.2}rem`;
-
-    const duration = 8 + Math.random() * 6;
-    icon.style.animationDuration = `${duration}s`;
-
-    container.appendChild(icon);
-
-    setTimeout(() => icon.remove(), duration * 1000);
-}
-
-setInterval(spawnFloatingIcon, 900);
-spawnFloatingIcon();
+if (window.gameVisuals.motionEnabled()) typeText(document.querySelector(".start-title"), "GET READY");
 
 
 startAuctionBtn.addEventListener("click", () => {
-    window.gameSocket.emit("begin_auction", {
+    window.gameSocket.emit("begin_mission_description", {
         sessionCode: window.getSessionCode(),
         playerId: window.getPlayerId()
     });
 });
 
-window.gameSocket.on("auction_started", () => {
-    window.location.href = "/auction";
+window.gameSocket.on("mission_description_started", () => {
+    window.location.href = "/mission_description";
 });
