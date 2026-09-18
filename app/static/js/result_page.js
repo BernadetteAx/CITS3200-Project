@@ -5,22 +5,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let challengePage = 0;
     function renderChallengePage() {
       const cards = [...document.querySelectorAll("#challenge-results > article")];
-      cards.forEach((card, index) => { card.hidden = index !== challengePage; });
+      const paged = window.innerWidth < 700;
+      cards.forEach((card, index) => { card.hidden = paged && index !== challengePage; });
+      document.querySelector(".challenge-pages").hidden = !paged || cards.length < 2;
       document.getElementById("challengeResultPage").textContent = `${cards.length ? challengePage + 1 : 0} / ${cards.length}`;
       document.getElementById("previousChallengeResult").disabled = challengePage === 0;
       document.getElementById("nextChallengeResult").disabled = challengePage >= cards.length - 1;
     }
     document.getElementById("previousChallengeResult").addEventListener("click", () => { challengePage--; renderChallengePage(); });
     document.getElementById("nextChallengeResult").addEventListener("click", () => { challengePage++; renderChallengePage(); });
-    document.querySelectorAll("[data-result-tab]").forEach(button => button.addEventListener("click", () => {
-      const selected = button.dataset.resultTab;
-      document.querySelectorAll("[data-result-tab]").forEach(tab => tab.setAttribute("aria-pressed", String(tab === button)));
-      document.querySelector(".result-summary").hidden = selected !== "overview";
-      document.querySelector(".challenge-results-heading").hidden = selected !== "challenges";
-      document.getElementById("challenge-results").hidden = selected !== "challenges";
-      document.querySelector(".challenge-pages").hidden = selected !== "challenges";
-      document.querySelector(".result-inventory").hidden = selected !== "gear";
-    }));
+    window.addEventListener("resize", renderChallengePage);
   
     function setText(id, value) {
       document.getElementById(id).textContent = value ?? "---";
@@ -103,11 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
       items.forEach((item) => {
         const entry = document.createElement("li");
         if (item.hotbar_image || item.image) {
-          const icon = document.createElement("img");
-          icon.src = `/static/images/${item.hotbar_image || item.image}`;
-          icon.alt = "";
-          icon.width = 32;
-          icon.height = 32;
           entry.appendChild(window.gameVisuals.itemArt(item));
         }
         entry.append(document.createTextNode(item.name ?? item.id));

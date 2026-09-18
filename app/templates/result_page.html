@@ -47,11 +47,6 @@
 
 <!-- Keep the results inside the existing themes missions grid area -->
 <section class="mission-results">
-    <nav class="page-controls result-tabs" aria-label="Result sections">
-        <button type="button" data-result-tab="overview" aria-pressed="true">SUMMARY</button>
-        <button type="button" data-result-tab="challenges" aria-pressed="false">CHALLENGES</button>
-        <button type="button" data-result-tab="gear" aria-pressed="false">GEAR</button>
-    </nav>
     <h2>MISSION RESULTS</h2>
 
     <div class="result-summary">
@@ -85,15 +80,15 @@
     </div>
 
     <!-- JavaScript generates one card per recorded challenge -->
-    <h3 class="result-section-heading challenge-results-heading" hidden>CHALLENGE RESULTS</h3>
-    <div class="mission-list" id="challenge-results" hidden></div>
+    <h3 class="result-section-heading challenge-results-heading">CHALLENGE RESULTS</h3>
+    <div class="mission-list" id="challenge-results"></div>
     <nav class="page-controls challenge-pages" aria-label="Challenge result pages" hidden>
         <button type="button" id="previousChallengeResult">← BACK</button>
         <span id="challengeResultPage">0 / 0</span>
         <button type="button" id="nextChallengeResult">NEXT →</button>
     </nav>
 
-    <div class="result-inventory" hidden>
+    <div class="result-inventory">
         <section class="result-inventory-section">
             <h3 class="result-section-heading">ITEMS PURCHASED</h3>
             <ul class="result-item-list" id="items-purchased"></ul>

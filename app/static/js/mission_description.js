@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function typeMissionDescription(text) {
         const pages = [];
         let page = "";
-        const limit = window.innerWidth < 700 ? 280 : 650;
+        const limit = window.innerWidth < 700 ? 280 : Infinity;
         for (const word of (text || "").split(/\s+/)) {
             if (page.length + word.length > limit) { pages.push(page.trim()); page = ""; }
             page += `${word} `;
@@ -60,8 +60,30 @@ document.addEventListener("DOMContentLoaded", () => {
         previous.textContent = "← BACK";
         next.textContent = "NEXT →";
         previous.type = next.type = "button";
+        let typingTimer;
+        const visited = new Set();
         function renderPage() {
-            missionDescription.textContent = pages[index];
+            clearTimeout(typingTimer);
+            const fullText = pages[index];
+            missionDescription.textContent = fullText;
+            missionDescription.style.minHeight = `${missionDescription.offsetHeight}px`;
+            const animate = !visited.has(index) && window.gameVisuals.motionEnabled();
+            visited.add(index);
+            missionDescription.textContent = animate ? "" : fullText;
+            typingCursor.style.display = animate ? "inline" : "none";
+            typingFinished = !animate;
+            updateContinueButton();
+            let character = 0;
+            function typeCharacter() {
+                missionDescription.textContent = fullText.slice(0, ++character);
+                if (character < fullText.length) typingTimer = setTimeout(typeCharacter, 12);
+                else {
+                    typingCursor.style.display = "none";
+                    typingFinished = true;
+                    updateContinueButton();
+                }
+            }
+            if (animate) typingTimer = setTimeout(typeCharacter, 12);
             previous.disabled = index === 0;
             next.disabled = index === pages.length - 1;
             count.textContent = `${index + 1} / ${pages.length}`;
@@ -73,9 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
             missionDescription.after(controls);
         }
         renderPage();
-        typingCursor.style.display = "none";
-        typingFinished = true;
-        updateContinueButton();
     }
 
     continueBtn.addEventListener("click", () => {
@@ -114,7 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     const art = document.getElementById("storyArt");
     const chapters = [...document.querySelectorAll(".story-chapter")];
-    const play = document.getElementById("storyPlay");
     let story = [];
     let missionData = null;
     let objectiveView = 0;
@@ -130,8 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { ...(objective || { title: data.mission, caption: "Read the briefing to learn your team's objective." }), eyebrow: "02 / THE OBJECTIVE", label: data.mission, alt: `Pixel-art concept illustration for ${data.mission}: ${objective ? objective.caption : "a team planning its mission"}` },
             { title: "Good plans start together", caption: `${objective ? objective.plan : "Discuss the mission and choose your equipment together."} You have $1,000 to spend as a team in the item shop.`, eyebrow: "03 / PREPARE YOUR TEAM", label: "SHARED BUDGET / $1,000", alt: "Pixel-art teammates planning a route around a table of maps, tools, radios and expedition supplies." }
         ];
-        play.disabled = false;
-        window.gameVisuals.createReel({ button: play, length: story.length, interval: 8000, render: renderChapter });
+        window.gameVisuals.createReel({ length: story.length, interval: 8000, render: renderChapter });
     }
 
     function renderChapter(index) {

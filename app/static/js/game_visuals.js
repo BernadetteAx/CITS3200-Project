@@ -45,24 +45,12 @@
   function readPreference(key) { try { return localStorage.getItem(key); } catch { return null; } }
   function savePreference(key, value) { try { localStorage.setItem(key, value); } catch { /* Storage may be disabled. */ } }
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let motion = readPreference('cc-motion') !== 'off' && !reducedMotion.matches;
-  const motionButton = document.createElement('button');
-  motionButton.className = 'motion-toggle';
-  motionButton.type = 'button';
-  if (!document.body.classList.contains('landing-page')) document.body.append(motionButton);
+  let motion = !reducedMotion.matches;
   function updateMotion() {
     document.documentElement.classList.toggle('motion-paused', !motion);
-    motionButton.textContent = motion ? 'Ⅱ PAUSE MOTION' : '▶ ENABLE MOTION';
-    motionButton.setAttribute('aria-label', motion ? 'Pause background motion and automatic pictures' : 'Enable background motion and automatic pictures');
-    motionButton.setAttribute('aria-pressed', String(!motion));
     document.dispatchEvent(new Event('game-motion-change'));
   }
-  motionButton.addEventListener('click', () => {
-    motion = !motion;
-    savePreference('cc-motion', motion ? 'on' : 'off');
-    updateMotion();
-  });
-  reducedMotion.addEventListener('change', () => { motion = !reducedMotion.matches && readPreference('cc-motion') !== 'off'; updateMotion(); });
+  reducedMotion.addEventListener('change', () => { motion = !reducedMotion.matches; updateMotion(); });
   updateMotion();
 
   const ambience = document.createElement('div');
@@ -156,24 +144,16 @@
     return { cell, source, alt: `${subject} in ${location}.` };
   }
 
-  function createReel({ render, button = null, length, interval = 6500, initialIndex = 0 }) {
+  function createReel({ render, length, interval = 6500, initialIndex = 0 }) {
     let index = initialIndex;
     let timer = null;
-    let paused = false;
     function sync() {
       clearInterval(timer);
       timer = null;
-      if (button) {
-        button.setAttribute('aria-pressed', String(paused));
-        button.textContent = paused ? 'RESUME' : 'PAUSE';
-        button.setAttribute('aria-label', paused ? 'Resume rotating illustrations' : 'Pause rotating illustrations');
-        button.disabled = !motion;
-      }
-      if (!paused && motion && !document.hidden && length > 1) timer = setInterval(() => { index = (index + 1) % length; render(index); }, interval);
+      if (motion && !document.hidden && length > 1) timer = setInterval(() => { index = (index + 1) % length; render(index); }, interval);
     }
     render(index);
     sync();
-    button?.addEventListener('click', () => { paused = !paused; sync(); });
     document.addEventListener('game-motion-change', sync);
     document.addEventListener('visibilitychange', sync);
     window.addEventListener('pagehide', () => clearInterval(timer));
@@ -204,7 +184,7 @@
     const mission = missions[nextVariant(`preview-${location}`, missions.length)];
     return { location, mission: mission?.name || 'Explore together' };
   });
-  createReel({ button: document.getElementById('previewPause'), length: frames.length, initialIndex: nextVariant('preview-start', frames.length), render(index) {
+  createReel({ length: frames.length, initialIndex: nextVariant('preview-start', frames.length), render(index) {
     const { location, mission } = frames[index];
     const frame = missionVisual(location, mission);
     paint(preview, frame.cell, frame.source, frame.alt);

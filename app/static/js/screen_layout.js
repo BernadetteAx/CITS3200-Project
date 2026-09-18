@@ -43,7 +43,7 @@
     scheduled = false;
     const stageStyle = getComputedStyle(stage);
     const viewportHeight = window.visualViewport?.height || window.innerHeight;
-    const stageHeight = Math.max(1, viewportHeight - parseFloat(stageStyle.top) - (document.body.classList.contains('landing-page') ? 12 : 58));
+    const stageHeight = Math.max(1, viewportHeight - parseFloat(stageStyle.top) - parseFloat(stageStyle.bottom));
     if (stage.style.height !== `${stageHeight}px`) stage.style.height = `${stageHeight}px`;
     const available = stage.clientHeight;
     const height = content.scrollHeight;
