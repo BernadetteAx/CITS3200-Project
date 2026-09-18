@@ -2,6 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const socket = window.gameSocket;
     const message = document.getElementById("result-message");
     let hasResults = false;
+    let challengePage = 0;
+    function renderChallengePage() {
+      const cards = [...document.querySelectorAll("#challenge-results > article")];
+      const paged = window.innerWidth < 700;
+      cards.forEach((card, index) => { card.hidden = paged && index !== challengePage; });
+      document.querySelector(".challenge-pages").hidden = !paged || cards.length < 2;
+      document.getElementById("challengeResultPage").textContent = `${cards.length ? challengePage + 1 : 0} / ${cards.length}`;
+      document.getElementById("previousChallengeResult").disabled = challengePage === 0;
+      document.getElementById("nextChallengeResult").disabled = challengePage >= cards.length - 1;
+    }
+    document.getElementById("previousChallengeResult").addEventListener("click", () => { challengePage--; renderChallengePage(); });
+    document.getElementById("nextChallengeResult").addEventListener("click", () => { challengePage++; renderChallengePage(); });
+    window.addEventListener("resize", renderChallengePage);
   
     function setText(id, value) {
       document.getElementById(id).textContent = value ?? "---";
@@ -16,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       parent.appendChild(paragraph);
     }
   
-    function displayChallenges(challenges) {
+    function displayChallenges(challenges, location, missionName) {
       const list = document.getElementById("challenge-results");
       list.replaceChildren();
   
@@ -31,6 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("article");
         card.className = "mission-card";
         card.dataset.outcome = challenge.success ? "success" : "fail";
+        const art = document.createElement("div");
+        art.className = "game-scene result-challenge-art";
+        art.setAttribute("role", "img");
+        const visual = window.gameVisuals.challengeVisual(challenge, location, missionName, 'results');
+        window.gameVisuals.paint(art, visual.cell, visual.source, visual.alt);
   
         const info = document.createElement("div");
         info.className = "mission-info";
@@ -64,9 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
         addDetail(status, "Penalty points", challenge.penalty);
   
-        card.append(info, status);
+        card.append(art, info, status);
         list.appendChild(card);
       });
+      renderChallengePage();
     }
   
     function displayItems(listId, emptyId, items) {
@@ -77,7 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
       items.forEach((item) => {
         const entry = document.createElement("li");
-        entry.textContent = item.name ?? item.id;
+        if (item.hotbar_image || item.image) {
+          entry.appendChild(window.gameVisuals.itemArt(item));
+        }
+        entry.append(document.createTextNode(item.name ?? item.id));
         list.appendChild(entry);
       });
     }
@@ -111,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("mission-outcome-row").hidden = !hasOutcome;
       setText("mission-outcome", result.missionOutcome);
   
-      displayChallenges(result.challenges ?? []);
+      displayChallenges(result.challenges ?? [], result.location, result.missionName);
   
       displayItems(
         "items-purchased",

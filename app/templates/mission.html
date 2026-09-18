@@ -13,6 +13,7 @@
 {% block header %}{% endblock %}
 
 {% block content %}
+{% from '_game_visuals.html' import scene %}
 <button class="instructions-trigger" id="instructionsBtn" title="How this page works">?</button>
 
 <div
@@ -253,11 +254,12 @@
 <div class="mission-card mission-panel">
 
   <!-- challeneg description -->
-<section class="challenge-block" id="challengeBlock">
-  <challenge class="challenge-icon" id="challengeIcon">
-    <img src="{{ url_for('static', filename='images/icons8-mountain-64.png') }}" alt="Challenge Icon">
-  </challenge>
-  <h2 class="challenge-name" id="challengeName"></h2>
+  <section class="challenge-block">
+    {{ scene(3, 'An adventure team assessing a route obstacle', 'game', 'challenge-scene', 'challengeScene') }}
+    <challenge class="challenge-icon" id="challengeIcon">
+      <img src="{{ url_for('static', filename='images/icons8-mountain-64.png') }}" alt="Challenge Icon">
+    </challenge>
+    <h2 class="challenge-name" id="challengeName">Loading challenge…</h2>
     <p class="challenge-desc" id="challengeDesc">
       Waiting for the team's mission state…
     </p>
@@ -272,11 +274,13 @@
       <span class="section-hint">Pick one for your team to use</span>
     </div>
 
-    <div class="item-grid mission-item-grid" id="itemGrid"></div>
+    <div class="item-grid mission-item-grid" id="itemGrid">
+      <p class="empty-inventory">Loading your team's equipment…</p>
+    </div>
 
     <div class="items-actions">
       <button class="lobby-btn primary" id="useItemBtn" disabled>USE SELECTED ITEM</button>
-      <button class="lobby-btn secondary" id="continueBtn">CONTINUE WITHOUT ITEM</button>
+      <button class="lobby-btn secondary" id="continueBtn" disabled>CONTINUE WITHOUT ITEM</button>
     </div>
     <p class="helper-note">No matching item? Your team can push on without one.</p>
   </section>
@@ -285,7 +289,7 @@
 
 <!-- full team inventory -->
 <div class="hotbar">
-  <div class="hotbar-label" id="hotbarLabel">TEAM INVENTORY</div>
+  <div class="hotbar-label" id="hotbarLabel">Loading team inventory…</div>
   <div class="hotbar-slots" id="hotbarSlots"></div>
 </div>
 
@@ -325,7 +329,7 @@
       </div>
     </div>
     <div class="result-definition-section">
-      page currently only frontend (ill remove this note later)
+      Every choice affects your team's shared score. Talk through the options together.
     </div>
     <button class="result-btn" id="instructionsClose">GOT IT</button>
   </div>

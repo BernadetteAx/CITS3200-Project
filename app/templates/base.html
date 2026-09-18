@@ -18,14 +18,22 @@
         <!-- UI redesign layer: loaded last so it can restyle shared tokens/
              classes without editing the page-specific stylesheet above. -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/theme_redesign_v2.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/game_visuals.css') }}">
+        <script defer src="{{ url_for('static', filename='js/game_visuals.js') }}"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/screen_layout.css') }}">
+        <script defer src="{{ url_for('static', filename='js/screen_layout.js') }}"></script>
 
         {% block scripts %}{% endblock %}
     </head>
 
-    <body>
+    <body data-game-atlas="{{ url_for('static', filename='images/briefing/game-scenes-v1.png') }}"
+          data-mission-atlas="{{ url_for('static', filename='images/briefing/mission-scenes-v1.png') }}"
+          data-artwork-root="{{ url_for('static', filename='images/briefing/') }}"
+          data-preparation="{{ url_for('static', filename='images/briefing/team-preparation-v1.png') }}">
+        <script id="visualCatalog" type="application/json">{{ game_visual_catalog | tojson }}</script>
         {% block header %}{% endblock %}
         {% block content %}{% endblock %}
         <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-        <script src="{{ url_for('static', filename='js/socket.js') }}"></script>   
+        <script src="{{ url_for('static', filename='js/socket.js') }}"></script>
     </body>
 </html>

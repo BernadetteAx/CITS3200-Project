@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block content %}
+{% from '_game_visuals.html' import banner %}
 
 <button class="instructions-trigger" id="openInstructionsBtn" title="How to Play">?</button>
 
@@ -26,6 +27,7 @@
 </header>
 
 <div class="lobby-card">
+  {{ banner(0, 'Pixel-art adventurers gathering in their command room', 'ASSEMBLE YOUR TEAM', 'Better together.', 'Share your room code, gather your crew and get ready for whatever comes next.', phase='lobby') }}
 
   <h2>PLAYERS IN LOBBY</h2>
 
@@ -85,7 +87,7 @@
         <span class="step-num">1</span>
         <span class="step-text">
           Each round, the item shop presents a pair of items.
-          <b>Bid together</b> as a team to win the ones you'll need.
+          <b>Vote together</b> as a team to buy the ones you'll need.
         </span>
       </div>
 
