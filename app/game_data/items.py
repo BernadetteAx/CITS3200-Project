@@ -31,4 +31,11 @@ items_dict = {
     "Shovel": {"desc": "A sturdy digging tool for moving soil, clearing debris and uncovering buried objects.", "cost": 60, "image": "shovel-32.png", "hotbar_image": "shovel-32.png"},
     "Medical Supplies": {"desc": "A pack of medical equipment for treating injured teammates.", "cost": 100, "image": "icons8-intravenous-bag-64.png", "hotbar_image": "icons8-intravenous-bag-32.png"},
     "Weapons": {"desc": "A collection of weapons for defending your team against threats.", "cost": 150, "image": "icons8-weapons-64.png", "hotbar_image": "icons8-weapons-32.png"},
+    
+    "Axe": {"desc": "A sturdy axe for chopping wood, cutting through tangled vegetation and clearing obstacles.", "cost": 100, "image": "icons8-minecraft-axe-64.png", "hotbar_image": "icons8-minecraft-axe-32.png"},
+    "Boat": {"desc": "A small motorboat with room for your team and equipment when travelling across water.", "cost": 300, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
+    "Lock Picks": {"desc": "A compact set of precision tools for opening mechanical locks.", "cost": 80, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
+    "Stolen Uniforms": {"desc": "A collection of staff uniforms for disguising your team in restricted areas.", "cost": 120, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},
+    "Welding Kit": {"desc": "A portable welding kit with protective equipment for joining metal and repairing damaged structures.", "cost": 150, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
+    "Dune Buggy": {"desc": "A lightweight off-road vehicle with wide tyres for transporting your team across sandy terrain.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
 }
