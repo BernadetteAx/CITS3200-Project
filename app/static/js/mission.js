@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.disabled = !usable;
       card.setAttribute("aria-pressed", String(selectedItemId === item.id));
       card.innerHTML = `<span class="item-icon"><img src="/static/images/${item.image}" alt=""></span><span class="item-name"></span><span class="item-status-pill"></span>`;
+      card.querySelector('.item-icon').replaceChildren(window.gameVisuals.itemArt(item));
       card.querySelector(".item-name").textContent = item.name;
       card.querySelector(".item-status-pill").textContent = item.used ? "Used" : "Owned";
       if (usable) card.addEventListener("click", () => {
@@ -120,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
       slot.dataset.status = item.used ? "used" : "available";
       slot.title = `${item.name}${item.used ? " (used)" : ""}`;
       slot.innerHTML = `<img src="/static/images/${item.hotbar_image || item.image}" alt="${item.name}">`;
+      slot.replaceChildren(window.gameVisuals.itemArt(item));
       hotbarSlots.appendChild(slot);
     });
     useItemBtn.disabled = !active || !selectedItemId;

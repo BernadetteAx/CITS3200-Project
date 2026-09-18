@@ -54,13 +54,16 @@ readyToggleBtn.addEventListener("click", () => {
 
 });
 
-// Show instructions automatically on first visit, then just use the "?"
-document.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("chaosAuctionFirstVisit") !== "false") {
+// Each player sees the guide once for this lobby, including returning players.
+function promptLobbyInstructions(payload) {
+  const playerId = window.getPlayerId();
+  if (!payload.players.some(player => player.id === playerId)) return;
+  const key = `lobbyInstructions:${window.getSessionCode()}:${playerId}`;
+  if (sessionStorage.getItem(key) !== "seen") {
     showInstructions();
-    localStorage.setItem("chaosAuctionFirstVisit", "false");
+    sessionStorage.setItem(key, "seen");
   }
-});
+}
 
 // Start the game when the host clicks START GAME
 startGameBtn.addEventListener("click", () => {
@@ -77,6 +80,7 @@ window.gameSocket.on("game_started", () => {
 
 // Receive the latest lobby state from the server
 window.gameSocket.on("lobby_state", (payload) => {
+  promptLobbyInstructions(payload);
 
   // Remove the demo players
   playerList.innerHTML = "";

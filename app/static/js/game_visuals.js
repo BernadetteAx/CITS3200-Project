@@ -15,6 +15,31 @@
   const originalLocations = { City: 3, Ocean: 4, Volcano: 5 };
   const originalObjectives = { 'Train Heist': 6, 'Artifact Heist': 7, 'Jewel Heist': 8, 'Steal Enemy Information': 9, 'Escape Enemy Base': 10, 'Break Out Another Team': 11, 'Extract Another Team': 12, 'Rescue Stranded Teammate': 13, 'Repair Research Base': 14, 'Get Rescued': 15 };
   const planningScenes = [{ source: 'preparation', cell: 0 }, { source: 'game', cell: 1 }, { source: 'game', cell: 0 }];
+  const equipment = [
+    ['Fire Starter Kit', 'Handheld Radios', 'Mirror', 'Gas Mask and Knockout Gas', 'Ice Axes', 'Armoured Truck', 'Rope', 'Paraglider', 'Helicopter', 'Grapling Hook', 'Scuba Gear', 'Wire Cutters', 'Explosives', 'Water Bottle', 'Fuel', 'Taser'],
+    ['Compass', 'Apple', 'Armoured Boots', 'Camping Tent', 'Hat', 'GPS', 'Map', 'Mountain Gear', 'Car', 'Toolkit', 'Shovel', 'Medical Supplies', 'Weapons', 'Axe', 'Boat', 'Lock Picks'],
+    ['Stolen Uniforms', 'Welding Kit', 'Dune Buggy'],
+  ];
+  function itemArt(item) {
+    const group = equipment.findIndex(names => names.includes(item.name));
+    if (group < 0) {
+      const fallback = document.createElement('img');
+      fallback.src = `/static/images/${item.image}`;
+      fallback.alt = item.name;
+      return fallback;
+    }
+    const cell = equipment[group].indexOf(item.name);
+    const grid = group === 2 ? 2 : 4;
+    const art = document.createElement('span');
+    art.className = 'equipment-art';
+    art.setAttribute('role', 'img');
+    art.setAttribute('aria-label', item.name);
+    art.dataset.item = item.name;
+    art.style.backgroundImage = `url("${root}equipment-${['a', 'b', 'c'][group]}-v1.png")`;
+    art.style.backgroundSize = `${grid * 100}% ${grid * 100}%`;
+    art.style.backgroundPosition = `${cell % grid * 100 / (grid - 1)}% ${Math.floor(cell / grid) * 100 / (grid - 1)}%`;
+    return art;
+  }
   function planningVisual() { return { ...planningScenes[nextVariant('planning', planningScenes.length)], alt: 'Teammates discussing their expedition and choosing supplies in headquarters.' }; }
 
   function readPreference(key) { try { return localStorage.getItem(key); } catch { return null; } }
@@ -24,7 +49,7 @@
   const motionButton = document.createElement('button');
   motionButton.className = 'motion-toggle';
   motionButton.type = 'button';
-  document.body.append(motionButton);
+  if (!document.body.classList.contains('landing-page')) document.body.append(motionButton);
   function updateMotion() {
     document.documentElement.classList.toggle('motion-paused', !motion);
     motionButton.textContent = motion ? 'Ⅱ PAUSE MOTION' : '▶ ENABLE MOTION';
@@ -155,7 +180,7 @@
     window.addEventListener('pageshow', sync);
   }
 
-  window.gameVisuals = { paint, challengeVisual, missionVisual, locationVisual, planningVisual, createReel, nextVariant, motionEnabled: () => motion };
+  window.gameVisuals = { paint, itemArt, challengeVisual, missionVisual, locationVisual, planningVisual, createReel, nextVariant, motionEnabled: () => motion };
   document.querySelectorAll('.game-scene[data-scene]').forEach(frame => {
     if (!frame.closest('[data-phase]') && frame.id !== 'previewArt') paint(frame, Number(frame.dataset.scene), frame.dataset.source || 'game');
   });

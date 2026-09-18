@@ -2,6 +2,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const socket = window.gameSocket;
     const message = document.getElementById("result-message");
     let hasResults = false;
+    let challengePage = 0;
+    function renderChallengePage() {
+      const cards = [...document.querySelectorAll("#challenge-results > article")];
+      cards.forEach((card, index) => { card.hidden = index !== challengePage; });
+      document.getElementById("challengeResultPage").textContent = `${cards.length ? challengePage + 1 : 0} / ${cards.length}`;
+      document.getElementById("previousChallengeResult").disabled = challengePage === 0;
+      document.getElementById("nextChallengeResult").disabled = challengePage >= cards.length - 1;
+    }
+    document.getElementById("previousChallengeResult").addEventListener("click", () => { challengePage--; renderChallengePage(); });
+    document.getElementById("nextChallengeResult").addEventListener("click", () => { challengePage++; renderChallengePage(); });
+    document.querySelectorAll("[data-result-tab]").forEach(button => button.addEventListener("click", () => {
+      const selected = button.dataset.resultTab;
+      document.querySelectorAll("[data-result-tab]").forEach(tab => tab.setAttribute("aria-pressed", String(tab === button)));
+      document.querySelector(".result-summary").hidden = selected !== "overview";
+      document.querySelector(".challenge-results-heading").hidden = selected !== "challenges";
+      document.getElementById("challenge-results").hidden = selected !== "challenges";
+      document.querySelector(".challenge-pages").hidden = selected !== "challenges";
+      document.querySelector(".result-inventory").hidden = selected !== "gear";
+    }));
   
     function setText(id, value) {
       document.getElementById(id).textContent = value ?? "---";
@@ -72,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.append(art, info, status);
         list.appendChild(card);
       });
+      renderChallengePage();
     }
   
     function displayItems(listId, emptyId, items) {
@@ -88,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
           icon.alt = "";
           icon.width = 32;
           icon.height = 32;
-          entry.appendChild(icon);
+          entry.appendChild(window.gameVisuals.itemArt(item));
         }
         entry.append(document.createTextNode(item.name ?? item.id));
         list.appendChild(entry);

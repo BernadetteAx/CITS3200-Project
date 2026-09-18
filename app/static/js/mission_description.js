@@ -42,30 +42,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function typeMissionDescription(text) {
-        let index = 0;
-        missionDescription.textContent = "";
-
-        if (!window.gameVisuals.motionEnabled() || !text) {
-            missionDescription.textContent = text || "";
-            typingCursor.style.display = "none";
-            typingFinished = true;
-            updateContinueButton();
-            return;
+        const pages = [];
+        let page = "";
+        const limit = window.innerWidth < 700 ? 280 : 650;
+        for (const word of (text || "").split(/\s+/)) {
+            if (page.length + word.length > limit) { pages.push(page.trim()); page = ""; }
+            page += `${word} `;
         }
-
-        const typingInterval = setInterval(() => {
-            missionDescription.textContent += text.charAt(index);
-            index++;
-
-            if (index >= text.length) {
-                clearInterval(typingInterval);
-
-                typingCursor.style.display = "none";
-
-                typingFinished = true;
-                updateContinueButton();
-            }
-        }, 10);
+        pages.push(page.trim());
+        let index = 0;
+        const controls = document.createElement("nav");
+        controls.className = "page-controls";
+        controls.setAttribute("aria-label", "Briefing pages");
+        const previous = document.createElement("button");
+        const next = document.createElement("button");
+        const count = document.createElement("span");
+        previous.textContent = "← BACK";
+        next.textContent = "NEXT →";
+        previous.type = next.type = "button";
+        function renderPage() {
+            missionDescription.textContent = pages[index];
+            previous.disabled = index === 0;
+            next.disabled = index === pages.length - 1;
+            count.textContent = `${index + 1} / ${pages.length}`;
+        }
+        previous.addEventListener("click", () => { index--; renderPage(); });
+        next.addEventListener("click", () => { index++; renderPage(); });
+        if (pages.length > 1) {
+            controls.append(previous, count, next);
+            missionDescription.after(controls);
+        }
+        renderPage();
+        typingCursor.style.display = "none";
+        typingFinished = true;
+        updateContinueButton();
     }
 
     continueBtn.addEventListener("click", () => {
