@@ -224,13 +224,13 @@ def auction_vote(payload):
     if not session or session.get("phase") != "auction": return
     player, auction = _valid_player(session, payload), session["auction"]
     choices = {item["id"] for item in auction["item_pairs"][auction["round_index"]]}
-    if not player or auction["status"] != "voting" or player in auction["finished_players"] or payload.get("itemId") not in choices: return
+    if not player or auction["status"] != "voting" or payload.get("itemId") not in choices: return
     auction["votes"][player] = payload["itemId"]
     broadcast_auction_state(code, session); emit_auction_state_to_player(session, player)
 
 def _finish(code, session, player, skip=False):
     auction = session["auction"]
-    if not player or auction["status"] != "voting" or player in auction["finished_players"]: return
+    if not player or auction["status"] != "voting": return
     if skip: auction["votes"][player] = "skip"
     if player not in auction["votes"]: return
     auction["finished_players"].add(player)
