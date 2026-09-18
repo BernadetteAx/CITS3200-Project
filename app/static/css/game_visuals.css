@@ -215,3 +215,73 @@ body:has(.hotbar) { padding-bottom: 140px; }
   html { scroll-behavior: auto; }
   .scene-layer, .reel-steps > span { transition: none; }
 }
+
+/* Shared arcade atmosphere, kept behind readable cards and controls. */
+body { position: relative; isolation: isolate; padding-bottom: max(80px, env(safe-area-inset-bottom)); }
+.game-ambience { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.ambient-particle {
+  position: absolute;
+  top: 110%;
+  left: var(--left);
+  color: var(--correct);
+  font-family: var(--font-press);
+  font-size: clamp(12px, 1.6vw, 22px);
+  opacity: 0;
+  animation: ambient-rise var(--duration) linear var(--delay) infinite;
+  will-change: transform;
+}
+.ambient-square { width: 12px; height: 12px; border: 2px solid currentColor; }
+@keyframes ambient-rise {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+  12%, 85% { opacity: 0.22; }
+  100% { transform: translate3d(14px, -120vh, 0) rotate(35deg); opacity: 0; }
+}
+.join-card, .adventure-preview, .lobby-card, .start-card, .mission-file,
+.visual-briefing, .mission-panel, .mission-results, .final-score, .money-section {
+  animation: panel-glow 4.8s ease-in-out infinite;
+}
+@keyframes panel-glow {
+  0%, 100% { box-shadow: 0 0 4px rgba(61, 220, 132, 0.16), 0 0 0 1px rgba(61, 220, 132, 0.15); }
+  50% { box-shadow: 0 0 22px rgba(61, 220, 132, 0.3), 0 0 0 1px rgba(61, 220, 132, 0.55); }
+}
+.preview-art .scene-layer.is-active, .story-art .scene-layer.is-active,
+.phase-banner .scene-layer.is-active, .challenge-scene .scene-layer.is-active {
+  animation: scene-drift 18s ease-in-out infinite alternate;
+}
+@keyframes scene-drift {
+  from { transform: translateY(-50%) scale(1); }
+  to { transform: translateY(-50%) scale(1.045); }
+}
+.motion-toggle {
+  position: fixed;
+  left: max(12px, env(safe-area-inset-left));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  z-index: 600;
+  min-height: 44px;
+  padding: 10px 12px;
+  margin: 0;
+  font-family: var(--font-press);
+  font-size: 0.45rem;
+  line-height: 1.8;
+  color: var(--correct);
+  background: var(--surface);
+  border: 1px solid var(--tile-border);
+  box-shadow: 0 4px 12px #0008;
+}
+.motion-toggle:hover { border-color: var(--correct); transform: none; }
+body:has(.hotbar) { padding-bottom: 200px; }
+body:has(.hotbar) .motion-toggle { bottom: 132px; }
+.motion-paused *, .page-hidden * { animation-play-state: paused !important; }
+.motion-paused .scene-layer { transition: none; }
+.motion-paused .ambient-particle { opacity: 0; }
+.motion-paused .scene-layer.is-active { animation: none; }
+.motion-paused .start-card { animation: none; }
+@media (max-width: 480px) {
+  .ambient-particle:nth-child(even) { display: none; }
+  .motion-toggle { font-size: 0.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ambient-particle, .scene-layer.is-active { animation: none !important; }
+  .join-card, .adventure-preview, .lobby-card, .start-card, .mission-file,
+  .visual-briefing, .mission-panel, .mission-results, .final-score, .money-section { animation: none !important; }
+}

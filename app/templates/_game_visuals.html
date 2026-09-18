@@ -3,8 +3,8 @@
      data-scene="{{ cell }}" data-source="{{ source }}" role="img" aria-label="{{ label }}"></div>
 {%- endmacro %}
 
-{% macro banner(cell, label, eyebrow, title, copy, class_name='') -%}
-<div class="phase-banner {{ class_name }}">
+{% macro banner(cell, label, eyebrow, title, copy, class_name='', phase='') -%}
+<div class="phase-banner {{ class_name }}" data-phase="{{ phase }}">
     {{ scene(cell, label) }}
     <div class="phase-banner-copy">
         <p class="visual-eyebrow">{{ eyebrow }}</p>

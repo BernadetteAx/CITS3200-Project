@@ -26,10 +26,12 @@
 
     <body data-game-atlas="{{ url_for('static', filename='images/briefing/game-scenes-v1.png') }}"
           data-mission-atlas="{{ url_for('static', filename='images/briefing/mission-scenes-v1.png') }}"
+          data-artwork-root="{{ url_for('static', filename='images/briefing/') }}"
           data-preparation="{{ url_for('static', filename='images/briefing/team-preparation-v1.png') }}">
+        <script id="visualCatalog" type="application/json">{{ game_visual_catalog | tojson }}</script>
         {% block header %}{% endblock %}
         {% block content %}{% endblock %}
         <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-        <script src="{{ url_for('static', filename='js/socket.js') }}"></script>   
+        <script src="{{ url_for('static', filename='js/socket.js') }}"></script>
     </body>
 </html>

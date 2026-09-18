@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let index = 0;
         missionDescription.textContent = "";
 
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !text) {
+        if (!window.gameVisuals.motionEnabled() || !text) {
             missionDescription.textContent = text || "";
             typingCursor.style.display = "none";
             typingFinished = true;
@@ -106,8 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const chapters = [...document.querySelectorAll(".story-chapter")];
     const play = document.getElementById("storyPlay");
     let story = [];
+    let missionData = null;
+    let objectiveView = 0;
 
     function buildVisualStory(data) {
+        missionData = data;
+        objectiveView = window.gameVisuals.nextVariant(`objective-${data.location}-${data.mission}`, 2);
         const location = locations[data.location];
         const objective = objectives[data.mission];
         // Unknown future missions retain an accurate preparation illustration.
@@ -122,8 +126,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderChapter(index) {
         const chapter = story[index];
-        const usesAtlas = Number.isInteger(chapter.cell);
-        window.gameVisuals.paint(art, chapter.cell || 0, usesAtlas ? "missions" : "preparation", chapter.alt);
+        let visual;
+        if (index === 0) visual = window.gameVisuals.locationVisual(missionData.location);
+        else if (index === 1) {
+            visual = window.gameVisuals.missionVisual(missionData.location, missionData.mission, objectiveView);
+            objectiveView = (objectiveView + 1) % 2;
+        } else visual = window.gameVisuals.planningVisual();
+        window.gameVisuals.paint(art, visual.cell, visual.source, visual.alt);
         document.getElementById("storySceneLabel").textContent = chapter.label.toUpperCase();
         document.getElementById("storyCounter").textContent = `0${index + 1} / 03`;
         document.getElementById("storyEyebrow").textContent = chapter.eyebrow;
