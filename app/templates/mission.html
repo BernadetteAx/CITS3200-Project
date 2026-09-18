@@ -46,11 +46,11 @@
 <div class="mission-card mission-panel">
 
   <!-- challeneg description -->
-  <section class="challenge-block">
-    <challenge class="challenge-icon" id="challengeIcon">
-      <img src="{{ url_for('static', filename='images/icons8-mountain-64.png') }}" alt="Challenge Icon">
-    </challenge>
-    <h2 class="challenge-name" id="challengeName">Scale the Wall</h2>
+<section class="challenge-block" id="challengeBlock">
+  <challenge class="challenge-icon" id="challengeIcon">
+    <img src="{{ url_for('static', filename='images/icons8-mountain-64.png') }}" alt="Challenge Icon">
+  </challenge>
+  <h2 class="challenge-name" id="challengeName"></h2>
     <p class="challenge-desc" id="challengeDesc">
       Waiting for the team's mission state…
     </p>
@@ -58,38 +58,14 @@
 
   <div class="divider"></div>
 
-  <!-- owned items that can be used or should we remove this and just put all items here so they can pick? -->
+  <!-- item cards are rendered entirely by mission.js from state.inventory -->
   <section class="items-block">
     <div class="section-heading-row">
       <h3 class="section-heading">USABLE ITEMS</h3>
       <span class="section-hint">Pick one for your team to use</span>
     </div>
 
-    <div class="item-grid mission-item-grid" id="itemGrid">
-      <button class="item-card" data-item-id="water-bottle" data-status="available">
-        <span class="item-icon">
-          <img src="{{ url_for('static', filename='images/sport-bottle-white-64.png') }}" alt="Water Bottle">
-        </span>
-        <span class="item-name">Water Bottle</span>
-        <span class="item-status-pill">Owned</span>
-      </button>
-
-      <button class="item-card" data-item-id="axe" data-status="available">
-        <span class="item-icon">
-          <img src="{{ url_for('static', filename='images/axe-white-64.png') }}" alt="Axe">
-        </span>
-        <span class="item-name">Axe</span>
-        <span class="item-status-pill">Owned</span>
-      </button>
-
-      <button class="item-card" data-item-id="armored-boot" data-status="used" disabled>
-        <span class="item-icon">
-          <img src="{{ url_for('static', filename='images/icons8-armored-boot-64.png') }}" alt="Armored Boot">
-        </span>
-        <span class="item-name">Armour</span>
-        <span class="item-status-pill">Used</span>
-      </button>
-    </div>
+    <div class="item-grid mission-item-grid" id="itemGrid"></div>
 
     <div class="items-actions">
       <button class="lobby-btn primary" id="useItemBtn" disabled>USE SELECTED ITEM</button>
@@ -100,44 +76,18 @@
 
 </div>
 
-<!-- the full team inventory and used are unavailable -->
+<!-- full team inventory -->
 <div class="hotbar">
-  <div class="hotbar-label" id="hotbarLabel">TEAM INVENTORY · 6/8 AVAILABLE</div>
-  <div class="hotbar-slots" id="hotbarSlots">
-    <div class="hotbar-slot filled" data-item-id="rope" data-status="available" title="Rope">
-      <img src="{{ url_for('static', filename='images/cat-32.png') }}" alt="Rope">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="armored-boot" data-status="used" title="armored boot (used)">
-      <img src="{{ url_for('static', filename='images/icons8-armored-boot-32.png') }}" alt="armored boot">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="camping-tent" data-status="available" title="Camping Tent">
-      <img src="{{ url_for('static', filename='images/icons8-camping-tent-32.png') }}" alt="Camping Tent">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="" data-status="used" title="Compasss (used)">
-      <img src="{{ url_for('static', filename='images/icons8-compass-32.png') }}" alt="Compass">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="credit-card" data-status="available" title="Credit Card">
-      <img src="{{ url_for('static', filename='images/icons8-credit-card-32.png') }}" alt="Credit Card">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="german-hat" data-status="available" title="German Hat">
-      <img src="{{ url_for('static', filename='images/icons8-german-hat-32.png') }}" alt="German Hat">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="gps-signal" data-status="available" title="GPS Signal">
-      <img src="{{ url_for('static', filename='images/icons8-gps-signal-32.png') }}" alt="GPS Signal">
-    </div>
-    <div class="hotbar-slot filled" data-item-id="rmap" data-status="available" title="Map">
-      <img src="{{ url_for('static', filename='images/icons8-map-32.png') }}" alt="Map">
-    </div>
-  </div>
+  <div class="hotbar-label" id="hotbarLabel">TEAM INVENTORY</div>
+  <div class="hotbar-slots" id="hotbarSlots"></div>
 </div>
 
-<!-- outcome feedback (placeholder for backend) -->
+
+<!-- outcome feedback -->
 <div class="result-popup hidden" id="feedbackPopup">
   <div class="result-box" id="feedbackBox">
-    <div class="result-title" id="feedbackTitle">OBSTACLE CLEARED</div>
-    <p class="result-sub" id="feedbackSub">
-      The team used the Rope to haul themselves over the wall. On to the next challenge.
-    </p>
+    <div class="result-title" id="feedbackTitle"></div>
+    <p class="result-sub" id="feedbackSub"></p>
     <button class="result-btn" id="feedbackClose">CONTINUE</button>
   </div>
 </div>
