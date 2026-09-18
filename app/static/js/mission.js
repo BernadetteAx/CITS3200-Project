@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const image = document.querySelector("#challengeIcon img");
       image.src = `/static/images/${challenge.image}`;
       image.alt = challenge.name;
-      const visual = window.gameVisuals.challengeVisual(challenge, state.location, state.missionName);
+      const visual = window.gameVisuals.challengeVisual({ ...challenge, challengeIndex: state.currentChallengeIndex }, state.location, state.missionName);
       window.gameVisuals.paint(document.getElementById("challengeScene"), visual.cell, visual.source, visual.alt);
 
   
