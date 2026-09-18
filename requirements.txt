@@ -3,3 +3,4 @@ Flask-SocketIO==5.6.1
 gunicorn
 gevent
 gevent-websocket
+packaging
