@@ -18,11 +18,15 @@
         <!-- UI redesign layer: loaded last so it can restyle shared tokens/
              classes without editing the page-specific stylesheet above. -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/theme_redesign_v2.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/game_visuals.css') }}">
+        <script defer src="{{ url_for('static', filename='js/game_visuals.js') }}"></script>
 
         {% block scripts %}{% endblock %}
     </head>
 
-    <body>
+    <body data-game-atlas="{{ url_for('static', filename='images/briefing/game-scenes-v1.png') }}"
+          data-mission-atlas="{{ url_for('static', filename='images/briefing/mission-scenes-v1.png') }}"
+          data-preparation="{{ url_for('static', filename='images/briefing/team-preparation-v1.png') }}">
         {% block header %}{% endblock %}
         {% block content %}{% endblock %}
         <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>

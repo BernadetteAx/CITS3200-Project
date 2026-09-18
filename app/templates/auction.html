@@ -13,6 +13,7 @@
 {% block header %}{% endblock %}
 
 {% block content %}
+{% from '_game_visuals.html' import banner %}
 <button class="instructions-trigger" id="helpBtn" title="How voting works">?</button>
 
 <div class="countdown-track" id="countdownTrack" role="progressbar" aria-label="Auction time remaining" aria-valuemin="0" aria-valuemax="60" aria-valuenow="60">
@@ -37,6 +38,7 @@
 </div>
 
 <div class="lobby-card">
+  {{ banner(1, 'Teammates inspecting an expedition equipment workbench', 'BUILD YOUR LOADOUT', 'Every item is a possibility.', 'Talk it out. Vote together. Save room in your budget for the unexpected.', 'shop-banner') }}
   <h2>AVAILABLE ITEMS</h2>
 
   <div class="item-grid auction-item-grid" id="itemGrid"></div>
@@ -96,7 +98,7 @@
 <div class="result-popup hidden" id="resultPopup">
   <div class="result-box">
     <div class="result-icon" id="resultIcon">
-      <img src="{{ url_for('static', filename='images/sport-bottle-white64.png') }}" alt="Water Bottle">
+      <img src="{{ url_for('static', filename='images/sport-bottle-white-64.png') }}" alt="Water Bottle">
     </div>
     <div class="result-title" id="resultTitle">ITEM PURCHASED</div>
     <div class="result-sub" id="resultSub">Your team bought the Water Bottle for $5.</div>

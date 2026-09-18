@@ -34,6 +34,8 @@ function render(state) {
     const tile = document.createElement("button");
     tile.type = "button"; tile.className = "item-tile";
     tile.dataset.state = unavailable ? "unavailable" : selected ? "selected" : "idle";
+    tile.disabled = unavailable;
+    tile.setAttribute("aria-pressed", String(selected));
     tile.innerHTML = `<div class="item-image"><img src="/static/images/${item.image}" alt="${item.name}"></div><div class="item-name">${item.name}</div><div class="item-desc">${item.description}</div><div class="item-footer"><span class="cost-tag">$${item.cost}</span><span class="vote-check">${selected ? "✓ YOUR VOTE" : "TAP TO VOTE"}</span></div>`;
     if (!unavailable) tile.addEventListener("click", () => action("auction_vote", { itemId: item.id }));
     itemGrid.appendChild(tile);

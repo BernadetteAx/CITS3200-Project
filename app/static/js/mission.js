@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const image = document.querySelector("#challengeIcon img");
       image.src = `/static/images/${challenge.image}`;
       image.alt = challenge.name;
+      const visual = window.gameVisuals.challengeVisual(challenge, state.location, state.missionName);
+      window.gameVisuals.paint(document.getElementById("challengeScene"), visual.cell, visual.source, visual.alt);
 
   
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
@@ -86,6 +88,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const available = state.inventory.filter((item) => !item.used);
     if (!available.some((item) => item.id === selectedItemId)) selectedItemId = null;
     itemGrid.replaceChildren();
+    if (!state.inventory.length) {
+      const empty = document.createElement("p");
+      empty.className = "empty-inventory";
+      empty.textContent = "Your crew has no equipment. You can still take the long way round and continue without an item.";
+      itemGrid.appendChild(empty);
+    }
     state.inventory.forEach((item) => {
       const usable = active && !item.used;
       const card = document.createElement("button");
@@ -94,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.dataset.status = item.used ? "used" : "available";
       card.dataset.selected = String(selectedItemId === item.id);
       card.disabled = !usable;
+      card.setAttribute("aria-pressed", String(selectedItemId === item.id));
       card.innerHTML = `<span class="item-icon"><img src="/static/images/${item.image}" alt=""></span><span class="item-name"></span><span class="item-status-pill"></span>`;
       card.querySelector(".item-name").textContent = item.name;
       card.querySelector(".item-status-pill").textContent = item.used ? "Used" : "Owned";
@@ -110,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       slot.className = "hotbar-slot filled";
       slot.dataset.status = item.used ? "used" : "available";
       slot.title = `${item.name}${item.used ? " (used)" : ""}`;
-      slot.innerHTML = `<img src="/static/images/${item.image}" alt="">`;
+      slot.innerHTML = `<img src="/static/images/${item.hotbar_image || item.image}" alt="${item.name}">`;
       hotbarSlots.appendChild(slot);
     });
     useItemBtn.disabled = !active || !selectedItemId;

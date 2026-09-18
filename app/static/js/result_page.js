@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       parent.appendChild(paragraph);
     }
   
-    function displayChallenges(challenges) {
+    function displayChallenges(challenges, location, missionName) {
       const list = document.getElementById("challenge-results");
       list.replaceChildren();
   
@@ -31,6 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("article");
         card.className = "mission-card";
         card.dataset.outcome = challenge.success ? "success" : "fail";
+        const art = document.createElement("div");
+        art.className = "game-scene result-challenge-art";
+        art.setAttribute("role", "img");
+        const visual = window.gameVisuals.challengeVisual(challenge, location, missionName);
+        window.gameVisuals.paint(art, visual.cell, visual.source, visual.alt);
   
         const info = document.createElement("div");
         info.className = "mission-info";
@@ -64,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
         addDetail(status, "Penalty points", challenge.penalty);
   
-        card.append(info, status);
+        card.append(art, info, status);
         list.appendChild(card);
       });
     }
@@ -77,7 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
   
       items.forEach((item) => {
         const entry = document.createElement("li");
-        entry.textContent = item.name ?? item.id;
+        if (item.hotbar_image || item.image) {
+          const icon = document.createElement("img");
+          icon.src = `/static/images/${item.hotbar_image || item.image}`;
+          icon.alt = "";
+          icon.width = 32;
+          icon.height = 32;
+          entry.appendChild(icon);
+        }
+        entry.append(document.createTextNode(item.name ?? item.id));
         list.appendChild(entry);
       });
     }
@@ -111,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("mission-outcome-row").hidden = !hasOutcome;
       setText("mission-outcome", result.missionOutcome);
   
-      displayChallenges(result.challenges ?? []);
+      displayChallenges(result.challenges ?? [], result.location, result.missionName);
   
       displayItems(
         "items-purchased",

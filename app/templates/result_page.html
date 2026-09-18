@@ -17,8 +17,10 @@
 {% endblock %}
 
 {% block header %}
+{% from '_game_visuals.html' import banner %}
 <header class="result-header">
     <h1>GAME RESULTS</h1>
+    {{ banner(2, 'The adventure team returning together to their command room', 'THE ADVENTURE CONTINUES', 'Every detour tells a story.', 'The mission is over. Look back at the choices your crew made together.', 'results-banner') }}
     <p id="result-message" role="status" aria-live="polite">
         LOADING YOUR TEAM'S RESULTS...
     </p>

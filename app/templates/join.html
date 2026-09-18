@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Join Game</title>
 
@@ -14,22 +16,43 @@
 
     <!-- UI redesign layer: loaded last, restyles join.css without editing it. -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/theme_redesign_v2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game_visuals.css') }}">
+    <script defer src="{{ url_for('static', filename='js/game_visuals.js') }}"></script>
 
 </head>
 
 
-<body>
+<body class="landing-page" data-game-atlas="{{ url_for('static', filename='images/briefing/game-scenes-v1.png') }}"
+      data-mission-atlas="{{ url_for('static', filename='images/briefing/mission-scenes-v1.png') }}"
+      data-preparation="{{ url_for('static', filename='images/briefing/team-preparation-v1.png') }}">
+{% from '_game_visuals.html' import scene %}
 
     <button class="instructions-trigger" id="openInstructionsBtn" title="How to Play">
         ?
     </button>
 
-    <h1>CHALLENGE CATASTROPHE</h1>
+    <header class="landing-header">
+        <p class="visual-eyebrow">A CO-OP ADVENTURE WITH A CHAOTIC TWIST</p>
+        <h1>CHALLENGE<br><span>CATASTROPHE</span></h1>
+        <p>One crew. A thousand possibilities. How will you get home?</p>
+    </header>
 
+    <main class="landing-layout">
+        <section class="adventure-preview" aria-label="Discover the game">
+            <div class="preview-topline"><span class="visual-eyebrow">YOUR NEXT ADVENTURE</span><span id="previewCounter">01 / 06</span></div>
+            {{ scene(2, 'An expedition team entering the jungle', 'missions', 'preview-art', 'previewArt') }}
+            <div class="preview-caption">
+                <p id="previewEyebrow" class="visual-eyebrow">EXPLORE TOGETHER</p>
+                <h2 id="previewTitle">Deep in the unknown</h2>
+                <p id="previewCopy">From hidden jungle bases to the open ocean, every mission takes your team somewhere new.</p>
+            </div>
+            <div class="preview-footer"><div id="previewSteps" class="reel-steps" aria-hidden="true"><span class="is-current"></span><span></span><span></span><span></span><span></span><span></span></div><button id="previewPause" class="reel-toggle" type="button" aria-pressed="false">PAUSE PREVIEW</button></div>
+        </section>
 
     <div class="join-card">
 
         <h2>JOIN A GAME</h2>
+        <p class="join-intro">Your adventure starts with your crew.</p>
 
 
         <label for="playerName">
@@ -59,6 +82,12 @@
 
 
     </div>
+    </main>
+    <section class="how-it-flows" aria-label="How the adventure works">
+        <div><img src="{{ url_for('static', filename='images/icons8-walkie-talkie-32.png') }}" alt="" width="32" height="32"><span>01 / GATHER YOUR CREW</span></div>
+        <div><img src="{{ url_for('static', filename='images/icons8-tools-32.png') }}" alt="" width="32" height="32"><span>02 / CHOOSE YOUR GEAR</span></div>
+        <div><img src="{{ url_for('static', filename='images/icons8-map-32.png') }}" alt="" width="32" height="32"><span>03 / FACE THE UNKNOWN</span></div>
+    </section>
 
     <!-- Invalid session code popup -->
     <div class="error-popup hidden" id="error-popup">
@@ -139,7 +168,7 @@
                     <span class="step-num">1</span>
                     <span class="step-text">
                         Each round, the item shop presents a pair of items.
-                        <b>Bid together</b> as a team to win the ones you'll need.
+                        <b>Vote together</b> as a team to buy the ones you'll need.
                     </span>
                 </div>
 

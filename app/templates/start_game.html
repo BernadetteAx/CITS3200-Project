@@ -13,6 +13,7 @@
 {% block header %}{% endblock %}
 
 {% block content %}
+{% from '_game_visuals.html' import banner %}
 
 <button
     class="instructions-trigger"
@@ -38,6 +39,7 @@
 
 
 <main class="start-card">
+    {{ banner(1, 'An adventure team choosing expedition supplies', 'PLAN BEFORE YOU GO', 'A little preparation. A lot of adventure.', 'Discover your mission, build your loadout and give your crew the best chance of a clean run.') }}
 
     <h2>BEFORE YOU START</h2>
 

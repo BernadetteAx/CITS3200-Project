@@ -13,7 +13,7 @@ items_dict = {
     "Scuba Gear": {"desc": "A set of diving equipment including an air tank, regulator, mask and fins for exploring underwater.", "cost": 100, "image": "icons8-snorkel-64.png", "hotbar_image": "icons8-snorkel-32.png"},
     "Wire Cutters": {"desc": "A heavy-duty hand tool for cutting through wire and metal fencing.", "cost": 100, "image": "icons8-surgical-scissors-64.png", "hotbar_image": "icons8-surgical-scissors-32.png"},
     "Explosives": {"desc": "A demolition pack capable of breaking through solid barriers and clearing obstacles.", "cost": 100, "image": "icons8-grenade-64.png", "hotbar_image": "icons8-grenade-32.png"},
-    "Water Bottle": {"desc": "A durable, refillable bottle filled with clean drinking water.", "cost": 100,"image": "sport-bottle-64.png", "hotbar_image": "icons8-idea-32.png"},
+    "Water Bottle": {"desc": "A durable, refillable bottle filled with clean drinking water.", "cost": 100,"image": "sport-bottle-white-64.png", "hotbar_image": "sport-bottle-white-64.png"},
     "Fuel": {"desc": "Keep the vehicle moving when every kilometre matters.", "cost": 40, "image": "icons8-petrol-64.png", "hotbar_image": "icons8-petrol-32.png"},
 
 

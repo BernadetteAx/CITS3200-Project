@@ -1,7 +1,7 @@
 /* Mission Description Page */
 
 .mission-briefing {
-    width: min(94vw, 900px);
+    width: min(94vw, 1320px);
     margin: 0 auto;
     padding: 32px 0 48px;
 
@@ -12,6 +12,135 @@
 
 
 /* Header */
+
+.briefing-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.visual-briefing {
+    padding: 20px;
+    background: var(--panel);
+    border: 2px solid var(--tile-border);
+    box-shadow: var(--shadow-panel);
+    min-width: 0;
+    position: sticky;
+    top: 24px;
+}
+
+.story-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.story-counter, .story-eyebrow, .story-scene-label {
+    font-family: var(--font-press);
+    font-size: 0.5rem;
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+    color: var(--correct);
+}
+
+.story-art {
+    position: relative;
+    aspect-ratio: 1;
+    background-color: var(--surface);
+    background-repeat: no-repeat;
+    background-size: 400% 400%;
+    border: 3px solid var(--outline);
+    image-rendering: pixelated;
+    overflow: hidden;
+}
+
+.story-art.is-preparation { background-size: cover; background-position: center; }
+
+.story-scene-label {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    padding: 8px 10px;
+    color: var(--text-main);
+    background: rgba(8, 9, 11, 0.9);
+    border-left: 3px solid var(--correct);
+}
+
+.story-copy { min-height: 164px; padding: 20px 0 12px; }
+.story-eyebrow { margin: 0 0 12px; color: var(--accent-cyan); }
+.story-copy h2 {
+    margin: 0 0 12px;
+    font-family: var(--font-press);
+    font-size: clamp(0.65rem, 1.1vw, 0.8rem);
+    line-height: 1.8;
+    color: var(--text-main);
+}
+.story-copy > p:last-child {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    line-height: 1.9;
+}
+.story-controls, .story-chapters {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+.story-chapters { justify-content: center; flex: 1; }
+.visual-briefing .story-arrow, .visual-briefing .story-chapter {
+    min-width: 44px;
+    min-height: 44px;
+    margin: 0;
+    padding: 10px;
+    border: 2px solid var(--tile-border);
+    background: var(--surface);
+    color: var(--text-muted);
+    box-shadow: none;
+    cursor: pointer;
+}
+.visual-briefing .story-arrow { font-family: system-ui; font-size: 1.25rem; }
+.visual-briefing .story-chapter { font-family: var(--font-press); font-size: 0.55rem; }
+.visual-briefing .story-chapter[aria-pressed="true"] {
+    color: var(--correct);
+    border-color: var(--correct);
+    background: rgba(61, 220, 132, 0.08);
+}
+.visual-briefing button:hover:not(:disabled) { border-color: var(--correct); color: var(--correct); transform: none; }
+.visual-briefing button:focus-visible { outline: 3px solid var(--accent-cyan); outline-offset: 3px; }
+.visual-briefing button:disabled { opacity: 0.4; cursor: not-allowed; }
+.story-playback {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--tile-border);
+}
+.story-playback > span { color: var(--text-dim); font-size: 0.48rem; line-height: 1.8; }
+.visual-briefing #storyPlay {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 8px 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    color: var(--correct);
+    font-family: var(--font-press);
+    font-size: 0.45rem;
+    min-height: 44px;
+    cursor: pointer;
+}
+@media (max-width: 900px) {
+    .briefing-layout { grid-template-columns: 1fr; }
+    .visual-briefing { position: static; }
+    .story-art { max-width: 480px; margin: 0 auto; }
+    .story-copy { min-height: 0; }
+}
 
 .briefing-header {
     width: 100%;
@@ -354,6 +483,9 @@
     .mission-file {
         padding: 24px 18px;
     }
+
+    .visual-briefing { padding: 16px; }
+    .story-playback { flex-wrap: wrap; }
 
     .file-heading {
         margin-bottom: 22px;

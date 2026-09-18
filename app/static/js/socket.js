@@ -66,7 +66,7 @@ socket.on('joined', (payload) => {
   const phasePages = {
     lobby: "/lobby",
     start_game: "/start_game",
-    mission_discription: "/mission_discription",
+    mission_description: "/mission_description",
     auction: "/auction",
     mission: "/mission",
     result_page: "/result_page"
