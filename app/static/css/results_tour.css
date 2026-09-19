@@ -1,0 +1,296 @@
+/* =====================================================================
+   RESULTS_TOUR.CSS — "Results Spotlight" post-game reveal
+   =====================================================================
+   Self-contained styles for the Game Results feature tour.
+
+   This file is ADDITIVE ONLY. It defines nothing that exists in
+   result_page.css and overrides no existing rule, so it can be merged
+   independently of other work on the results page.
+
+   Every element styled here is created at runtime by results_tour.js:
+       .results-tour            fixed-position root for the whole tour
+       .results-tour-scrim      click-to-skip catcher (transparent)
+       .results-tour-spotlight  the lit "hole" + the page darkening
+       .results-tour-card       the coach mark
+
+   The page darkening is painted by the spotlight's outward box-shadow
+   rather than by a separate dark layer. That is what lets the lit area
+   glide from one panel to the next instead of blinking off and on.
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------
+   ROOT
+   Sits above the page but never blocks it: pointer-events are
+   re-enabled only on the scrim and the coach mark.
+   --------------------------------------------------------------- */
+.results-tour {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+
+    pointer-events: none;
+
+    opacity: 0;
+    transition: opacity 300ms ease;
+
+    /* Set from JS via element.getBoundingClientRect() — never hardcoded. */
+    --spotlight-x: 50vw;
+    --spotlight-y: 50vh;
+    --spotlight-width: 0px;
+    --spotlight-height: 0px;
+
+    --card-x: 50vw;
+    --card-y: 50vh;
+
+    --tour-accent: var(--correct, #3ddc84);
+}
+
+.results-tour[data-visible="true"] {
+    opacity: 1;
+}
+
+
+/* ---------------------------------------------------------------
+   SCRIM
+   Transparent on purpose — the darkening comes from the spotlight's
+   box-shadow. This layer exists to catch "click anywhere to skip".
+   --------------------------------------------------------------- */
+.results-tour-scrim {
+    position: absolute;
+    inset: 0;
+
+    background: transparent;
+
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------------
+   SPOTLIGHT
+   The element's own box is transparent, so the target panel shows
+   through it untouched. The huge spread shadow darkens everything
+   else on the page.
+   --------------------------------------------------------------- */
+.results-tour-spotlight {
+    position: fixed;
+
+    top: var(--spotlight-y);
+    left: var(--spotlight-x);
+    width: var(--spotlight-width);
+    height: var(--spotlight-height);
+
+    pointer-events: none;
+
+    border: 3px solid var(--tour-accent);
+    border-radius: 3px;
+
+    box-shadow:
+        /* the darkened page */
+        0 0 0 200vmax rgba(0, 0, 0, 0.82),
+        /* arcade glow, outside then inside */
+        0 0 16px rgba(61, 220, 132, 0.55),
+        0 0 40px rgba(61, 220, 132, 0.22),
+        inset 0 0 22px rgba(61, 220, 132, 0.15);
+
+    transition:
+        top 560ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        left 560ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        width 560ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        height 560ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+
+/* ---------------------------------------------------------------
+   COACH MARK
+   Pixel-art card: sharp corners, flat fill, hard border.
+   --------------------------------------------------------------- */
+.results-tour-card {
+    position: fixed;
+
+    top: var(--card-y);
+    left: var(--card-x);
+
+    width: min(86vw, 340px);
+
+    background: var(--card-bg, #111111);
+    border: 3px solid var(--tour-accent);
+    border-radius: 2px;
+
+    padding: 16px 18px;
+
+    pointer-events: auto;
+
+    font-family: var(--font-press, "Press Start 2P", system-ui);
+    color: var(--text-main, #ffffff);
+
+    box-shadow:
+        0 0 0 2px #000000,
+        0 0 18px rgba(61, 220, 132, 0.35),
+        0 8px 0 rgba(0, 0, 0, 0.55);
+
+    transition:
+        top 560ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        left 560ms cubic-bezier(0.22, 0.61, 0.36, 1);
+
+    animation: results-tour-card-in 260ms ease-out both;
+}
+
+.results-tour-card h2 {
+    margin: 0 0 10px;
+
+    font-size: 0.68rem;
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+
+    color: var(--tour-accent);
+}
+
+.results-tour-card p {
+    margin: 0 0 14px;
+
+    font-size: 0.55rem;
+    line-height: 1.8;
+
+    color: var(--text-muted, #cccccc);
+}
+
+
+/* Small pixel pointer aimed at the highlighted panel. */
+.results-tour-card::after {
+    content: "";
+
+    position: absolute;
+    left: var(--pointer-x, 24px);
+
+    width: 0;
+    height: 0;
+
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+}
+
+.results-tour-card[data-placement="below"]::after {
+    bottom: 100%;
+    border-bottom: 9px solid var(--tour-accent);
+}
+
+.results-tour-card[data-placement="above"]::after {
+    top: 100%;
+    border-top: 9px solid var(--tour-accent);
+}
+
+
+/* ---------------------------------------------------------------
+   SKIP
+   --------------------------------------------------------------- */
+.results-tour-skip {
+    display: inline-block;
+
+    background: transparent;
+    color: var(--text-main, #ffffff);
+
+    border: 2px solid var(--tile-border, #3a3a3a);
+    border-radius: 2px;
+
+    padding: 8px 14px;
+
+    font-family: inherit;
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
+}
+
+.results-tour-skip:hover,
+.results-tour-skip:focus-visible {
+    border-color: var(--tour-accent);
+    color: var(--tour-accent);
+}
+
+.results-tour-skip:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+
+/* ---------------------------------------------------------------
+   SCORE EMPHASIS
+   One controlled pop — transform only, so it cannot shift layout,
+   and it does not repeat.
+   --------------------------------------------------------------- */
+.results-tour-pop {
+    animation: results-tour-pop 600ms ease-out 1 both;
+}
+
+/* The achievement emblem already carries its own reveal animation from
+   result_achievement.css, whose selector is more specific than the bare
+   class above. This restates the pop at higher specificity so the tour
+   can still emphasise the badge once the reveal has finished. */
+.mission-achievement.is-revealed .achievement-emblem.results-tour-pop {
+    animation: results-tour-pop 600ms ease-out 1 both;
+}
+
+@keyframes results-tour-pop {
+    0%   { transform: scale(1); }
+    45%  { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+@keyframes results-tour-card-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ---------------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------------- */
+@media (max-width: 700px) {
+    .results-tour-card {
+        width: min(88vw, 300px);
+        padding: 14px 15px;
+    }
+
+    .results-tour-card h2 {
+        font-size: 0.6rem;
+        margin-bottom: 8px;
+    }
+
+    .results-tour-card p {
+        font-size: 0.5rem;
+        line-height: 1.7;
+        margin-bottom: 12px;
+    }
+
+    .results-tour-skip {
+        font-size: 0.46rem;
+        padding: 8px 12px;
+    }
+}
+
+
+/* ---------------------------------------------------------------
+   ACCESSIBILITY — reduced motion
+   Spotlight appears immediately and jumps rather than glides.
+   The tour still runs, and SKIP still works.
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .results-tour,
+    .results-tour-spotlight,
+    .results-tour-card {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .results-tour-pop {
+        animation: none !important;
+    }
+}

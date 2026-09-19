@@ -1,0 +1,123 @@
+/* =====================================================================
+   RESULTS_CARDS.CSS — readable challenge cards on the results page
+   =====================================================================
+   WHY THIS EXISTS
+
+   On the results page the challenge cards are hard to read, for two
+   compounding reasons that both live in screen_layout.css:
+
+     1. `.screen-fit` packs #challenge-results into a 3-column grid and
+        drops the card text to .45rem / .5rem.
+     2. screen_layout.js then applies a further transform: scale() to
+        `.screen-content` so the whole page fits without scrolling.
+
+   The result is text rendered well below a comfortable reading size.
+
+   This file adds a hover/focus magnification so a player can bring any
+   single card up to a readable size without changing the layout, the
+   data, or the fit-to-screen behaviour that the rest of the game relies
+   on.
+
+   SCOPE / MERGE SAFETY
+
+   Additive only. Every rule is scoped to #challenge-results on the
+   results page, no existing declaration is overridden, and no existing
+   file is restyled. Deleting this file and its <link> removes the
+   feature completely and changes nothing else.
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------
+   BASELINE
+   The resting state is untouched — only the ability to animate is
+   added here, so the cards look exactly as they do today until the
+   player points at one.
+   --------------------------------------------------------------- */
+.mission-results #challenge-results > .mission-card {
+    /* Magnification factor, overridden per layout below. */
+    --card-zoom: 1.03;
+
+    position: relative;
+
+    transform-origin: center center;
+
+    transition:
+        transform 200ms ease,
+        box-shadow 200ms ease,
+        border-color 200ms ease;
+}
+
+
+/* In fit-to-screen mode the cards are 3-up and tiny, so they need real
+   magnification rather than a polite nudge. */
+body.screen-fit .mission-results #challenge-results > .mission-card {
+    --card-zoom: 1.6;
+}
+
+
+/* ---------------------------------------------------------------
+   THE LIFT
+   Guarded by (hover: hover) so touch devices never get stuck in a
+   sticky hover state. Narrow screens already page through the cards
+   one at a time, where they are legible without magnification.
+   --------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+    .mission-results #challenge-results > .mission-card:hover,
+    .mission-results #challenge-results > .mission-card:focus-within {
+        transform: scale(var(--card-zoom));
+
+        /* Lift clear of the neighbouring cards it now overlaps. The
+           card background is solid (var(--key-bg)), so nothing shows
+           through from underneath. */
+        z-index: 20;
+
+        border-color: var(--correct, #3ddc84);
+
+        box-shadow:
+            0 0 0 2px #000000,
+            0 0 18px rgba(61, 220, 132, 0.40),
+            0 6px 0 rgba(0, 0, 0, 0.55);
+    }
+}
+
+
+/* ---------------------------------------------------------------
+   EDGE COLUMNS
+   `.screen-stage` is overflow: hidden, so a card magnified at the
+   left or right edge of the 3-column grid would be clipped. Growing
+   it inward instead keeps it fully on screen.
+   --------------------------------------------------------------- */
+body.screen-fit .mission-results #challenge-results > .mission-card:nth-child(3n + 1) {
+    transform-origin: left center;
+}
+
+body.screen-fit .mission-results #challenge-results > .mission-card:nth-child(3n) {
+    transform-origin: right center;
+}
+
+
+/* ---------------------------------------------------------------
+   NARROW SCREENS
+   result_page.js paginates to one card at a time below 700px, so the
+   card is already full width. Keep the highlight, drop the zoom.
+   --------------------------------------------------------------- */
+@media (max-width: 700px) {
+    /* Both selectors are listed so this wins over the .screen-fit rule
+       above regardless of which of them is active. */
+    .mission-results #challenge-results > .mission-card,
+    body.screen-fit .mission-results #challenge-results > .mission-card {
+        --card-zoom: 1;
+    }
+}
+
+
+/* ---------------------------------------------------------------
+   ACCESSIBILITY — reduced motion
+   The magnification is a readability aid, not decoration, so it is
+   kept. Only the animation between states is removed.
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .mission-results #challenge-results > .mission-card {
+        transition: none !important;
+    }
+}

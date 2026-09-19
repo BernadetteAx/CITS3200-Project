@@ -8,6 +8,18 @@ from app.game_data.example_mission import example_mission
 from app.sockets.sessions import get_session
 
 
+# Challenge Card Detail - START
+# game_data uses "Incomplete" (and a misspelt "Imcomplete") as a placeholder
+# for copy that has not been written yet. Treat those as absent so the UI
+# falls back instead of printing the placeholder to players.
+def _usable_text(value):
+    text = (value or "").strip()
+    if not text or text.lower() in {"incomplete", "imcomplete"}:
+        return None
+    return text
+# Challenge Card Detail - END
+
+
 def _normalise_challenges(generated_mission):
     challenges = []
     for index in range(1, 7):
@@ -24,6 +36,21 @@ def _normalise_challenges(generated_mission):
             "description": description,
             "image": "icons8-about-64.png",
             "success_items": list(challenge.get("items", {})),
+            # Challenge Card Detail - START
+            # Keep each item's point copy from game_data so the results card can
+            # show the real outcome text and point value. Display only: no score
+            # or penalty is derived from this, and success is still decided by
+            # success_items above, so merging failure_items here is safe.
+            "item_effects": {
+                item_name: {
+                    "point_value": effect.get("point_value"),
+                    "point_desc": _usable_text(effect.get("point_desc")),
+                }
+                for source in ("items", "failure_items")
+                for item_name, effect in (challenge.get(source) or {}).items()
+                if isinstance(effect, dict)
+            },
+            # Challenge Card Detail - END
         })
     return challenges
 
@@ -101,8 +128,16 @@ def _resolve(code, session, mission, item=None, timed_out=False):
     penalty = 0 if successful else 10
     mission["penalties"] += penalty
     mission["score"] = max(0, mission["score"] - penalty)
+    # Challenge Card Detail - START
+    # Carried alongside the existing fields for the results card to display.
+    # The penalty and score maths above are deliberately left untouched.
+    effect = (challenge.get("item_effects") or {}).get(item["name"]) if item else None
+    point_desc = (effect or {}).get("point_desc")
+    point_value = (effect or {}).get("point_value")
+    # Challenge Card Detail - END
     outcome = {"challengeId": challenge["id"], "challengeIndex": mission["current_challenge_index"], "item": item,
-        "success": successful, "penalty": penalty, "title": title, "description": description}
+        "success": successful, "penalty": penalty, "title": title, "description": description,
+        "pointDesc": point_desc, "pointValue": point_value}
     mission["outcome"] = outcome
     mission["outcome_log"].append(outcome)
     mission["status"] = "resolved"
