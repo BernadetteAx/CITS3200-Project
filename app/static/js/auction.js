@@ -34,7 +34,10 @@ function render(state) {
     const tile = document.createElement("button");
     tile.type = "button"; tile.className = "item-tile";
     tile.dataset.state = unavailable ? "unavailable" : selected ? "selected" : "idle";
+    tile.disabled = unavailable;
+    tile.setAttribute("aria-pressed", String(selected));
     tile.innerHTML = `<div class="item-image"><img src="/static/images/${item.image}" alt="${item.name}"></div><div class="item-name">${item.name}</div><div class="item-desc">${item.description}</div><div class="item-footer"><span class="cost-tag">$${item.cost}</span><span class="vote-check">${selected ? "✓ YOUR VOTE" : "TAP TO VOTE"}</span></div>`;
+    tile.querySelector('.item-image').replaceChildren(window.gameVisuals.itemArt(item));
     if (!unavailable) tile.addEventListener("click", () => action("auction_vote", { itemId: item.id }));
     itemGrid.appendChild(tile);
   });
@@ -43,6 +46,7 @@ function render(state) {
   skipBtn.disabled = !voting;
   inventoryLabel.textContent = `TEAM INVENTORY · ${state.purchasedItems.length}/8 SLOTS FILLED`;
   inventory.innerHTML = state.purchasedItems.map((item) => `<div class="hotbar-slot filled" title="${item.name}"><img src="/static/images/${item.hotbar_image}" alt="${item.name}"></div>`).join("") + Array.from({length: Math.max(0, 8 - state.purchasedItems.length)}, () => '<div class="hotbar-slot empty">＋</div>').join("");
+  inventory.querySelectorAll('.filled').forEach((slot, index) => slot.replaceChildren(window.gameVisuals.itemArt(state.purchasedItems[index])));
   if (state.status !== "voting") {
     countdownFill.style.width = "0%";
     countdownTrack.setAttribute("aria-valuenow", "0");
@@ -79,7 +83,7 @@ setInterval(tickTimer, 250);
 function showResult(result) {
   if (!result) return;
   const title = document.getElementById("resultTitle"), sub = document.getElementById("resultSub"), icon = document.getElementById("resultIcon");
-  if (result.type === "purchase") { title.textContent = "ITEM PURCHASED"; sub.textContent = `Your team bought the ${result.item.name} for $${result.item.cost}.`; icon.textContent = "✓"; }
+  if (result.type === "purchase") { title.textContent = "ITEM PURCHASED"; sub.textContent = `Your team bought the ${result.item.name} for $${result.item.cost}.`; icon.replaceChildren(window.gameVisuals.itemArt(result.item)); }
   else if (result.type === "unaffordable") { title.textContent = "NOT ENOUGH BUDGET"; sub.textContent = `${result.item.name} could not be purchased.`; icon.textContent = "!"; }
   else if (result.type === "skip") { title.textContent = "MOVING ON"; sub.textContent = "Your team continued without buying an item."; icon.textContent = "→"; }
   else { title.textContent = "IT'S A TIE"; sub.textContent = "No item was purchased this round."; icon.textContent = "⚔"; }

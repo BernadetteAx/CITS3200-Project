@@ -38,6 +38,8 @@ def build_result_state(session):
             "description": outcome.get("description", ""),
             "itemUsed": dict(item) if item is not None else None,
         })
+        if challenge.get("type"):
+            challenge_results[-1]["type"] = challenge["type"]
 
     purchased_items = [
         dict(item)
@@ -72,6 +74,8 @@ def build_result_state(session):
     )
 
     return {
+        "missionName": mission.get("mission_name", ""),
+        "location": mission.get("location", ""),
         "finalScore": recorded_result["score"],
         "leftoverMoney": auction.get("budget"),
         "totalPenalties": recorded_result["penalties"],

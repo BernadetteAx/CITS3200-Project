@@ -53,6 +53,19 @@ challenges_dict = {
             "continue_failure_desc": "Without any way of contacting your teammate, you'll be forced to follow their tracks as best you can and attempt to intercept them. This will take a significant amount of time and energy.", 
             "final_failure_desc": "Without any way of contacting your teammate, your team is forced to attempt to follow them and hope that they can intercept them. Unfortunatlely, the time you lost earlier has put a lot of distance between you and your teammate. Your exhausted crew is unable to reach reach them until it is already too late."
         },
+        
+        "Signal Across the Valley": {
+            "challenge_name": "Signal Across the Valley",
+            "viable_locations": ["Desert", "Arctic Tundra"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Mirror": {"use_desc": "You reflect sunlight toward the waiting team until they acknowledge your position.", "used": False, "point_value": 100, "point_desc": "The visible reflection communicates your location across the open valley."},
+            },
+            "failure_items": {},
+            "desc": "In clear daylight, your teammates watch from the opposite ridge. You need to signal your position across the valley.",
+            "continue_failure_desc": "Your team walks toward the last agreed meeting point, losing time.",
+            "final_failure_desc": "The other team leaves before your location is established and the mission is abandoned."
+        },
     },
 
     
@@ -491,6 +504,70 @@ challenges_dict = {
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
+        "Narrow Crevasse": {
+            "challenge_name": "Narrow Crevasse",
+            "viable_locations": ["Arctic Tundra"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Rope": {"use_desc": "You secure the rope to solid anchors and help each teammate cross the gap.", "used": False, "point_value": 100, "point_desc": "The anchored rope gives everyone a controlled crossing."},
+            },
+            "failure_items": {},
+            "desc": "A narrow crevasse splits the trail. Your team needs a secure way across.",
+            "continue_failure_desc": "Your team follows the crevasse until it narrows, losing time on the detour.",
+            "final_failure_desc": "Your team cannot find a crossing before the extraction window closes."
+        },
+
+        "Dense Thorn Vines": {
+            "challenge_name": "Dense Thorn Vines",
+            "viable_locations": ["Jungle"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Axe": {"use_desc": "You carefully chop a passage through the tangled vines.", "used": False, "point_value": 100, "point_desc": "The axe clears a usable route while keeping the team away from the thorns."},
+            },
+            "failure_items": {},
+            "desc": "Thick thorn vines cover the only direct trail through the jungle.",
+            "continue_failure_desc": "Your team circles the thicket through difficult terrain, arriving tired and late.",
+            "final_failure_desc": "The surrounding thickets trap your team on the wrong side of the objective until time runs out."
+        },
+
+        "Loose Scree Slope": {
+            "challenge_name": "Loose Scree Slope",
+            "viable_locations": ["Desert", "Volcano"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Rope": {"use_desc": "You anchor the rope to solid rock and lower the team down the slope.", "used": False, "point_value": 100, "point_desc": "A controlled descent prevents slips and keeps the group together."},
+            },
+            "failure_items": {},
+            "desc": "Loose stones slide beneath your feet on a steep descent. Stable rock anchors line the slope.",
+            "continue_failure_desc": "Your team searches for a gentler descent and loses valuable time.",
+            "final_failure_desc": "Your team cannot descend safely before the mission deadline."
+        },
+
+        "Drifting Ice Floes": {
+            "challenge_name": "Drifting Ice Floes",
+            "viable_locations": ["Arctic Tundra"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Boat": {"use_desc": "You navigate slowly through the open gaps and reach the opposite shore.", "used": False, "point_value": 100, "point_desc": "The boat carries everyone across without relying on unstable ice."},
+            },
+            "failure_items": {},
+            "desc": "A sheltered channel of broken ice separates your team from the far shore. Gaps between the floes are wide enough for a small boat.",
+            "continue_failure_desc": "Your team walks inland to find a crossing, adding a long detour.",
+            "final_failure_desc": "The ice drifts farther apart and your team cannot reach the objective in time."
+        },
+
+        "Tangled Kelp Passage": {
+            "challenge_name": "Tangled Kelp Passage",
+            "viable_locations": ["Ocean"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Scuba Gear": {"use_desc": "You use the scuba equipment to inspect the passage and follow an open channel through the kelp.", "used": True, "point_value": 100, "point_desc": "The air supply gives your team time to navigate the submerged route carefully."},
+            },
+            "failure_items": {},
+            "desc": "A submerged passage is crowded with kelp. Your team needs to inspect the route and swim through without getting tangled.",
+            "continue_failure_desc": "Your team follows a much longer surface route around the kelp beds.",
+            "final_failure_desc": "Your team cannot complete the surface detour before the rendezvous window closes."
+        },
     },
 
 
@@ -703,6 +780,18 @@ challenges_dict = {
             "continue_failure_desc": "Your team is forced to swim for it. You manage to evade your pursuors, but the trip tires your team significantly and takes a long time.", 
             "final_failure_desc": "Your team tries desperately to flee, but are exhausted. You manage to stay afloat, but it isn't long before your pursuors catch up to the team and take them captive. Your mission ends here."
         },
+        "Escape Through the Canal": {
+            "challenge_name": "Escape Through the Canal",
+            "viable_locations": ["City"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
+            "items": {
+                "Boat": {"use_desc": "You board the boat and follow the canal out of the search area.", "used": False, "point_value": 100, "point_desc": "The canal provides a direct exit away from the blocked streets."},
+            },
+            "failure_items": {},
+            "desc": "Your team reaches an unguarded canal landing. The clear waterway leads away from the search area.",
+            "continue_failure_desc": "Your team retreats through side streets, spending extra time avoiding patrols.",
+            "final_failure_desc": "Patrols close the remaining streets before your team escapes."
+        },
     },
 
 
@@ -813,8 +902,32 @@ challenges_dict = {
             "continue_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. You'll be forced to trek to the outposts without it. This is a time consuming process and exhausting.", 
             "final_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. They are too tired to make the trips without it and are forced to give up the mission."
         },
-    },
+        "Split Handrail": {
+            "challenge_name": "Split Handrail",
+            "viable_locations": ["City", "Ocean", "Volcano"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Welding Kit": {"use_desc": "You weld the damaged mounting and check the repaired handrail before crossing.", "used": True, "point_value": 100, "point_desc": "The repair restores support along the narrow walkway."},
+            },
+            "failure_items": {},
+            "desc": "A metal handrail has split at its mounting on a narrow maintenance walkway. The walkway itself is intact.",
+            "continue_failure_desc": "Your team uses a longer enclosed route while avoiding the damaged walkway.",
+            "final_failure_desc": "The alternate route takes too long and your team misses the repair deadline."
+        },
 
+        "Sand Buried Access Hatch": {
+            "challenge_name": "Sand Buried Access Hatch",
+            "viable_locations": ["Desert"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Shovel": {"use_desc": "You clear the sand from the hatch and expose its handle and hinges.", "used": False, "point_value": 100, "point_desc": "The shovel restores access without damaging the hatch."},
+            },
+            "failure_items": {},
+            "desc": "Windblown sand has buried the service hatch needed to reach the repair controls.",
+            "continue_failure_desc": "Your team clears the sand by hand, using extra time and energy.",
+            "final_failure_desc": "Your team cannot clear the hatch before the failing system shuts down."
+        },
+    },
 
 
     "Manmade Obstacle": {
@@ -949,6 +1062,57 @@ challenges_dict = {
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
+        "Locked Service Gate": {
+            "challenge_name": "Locked Service Gate",
+            "viable_locations": ["City", "Jungle", "Desert"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Lock Picks": {"use_desc": "You open the padlock and guide the team through the service gate.", "used": False, "point_value": 100, "point_desc": "The lock picks open the gate quietly without damaging it."},
+            },
+            "failure_items": {},
+            "desc": "A service gate with a simple padlock blocks a maintenance passage.",
+            "continue_failure_desc": "Your team follows the perimeter to another entrance, losing time.",
+            "final_failure_desc": "The facility closes its remaining entrances before your team can get inside."
+        },
+
+        "Abandoned Fishing Net": {
+            "challenge_name": "Abandoned Fishing Net",
+            "viable_locations": ["Ocean"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Wire Cutters": {"use_desc": "You cut away the accessible netting and clear a path for the boat.", "used": False, "point_value": 100, "point_desc": "The cutters remove the obstruction without damaging your transport."},
+            },
+            "failure_items": {},
+            "desc": "A discarded fishing net blocks a shallow channel and threatens to snag your boat. Its edge is within reach from the deck.",
+            "continue_failure_desc": "Your team reverses out of the channel and takes a longer route.",
+            "final_failure_desc": "The detour leaves your team too far from the objective to arrive in time."
+        },
+
+        "Debris Filled Stairwell": {
+            "challenge_name": "Debris Filled Stairwell",
+            "viable_locations": ["City"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Shovel": {"use_desc": "You shovel the loose rubble aside until everyone can reach the stairs.", "used": False, "point_value": 100, "point_desc": "The shovel clears the obstruction efficiently."},
+            },
+            "failure_items": {},
+            "desc": "Loose rubble blocks the ground-floor stairwell leading to the next level. The structure is stable, but a passage must be cleared.",
+            "continue_failure_desc": "Your team searches for another staircase and loses valuable time.",
+            "final_failure_desc": "Your team cannot reach the upper level before access is sealed."
+        },
+
+        "Retracted Loading Walkway": {
+            "challenge_name": "Retracted Loading Walkway",
+            "viable_locations": ["City", "Ocean"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Grapling Hook": {"use_desc": "You secure the grappling hook to the railing and use its line to cross the gap.", "used": False, "point_value": 100, "point_desc": "The hook provides a secure crossing point without restarting the walkway."},
+            },
+            "failure_items": {},
+            "desc": "A loading walkway has retracted, leaving a narrow gap above a dry service platform. A sturdy railing stands on the far side.",
+            "continue_failure_desc": "Your team climbs down to the service platform and takes a slow alternate route.",
+            "final_failure_desc": "Your exhausted team cannot complete the alternate route before the loading area closes."
+        },
     },
 
 
@@ -1034,6 +1198,31 @@ challenges_dict = {
             "continue_failure_desc": "Without the correct equipment, you team is forced to wait for a guard to pass through a checkpoint. The laser grid in the section is temporarily disabled and you have just moments to slip by. It's a mad dash, but your team makes it in time. The sprint exhausts them and waiting for a guard has significantly delayed your team's progress.", 
             "final_failure_desc": "Without the correct equipment, you team is forced to wait for a guard to pass through a checkpoint. The laser grid in the section is temporarily disabled and you have just moments to slip by. The extra energy you used earlier has finally caught up with you. Your team is not able to make it in time and get caught in the laser grid as it comes back online. Alarms blare and within moments your team is swamped by guards. You are captured. Your mission ends here."
         },
+        "Staff Only Corridor": {
+            "challenge_name": "Staff Only Corridor",
+            "viable_locations": ["City", "Desert", "Jungle"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Stolen Uniforms": {"use_desc": "You wear the uniforms and pass through with a group of staff.", "used": False, "point_value": 100, "point_desc": "The disguise matches the checkpoint requirements and avoids a delay."},
+            },
+            "failure_items": {},
+            "desc": "A guard watches a staff corridor. Entry is checked by uniform, and your team needs to blend in.",
+            "continue_failure_desc": "Your team waits for the corridor to clear and loses valuable time.",
+            "final_failure_desc": "A guard notices your team waiting in the restricted area and detains you."
+        },
+
+        "Patrol at the Junction": {
+            "challenge_name": "Patrol at the Junction",
+            "viable_locations": ["City", "Arctic Tundra", "Jungle"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Handheld Radios": {"use_desc": "Your lookout quietly radios the patrol movements so everyone crosses during a gap.", "used": False, "point_value": 100, "point_desc": "Live coordination lets the whole team cross without guessing the timing."},
+            },
+            "failure_items": {},
+            "desc": "Patrols move through a junction in an irregular pattern. A teammate has a safe vantage point but cannot call out without being heard.",
+            "continue_failure_desc": "Your team waits for a clearly empty junction, delaying the mission.",
+            "final_failure_desc": "The patrol finds your team before a safe crossing opportunity appears."
+        },
     },
 
 
@@ -1090,6 +1279,31 @@ challenges_dict = {
             "desc": "You find the item, but it's protected by a laser grid. You'll need to find a way to get the item past it.", 
             "continue_failure_desc": "Without the proper supplies, you team is unable to devise a way to retrieve the item. You are forced to leave empty handed and behind schedule.", 
             "final_failure_desc": "Your team desperately tries to find a way past the lasers. Unfortunately, their exhaustion has made them sloppy, and they accidently trigger the laser system. In seconds the team is captured by armed guards. Your mission ends here."
+        },
+        "Retrieve the Hanging Satchel": {
+            "challenge_name": "Retrieve the Hanging Satchel",
+            "viable_locations": ["City", "Jungle"],
+            "viable_mission_types": ["Heist"],
+            "items": {
+                "Grapling Hook": {"use_desc": "You catch the satchel strap with the hook and pull it within reach.", "used": False, "point_value": 100, "point_desc": "The hook retrieves the documents without a risky climb."},
+            },
+            "failure_items": {},
+            "desc": "The mission documents are in a satchel hanging beyond reach above an unattended storage platform.",
+            "continue_failure_desc": "Your team spends time finding a ladder but must leave before retrieving the satchel.",
+            "final_failure_desc": "The guards return while your team is still trying to reach the satchel and capture you."
+        },
+
+        "Open the Document Case": {
+            "challenge_name": "Open the Document Case",
+            "viable_locations": ["City", "Desert", "Arctic Tundra"],
+            "viable_mission_types": ["Heist"],
+            "items": {
+                "Lock Picks": {"use_desc": "You open the case lock and retrieve the documents.", "used": False, "point_value": 100, "point_desc": "The lock picks preserve the documents and leave the case intact."},
+            },
+            "failure_items": {},
+            "desc": "The target documents are sealed inside a portable case with a mechanical lock.",
+            "continue_failure_desc": "Your team cannot open the case and retreats empty-handed after wasting time.",
+            "final_failure_desc": "Security returns before your team can open the case or withdraw."
         },
     },
 
@@ -1173,6 +1387,31 @@ challenges_dict = {
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
+        "Internal Intercom Offline": {
+            "challenge_name": "Internal Intercom Offline",
+            "viable_locations": ["City", "Arctic Tundra", "Ocean"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Handheld Radios": {"use_desc": "You establish a radio link and coordinate the controls directly.", "used": False, "point_value": 100, "point_desc": "The radios replace the broken intercom for the required task."},
+            },
+            "failure_items": {},
+            "desc": "The base intercom fails just as teammates need to coordinate controls in separate rooms.",
+            "continue_failure_desc": "Your team sends a runner between rooms, slowing the sequence considerably.",
+            "final_failure_desc": "Your team cannot coordinate the controls before the system locks down."
+        },
+
+        "Powered Exit Ladder Jammed": {
+            "challenge_name": "Powered Exit Ladder Jammed",
+            "viable_locations": ["City", "Ocean", "Volcano"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Grapling Hook": {"use_desc": "You secure the hook to the anchor and climb its line to the exit platform.", "used": False, "point_value": 100, "point_desc": "The climbing line provides access despite the jammed ladder."},
+            },
+            "failure_items": {},
+            "desc": "The powered ladder to the exit platform is jammed. A solid anchor point remains visible above the hatch.",
+            "continue_failure_desc": "Your team finds a distant emergency stairwell and takes a long detour.",
+            "final_failure_desc": "Your team cannot reach an alternative exit before the facility locks down."
+        },
     },
 
 
@@ -1242,5 +1481,17 @@ challenges_dict = {
             "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to swim the distance. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
             "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt to swim the distance. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut through rough waters. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team struggles to stay afloat in teh raging waters. It isn't long before catastrophe. Your team never makes it to their destination."
         },
+        "Cross the Desert Basin": {
+            "challenge_name": "Cross the Desert Basin",
+            "viable_locations": ["Desert"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items": {
+                "Dune Buggy": {"use_desc": "You drive the team across the basin toward the agreed rendezvous.", "used": False, "point_value": 100, "point_desc": "The buggy handles the sandy route and saves a long walk."},
+            },
+            "failure_items": {},
+            "desc": "The rendezvous lies across a broad, open basin with firm sand and no marked road.",
+            "continue_failure_desc": "Your team crosses on foot and arrives late and exhausted.",
+            "final_failure_desc": "The extraction team leaves before your team finishes crossing the basin."
+        },
     }
-}
+} 

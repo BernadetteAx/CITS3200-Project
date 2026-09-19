@@ -1,0 +1,529 @@
+/* Mission Description Page */
+
+.mission-briefing {
+    width: min(94vw, 1320px);
+    margin: 0 auto;
+    padding: 32px 0 48px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* Header */
+
+.briefing-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.visual-briefing {
+    padding: 20px;
+    background: var(--panel);
+    border: 2px solid var(--tile-border);
+    box-shadow: var(--shadow-panel);
+    min-width: 0;
+    position: sticky;
+    top: 24px;
+}
+
+.story-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.story-counter, .story-eyebrow, .story-scene-label {
+    font-family: var(--font-press);
+    font-size: 0.5rem;
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+    color: var(--correct);
+}
+
+.story-art {
+    position: relative;
+    aspect-ratio: 1;
+    background-color: var(--surface);
+    background-repeat: no-repeat;
+    background-size: 400% 400%;
+    border: 3px solid var(--outline);
+    image-rendering: pixelated;
+    overflow: hidden;
+}
+
+.story-art.is-preparation { background-size: cover; background-position: center; }
+
+.story-scene-label {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    padding: 8px 10px;
+    color: var(--text-main);
+    background: rgba(8, 9, 11, 0.9);
+    border-left: 3px solid var(--correct);
+}
+
+.story-copy { min-height: 164px; padding: 20px 0 12px; }
+.story-eyebrow { margin: 0 0 12px; color: var(--accent-cyan); }
+.story-copy h2 {
+    margin: 0 0 12px;
+    font-family: var(--font-press);
+    font-size: clamp(0.65rem, 1.1vw, 0.8rem);
+    line-height: 1.8;
+    color: var(--text-main);
+}
+.story-copy > p:last-child {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    line-height: 1.9;
+}
+.story-controls, .story-chapters {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+.story-chapters { justify-content: center; flex: 1; }
+.visual-briefing .story-arrow, .visual-briefing .story-chapter {
+    min-width: 44px;
+    min-height: 44px;
+    margin: 0;
+    padding: 10px;
+    border: 2px solid var(--tile-border);
+    background: var(--surface);
+    color: var(--text-muted);
+    box-shadow: none;
+    cursor: pointer;
+}
+.visual-briefing .story-arrow { font-family: system-ui; font-size: 1.25rem; }
+.visual-briefing .story-chapter { font-family: var(--font-press); font-size: 0.55rem; }
+.visual-briefing .story-chapter[aria-pressed="true"] {
+    color: var(--correct);
+    border-color: var(--correct);
+    background: rgba(61, 220, 132, 0.08);
+}
+.visual-briefing button:hover:not(:disabled) { border-color: var(--correct); color: var(--correct); transform: none; }
+.visual-briefing button:focus-visible { outline: 3px solid var(--accent-cyan); outline-offset: 3px; }
+.visual-briefing button:disabled { opacity: 0.4; cursor: not-allowed; }
+.story-playback {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--tile-border);
+}
+.story-playback > span { color: var(--text-dim); font-size: 0.48rem; line-height: 1.8; }
+.visual-briefing #storyPlay {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 8px 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    color: var(--correct);
+    font-family: var(--font-press);
+    font-size: 0.45rem;
+    min-height: 44px;
+    cursor: pointer;
+}
+@media (max-width: 900px) {
+    .briefing-layout { grid-template-columns: 1fr; }
+    .visual-briefing { position: static; }
+    .story-art { max-width: 480px; margin: 0 auto; }
+    .story-copy { min-height: 0; }
+}
+
+.briefing-header {
+    width: 100%;
+    max-width: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 2px;
+}
+
+.game-label,
+.classified-label {
+    margin: 0;
+    font-family: var(--font-press);
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+}
+
+.game-label {
+    color: var(--text-dim);
+}
+
+.classified-label {
+    color: var(--incorrect);
+}
+
+
+/* Mission card */
+
+.mission-file {
+    position: relative;
+    overflow: hidden;
+
+    background: var(--panel);
+    border: 2px solid var(--tile-border);
+    box-shadow: var(--shadow-panel);
+
+    padding: 32px;
+
+    animation: briefingAppear 0.35s ease;
+}
+
+
+/* Scanning line */
+
+.mission-file::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--correct),
+        transparent
+    );
+
+    opacity: 0.7;
+
+    animation: briefingScan 3.5s linear infinite;
+}
+
+
+/* Mission details */
+
+.file-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.file-label {
+    color: var(--text-dim);
+
+    font-family: var(--font-press);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+}
+
+.status-label {
+    padding: 7px 10px;
+
+    color: var(--incorrect);
+    background: rgba(255, 77, 94, 0.08);
+
+    border: 1px solid var(--incorrect);
+
+    font-family: var(--font-press);
+    font-size: 0.45rem;
+    letter-spacing: 0.08em;
+}
+
+.mission-title {
+    margin: 0 0 24px;
+
+    color: var(--text-main);
+
+    font-family: var(--font-press);
+    font-size: clamp(1.35rem, 4vw, 2.25rem);
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+
+    overflow-wrap: break-word;
+}
+
+.location-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 24px;
+}
+
+.location-label {
+    color: var(--text-dim);
+
+    font-family: var(--font-press);
+    font-size: 0.45rem;
+    letter-spacing: 0.08em;
+}
+
+.location-value {
+    color: var(--correct);
+
+    font-family: var(--font-press);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+}
+
+.mission-file .divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 0 0 28px;
+
+    background: var(--tile-border);
+}
+
+
+/* Mission description */
+
+.briefing-section h2 {
+    margin: 0 0 18px;
+
+    color: var(--text-dim);
+
+    font-family: var(--font-press);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+}
+
+.mission-description {
+    display: inline;
+
+    margin: 0;
+
+    color: var(--text-main);
+
+    font-size: 0.8rem;
+    line-height: 2.1;
+
+    white-space: pre-wrap;
+}
+
+.typing-cursor {
+    display: inline-block;
+
+    margin-left: 3px;
+
+    color: var(--correct);
+
+    font-size: 1rem;
+
+    animation: cursorBlink 0.75s steps(1) infinite;
+}
+
+
+/* Continue button */
+
+.mission-actions {
+    width: 100%;
+    margin-top: 32px;
+}
+
+.continue-btn {
+    width: 100%;
+    min-height: 52px;
+
+    display: block;
+    padding: 0.9rem 1.3rem;
+
+    background: var(--correct);
+    color: #06140d;
+
+    border: 2px solid var(--correct);
+
+    font-family: var(--font-press);
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 12px rgba(61, 220, 132, 0.45),
+        0 0 28px rgba(61, 220, 132, 0.22);
+
+    transition:
+        transform var(--motion-fast),
+        box-shadow var(--motion-fast);
+}
+
+.continue-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 16px rgba(61, 220, 132, 0.65),
+        0 0 36px rgba(61, 220, 132, 0.35);
+}
+
+.continue-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.continue-btn:disabled {
+    background: var(--panel);
+    color: var(--text-dim);
+    border-color: var(--tile-border);
+
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.continue-btn:hover:not(:disabled) {
+    background: var(--correct);
+    border-color: var(--correct);
+    color: #06140d;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 18px rgba(61, 220, 132, 0.28);
+}
+
+.continue-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.continue-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+/* Footer */
+
+.briefing-footer {
+    margin: 0;
+
+    color: var(--text-dim);
+
+    text-align: center;
+
+    font-family: var(--font-press);
+    font-size: 0.42rem;
+    line-height: 1.8;
+    letter-spacing: 0.06em;
+}
+
+
+/* Animations */
+
+@keyframes briefingAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cursorBlink {
+    0%, 50% {
+        opacity: 1;
+    }
+
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes briefingScan {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+
+/* Mobile styling */
+
+@media (max-width: 600px) {
+
+    .mission-briefing {
+        padding: 20px 0 32px;
+    }
+
+    .briefing-header {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .game-label,
+    .classified-label {
+        font-size: 0.4rem;
+        line-height: 1.6;
+    }
+
+    .classified-label {
+        text-align: right;
+    }
+
+    .mission-file {
+        padding: 24px 18px;
+    }
+
+    .visual-briefing { padding: 16px; }
+    .story-playback { flex-wrap: wrap; }
+
+    .file-heading {
+        margin-bottom: 22px;
+    }
+
+    .mission-title {
+        font-size: 1.2rem;
+    }
+
+    .location-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .mission-description {
+        font-size: 0.7rem;
+        line-height: 2;
+    }
+
+    .mission-actions {
+        width: 100%;
+    }
+
+    .continue-btn {
+        width: 100%;
+        font-size: 0.55rem;
+    }
+}
+
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .mission-file,
+    .mission-file::before,
+    .typing-cursor {
+        animation: none;
+    }
+}

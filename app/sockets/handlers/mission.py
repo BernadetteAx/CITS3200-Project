@@ -1,7 +1,4 @@
-""" THIS NEEDS TO BE REVIEWED AFTER THE MISSIONS ARE SUBMITTED
-Authoritative Socket.IO state and actions for the mission phase
-Angela have fun with this file some fake challenges are here for now
-please make sure preoper missions and stuff are pulled from the correct spot later"""
+"""Authoritative Socket.IO state and actions for the generated mission phase."""
 
 from flask import request
 from flask_socketio import emit
@@ -16,10 +13,15 @@ def _normalise_challenges(generated_mission):
     for index in range(1, 7):
         challenge = generated_mission[f"challenge_{index}"]
         name = challenge["challenge_name"]
+        description = (challenge.get("desc") or "").strip()
+        if not description or description.lower() in {"incomplete", "imcomplete"}:
+            description = f"Your crew faces {name}. Check your equipment and choose how to continue. Taking the long way round costs your team points."
+        description = description.replace("insert_item_here", "mission objective")
         challenges.append({
             "id": f"challenge-{index}",
             "name": name,
-            "description": challenge["desc"] or f"Your team faces the challenge: {name}.",
+            "type": challenge.get("type", ""),
+            "description": description,
             "image": "icons8-about-64.png",
             "success_items": list(challenge.get("items", {})),
         })
@@ -29,9 +31,11 @@ def _normalise_challenges(generated_mission):
 def initialise_mission(session, generated_mission=None):
     """Create game-data mission state once, retaining the auction inventory."""
     if not session.get("mission"):
-        session["mission"] = {"mission_name": example_mission["mission"],
-            "mission_description": example_mission["mission_desc"],
-            "challenges": _normalise_challenges(example_mission), "current_challenge_index": 0,
+        generated_mission = generated_mission or example_mission
+        session["mission"] = {"mission_name": generated_mission["mission"],
+            "location": generated_mission.get("location", ""),
+            "mission_description": generated_mission.get("mission_description", generated_mission.get("mission_desc", "")),
+            "challenges": _normalise_challenges(generated_mission), "current_challenge_index": 0,
             "inventory": [dict(item) for item in session.get("purchased_items", [])], "used_items": [],
             "outcome_log": [], "score": 100, "penalties": 0, "status": "active", "outcome": None}
     return session["mission"]
@@ -54,7 +58,7 @@ def _state(session):
     current = mission["challenges"][index] if index < len(mission["challenges"]) else None
     used = set(mission["used_items"])
     inventory = [{**item, "used": item["id"] in used} for item in mission["inventory"]]
-    return {"phase": session["phase"], "missionName": mission["mission_name"],
+    return {"phase": session["phase"], "missionName": mission["mission_name"], "location": mission.get("location", ""),
         "missionDescription": mission["mission_description"], "currentChallengeIndex": index,
         "totalChallenges": len(mission["challenges"]), "challenge": current, "inventory": inventory,
         "usedItems": list(mission["used_items"]), "outcomeLog": list(mission["outcome_log"]),

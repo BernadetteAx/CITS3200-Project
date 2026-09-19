@@ -45,7 +45,7 @@ def get_mission():
                 
         # Select a challenge
         selected_challenge_dict = challenge_options[random.randint(0, len(challenge_options)-1)]
-        randomised_mission[challenge_num] = selected_challenge_dict
+        randomised_mission[challenge_num] = {**selected_challenge_dict, "type": challenge_type}
         
     
     return randomised_mission
