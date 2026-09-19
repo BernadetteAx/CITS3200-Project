@@ -11,7 +11,7 @@ challenges_dict = {
             }, 
             "failure_items": {},
             "desc": "To be able to continue your mission you are going to need to be able to alert the other team to your position.",
-            "continue_failure_desc": "Without the right equipment, your team is unable to alert the other team to your presence. You'll just have to continue the mission and hope that they will know where to rendezvouz. This will take a long time and slow your team down.", 
+            "continue_failure_desc": "Without the right equipment, your team is unable to alert the other team to your presence. You'll just have to continue the mission and hope that they will know where to rendezvouz. You do have a regular spot nearby. Let's hope they remember it. This will take a long time and slow your team down.", 
             "final_failure_desc": "Your team is unable to work out how to contact the other team. Without being able to alert them to your position, you'll never be able to rendezvouz. Your mission ends here."
         },
 
@@ -688,7 +688,7 @@ challenges_dict = {
 
     "Getaway": {
         "Air Based Getaway": {
-            "challenge_name": "Air Based Getaway",
+            "challenge_name": "Getaway",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -702,7 +702,7 @@ challenges_dict = {
         },
         
         "Land Based Getaway": {
-            "challenge_name": "Land Based Getaway",
+            "challenge_name": "Getaway",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -717,7 +717,7 @@ challenges_dict = {
         "Mislead Pursuers": {
             "challenge_name": "Mislead Pursuers",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Heist", "Escape"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
@@ -728,7 +728,7 @@ challenges_dict = {
         },
 
         "Sand Based Getaway": {
-            "challenge_name": "Sand Based Getaway",
+            "challenge_name": "Getaway",
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -741,7 +741,7 @@ challenges_dict = {
         },
 
         "Snow Based Getaway": {
-            "challenge_name": "Snow Based Getaway",
+            "challenge_name": "Getaway",
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -756,7 +756,7 @@ challenges_dict = {
         "Use Stealth": {
             "challenge_name": "Use Stealth",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Heist", "Escape"],
             "items":{
                 "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
@@ -769,7 +769,7 @@ challenges_dict = {
         },
 
         "Water Based Getaway": {
-            "challenge_name": "Water Based Getaway",
+            "challenge_name": "Getaway",
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1176,7 +1176,7 @@ challenges_dict = {
         "Find Another Exit": {
             "challenge_name": "Find Another Exit",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Escape"],
             "items":{
                 "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
@@ -1418,7 +1418,7 @@ challenges_dict = {
 
     "Travel To Rendezvouz": {
         "Air Based Travel": {
-            "challenge_name": "Air Based Travel",
+            "challenge_name": "Travel To Rendezvou",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1431,7 +1431,7 @@ challenges_dict = {
         },
 
         "Land Based Travel": {
-            "challenge_name": "Land Based Travel",
+            "challenge_name": "Travel To Rendezvou",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1444,7 +1444,7 @@ challenges_dict = {
         },
 
         "Sand Based Travel": {
-            "challenge_name": "Sand Based Travel",
+            "challenge_name": "Travel To Rendezvou",
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1457,7 +1457,7 @@ challenges_dict = {
         },
 
         "Snow Based Travel": {
-            "challenge_name": "Snow Based Travel",
+            "challenge_name": "Travel To Rendezvou",
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1470,7 +1470,7 @@ challenges_dict = {
         },
 
         "Water Based Travel": {
-            "challenge_name": "Water Based Travel",
+            "challenge_name": "Travel To Rendezvou",
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{

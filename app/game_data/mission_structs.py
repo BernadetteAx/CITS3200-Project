@@ -30,7 +30,7 @@ missions_list = [
     {
         "mission_name": "Escape Enemy Base", 
         "mission_type" : "Escape", 
-        "location_options": ["Arctic Tundra", "Desert", "Jungle", "City"], 
+        "location_options": ["Arctic Tundra", "Desert", "Jungle"], 
         "challenge_1": "Security Obstacle", "challenge_2": "Manmade Obstacle", "challenge_3": "Security Obstacle", "challenge_4": "Getaway", "challenge_5": "Contact Teammate/s", "challenge_6": "Travel To Rendezvouz",
     },
 
