@@ -1,0 +1,279 @@
+/* =====================================================================
+   RESULT_ACHIEVEMENT.CSS — Mission Achievement panel
+   =====================================================================
+   Replaces the old LEFTOVER MONEY panel with an earned-badge panel that
+   sits beside FINAL SCORE as the results summary row.
+
+   WHY THE PANEL STYLING IS RESTATED HERE
+
+   The old `.money-section` picked up its panel treatment from four
+   shared stylesheets (result_page.css, theme_redesign_v2.css,
+   screen_layout.css, game_visuals.css). Rather than edit any of those
+   — which is where merge conflicts would come from — the equivalent
+   treatment is restated here for `.mission-achievement` only, using the
+   values that were actually winning the cascade. Nothing shared is
+   touched, and deleting this file plus its <link> removes the feature
+   whole.
+
+   The new panel deliberately reuses the existing `money` grid area, so
+   the two-column results layout defined in screen_layout.css and
+   theme_redesign_v2.css keeps working untouched. The area name is now a
+   misnomer; renaming it would mean editing both shared files.
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------
+   PANEL — mirrors .final-score so the pair reads as one row
+   --------------------------------------------------------------- */
+.mission-achievement {
+    width: min(90vw, 700px);
+
+    background: var(--panel, var(--card-bg, #111111));
+    border: 2px solid var(--tile-border, #3a3a3a);
+    border-radius: var(--radius-lg, 3px);
+    box-shadow: var(--shadow-panel, none);
+
+    padding: 32px 30px;
+    margin-top: 26px;
+
+    box-sizing: border-box;
+
+    /* Matches the ambient panel glow the other result cards carry. */
+    animation: panel-glow 4.8s ease-in-out infinite;
+}
+
+.mission-achievement h2 {
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+
+    text-align: center;
+
+    margin: 0 0 24px;
+}
+
+
+/* ---------------------------------------------------------------
+   EQUAL-HEIGHT RESULTS ROW
+   Scoped behind :has(.mission-achievement) so these rules only exist
+   while this feature is installed.
+
+   screen_layout.css already uses align-items: stretch, but
+   theme_redesign_v2.css uses align-items: start at >=860px, which
+   would let the two panels differ in height. Stretching both and
+   letting their inner boxes grow keeps them identical without any
+   fixed height.
+   --------------------------------------------------------------- */
+body:has(.mission-achievement) .final-score,
+body:has(.mission-achievement) .mission-achievement {
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+}
+
+body:has(.mission-achievement) .final-score .score-display,
+body:has(.mission-achievement) .mission-achievement .achievement-display {
+    flex: 1 1 auto;
+}
+
+
+/* Take over the layout slot the money panel used to occupy. */
+@media (min-width: 860px) {
+    .mission-achievement {
+        grid-area: money;
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 859px) {
+    .mission-achievement {
+        width: var(--container-result, min(90vw, 700px));
+    }
+}
+
+body.screen-fit .mission-achievement {
+    grid-area: money;
+
+    width: 100%;
+    padding: 12px;
+    margin: 0;
+}
+
+body.screen-fit .mission-achievement h2 {
+    font-size: 0.65rem;
+    margin: 0 0 8px;
+}
+
+
+/* ---------------------------------------------------------------
+   DISPLAY BOX — the analogue of .score-display
+   --------------------------------------------------------------- */
+.achievement-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    background: var(--key-bg, #272626);
+    border: 2px solid var(--tile-border, #3a3a3a);
+    border-radius: var(--radius-md, 0);
+
+    min-height: 100px;
+    padding: 22px;
+
+    box-sizing: border-box;
+}
+
+body.screen-fit .achievement-display {
+    min-height: 56px;
+    padding: 10px;
+    gap: 8px;
+}
+
+
+/* ---------------------------------------------------------------
+   EMBLEM
+   Pixel art cropped from images/emblem-mission-result.png. The source
+   artwork has its own dark backing, so the emblem is framed as a
+   deliberate inset badge plaque rather than floated loose.
+   --------------------------------------------------------------- */
+.achievement-emblem {
+    width: clamp(64px, 14vh, 112px);
+    aspect-ratio: 280 / 230;
+
+    flex: 0 0 auto;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    border: 2px solid var(--tile-border, #3a3a3a);
+    border-radius: 2px;
+
+    /* Keep the pixel art crisp at every size. */
+    image-rendering: pixelated;
+}
+
+body.screen-fit .achievement-emblem {
+    width: clamp(52px, 11vh, 88px);
+}
+
+.achievement-emblem[data-tier="failed"] {
+    background-image: url("../images/emblem-failed-mission.png");
+    border-color: var(--incorrect, #ff3b3b);
+    box-shadow: 0 0 14px rgba(255, 59, 59, 0.30);
+}
+
+.achievement-emblem[data-tier="fair"] {
+    background-image: url("../images/emblem-fair-challenge-win.png");
+    border-color: var(--accent-blue, #4da6ff);
+    box-shadow: 0 0 14px rgba(77, 166, 255, 0.30);
+}
+
+.achievement-emblem[data-tier="achieved"] {
+    background-image: url("../images/emblem-challenge-achievement.png");
+    border-color: var(--correct, #3ddc84);
+    box-shadow: 0 0 14px rgba(61, 220, 132, 0.30);
+}
+
+/* Fallback tier keeps the frame but shows no emblem. */
+.achievement-emblem[data-tier="unranked"] {
+    background-image: none;
+    border-style: dashed;
+}
+
+
+/* ---------------------------------------------------------------
+   TITLE
+   The category is always stated in text — the emblem is never the
+   only way the result is communicated.
+   --------------------------------------------------------------- */
+.achievement-title {
+    margin: 0;
+
+    font-size: clamp(0.5rem, 1.6vw, 0.72rem);
+    line-height: 1.6;
+    letter-spacing: 0.06em;
+    text-align: center;
+
+    overflow-wrap: anywhere;
+}
+
+body.screen-fit .achievement-title {
+    font-size: 0.55rem;
+    line-height: 1.5;
+}
+
+.mission-achievement[data-tier="failed"] .achievement-title {
+    color: var(--incorrect, #ff3b3b);
+}
+
+.mission-achievement[data-tier="fair"] .achievement-title {
+    color: var(--accent-blue, #4da6ff);
+}
+
+.mission-achievement[data-tier="achieved"] .achievement-title {
+    color: var(--correct, #3ddc84);
+}
+
+.mission-achievement[data-tier="unranked"] .achievement-title {
+    color: var(--text-muted, #cccccc);
+}
+
+
+/* ---------------------------------------------------------------
+   ONE-TIME REVEAL
+   A single scale-up as the result lands. It does not repeat.
+   --------------------------------------------------------------- */
+.mission-achievement.is-revealed .achievement-emblem {
+    animation: achievement-reveal 520ms cubic-bezier(0.34, 1.56, 0.64, 1) 1 both;
+}
+
+@keyframes achievement-reveal {
+    from {
+        opacity: 0;
+        transform: scale(0.82);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ---------------------------------------------------------------
+   MOBILE
+   The shared layouts already stack the panels; this only keeps the
+   badge proportionate and prevents horizontal overflow.
+   --------------------------------------------------------------- */
+@media (max-width: 700px) {
+    .achievement-emblem {
+        width: clamp(60px, 22vw, 96px);
+    }
+
+    .achievement-display {
+        min-height: 88px;
+        padding: 16px;
+    }
+
+    .mission-achievement {
+        max-width: 100%;
+    }
+}
+
+
+/* ---------------------------------------------------------------
+   ACCESSIBILITY — reduced motion
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .mission-achievement {
+        animation: none !important;
+    }
+
+    .mission-achievement.is-revealed .achievement-emblem {
+        animation: none !important;
+    }
+}

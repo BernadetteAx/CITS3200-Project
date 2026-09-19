@@ -7,6 +7,24 @@
     rel="stylesheet"
     href="{{ url_for('static', filename='css/result_page.css') }}"
 >
+<!-- Results Spotlight Tour - START -->
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/results_tour.css') }}"
+>
+<!-- Results Spotlight Tour - END -->
+<!-- Results Card Readability - START -->
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/results_cards.css') }}"
+>
+<!-- Results Card Readability - END -->
+<!-- Mission Achievement - START -->
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/result_achievement.css') }}"
+>
+<!-- Mission Achievement - END -->
 {% endblock %}
 
 {% block scripts %}
@@ -14,6 +32,21 @@
     defer
     src="{{ url_for('static', filename='js/result_page.js') }}"
 ></script>
+<!-- Mission Achievement - START -->
+<!-- Loaded after result_page.js so its result_state listener runs second,
+     and before results_tour.js so the badge is in place before the tour. -->
+<script
+    defer
+    src="{{ url_for('static', filename='js/result_achievement.js') }}"
+></script>
+<!-- Mission Achievement - END -->
+<!-- Results Spotlight Tour - START -->
+<!-- Loaded after result_page.js so its result_state listener runs second. -->
+<script
+    defer
+    src="{{ url_for('static', filename='js/results_tour.js') }}"
+></script>
+<!-- Results Spotlight Tour - END -->
 {% endblock %}
 
 {% block header %}
@@ -37,13 +70,17 @@
     </div>
 </section>
 
-<!-- Remaining auction budget -->
-<section class="money-section">
-    <h2>LEFTOVER MONEY</h2>
-    <div class="money-display">
-        <span id="leftover-money">$---</span>
+<!-- Mission Achievement - START -->
+<!-- Category and emblem are filled in by result_achievement.js from the
+     final score that result_state already provides. -->
+<section class="mission-achievement" data-tier="unranked">
+    <h2>MISSION ACHIEVEMENT</h2>
+    <div class="achievement-display">
+        <div class="achievement-emblem" id="achievement-emblem" data-tier="unranked" aria-hidden="true"></div>
+        <p class="achievement-title" id="achievement-title">---</p>
     </div>
 </section>
+<!-- Mission Achievement - END -->
 
 <!-- Keep the results inside the existing themes missions grid area -->
 <section class="mission-results">
