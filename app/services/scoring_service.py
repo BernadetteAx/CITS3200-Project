@@ -33,6 +33,7 @@ def build_result_state(session):
             "challengeIndex": index,
             "name": challenge.get("name", f"Challenge {index + 1}"),
             "success": outcome["success"],
+            "pointsEarned": outcome.get("pointsEarned", 0),
             "penalty": outcome["penalty"],
             "title": outcome.get("title", ""),
             "description": outcome.get("description", ""),

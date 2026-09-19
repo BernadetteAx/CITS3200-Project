@@ -153,7 +153,10 @@ function applyState(next) {
     if (state.status === "resolved" && state.outcome) {
       feedbackBox.dataset.outcome = state.outcome.success ? "success" : "fail";
       feedbackTitle.textContent = state.outcome.title;
-      feedbackSub.textContent = `${state.outcome.description}${state.outcome.penalty ? ` Score -${state.outcome.penalty}.` : ""}`;
+      const scoreChange = state.outcome.pointsEarned
+        ? ` Score +${state.outcome.pointsEarned}.`
+        : " Score 0.";
+      feedbackSub.textContent = `${state.outcome.description}${scoreChange}`;
       show(feedbackPopup);
     } else {
       hide(feedbackPopup);
