@@ -21,7 +21,7 @@ items_dict = {
     "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},
     "Apple": {"desc": "A fresh apple that provides a small snack during your journey.", "cost": 15, "image": "apple-64.png", "hotbar_image": "apple-64.png"},
     "Armoured Boots": {"desc": "A pair of reinforced boots for protecting your feet on rough terrain.", "cost": 80, "image": "icons8-armored-boot-64.png", "hotbar_image": "icons8-armored-boot-32.png"},
-    "Camping Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
+    "Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
     "Hat": {"desc": "A sturdy hat that provides basic protection from the sun.", "cost": 20, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},
     "GPS": {"desc": "A portable navigation device for determining your location and following routes.", "cost": 90, "image": "icons8-gps-signal-64.png", "hotbar_image": "icons8-gps-signal-32.png"},
     "Map": {"desc": "A detailed paper map showing nearby terrain, landmarks and routes.", "cost": 30, "image": "icons8-map-64.png", "hotbar_image": "icons8-map-32.png"},

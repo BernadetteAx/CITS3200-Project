@@ -800,7 +800,7 @@ challenges_dict = {
         "Repair Collapsed Wall": {
             "challenge_name": "Repair Collapsed Wall",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
-            "viable_mission_types": ["Survival"],
+            "viable_mission_types": ["Survival", "Rescue"],
             "items":{
                 "Welding Kit": {"use_desc": "Incomplete", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
@@ -1493,5 +1493,50 @@ challenges_dict = {
             "continue_failure_desc": "Your team crosses on foot and arrives late and exhausted.",
             "final_failure_desc": "The extraction team leaves before your team finishes crossing the basin."
         },
-    }
+    },
+    
+        "Deactivate Bomb": {
+        "Disable the Bomb Controls": {
+            "challenge_name": "Disable the Bomb Controls",
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
+            "viable_mission_types": ["Heist"],
+            "items": {
+                "Toolkit": {"use_desc": "You use the toolkit to repair the damaged safety controls and activate the bomb's shutdown sequence. The countdown stops.", "used": False, "point_value": 100, "point_desc": "The toolkit restores the safety controls, allowing your team to deactivate the device without triggering it."},
+            },
+            "failure_items": {},
+            "desc": "Your team reaches the device, but its safety controls have been damaged. The countdown is running. You'll need suitable equipment to restore the controls and shut it down.",
+            "continue_failure_desc": "Unable to deactivate the device, your team raises the alarm and helps evacuate the area. The evacuation costs valuable time, and the device remains active.",
+            "final_failure_desc": "Your team cannot restore the controls before the evacuation deadline. You are forced to abandon the objective and retreat. Your mission ends here."
+        },
+    },
+
+        "Destroy Information": {
+        "Destroy the Stolen Records": {
+            "challenge_name": "Destroy the Stolen Records",
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
+            "viable_mission_types": ["Heist"],
+            "items": {
+                "Fire Starter Kit": {"use_desc": "You gather the stolen paper records in an empty metal disposal bin and burn them until the information is unreadable.", "used": True, "point_value": 100, "point_desc": "The fire destroys the records completely, preventing the enemy from recovering your team's information."},
+            },
+            "failure_items": {},
+            "desc": "Your team locates the enemy's only copies of your confidential records. They are stored as paper documents inside an archive room. You'll need to destroy them before the guards return.",
+            "continue_failure_desc": "Without suitable equipment, your team tears up as many records as possible before retreating. Some information remains recoverable, and the effort delays your escape.",
+            "final_failure_desc": "Your team spends too long trying to destroy the records by hand. The guards return and discover you inside the archive. Your mission ends here."
+        },
+    },
+
+        "Deactivate Super Weapon": {
+        "Shut Down the Weapon": {
+            "challenge_name": "Shut Down the Weapon",
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
+            "viable_mission_types": ["Heist"],
+            "items": {
+                "Toolkit": {"use_desc": "You use the toolkit to free the jammed emergency shutdown mechanism. The weapon powers down and its charging sequence stops.", "used": False, "point_value": 100, "point_desc": "The toolkit allows your team to activate the emergency shutdown without damaging the surrounding facility."},
+            },
+            "failure_items": {},
+            "desc": "The enemy's super weapon is charging. Your team reaches its emergency controls, but the shutdown mechanism is jammed. You'll need suitable tools to release it.",
+            "continue_failure_desc": "Unable to activate the shutdown, your team triggers an evacuation alarm to interrupt the enemy's operation. This buys time, but the weapon remains operational and your escape is delayed.",
+            "final_failure_desc": "Your team cannot release the shutdown mechanism before security arrives. The control room is sealed and your team is captured. Your mission ends here."
+        },
+    },
 } 
