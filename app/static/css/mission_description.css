@@ -376,10 +376,10 @@
 
 .continue-btn:disabled {
     background: var(--panel);
-    color: var(--text-dim);
+    color: #fff;
     border-color: var(--tile-border);
 
-    opacity: 0.55;
+    opacity: 1;
     cursor: not-allowed;
     box-shadow: none;
 }
