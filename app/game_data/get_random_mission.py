@@ -1,9 +1,9 @@
 import random
-from mission_structs import missions_list
-from challenges import challenges_dict
-from mission_descriptions import get_mission_desc
-from location_info import possible_locations
-from location_info import location_info
+from app.game_data.mission_structs import missions_list
+from app.game_data.challenges import challenges_dict
+from app.game_data.mission_descriptions import get_mission_desc
+from app.game_data.location_info import possible_locations
+from app.game_data.location_info import location_info
 
 
 def get_mission():

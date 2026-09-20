@@ -1,4 +1,4 @@
-from location_info import location_info
+from app.game_data.location_info import location_info
 
 mission_desc_struc = {
 "Train Heist": 				"<opening_sentence_location>. \n\nYou were recently contacted by an unknown employer with a job for your team. A train job.\nWhilt your employer isn't exactly forthcoming with the details, you get the basics: \n\nYour employer is interested in getting their hands on a specific piece of cargo owned by a rival. The cargo is being transported via train to a secure facility. This is your employer's last chance to get their hands on the goods.\n\nGeeting on and off the train's going to be tough, might mean that your team will have to face more than one environmentally posed challenge. Not only that, but your team will need to handle security, steal the goods and make a daring getaway.\n\nIt will be a challenging mission, but your team has a reputation for such things. \n\nLet's see if you're up to the task.",
