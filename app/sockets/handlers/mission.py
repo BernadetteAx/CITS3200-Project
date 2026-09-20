@@ -35,7 +35,13 @@ def _normalise_challenges(generated_mission):
             "type": challenge.get("type", ""),
             "description": description,
             "image": "icons8-about-64.png",
-            "success_items": list(challenge.get("items", {})),
+            # Dict keyed by item name so _resolve can look up point_value.
+            # (Restored after a merge resolution reverted this to a list,
+            # which made every mission_use_item crash on .get().)
+            "success_items": {
+                item_name: dict(item_result)
+                for item_name, item_result in challenge.get("items", {}).items()
+            },
             # Challenge Card Detail - START
             # Keep each item's point copy from game_data so the results card can
             # show the real outcome text and point value. Display only: no score
@@ -127,6 +133,10 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         successful, title, description = False, "Time Ran Out", "The team ran out of time and had to take the longer route."
     else:
         successful, title, description = False, "Forced to Double Back", "No item was used, so the team took the longer route."
+    # Restored after a merge dropped it: without this, timing out or
+    # continuing with no item raises UnboundLocalError below.
+    if not item:
+        points_earned = 0
     penalty = 0
     mission["score"] += points_earned
     # Challenge Card Detail - START
@@ -137,7 +147,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
     point_value = (effect or {}).get("point_value")
     # Challenge Card Detail - END
     outcome = {"challengeId": challenge["id"], "challengeIndex": mission["current_challenge_index"], "item": item,
-        "success": successful, "penalty": penalty, "title": title, "description": description,
+        "success": successful, "pointsEarned": points_earned, "penalty": penalty, "title": title, "description": description,
         "pointDesc": point_desc, "pointValue": point_value}
     mission["outcome"] = outcome
     mission["outcome_log"].append(outcome)
