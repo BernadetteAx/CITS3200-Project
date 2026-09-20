@@ -23,7 +23,10 @@ def _normalise_challenges(generated_mission):
             "type": challenge.get("type", ""),
             "description": description,
             "image": "icons8-about-64.png",
-            "success_items": list(challenge.get("items", {})),
+            "success_items": {
+                item_name: dict(item_result)
+                for item_name, item_result in challenge.get("items", {}).items()
+            },
         })
     return challenges
 
@@ -37,7 +40,7 @@ def initialise_mission(session, generated_mission=None):
             "mission_description": generated_mission.get("mission_description", generated_mission.get("mission_desc", "")),
             "challenges": _normalise_challenges(generated_mission), "current_challenge_index": 0,
             "inventory": [dict(item) for item in session.get("purchased_items", [])], "used_items": [],
-            "outcome_log": [], "score": 100, "penalties": 0, "status": "active", "outcome": None}
+            "outcome_log": [], "score": 0, "penalties": 0, "status": "active", "outcome": None}
     return session["mission"]
 
 
@@ -91,18 +94,21 @@ def _resolve(code, session, mission, item=None, timed_out=False):
     challenge = mission["challenges"][mission["current_challenge_index"]]
     if item:
         mission["used_items"].append(item["id"])
-        successful = item["name"] in challenge["success_items"]
+        item_result = challenge["success_items"].get(item["name"])
+        successful = item_result is not None
+        points_earned = int(item_result.get("point_value", 0)) if successful else 0
         title = "Obstacle Cleared" if successful else "A Costly Detour"
         description = f"The {item['name']} gets the team past the challenge." if successful else f"The {item['name']} was not enough; the team takes a longer route."
     elif timed_out:
         successful, title, description = False, "Time Ran Out", "The team ran out of time and had to take the longer route."
     else:
         successful, title, description = False, "Forced to Double Back", "No item was used, so the team took the longer route."
-    penalty = 0 if successful else 10
-    mission["penalties"] += penalty
-    mission["score"] = max(0, mission["score"] - penalty)
+    if not item:
+        points_earned = 0
+    penalty = 0
+    mission["score"] += points_earned
     outcome = {"challengeId": challenge["id"], "challengeIndex": mission["current_challenge_index"], "item": item,
-        "success": successful, "penalty": penalty, "title": title, "description": description}
+        "success": successful, "pointsEarned": points_earned, "penalty": penalty, "title": title, "description": description}
     mission["outcome"] = outcome
     mission["outcome_log"].append(outcome)
     mission["status"] = "resolved"
