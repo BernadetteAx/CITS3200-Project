@@ -39,6 +39,18 @@ def build_result_state(session):
             "description": outcome.get("description", ""),
             "itemUsed": dict(item) if item is not None else None,
         })
+
+        # Challenge Card Detail - START
+        # Pass-through only, for the results card. No scoring uses these.
+        # Added conditionally, matching the "type" key below, so the payload
+        # shape is unchanged for challenges with no point copy recorded.
+        if outcome.get("pointDesc"):
+            challenge_results[-1]["pointDesc"] = outcome["pointDesc"]
+
+        if outcome.get("pointValue") is not None:
+            challenge_results[-1]["pointValue"] = outcome["pointValue"]
+        # Challenge Card Detail - END
+
         if challenge.get("type"):
             challenge_results[-1]["type"] = challenge["type"]
 

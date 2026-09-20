@@ -64,11 +64,18 @@ document.addEventListener("DOMContentLoaded", () => {
           challenge.itemUsed?.name ?? "No item used"
         );
   
-        if (challenge.description) {
+        // Challenge Card Detail - START
+        // Prefer the item's point_desc from game_data over the generic
+        // "gets the team past the challenge" sentence. Falls back when a
+        // challenge has no point copy recorded.
+        const outcomeText = challenge.pointDesc ?? challenge.description;
+
+        if (outcomeText) {
           const description = document.createElement("p");
-          description.textContent = challenge.description;
+          description.textContent = outcomeText;
           info.appendChild(description);
         }
+        // Challenge Card Detail - END
   
         const status = document.createElement("div");
         status.className = "mission-status";
@@ -80,7 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
           "challenge-outcome"
         );
   
-        addDetail(status, "Penalty points", challenge.penalty);
+        // Challenge Card Detail - START
+        // Show the item's point_value from game_data. Falls back to the
+        // penalty for challenges with no point value recorded.
+        if (challenge.pointValue != null) {
+          addDetail(status, "Points", challenge.pointValue);
+        } else {
+          addDetail(status, "Penalty points", challenge.penalty);
+        }
+        // Challenge Card Detail - END
   
         card.append(art, info, status);
         list.appendChild(card);
@@ -109,11 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
       setText("final-score", result.finalScore);
   
-      setText(
-        "leftover-money",
-        result.leftoverMoney == null ? "$---" : `$${result.leftoverMoney}`
-      );
-  
+      // Mission Achievement - START
+      // The LEFTOVER MONEY panel was replaced by MISSION ACHIEVEMENT, so
+      // #leftover-money no longer exists. setText() does not null-check,
+      // so this call has to go or displayResults() throws. The achievement
+      // panel is rendered separately by result_achievement.js.
+      // Mission Achievement - END
+
       setText(
         "completion-status",
         result.completionStatus === "complete"
