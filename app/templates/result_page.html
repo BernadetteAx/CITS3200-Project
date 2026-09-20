@@ -7,12 +7,12 @@
     rel="stylesheet"
     href="{{ url_for('static', filename='css/result_page.css') }}"
 >
-<!-- Results Spotlight Tour - START -->
+<!-- Results CRT Reveal - START -->
 <link
     rel="stylesheet"
-    href="{{ url_for('static', filename='css/results_tour.css') }}"
+    href="{{ url_for('static', filename='css/results_crt.css') }}"
 >
-<!-- Results Spotlight Tour - END -->
+<!-- Results CRT Reveal - END -->
 <!-- Results Card Readability - START -->
 <link
     rel="stylesheet"
@@ -34,19 +34,19 @@
 ></script>
 <!-- Mission Achievement - START -->
 <!-- Loaded after result_page.js so its result_state listener runs second,
-     and before results_tour.js so the badge is in place before the tour. -->
+     and before results_crt.js so the badge is in place before the reveal. -->
 <script
     defer
     src="{{ url_for('static', filename='js/result_achievement.js') }}"
 ></script>
 <!-- Mission Achievement - END -->
-<!-- Results Spotlight Tour - START -->
-<!-- Loaded after result_page.js so its result_state listener runs second. -->
+<!-- Results CRT Reveal - START -->
+<!-- Loaded last so every result_state renderer has run before the reveal. -->
 <script
     defer
-    src="{{ url_for('static', filename='js/results_tour.js') }}"
+    src="{{ url_for('static', filename='js/results_crt.js') }}"
 ></script>
-<!-- Results Spotlight Tour - END -->
+<!-- Results CRT Reveal - END -->
 {% endblock %}
 
 {% block header %}

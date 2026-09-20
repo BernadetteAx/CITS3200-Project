@@ -12,7 +12,7 @@
 //    scoring_service.py produced it; this file only maps that number to
 //    a display category. Nothing is sent back to the server.
 //
-// 2. Like results_tour.js, this attaches its OWN listener to the
+// 2. Like results_crt.js, this attaches its OWN listener to the
 //    existing "result_state" event rather than editing result_page.js.
 //    Socket.IO supports multiple listeners, and deferred scripts run in
 //    document order, so displayResults() still runs first.
