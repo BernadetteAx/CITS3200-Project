@@ -566,7 +566,7 @@ body:has(.auction-item-grid) .lobby-card {
 
 .item-tile[data-state="selected"] {
   border-color: var(--correct) !important;
-  box-shadow: 0 0 0 2px var(--outline), 0 0 0 4px var(--correct);
+  box-shadow: 0 0 0 2px var(--correct), 0 0 14px rgba(61, 220, 132, 0.35);
 }
 
 /* auction.css sizes this at `width: 70%; aspect-ratio: 1/1` — in a
@@ -710,7 +710,7 @@ h1.challenge-progress {
 
 .item-card[data-selected="true"] {
   border-color: var(--correct);
-  box-shadow: 0 0 0 2px var(--outline), 0 0 0 4px var(--correct);
+  box-shadow: 0 0 0 2px var(--correct), 0 0 14px rgba(61, 220, 132, 0.35);
 }
 
 @media (min-width: 900px) {
