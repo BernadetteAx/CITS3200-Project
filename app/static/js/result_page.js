@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (challenge.pointValue != null) {
           addDetail(status, "Points", challenge.pointValue);
         } else {
-          addDetail(status, "Penalty points", challenge.penalty);
+          addDetail(status, "Points Earned", challenge.penalty);
         }
         // Challenge Card Detail - END
   
