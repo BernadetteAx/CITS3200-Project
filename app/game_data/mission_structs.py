@@ -68,11 +68,64 @@ missions_list = [
         "location_options": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"], 
         "challenge_1": "Environmental Obstacle", "challenge_2": "Find Water", "challenge_3": "Environmental Obstacle", "challenge_4": "Find Shelter", "challenge_5": "Contact Teammate/s", "challenge_6": "Travel To Rendezvouz",
     },
-    # Deactivate Bomb
-    # Loot Wreck (Jungle - Aeroplane, Ocean - Ship)
-    # Destroy our team's info in enemy base
-    # Make a switch
-    # Smuggle Goods?
-    # Answer a Distress Signal
-    # Deactivate Super Weapon
+   
+       {
+        "mission_name": "Deactivate Bomb",
+        "mission_type": "Heist",
+        "location_options": ["Arctic Tundra", "Desert", "Jungle", "City"],
+        "challenge_1": "Environmental Obstacle",
+        "challenge_2": "Manmade Obstacle",
+        "challenge_3": "Security Obstacle",
+        "challenge_4": "Deactivate Bomb",
+        "challenge_5": "Getaway",
+        "challenge_6": "Travel To Rendezvouz",
+    },
+
+    {
+        "mission_name": "Destroy Our Team's Information",
+        "mission_type": "Heist",
+        "location_options": ["Arctic Tundra", "Desert", "Jungle", "City"],
+        "challenge_1": "Environmental Obstacle",
+        "challenge_2": "Manmade Obstacle",
+        "challenge_3": "Security Obstacle",
+        "challenge_4": "Destroy Information",
+        "challenge_5": "Security Obstacle",
+        "challenge_6": "Getaway",
+    },
+
+    {
+        "mission_name": "Smuggle Goods",
+        "mission_type": "Heist",
+        "location_options": ["Arctic Tundra", "Desert", "Jungle", "City"],
+        "challenge_1": "Travel To Rendezvouz",
+        "challenge_2": "Contact Teammate/s",
+        "challenge_3": "Environmental Obstacle",
+        "challenge_4": "Manmade Obstacle",
+        "challenge_5": "Security Obstacle",
+        "challenge_6": "Travel To Rendezvouz",
+    },
+
+    {
+        "mission_name": "Answer a Distress Signal",
+        "mission_type": "Rescue",
+        "location_options": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
+        "challenge_1": "Contact Teammate/s",
+        "challenge_2": "Travel To Rendezvouz",
+        "challenge_3": "Environmental Obstacle",
+        "challenge_4": "System Failure",
+        "challenge_5": "Make Repairs",
+        "challenge_6": "Travel To Rendezvouz",
+    },
+
+    {
+        "mission_name": "Deactivate Super Weapon",
+        "mission_type": "Heist",
+        "location_options": ["Arctic Tundra", "Desert", "Jungle", "City"],
+        "challenge_1": "Environmental Obstacle",
+        "challenge_2": "Manmade Obstacle",
+        "challenge_3": "Security Obstacle",
+        "challenge_4": "Deactivate Super Weapon",
+        "challenge_5": "Getaway",
+        "challenge_6": "Travel To Rendezvouz",
+    },
 ]
