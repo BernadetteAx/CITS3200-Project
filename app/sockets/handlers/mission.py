@@ -42,6 +42,11 @@ def _normalise_challenges(generated_mission):
                 item_name: dict(item_result)
                 for item_name, item_result in challenge.get("items", {}).items()
             },
+            
+            "failure_items": {
+                item_name: dict(item_result)
+                for item_name, item_result in challenge.get("failure_items", {}).items()
+            },
             # Challenge Card Detail - START
             # Keep each item's point copy from game_data so the results card can
             # show the real outcome text and point value. Display only: no score
@@ -121,37 +126,139 @@ def _action_session(payload):
 
 
 def _resolve(code, session, mission, item=None, timed_out=False):
+
     challenge = mission["challenges"][mission["current_challenge_index"]]
+    instant_failure = False
+
     if item:
         mission["used_items"].append(item["id"])
+
         item_result = challenge["success_items"].get(item["name"])
+        failure_result = challenge["failure_items"].get(item["name"])
+
         successful = item_result is not None
-        points_earned = int(item_result.get("point_value", 0)) if successful else 0
-        title = "Obstacle Cleared" if successful else "A Costly Detour"
-        description = f"The {item['name']} gets the team past the challenge." if successful else f"The {item['name']} was not enough; the team takes a longer route."
+        instant_failure = failure_result is not None
+
+        if successful:
+            points_earned = int(item_result.get("point_value", 0))
+            title = "Obstacle Cleared"
+            description = (
+                _usable_text(item_result.get("use_desc"))
+                or f"The {item['name']} gets the team past the challenge."
+            )
+
+        elif instant_failure:
+            points_earned = int(failure_result.get("point_value", 0))
+            title = "Mission Failed"
+            description = (
+                _usable_text(failure_result.get("use_desc"))
+                or f"Using the {item['name']} caused the mission to fail."
+            )
+
+        else:
+            points_earned = 0
+            title = "A Costly Detour"
+            description = (
+                f"The {item['name']} was not enough; "
+                "the team takes a longer route."
+            )
+
     elif timed_out:
-        successful, title, description = False, "Time Ran Out", "The team ran out of time and had to take the longer route."
-    else:
-        successful, title, description = False, "Forced to Double Back", "No item was used, so the team took the longer route."
-    # Restored after a merge dropped it: without this, timing out or
-    # continuing with no item raises UnboundLocalError below.
-    if not item:
+        successful = False
         points_earned = 0
+        title = "Time Ran Out"
+        description = (
+            "The team ran out of time and had to take the longer route."
+        )
+
+    else:
+        successful = False
+        points_earned = 0
+        title = "Forced to Double Back"
+        description = (
+            "No item was used, so the team took the longer route."
+        )
+
+    # Normal failures count towards the three-failure limit.
+    # A failure_item ends the mission immediately instead.
     penalty = 0
+
+    if not successful and not instant_failure:
+        penalty = 1
+        mission["penalties"] += 1
+
     mission["score"] += points_earned
+
     # Challenge Card Detail - START
-    # Carried alongside the existing fields for the results card to display.
-    # The penalty and score maths above are deliberately left untouched.
-    effect = (challenge.get("item_effects") or {}).get(item["name"]) if item else None
+    effect = (
+        (challenge.get("item_effects") or {}).get(item["name"])
+        if item else None
+    )
     point_desc = (effect or {}).get("point_desc")
     point_value = (effect or {}).get("point_value")
     # Challenge Card Detail - END
-    outcome = {"challengeId": challenge["id"], "challengeIndex": mission["current_challenge_index"], "item": item,
-        "success": successful, "pointsEarned": points_earned, "penalty": penalty, "title": title, "description": description,
-        "pointDesc": point_desc, "pointValue": point_value}
+
+    outcome = {
+        "challengeId": challenge["id"],
+        "challengeIndex": mission["current_challenge_index"],
+        "item": item,
+        "success": successful,
+        "pointsEarned": points_earned,
+        "penalty": penalty,
+        "title": title,
+        "description": description,
+        "pointDesc": point_desc,
+        "pointValue": point_value
+    }
+
     mission["outcome"] = outcome
     mission["outcome_log"].append(outcome)
+
+    # A failure item immediately ends the mission.
+    if instant_failure:
+        mission["status"] = "complete"
+
+        session["mission_result"] = {
+            "score": mission["score"],
+            "penalties": mission["penalties"],
+            "outcomes": list(mission["outcome_log"])
+        }
+
+        session["phase"] = "result_page"
+
+        broadcast_mission_state(code, session)
+        socketio.emit("mission_outcome", outcome, room=code)
+        socketio.emit(
+            "mission_complete",
+            session["mission_result"],
+            room=code
+        )
+
+        return
+
+    # Three normal failed challenges ends the mission.
+    if mission["penalties"] >= 3:
+        mission["status"] = "complete"
+
+        session["mission_result"] = {
+            "score": mission["score"],
+            "penalties": mission["penalties"],
+            "outcomes": list(mission["outcome_log"])
+        }
+
+        session["phase"] = "result_page"
+
+        broadcast_mission_state(code, session)
+        socketio.emit("mission_outcome", outcome, room=code)
+        socketio.emit(
+            "mission_complete",
+            session["mission_result"],
+            room=code
+        )
+        return
+
     mission["status"] = "resolved"
+
     broadcast_mission_state(code, session)
     socketio.emit("mission_outcome", outcome, room=code)
 
