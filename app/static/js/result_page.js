@@ -103,21 +103,68 @@ document.addEventListener("DOMContentLoaded", () => {
       renderChallengePage();
     }
   
-    function displayItems(listId, emptyId, items) {
-      const list = document.getElementById(listId);
+    // Item Inventory - START
+    // Renders ONE inventory list from itemsPurchased, marking each entry
+    // active when its id appears in itemsUsed. Replaces the former pair of
+    // "purchased" / "used" lists. The payload is read as-is; nothing here
+    // changes result data or window.gameVisuals.
+    function displayItems(purchased, used) {
+      const list = document.getElementById("item-inventory");
+      const empty = document.getElementById("no-inventory-items");
+      if (!list || !empty) return;
+
       list.replaceChildren();
-  
-      document.getElementById(emptyId).hidden = items.length !== 0;
-  
-      items.forEach((item) => {
+
+      const keyOf = (item) => item.id ?? item.name;
+      const usedIds = new Set(used.map(keyOf));
+      const rendered = new Set();
+
+      const addEntry = (item, active) => {
         const entry = document.createElement("li");
+        entry.className = "inventory-item";
+        entry.dataset.state = active ? "active" : "inactive";
+
+        // Row: sprite on the left, then a name/badge stack on the right.
+        // The sprite sits directly in the cell — the active highlight is
+        // drawn on its own edge, so there is no wrapper box around it.
         if (item.hotbar_image || item.image) {
           entry.appendChild(window.gameVisuals.itemArt(item));
         }
-        entry.append(document.createTextNode(item.name ?? item.id));
+
+        // Unstyled grouping for the text stack; not a box.
+        const text = document.createElement("span");
+        text.className = "inventory-text";
+
+        const name = document.createElement("span");
+        name.className = "inventory-name";
+        name.textContent = item.name ?? item.id;
+        text.appendChild(name);
+
+        // Status is stated in text, not colour alone.
+        if (active) {
+          const badge = document.createElement("span");
+          badge.className = "inventory-badge";
+          badge.textContent = "[ACTIVE]";
+          text.appendChild(badge);
+        }
+
+        entry.appendChild(text);
+
         list.appendChild(entry);
+        rendered.add(keyOf(item));
+      };
+
+      purchased.forEach((item) => addEntry(item, usedIds.has(keyOf(item))));
+
+      // Defensive: a used item with no purchase record still shows, as active,
+      // rather than vanishing from the debrief.
+      used.forEach((item) => {
+        if (!rendered.has(keyOf(item))) addEntry(item, true);
       });
+
+      empty.hidden = rendered.size !== 0;
     }
+    // Item Inventory - END
   
     function displayResults(result) {
       hasResults = true;
@@ -152,17 +199,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
       displayChallenges(result.challenges ?? [], result.location, result.missionName);
   
-      displayItems(
-        "items-purchased",
-        "no-purchased-items",
-        result.itemsPurchased ?? []
-      );
-  
-      displayItems(
-        "items-used",
-        "no-used-items",
-        result.itemsUsed ?? []
-      );
+      // Item Inventory - START
+      displayItems(result.itemsPurchased ?? [], result.itemsUsed ?? []);
+      // Item Inventory - END
   
       message.textContent = "YOUR TEAM'S FINAL RESULTS";
     }
