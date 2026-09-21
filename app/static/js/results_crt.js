@@ -17,7 +17,7 @@
 //    "result_state". Deferred scripts run in document order, so the
 //    existing renderers have already run by the time this fires.
 //
-// 3. The layer is pointer-events: none and is removed after ~800ms, so
+// 3. The layer is pointer-events: none and is removed after ~1.7s, so
 //    buttons, links, scrolling and the challenge-card hover are never
 //    blocked — not even while the effect is playing.
 //
@@ -32,7 +32,7 @@
 (function () {
     "use strict";
 
-    var DURATION_FALLBACK = 1200; // ms; removes the layer even if animationend never fires
+    var DURATION_FALLBACK = 2400; // ms; removes the layer even if animationend never fires
 
     var played = false; // once per page load, however often result_state arrives
 
