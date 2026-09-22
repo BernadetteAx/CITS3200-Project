@@ -209,6 +209,125 @@ def test_all_finished_players_resolve_round(voting_game):
     assert state["purchased_items"][0]["id"] == "axe"
 
 
+def test_player_leaves_before_voting_and_remaining_finished_resolves(
+    voting_game
+):
+    state = voting_game["auction"]
+    item_id = state["item_pairs"][state["round_index"]][0]["id"]
+    state["votes"] = {"player-1": item_id}
+    state["finished_players"] = {"player-1"}
+    del voting_game["players"]["player-2"]
+
+    auction.handle_player_left("ABCD", voting_game, "player-2")
+
+    assert state["status"] == "resolved"
+    assert state["round_result"]["reason"] == "player_left"
+    assert state["round_result"]["type"] == "purchase"
+
+
+def test_player_leaves_after_voting_removes_their_round_state(
+    voting_game
+):
+    state = voting_game["auction"]
+    first, second = state["item_pairs"][state["round_index"]]
+    state["votes"] = {
+        "player-1": first["id"],
+        "player-2": second["id"],
+    }
+    state["finished_players"] = {"player-1", "player-2"}
+    del voting_game["players"]["player-2"]
+
+    auction.handle_player_left("ABCD", voting_game, "player-2")
+
+    assert state["votes"] == {"player-1": first["id"]}
+    assert state["finished_players"] == {"player-1"}
+    assert state["status"] == "resolved"
+    assert state["round_result"]["reason"] == "player_left"
+
+
+def test_last_player_leaving_does_not_resolve_empty_auction(voting_game):
+    state = voting_game["auction"]
+    voting_game["players"].clear()
+
+    auction.handle_player_left("ABCD", voting_game, "player-1")
+
+    assert state["status"] == "voting"
+    auction.socketio.start_background_task.assert_called_once()
+
+
+def add_third_player(game):
+    game["players"]["player-3"] = {
+        "name": "Taylor",
+        "ready": False,
+        "connected": True,
+        "socket_id": "socket-3",
+    }
+
+
+def test_disconnect_resolves_when_all_connected_players_finished(
+    voting_game
+):
+    add_third_player(voting_game)
+    state = voting_game["auction"]
+    item_id = state["item_pairs"][state["round_index"]][0]["id"]
+    state["votes"] = {"player-1": item_id, "player-2": item_id}
+    state["finished_players"] = {"player-1", "player-2"}
+    voting_game["players"]["player-3"]["connected"] = False
+
+    auction.handle_player_disconnected("ABCD", voting_game)
+
+    assert "player-3" in voting_game["players"]
+    assert state["status"] == "resolved"
+    assert state["round_result"]["reason"] == "player_disconnected"
+
+
+def test_disconnect_does_not_resolve_before_connected_players_finish(
+    voting_game
+):
+    add_third_player(voting_game)
+    state = voting_game["auction"]
+    item_id = state["item_pairs"][state["round_index"]][0]["id"]
+    state["votes"] = {"player-1": item_id}
+    state["finished_players"] = {"player-1"}
+    voting_game["players"]["player-3"]["connected"] = False
+
+    auction.handle_player_disconnected("ABCD", voting_game)
+
+    assert state["status"] == "voting"
+    public_state = auction._state(voting_game)
+    assert public_state["playerCount"] == 2
+    assert public_state["finishedCount"] == 1
+
+
+def test_remaining_player_finishing_after_disconnect_resolves(voting_game):
+    add_third_player(voting_game)
+    state = voting_game["auction"]
+    item_id = state["item_pairs"][state["round_index"]][0]["id"]
+    state["votes"] = {"player-1": item_id}
+    state["finished_players"] = {"player-1"}
+    voting_game["players"]["player-3"]["connected"] = False
+    auction.handle_player_disconnected("ABCD", voting_game)
+
+    auction.auction_vote(payload(player="player-2", item=item_id))
+    auction.auction_finish_voting(payload(player="player-2"))
+
+    assert state["status"] == "resolved"
+    assert state["round_result"]["reason"] == "all_finished"
+
+
+def test_three_connected_players_still_requires_all_three(voting_game):
+    add_third_player(voting_game)
+    state = voting_game["auction"]
+    item_id = state["item_pairs"][state["round_index"]][0]["id"]
+    state["votes"] = {"player-1": item_id, "player-2": item_id}
+    state["finished_players"] = {"player-1", "player-2"}
+
+    auction._reevaluate_voting("ABCD", voting_game, "all_finished")
+
+    assert state["status"] == "voting"
+    assert auction._state(voting_game)["playerCount"] == 3
+
+
 def test_skip_replaces_vote_and_finishes_player(voting_game):
     auction.auction_vote(payload())
 

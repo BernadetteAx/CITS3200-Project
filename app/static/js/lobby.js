@@ -12,6 +12,12 @@ roomCode.textContent = sessionStorage.getItem("sessionCode");
 
 const readyToggleBtn = document.getElementById("readyToggleBtn");
 const startGameBtn = document.getElementById("startGameBtn");
+const leaveLobbyBtn = document.getElementById("leaveLobbyBtn");
+
+leaveLobbyBtn.addEventListener("click", () => {
+  leaveLobbyBtn.disabled = true;
+  window.gameSocket.emit("leave_session", { sessionCode: window.getSessionCode(), playerId: window.getPlayerId() });
+});
 
 function showInstructions() {
   instructionsPopup.classList.remove("hidden");

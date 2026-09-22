@@ -164,6 +164,7 @@ hostGameBtn.addEventListener("click", function () {
     sessionStorage.setItem("playerName", playerName);
     sessionStorage.setItem("sessionCode", generatedCode);
     sessionStorage.removeItem("playerId");
+    sessionStorage.removeItem("auctionStartTime");
     sessionStorage.setItem("isHost", "true");
 
     // Go to lobby

@@ -234,3 +234,22 @@ document.addEventListener("DOMContentLoaded", () => {
         "Unable to connect. Waiting to retry…";
     });
   });
+
+
+const playAgainBtn = document.getElementById("playAgainBtn");
+const returnHomeBtn = document.getElementById("returnHomeBtn");
+if (sessionStorage.getItem("isHost") === "true") playAgainBtn.hidden = false;
+playAgainBtn?.addEventListener("click", () => {
+    playAgainBtn.disabled = true;
+    window.gameSocket.emit("play_again", { sessionCode: window.getSessionCode(), playerId: window.getPlayerId() });
+});
+window.gameSocket.on("play_again_started", () => {
+    sessionStorage.removeItem("auctionStartTime");
+    window.location.replace("/lobby");
+});
+returnHomeBtn?.addEventListener("click", () => {
+    sessionStorage.removeItem("sessionCode");
+    sessionStorage.removeItem("playerId");
+    sessionStorage.removeItem("isHost");
+    sessionStorage.removeItem("auctionStartTime");
+});
