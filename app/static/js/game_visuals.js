@@ -90,13 +90,13 @@
   const ambience = document.createElement('div');
   ambience.className = 'game-ambience';
   ambience.setAttribute('aria-hidden', 'true');
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 24; i++) {
     const particle = document.createElement('span');
-    particle.className = i % 3 === 0 ? 'ambient-particle ambient-square' : 'ambient-particle';
-    particle.textContent = i % 3 === 0 ? '' : i % 2 ? '$' : '+';
-    particle.style.setProperty('--left', `${3 + i * 8.3}%`);
-    particle.style.setProperty('--duration', `${18 + i % 5 * 3}s`);
-    particle.style.setProperty('--delay', `${-i * 3.7}s`);
+    particle.className = 'ambient-particle';
+    particle.textContent = i % 2 ? '$' : '?';
+    particle.style.setProperty('--left', `${2 + i * 4.1}%`);
+    particle.style.setProperty('--duration', `${10 + i % 5 * 2}s`);
+    particle.style.setProperty('--delay', `${-i * 2.5}s`);
     ambience.append(particle);
   }
   document.body.prepend(ambience);

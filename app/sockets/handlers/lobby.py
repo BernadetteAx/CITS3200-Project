@@ -31,7 +31,7 @@
 # code (unlike the raw `ws` library in Node, where we built that by hand)
 
 #if you get an error here make sure to download socketio and flask_socketio using pip install socketio flask_socketio
-from flask_socketio import emit, join_room
+from flask_socketio import emit, join_room, leave_room
 from app.extensions import socketio
 from app.sockets.sessions import get_or_create_session, get_session, sessions, change_host
 import time
@@ -187,6 +187,39 @@ def handle_disconnect():
                     )
 
                 return
+
+
+@socketio.on('leave_session')
+def handle_leave_session(payload):
+    """Permanently remove a player who deliberately leaves a game."""
+    from flask import request
+
+    session_code = payload.get('sessionCode') if payload else None
+    player_id = payload.get('playerId') if payload else None
+    session = get_session(session_code)
+
+    if not session or not player_id:
+        return {'ok': False}
+
+    player = session['players'].get(player_id)
+    if not player or player.get('socket_id') != request.sid:
+        return {'ok': False}
+
+    was_host = player_id == session['host_id']
+    del session['players'][player_id]
+    leave_room(session_code)
+
+    if was_host:
+        new_host_id = change_host(session)
+        if new_host_id:
+            socketio.emit('host_changed', {'hostId': new_host_id}, room=session_code)
+
+    if not session['players']:
+        del sessions[session_code]
+    else:
+        broadcast_lobby_state(session_code, session)
+
+    return {'ok': True}
 
 
 @socketio.on('player_ready')
