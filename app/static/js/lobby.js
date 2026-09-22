@@ -12,6 +12,7 @@ roomCode.textContent = sessionStorage.getItem("sessionCode");
 
 const readyToggleBtn = document.getElementById("readyToggleBtn");
 const startGameBtn = document.getElementById("startGameBtn");
+const leaveLobbyBtn = document.getElementById("leaveLobbyBtn");
 
 function showInstructions() {
   instructionsPopup.classList.remove("hidden");
@@ -28,6 +29,14 @@ openBtn.addEventListener("click", showInstructions);
 closeBtn.addEventListener("click", hideInstructions);
 instructionsPopup.addEventListener("click", (e) => {
   if (e.target === instructionsPopup) hideInstructions();
+});
+
+// Leave the lobby and return to the join page
+leaveLobbyBtn.addEventListener("click", () => {
+  sessionStorage.removeItem("sessionCode");
+  sessionStorage.removeItem("playerId");
+  sessionStorage.removeItem("isHost");
+  window.location.href = "/";
 });
 
 // Chnage the text for the copy button
