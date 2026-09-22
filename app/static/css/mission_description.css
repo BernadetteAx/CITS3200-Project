@@ -342,7 +342,7 @@
     padding: 0.9rem 1.3rem;
 
     background: var(--correct);
-    color: #06140d;
+    color: #fff;
 
     border: 2px solid var(--correct);
 
@@ -387,7 +387,7 @@
 .continue-btn:hover:not(:disabled) {
     background: var(--correct);
     border-color: var(--correct);
-    color: #06140d;
+    color: #fff;
 
     transform: translateY(-2px);
 
