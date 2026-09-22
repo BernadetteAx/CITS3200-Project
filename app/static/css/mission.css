@@ -1470,3 +1470,8 @@ h1.challenge-progress {
     padding: 28px 20px;
   }
 }
+
+/* Space below mission action buttons */
+.screen-fit .mission-helper-note {
+  padding-top: 24px;
+}

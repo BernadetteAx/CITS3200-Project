@@ -7,18 +7,24 @@
     rel="stylesheet"
     href="{{ url_for('static', filename='css/result_page.css') }}"
 >
-<!-- Results Spotlight Tour - START -->
+<!-- Results CRT Reveal - START -->
 <link
     rel="stylesheet"
-    href="{{ url_for('static', filename='css/results_tour.css') }}"
+    href="{{ url_for('static', filename='css/results_crt.css') }}"
 >
-<!-- Results Spotlight Tour - END -->
+<!-- Results CRT Reveal - END -->
 <!-- Results Card Readability - START -->
 <link
     rel="stylesheet"
     href="{{ url_for('static', filename='css/results_cards.css') }}"
 >
 <!-- Results Card Readability - END -->
+<!-- Item Inventory - START -->
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/result_inventory.css') }}"
+>
+<!-- Item Inventory - END -->
 <!-- Mission Achievement - START -->
 <link
     rel="stylesheet"
@@ -34,19 +40,19 @@
 ></script>
 <!-- Mission Achievement - START -->
 <!-- Loaded after result_page.js so its result_state listener runs second,
-     and before results_tour.js so the badge is in place before the tour. -->
+     and before results_crt.js so the badge is in place before the reveal. -->
 <script
     defer
     src="{{ url_for('static', filename='js/result_achievement.js') }}"
 ></script>
 <!-- Mission Achievement - END -->
-<!-- Results Spotlight Tour - START -->
-<!-- Loaded after result_page.js so its result_state listener runs second. -->
+<!-- Results CRT Reveal - START -->
+<!-- Loaded last so every result_state renderer has run before the reveal. -->
 <script
     defer
-    src="{{ url_for('static', filename='js/results_tour.js') }}"
+    src="{{ url_for('static', filename='js/results_crt.js') }}"
 ></script>
-<!-- Results Spotlight Tour - END -->
+<!-- Results CRT Reveal - END -->
 {% endblock %}
 
 {% block header %}
@@ -125,19 +131,18 @@
         <button type="button" id="nextChallengeResult">NEXT →</button>
     </nav>
 
+    <!-- Item Inventory - START -->
+    <!-- One list: every purchased item, flagged active when it was used.
+         Populated by displayItems() in result_page.js; styled by
+         result_inventory.css. -->
     <div class="result-inventory">
-        <section class="result-inventory-section">
-            <h3 class="result-section-heading">ITEMS PURCHASED</h3>
-            <ul class="result-item-list" id="items-purchased"></ul>
-            <p id="no-purchased-items" hidden>No items purchased</p>
-        </section>
-
-        <section class="result-inventory-section">
-            <h3 class="result-section-heading">ITEMS USED</h3>
-            <ul class="result-item-list" id="items-used"></ul>
-            <p id="no-used-items" hidden>No items used</p>
+        <section class="result-inventory-section result-inventory-merged">
+            <h3 class="result-section-heading">ITEM INVENTORY</h3>
+            <ul class="result-item-list result-inventory-grid" id="item-inventory"></ul>
+            <p id="no-inventory-items" hidden>No items purchased</p>
         </section>
     </div>
+    <!-- Item Inventory - END -->
 </section>
 
 <section class="result-actions">

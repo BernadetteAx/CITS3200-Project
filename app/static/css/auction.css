@@ -154,7 +154,7 @@ h1.lobby-title {
 
 .item-tile[data-state="selected"] {
   border-color: var(--correct);
-  box-shadow: 0 0 0 2px #000, 0 0 0 4px var(--correct);
+  box-shadow: 0 0 0 2px var(--correct);
 }
 
 .item-tile[data-state="unavailable"] {

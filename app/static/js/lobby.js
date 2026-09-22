@@ -12,6 +12,7 @@ roomCode.textContent = sessionStorage.getItem("sessionCode");
 
 const readyToggleBtn = document.getElementById("readyToggleBtn");
 const startGameBtn = document.getElementById("startGameBtn");
+const leaveLobbyBtn = document.getElementById("leaveLobbyBtn");
 
 function showInstructions() {
   instructionsPopup.classList.remove("hidden");
@@ -70,6 +71,26 @@ startGameBtn.addEventListener("click", () => {
   window.gameSocket.emit("start_game", {
     sessionCode: window.getSessionCode(),
     playerId: window.getPlayerId()
+  });
+});
+
+leaveLobbyBtn.addEventListener("click", () => {
+  leaveLobbyBtn.disabled = true;
+
+  window.gameSocket.emit("leave_session", {
+    sessionCode: window.getSessionCode(),
+    playerId: window.getPlayerId()
+  }, (response) => {
+    if (!response?.ok) {
+      leaveLobbyBtn.disabled = false;
+      return;
+    }
+
+    sessionStorage.removeItem("sessionCode");
+    sessionStorage.removeItem("playerId");
+    sessionStorage.removeItem("isHost");
+    sessionStorage.removeItem("auctionStartTime");
+    window.location.replace("/join");
   });
 });
 

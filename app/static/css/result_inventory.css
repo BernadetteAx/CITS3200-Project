@@ -1,0 +1,235 @@
+/* =====================================================================
+   RESULT_INVENTORY.CSS — merged "Item Inventory" panel on the results page
+   =====================================================================
+   WHY THIS EXISTS
+
+   The results page used to show ITEMS PURCHASED and ITEMS USED as two
+   separate bullet lists, so a used item appeared twice and the reader
+   had to cross-reference. They are now one list — every purchased item
+   once, flagged active when it was used — rendered by displayItems() in
+   result_page.js and styled here as a compact inventory strip.
+
+   VISUAL RULE (v3)
+
+   No card, no cell box, no wrapper around the sprite. Each grid cell is
+   an invisible positioning slot holding one horizontal row: sprite on
+   the left, then a name/[ACTIVE] stack on the right, vertically centred
+   against the sprite. The ONLY highlight is drawn on the sprite's own
+   edge (outline + glow on .equipment-art / the fallback <img>), so the
+   eye lands on the sprite, not on a rectangle around it.
+
+   SCOPE / MERGE SAFETY
+
+   Additive only. Every selector is scoped under .mission-results to the
+   new .result-inventory-grid / .inventory-* classes, so nothing else on
+   the page is restyled. Deleting this file and its <link> removes the
+   look and leaves a plain list behind.
+
+   The selectors carry three class names on purpose: the shared
+   stylesheets (game_visuals.css, screen_layout.css) load AFTER page
+   stylesheets and style .result-item-list at up to (0,2,1), so these
+   rules sit at (0,3,0)+ to win regardless of load order.
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------
+   PALETTE — "hot" telemetry colours, distinct from the page's muted
+   --correct green so an active item reads as live by comparison.
+   --------------------------------------------------------------- */
+.mission-results .result-inventory-merged {
+    --inv-cyan: #2ee6e6;
+    --inv-cyan-hot: #00fff2;
+    --inv-green: #39ff6a;
+    --inv-sprite: 44px;
+}
+
+
+/* ---------------------------------------------------------------
+   LAYOUT
+   Single section spans the inventory row. Fixed 4-column grid so the
+   block stays a predictable strip (2 rows for a full 8-item inventory)
+   rather than an open-ended auto-fill.
+   --------------------------------------------------------------- */
+.mission-results .result-inventory:has(> .result-inventory-merged) {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.mission-results .result-item-list.result-inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px 16px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* ---------------------------------------------------------------
+   CELL — invisible; one horizontal row: sprite | text stack
+   --------------------------------------------------------------- */
+.mission-results .result-inventory-grid > .inventory-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+
+    background: none;
+    border: 0;
+
+    text-align: left;
+    font-size: 0.55rem;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+}
+
+/* Text stack to the right of the sprite. Unstyled grouping, not a box:
+   the badge line is simply absent on inactive items. */
+.mission-results .result-inventory-grid .inventory-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+    min-width: 0;
+}
+
+
+/* ---------------------------------------------------------------
+   SPRITE — output of window.gameVisuals.itemArt(): either an
+   .equipment-art span (sprite sheet) or a fallback <img>.
+   --------------------------------------------------------------- */
+.mission-results .result-inventory-grid > .inventory-item > .equipment-art,
+.mission-results .result-inventory-grid > .inventory-item > img {
+    width: var(--inv-sprite);
+    height: var(--inv-sprite);
+    flex: 0 0 var(--inv-sprite);
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    border-radius: 3px;
+}
+
+.mission-results .result-inventory-grid .inventory-name {
+    color: var(--text-main, #ffffff);
+    overflow-wrap: anywhere;
+}
+
+.mission-results .result-inventory-grid .inventory-badge {
+    display: inline-block;
+
+    padding: 4px 6px;
+
+    font-size: 0.42rem;
+    line-height: 1;
+    letter-spacing: 0.12em;
+
+    color: var(--inv-cyan);
+    background: rgba(46, 230, 230, 0.08);
+    border: 2px solid var(--inv-cyan);
+    border-radius: 0;
+
+    box-shadow: 0 0 8px rgba(46, 230, 230, 0.30);
+    text-shadow: 0 0 6px rgba(46, 230, 230, 0.6);
+}
+
+
+/* ---------------------------------------------------------------
+   ACTIVE — used on the mission
+   Outline hugs the sprite's own edge (outline adds no layout); the
+   inset shadow lights the sprite from within on the sprite-sheet span
+   and the outer glow covers both span and <img>.
+   --------------------------------------------------------------- */
+.mission-results .result-inventory-grid > .inventory-item[data-state="active"] > .equipment-art,
+.mission-results .result-inventory-grid > .inventory-item[data-state="active"] > img {
+    outline: 2px solid var(--inv-cyan);
+    outline-offset: 1px;
+
+    box-shadow:
+        inset 0 0 8px rgba(0, 255, 242, 0.55),
+        0 0 10px rgba(46, 230, 230, 0.45);
+
+    animation: inventory-pulse 2.2s ease-in-out infinite;
+}
+
+.mission-results .result-inventory-grid > .inventory-item[data-state="active"] .inventory-name {
+    color: var(--inv-green);
+    text-shadow: 0 0 6px rgba(57, 255, 106, 0.35);
+}
+
+@keyframes inventory-pulse {
+    0%, 100% {
+        outline-color: var(--inv-cyan);
+        box-shadow:
+            inset 0 0 6px rgba(0, 255, 242, 0.35),
+            0 0 6px rgba(46, 230, 230, 0.30);
+    }
+    50% {
+        outline-color: var(--inv-cyan-hot);
+        box-shadow:
+            inset 0 0 12px rgba(0, 255, 242, 0.70),
+            0 0 14px rgba(46, 230, 230, 0.60);
+    }
+}
+
+
+/* ---------------------------------------------------------------
+   INACTIVE — bought but never used
+   Sprite desaturated and darkened; no outline; muted name; no badge.
+   --------------------------------------------------------------- */
+.mission-results .result-inventory-grid > .inventory-item[data-state="inactive"] > .equipment-art,
+.mission-results .result-inventory-grid > .inventory-item[data-state="inactive"] > img {
+    filter: grayscale(1) brightness(0.55);
+    opacity: 0.6;
+}
+
+.mission-results .result-inventory-grid > .inventory-item[data-state="inactive"] .inventory-name {
+    color: var(--text-dark, #888888);
+}
+
+
+/* ---------------------------------------------------------------
+   EMPTY STATE
+   --------------------------------------------------------------- */
+.mission-results .result-inventory-merged > p {
+    margin: 0;
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------------
+   FIT-TO-SCREEN / NARROW
+   --------------------------------------------------------------- */
+body.screen-fit .mission-results .result-item-list.result-inventory-grid {
+    gap: 12px 10px;
+}
+
+body.screen-fit .mission-results .result-inventory-grid > .inventory-item {
+    gap: 10px;
+    font-size: 0.5rem;
+}
+
+@media (max-width: 700px) {
+    .mission-results .result-item-list.result-inventory-grid,
+    body.screen-fit .mission-results .result-item-list.result-inventory-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* ---------------------------------------------------------------
+   ACCESSIBILITY — reduced motion
+   The static outline + glow stays (it carries the meaning); only the
+   pulse goes.
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .mission-results .result-inventory-grid > .inventory-item[data-state="active"] > .equipment-art,
+    .mission-results .result-inventory-grid > .inventory-item[data-state="active"] > img {
+        animation: none !important;
+    }
+}

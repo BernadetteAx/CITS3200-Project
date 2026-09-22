@@ -1,0 +1,138 @@
+/* =====================================================================
+   RESULTS_CRT.CSS — CRT scanline reveal for the Game Results page
+   =====================================================================
+   A short, one-shot "old monitor just displayed the result" effect that
+   plays once when the results render. It replaces the earlier spotlight
+   tour, which darkened the page around each panel (#142).
+
+   DESIGN CONSTRAINTS
+     - Never darkens or covers the page: the layer is mostly transparent
+       and only ever adds thin light lines and a passing bright band.
+     - pointer-events: none, so buttons, links, scrolling and the
+       challenge-card hover all keep working while it plays.
+     - Fixed to the viewport; adds no layout, no overflow, no scroll.
+     - ~1.7s total, then the element is removed by results_crt.js.
+
+   The element is created at runtime by results_crt.js:
+       <div class="results-crt is-running" aria-hidden="true"></div>
+   ===================================================================== */
+
+.results-crt {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    opacity: 0;
+
+    /* Accent picked up from the page theme; falls back to the arcade green. */
+    --crt-accent: 61, 220, 132;
+}
+
+
+/* ---------------------------------------------------------------
+   SCANLINES
+   Thin light lines every 3px. On the dark page these read as a CRT
+   raster without reducing contrast anywhere.
+   --------------------------------------------------------------- */
+.results-crt::before {
+    content: "";
+
+    position: absolute;
+    inset: -8px 0;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(var(--crt-accent), 0.16) 0px,
+        rgba(var(--crt-accent), 0.16) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+}
+
+
+/* ---------------------------------------------------------------
+   SWEEP BAND
+   One brighter horizontal band that travels top to bottom — the
+   "beam" drawing the frame.
+   --------------------------------------------------------------- */
+.results-crt::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 18vh;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(var(--crt-accent), 0.14) 35%,
+        rgba(255, 255, 255, 0.18) 50%,
+        rgba(var(--crt-accent), 0.14) 65%,
+        transparent 100%
+    );
+
+    transform: translateY(-22vh);
+}
+
+
+/* ---------------------------------------------------------------
+   SEQUENCE (~1.7s)
+     0–220ms      power-on flicker (stepped opacity)
+     150–1100ms   beam sweeps down the viewport
+     1200–1700ms  scanlines fade out
+   --------------------------------------------------------------- */
+.results-crt.is-running {
+    animation: results-crt-flicker 2100ms linear 1 both;
+}
+
+.results-crt.is-running::before {
+    animation: results-crt-lines 2100ms ease-out 1 both;
+}
+
+.results-crt.is-running::after {
+    animation: results-crt-sweep 10000ms cubic-bezier(0.2, 0.7, 0.3, 1) 150ms 1 both;
+}
+
+/* Stepped timing on the early keyframes gives a hard flicker; the last
+   segment eases so the raster fades out rather than cutting off. */
+@keyframes results-crt-flicker {
+    0%   { opacity: 0;    animation-timing-function: steps(1, end); }
+    1.5% { opacity: 1;    animation-timing-function: steps(1, end); }
+    4%   { opacity: 0.45; animation-timing-function: steps(1, end); }
+    7%   { opacity: 1;    animation-timing-function: steps(1, end); }
+    10%  { opacity: 0.7;  animation-timing-function: steps(1, end); }
+    13%  { opacity: 1;    animation-timing-function: steps(1, end); }
+    70%  { opacity: 1;    animation-timing-function: ease-out; }
+    100% { opacity: 0; }
+}
+
+/* A slow drift of the raster so the lines feel live rather than printed. */
+@keyframes results-crt-lines {
+    from { transform: translateY(0); }
+    to   { transform: translateY(6px); }
+}
+
+@keyframes results-crt-sweep {
+    from { transform: translateY(-22vh); }
+    to   { transform: translateY(104vh); }
+}
+
+
+/* ---------------------------------------------------------------
+   ACCESSIBILITY — reduced motion
+   results_crt.js does not create the layer at all under reduced
+   motion; this is a belt-and-braces guard in case it is present.
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .results-crt,
+    .results-crt::before,
+    .results-crt::after {
+        animation: none !important;
+        opacity: 0 !important;
+    }
+}
