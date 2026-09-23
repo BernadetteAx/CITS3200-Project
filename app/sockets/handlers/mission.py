@@ -26,16 +26,21 @@ def _normalise_challenges(generated_mission):
         challenge = generated_mission[f"challenge_{index}"]
         name = challenge["challenge_name"]
         description = (challenge.get("desc") or "").strip()
+        continue_failure_desc = (challenge.get("continue_failure_desc") or "").strip()
+        final_failure_desc = (challenge.get("final_failure_desc") or "").strip()
         if not description or description.lower() in {"incomplete", "imcomplete"}:
             description = f"Your crew faces {name}. Check your equipment and choose how to continue. Taking the long way round costs your team points."
         description = description.replace("insert_item_here", "mission objective")
         weight = generated_mission[f"w{index}"]
+
         challenges.append({
             "id": f"challenge-{index}",
             "name": name,
             "type": challenge.get("type", ""),
             "description": description,
             "weight": weight,
+            "continue_failure_desc": continue_failure_desc,
+            "final_failure_desc": final_failure_desc,
             "image": "icons8-about-64.png",
             # Dict keyed by item name so _resolve can look up point_value.
             # (Restored after a merge resolution reverted this to a list,
@@ -133,7 +138,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
     instant_failure = False
 
     if item:
-        mission["used_items"].append(item["id"])
+        # mission["used_items"].append(item["id"])
 
         item_result = challenge["success_items"].get(item["name"])
         failure_result = challenge["failure_items"].get(item["name"])
@@ -161,8 +166,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
             points_earned = 0
             title = "A Costly Detour"
             description = (
-                f"The {item['name']} was not enough; "
-                "the team takes a longer route."
+                f"The {item['name']} could not be used here; " + challenge.get("continue_failure_desc", "")
             )
 
     elif timed_out:
@@ -170,15 +174,15 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         points_earned = 0
         title = "Time Ran Out"
         description = (
-            "The team ran out of time and had to take the longer route."
+            "The team deliberated for too long and was forced to make a hasty decision; " + challenge.get("continue_failure_desc", "")
         )
 
     else:
         successful = False
         points_earned = 0
-        title = "Forced to Double Back"
+        title = "A Costly Detour"
         description = (
-            "No item was used, so the team took the longer route."
+            "No item was used; " + challenge.get("continue_failure_desc", "")
         )
 
     # Normal failures count towards the three-failure limit.
@@ -197,7 +201,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         if item else None
     )
     point_desc = (effect or {}).get("point_desc")
-    point_value = ((effect or {}).get("point_value"))
+    point_value = ((effect or {}).get("point_value", 0))
     # Challenge Card Detail - END
 
     outcome = {
