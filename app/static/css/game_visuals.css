@@ -285,3 +285,7 @@ body:has(.hotbar) .motion-toggle { bottom: 132px; }
   .join-card, .adventure-preview, .lobby-card, .start-card, .mission-file,
   .visual-briefing, .mission-panel, .mission-results, .final-score, .money-section { animation: none !important; }
 }
+
+.instructions-trigger { 
+  z-index: 9998; 
+}
