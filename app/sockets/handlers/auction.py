@@ -226,24 +226,23 @@ def auction_vote(payload):
     player, auction = _valid_player(session, payload), session["auction"]
     choices = {item["id"] for item in auction["item_pairs"][auction["round_index"]]}
     if not player or auction["status"] != "voting" or payload.get("itemId") not in choices: return
-    # adds to shared tally after player submits vote
-    if player in auction["finished_players"]: return
+    # Selections stay private until submitted, and may be changed while the
+    # round remains open.
     auction["selections"][player] = payload["itemId"]
     emit_auction_state_to_player(session, player)
 
 def _finish(code, session, player, skip=False):
     auction = session["auction"]
-    if not player or auction["status"] != "voting" or player in auction["finished_players"]: return
+    if not player or auction["status"] != "voting": return
     if skip:
         auction["votes"][player] = "skip"
     elif player not in auction["selections"]:
         return
     else:
-        # commit the server-recorded selection
+        #replaces the players vote with their most current one
         auction["votes"][player] = auction["selections"][player]
     auction["finished_players"].add(player)
     broadcast_auction_state(code, session); emit_auction_state_to_player(session, player)
-    if auction["finished_players"] == _player_ids(session): _resolve(code, session, "all_finished")
 
 @socketio.on("auction_skip")
 def auction_skip(payload):
@@ -260,4 +259,4 @@ def resolve_auction_round(payload):
     code = payload.get("sessionCode") if isinstance(payload, dict) else None; session = get_session(code)
     if not session or session.get("phase") != "auction": return
     player, auction = _valid_player(session, payload), session["auction"]
-    if player == session["host_id"] and auction["status"] == "voting" and auction["finished_players"] == _player_ids(session): _resolve(code, session, "host")
+    if player == session["host_id"] and auction["status"] == "voting": _resolve(code, session, "host")

@@ -5,6 +5,7 @@ const voteCountText = document.getElementById("voteCountText");
 const progressFill = document.getElementById("progressFill");
 const finishBtn = document.getElementById("finishBtn");
 const skipBtn = document.getElementById("skipBtn");
+const endRoundBtn = document.getElementById("endRoundBtn");
 const timerValue = document.getElementById("timerValue");
 const timerPill = document.getElementById("timerPill");
 const countdownFill = document.getElementById("countdownFill");
@@ -29,11 +30,10 @@ function render(state) {
   roundText.textContent = `${Math.min(state.round, state.totalRounds)} OF ${state.totalRounds}`;
   voteCountText.textContent = `${state.voteCount} / ${state.playerCount} TEAMMATES HAVE VOTED`;
   progressFill.style.width = `${state.playerCount ? state.voteCount / state.playerCount * 100 : 0}%`;
-  const hasSubmitted = state.myVote != null;
   itemGrid.innerHTML = "";
   state.items.forEach((item) => {
     const selected = state.mySelection === item.id;
-    const unavailable = state.status !== "voting" || item.cost > state.budget || hasSubmitted;
+    const unavailable = state.status !== "voting" || item.cost > state.budget;
     const tile = document.createElement("button");
     tile.type = "button"; tile.className = "item-tile";
     tile.dataset.state = unavailable ? "unavailable" : selected ? "selected" : "idle";
@@ -45,8 +45,9 @@ function render(state) {
     itemGrid.appendChild(tile);
   });
   const voting = state.status === "voting";
-  finishBtn.disabled = !voting || !state.mySelection || hasSubmitted;
-  skipBtn.disabled = !voting || hasSubmitted;
+  finishBtn.disabled = !voting || !state.mySelection;
+  skipBtn.disabled = !voting;
+  endRoundBtn.hidden = sessionStorage.getItem("isHost") !== "true" || !voting;
   inventoryLabel.textContent = `TEAM INVENTORY · ${state.purchasedItems.length}/8 SLOTS FILLED`;
   inventory.innerHTML = state.purchasedItems.map((item) => `<div class="hotbar-slot filled" title="${item.name}"><img src="/static/images/${item.hotbar_image}" alt="${item.name}"></div>`).join("") + Array.from({length: Math.max(0, 8 - state.purchasedItems.length)}, () => '<div class="hotbar-slot empty">＋</div>').join("");
   inventory.querySelectorAll('.filled').forEach((slot, index) => slot.replaceChildren(window.gameVisuals.itemArt(state.purchasedItems[index])));
@@ -96,6 +97,7 @@ function hideResult() { resultPopup.classList.remove("show"); resultPopup.classL
 
 finishBtn.addEventListener("click", () => action("auction_finish_voting"));
 skipBtn.addEventListener("click", () => action("auction_skip"));
+endRoundBtn.addEventListener("click", () => action("resolve_auction_round"));
 document.getElementById("closeResult").addEventListener("click", hideResult);
 
 const helpBtn = document.getElementById("helpBtn"), helpPopup = document.getElementById("helpPopup");
