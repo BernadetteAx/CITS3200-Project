@@ -117,7 +117,7 @@ def initialise_auction(session, generated_mission=None):
         session["generated_mission"] = generated_mission
         session["auction"] = {"item_pairs": item_pairs, "round_index":0, "round_progress":0,
             "current_item_pair":list(item_pairs[0]),
-            "votes":{}, "finished_players":set(), "budget":1000, "purchased_items":[],
+            "selections":{}, "votes":{}, "finished_players":set(), "budget":1000, "purchased_items":[],
             "status":"waiting", "round_result":None, "ends_at":None, "timer_token":0}
     return session["auction"]
 
@@ -140,6 +140,7 @@ def _state(session, player_id=None):
         "finishedCount":len(auction["finished_players"]), "status":auction["status"],
         "endsAt":auction["ends_at"], "roundResult":auction["round_result"]}
     if player_id:
+        state["mySelection"] = auction.get("selections", {}).get(player_id)
         state["myVote"] = auction["votes"].get(player_id)
     return state
 
@@ -161,7 +162,7 @@ def _timer(session_code, token):
 def _start_round(session_code, session):
     auction = session["auction"]
     auction.update({"current_item_pair":list(auction["item_pairs"][auction["round_index"]]),
-        "round_progress":auction["round_index"], "votes":{}, "finished_players":set(), "status":"voting", "round_result":None,
+        "round_progress":auction["round_index"], "selections":{}, "votes":{}, "finished_players":set(), "status":"voting", "round_result":None,
         "ends_at":time.time()+ROUND_SECONDS, "timer_token":auction["timer_token"]+1})
     broadcast_auction_state(session_code, session)
     socketio.start_background_task(_timer, session_code, auction["timer_token"])
@@ -225,17 +226,23 @@ def auction_vote(payload):
     player, auction = _valid_player(session, payload), session["auction"]
     choices = {item["id"] for item in auction["item_pairs"][auction["round_index"]]}
     if not player or auction["status"] != "voting" or payload.get("itemId") not in choices: return
-    auction["votes"][player] = payload["itemId"]
-    broadcast_auction_state(code, session); emit_auction_state_to_player(session, player)
+    # Selections stay private until submitted, and may be changed while the
+    # round remains open.
+    auction["selections"][player] = payload["itemId"]
+    emit_auction_state_to_player(session, player)
 
 def _finish(code, session, player, skip=False):
     auction = session["auction"]
     if not player or auction["status"] != "voting": return
-    if skip: auction["votes"][player] = "skip"
-    if player not in auction["votes"]: return
+    if skip:
+        auction["votes"][player] = "skip"
+    elif player not in auction["selections"]:
+        return
+    else:
+        #replaces the players vote with their most current one
+        auction["votes"][player] = auction["selections"][player]
     auction["finished_players"].add(player)
     broadcast_auction_state(code, session); emit_auction_state_to_player(session, player)
-    if auction["finished_players"] == _player_ids(session): _resolve(code, session, "all_finished")
 
 @socketio.on("auction_skip")
 def auction_skip(payload):
@@ -252,4 +259,4 @@ def resolve_auction_round(payload):
     code = payload.get("sessionCode") if isinstance(payload, dict) else None; session = get_session(code)
     if not session or session.get("phase") != "auction": return
     player, auction = _valid_player(session, payload), session["auction"]
-    if player == session["host_id"] and auction["status"] == "voting" and auction["finished_players"] == _player_ids(session): _resolve(code, session, "host")
+    if player == session["host_id"] and auction["status"] == "voting": _resolve(code, session, "host")
