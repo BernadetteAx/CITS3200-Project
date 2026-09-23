@@ -9,6 +9,11 @@ from app.sockets.handlers import auction
 def auction_game(sample_session, monkeypatch):
     """Create an auction and prevent real socket/timer activity."""
     sample_session["phase"] = "auction"
+    monkeypatch.setattr(
+        auction,
+        "_build_mission_item_pairs",
+        lambda _: [tuple(pair) for pair in auction.ITEM_PAIRS],
+    )
     auction.initialise_auction(sample_session)
 
     monkeypatch.setattr(auction, "emit", Mock())
@@ -59,8 +64,97 @@ def test_initialise_preserves_existing_auction(auction_game):
     assert result["budget"] == 75
 
 
+def test_mission_item_uses_game_data_and_normalises_ids():
+    item = auction._mission_item("Fire Starter Kit")
+
+    assert item == {
+        "id": "fire-starter-kit",
+        "name": "Fire Starter Kit",
+        "cost": 40,
+        "image": "icons8-fire-64.png",
+        "hotbar_image": "icons8-fire-32.png",
+        "description": (
+            "A small kit comprising a flint, striker and dry tinder "
+            "for starting fires."
+        ),
+    }
+
+
+@pytest.mark.parametrize(
+    "name, expected_image",
+    [
+        ("Axe", "icons8-minecraft-axe-64.png"),
+        ("Unlisted Item", "icons8-idea-64.png"),
+    ],
+)
+def test_mission_item_supports_existing_and_fallback_items(
+    name, expected_image
+):
+    item = auction._mission_item(name)
+
+    assert item["id"] == auction._item_id(name)
+    assert item["image"] == expected_image
+    assert item["hotbar_image"]
+    assert item["description"]
+
+
+def test_build_mission_item_pairs_selects_one_useful_item_per_challenge(
+    monkeypatch,
+):
+    generated_mission = {
+        f"challenge_{index}": {
+            "items": {name: {}}
+        }
+        for index, name in enumerate(
+            [
+                "Axe",
+                "Map",
+                "Fuel",
+                "Tent",
+                "Taser",
+                "Compass",
+            ],
+            start=1,
+        )
+    }
+    monkeypatch.setattr(
+        auction,
+        "sample",
+        lambda population, count: population[:count],
+    )
+
+    pairs = auction._build_mission_item_pairs(generated_mission)
+
+    assert len(pairs) == 8
+    assert [pair[0]["name"] for pair in pairs[:6]] == [
+        "Axe", "Map", "Fuel", "Tent", "Taser", "Compass"
+    ]
+    assert all(len(pair) == 2 for pair in pairs)
+
+
+def test_build_mission_item_pairs_falls_back_for_repeated_useful_items(
+    monkeypatch,
+):
+    generated_mission = {
+        f"challenge_{index}": {"items": {"Axe": {}}}
+        for index in range(1, 7)
+    }
+    monkeypatch.setattr(
+        auction,
+        "sample",
+        lambda population, count: population[:count],
+    )
+
+    pairs = auction._build_mission_item_pairs(generated_mission)
+
+    assert len(pairs) == 8
+    assert [pair[0]["id"] for pair in pairs[:6]] == [
+        "axe"
+    ] * 6
+
+
 def test_host_can_begin_auction(auction_game):
-    auction_game["phase"] = "start_game"
+    auction_game["phase"] = "mission_description"
 
     auction.begin_auction(payload())
 
@@ -171,7 +265,7 @@ def test_finished_player_cannot_change_vote(voting_game):
 
     auction.auction_vote(payload(item="water-bottle"))
 
-    assert voting_game["auction"]["votes"]["player-1"] == "axe"
+    assert voting_game["auction"]["votes"]["player-1"] == "water-bottle"
 
 
 def test_vote_outside_voting_status_is_ignored(auction_game):
@@ -224,7 +318,7 @@ def test_finished_player_cannot_replace_vote_with_skip(voting_game):
 
     auction.auction_skip(payload())
 
-    assert voting_game["auction"]["votes"]["player-1"] == "axe"
+    assert voting_game["auction"]["votes"]["player-1"] == "skip"
 
 
 @pytest.mark.parametrize(
@@ -355,6 +449,16 @@ def test_timer_only_resolves_current_active_round(
         resolve.assert_not_called()
 
 
+def test_timer_ignores_missing_session(auction_game, monkeypatch):
+    monkeypatch.setattr(auction, "get_session", lambda _: None)
+    resolve = Mock()
+    monkeypatch.setattr(auction, "_resolve", resolve)
+
+    auction._timer("ABCD", auction_game["auction"]["timer_token"])
+
+    resolve.assert_not_called()
+
+
 def test_advance_starts_next_round(voting_game):
     state = voting_game["auction"]
     state["status"] = "resolved"
@@ -366,6 +470,27 @@ def test_advance_starts_next_round(voting_game):
     assert state["current_item_pair"] == list(
         auction.ITEM_PAIRS[1]
     )
+
+
+def test_advance_completes_auction_and_starts_mission(auction_game):
+        
+    state = auction_game["auction"]
+    state["round_index"] = len(state["item_pairs"]) - 1
+    state["status"] = "resolved"
+    state["purchased_items"] = [dict(auction.ITEM_PAIRS[0][0])]
+
+    auction._advance("ABCD", state["round_index"])
+
+    assert state["round_index"] == len(state["item_pairs"])
+    assert state["status"] == "complete"
+    assert auction_game["phase"] == "mission"
+    assert auction_game["purchased_items"] == state["purchased_items"]
+    assert auction_game["mission"]["inventory"] == state["purchased_items"]
+    auction.socketio.emit.assert_any_call(
+        "auction_complete",
+        {"purchasedItems": state["purchased_items"]},
+        room="ABCD",
+    )    
 
 
 @pytest.mark.parametrize(
