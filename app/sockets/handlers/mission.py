@@ -29,11 +29,13 @@ def _normalise_challenges(generated_mission):
         if not description or description.lower() in {"incomplete", "imcomplete"}:
             description = f"Your crew faces {name}. Check your equipment and choose how to continue. Taking the long way round costs your team points."
         description = description.replace("insert_item_here", "mission objective")
+        weight = generated_mission[f"w{index}"]
         challenges.append({
             "id": f"challenge-{index}",
             "name": name,
             "type": challenge.get("type", ""),
             "description": description,
+            "weight": weight,
             "image": "icons8-about-64.png",
             # Dict keyed by item name so _resolve can look up point_value.
             # (Restored after a merge resolution reverted this to a list,
@@ -140,7 +142,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         instant_failure = failure_result is not None
 
         if successful:
-            points_earned = int(item_result.get("point_value", 0))
+            points_earned = int(item_result.get("point_value", 50)) * float(challenge.get("weight", 1))
             title = "Obstacle Cleared"
             description = (
                 _usable_text(item_result.get("use_desc"))
@@ -195,7 +197,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         if item else None
     )
     point_desc = (effect or {}).get("point_desc")
-    point_value = (effect or {}).get("point_value")
+    point_value = ((effect or {}).get("point_value"))
     # Challenge Card Detail - END
 
     outcome = {
@@ -208,7 +210,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         "title": title,
         "description": description,
         "pointDesc": point_desc,
-        "pointValue": point_value
+        "pointValue": (point_value * float(challenge.get("weight", 1)))
     }
 
     mission["outcome"] = outcome
