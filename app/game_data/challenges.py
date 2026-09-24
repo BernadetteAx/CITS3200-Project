@@ -888,25 +888,26 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
+                "Explosives": {"use_desc": "Your team set up the explosives next to one of the unmanned walls and blow it. You dash through the hole in the wall before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the blockade."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "A blockade stands between you and your destination. And these guys don't look friendly. You'll need to find a way around, or through if you want to continue your mission.", 
+            "continue_failure_desc": "Your team is forced to wait for a changing of the guards and takes the opportunity to slip past. It takes a long time.", 
+            "final_failure_desc": "Your team, with no time to spare attempts a direct approach. You decide to try to bluff your way past, but they can small your lies a mile away and your team is taken in for questioning. Your mission ends here."
         },
 
-        "Building": {
-            "challenge_name": "Building",
+        "Building/Locked Gate": {
+            "challenge_name": "Locked Gate",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Explosives": {"use_desc": "Your team set up the explosives next to gate and blow it. You dash through before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the gate."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "There is a locked gate blocking your path, and your team is going to need to get past it. There is a building nearby with a key, if you can get in.", 
+            "continue_failure_desc": "Your team decides to scale the gate. It takes a long time and your team receives a few injuries in doing so.", 
+            "final_failure_desc": "Your team is too tired to find a way past the gate. You are simply forced to throw in the towel. Your mission ends here."
         },
 
         "Checkpoint": {
@@ -914,12 +915,12 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "There is a checkpoint your team will need to pass in order to continue your mission. Unfortunately, they're checking Ids and every member of your team has a, let's say, colourful past.", 
+            "continue_failure_desc": "Your team is forced to wait for a changing of the guards and takes the opportunity to slip past. It takes a long time.", 
+            "final_failure_desc": "Your team, with no time to spare attempts a direct approach. You decide to try to bluff your way past, but when you refuse to show your ids, your whole team taken in for questioning. Your mission ends here."
         },
         
         "Collapsed Bridge": {
@@ -942,25 +943,12 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Boat": {"use_desc": "Your team pile into the boat and take off across the dam. Security spotsyou and try to intercept you, but you make it across safely. Unfortunatley you have to abandon the boat.", "used": True, "point_value": 60, "point_desc": "Not exactly a subtle maneuver, although it did get you across the dam pretty quick."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
-        },
-
-        "Fortefied Structure": {
-            "challenge_name": "Fortefied Structure",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
-            "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
-            },  
-            "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "A dam stands between you and your destination. You'll need to find a way over or around it if you want to continue your mission.", 
+            "continue_failure_desc": "Your team are forced to trek around the enitre lake feeding the dam. A lengthy and tiring process.", 
+            "final_failure_desc": "Your team attempts to cross the walkway across the dam. It is however blocked off. So when guards find you on the wrong side of the fence, they take you in for questioning. Your mission ends here."
         },
 
         "Giant Wall": {
@@ -968,12 +956,12 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Grapling Hook": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Grapling Hook": {"use_desc": "Your team secure the grapling hook to the top of the wall, and make your way easily to the top. Then you secure it again and make your way down. Easy.", "used": False, "point_value": 100, "point_desc": "The grapling hook is ideal for climbing especially walls. It's what grapling hooks are built for after all."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "An enormous wall, previously constructed by the military, stands between you and where you're going. It's abadnonded, but is still in teh way. You'll need to find a way over, around or through it is you want to continue your mission.", 
+            "continue_failure_desc": "You team is forced to go around. And that happens to be a long, long , long way. The trip tires your team out and takes a long time.", 
+            "final_failure_desc": "Your team, without any way to get past it are forced to throw in the towel. Your mission ends here."
         },
         
         "Sea Mines": {
@@ -981,12 +969,12 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Scuba Gear": {"use_desc": "Your team don the scuba gear. The flippers help you to move swiftly through the mine field and your maneuverable enough to get by unscathed. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear is ideal for this situation. It allows you to move efficiently and safely past the sea mines."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "Your team needs to traverse a patch of ocean. Unfortunately, it is full of sea mines left behind after some war, designed to blow up ships and submarines. You'll need to make sure that you can easily maneuver around them.", 
+            "continue_failure_desc": "Your team decides to swim. Your certainly maneverable, but also slow. It is a time consuming and exhausting process, but eventually you pass the mines.", 
+            "final_failure_desc": "Your team decides to swim. Unfortunately your exhaustion from earlier has caught up with you. Your team can barely stay afloat. The mines don't even get a chance to finish you. Your team simply stops having the strength to swim and is claimed by the ocean."
         },
         
         "Ship Graveyard": {
@@ -994,12 +982,12 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Scuba Gear": {"use_desc": "Your team dons the scuba gear and quickly and easily navigate the ship wrecked environment. The oxygen tank is used up in teh process.", "used": True, "point_value": 100, "point_desc": "The scuba gear is ideal for this situation. It allows you to move efficiently and safely past the sunken ships."},
             },  
             "failure_items": {},
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "Your team needs to traverse a section of ocean, unfortunately the shallow reef has wrecked many a ship. The water is littered with the metal skeletons. Rusted metal juts at all angles. You'll need to be careful.", 
+            "continue_failure_desc": "Your team decides to swim. You manage to avoid the shipwrecks, but it is a tiring and time consuming process.", 
+            "final_failure_desc": "Your team decides to swim for it. Your doing ok, but your exhaustion makes your team sloppy. One of your team gets their clothing snagged on a piece of underwater debree and is dragged under. The team rushes to help, but they are pulled further under as teh debree falls to teh ocean floor. Your team try desperately to free them but can do nothing. Very soon they are in tehir own predicament as they run out of air. Too exhausted to make it to the surface, they drown."
         },
 
         "Traffic": {
@@ -1007,38 +995,12 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Armoured Truck": {"use_desc": "Incomplete. The truck gets damaged as you ram your way through traffic.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and, just like an icebreaker, plow it through traffic. It's messy and almost certainly injures a few people, but you do make it through. The truck gets damaged as you ram your way through traffic.", "used": True, "point_value": 80, "point_desc": "A very messy an dangerous approach. Although you did successfully beat traffic."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
-        },
-
-        "Locked Service Gate": {
-            "challenge_name": "Locked Service Gate",
-            "viable_locations": ["City", "Jungle", "Desert"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
-            "items": {
-                "Lock Picks": {"use_desc": "You open the padlock and guide the team through the service gate.", "used": False, "point_value": 100, "point_desc": "The lock picks open the gate quietly without damaging it."},
-            },
-            "failure_items": {},
-            "desc": "A service gate with a simple padlock blocks a maintenance passage.",
-            "continue_failure_desc": "Your team follows the perimeter to another entrance, losing time.",
-            "final_failure_desc": "The facility closes its remaining entrances before your team can get inside."
-        },
-
-        "Abandoned Fishing Net": {
-            "challenge_name": "Abandoned Fishing Net",
-            "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
-            "items": {
-                "Wire Cutters": {"use_desc": "You cut away the accessible netting and clear a path for the boat.", "used": False, "point_value": 100, "point_desc": "The cutters remove the obstruction without damaging your transport."},
-            },
-            "failure_items": {},
-            "desc": "A discarded fishing net blocks a shallow channel and threatens to snag your boat. Its edge is within reach from the deck.",
-            "continue_failure_desc": "Your team reverses out of the channel and takes a longer route.",
-            "final_failure_desc": "The detour leaves your team too far from the objective to arrive in time."
+            "desc": "Your team need to cross a busy intersection of the city if you are to continue your mission. UNfortunately an accident earlier in teh day has blocked all teh roads with traffic.", 
+            "continue_failure_desc": "Your team are forced to wait for traffic to clear before they continue. It takes a long, long time.", 
+            "final_failure_desc": "Your team decide to try to run between the cars. Unfortunately you miss-time one of your sprints and get hit. You go down. Your mission ends here."
         },
 
         "Debris Filled Stairwell": {
@@ -1049,20 +1011,20 @@ challenges_dict = {
                 "Shovel": {"use_desc": "You shovel the loose rubble aside until everyone can reach the stairs.", "used": False, "point_value": 100, "point_desc": "The shovel clears the obstruction efficiently."},
             },
             "failure_items": {},
-            "desc": "Loose rubble blocks the ground-floor stairwell leading to the next level. The structure is stable, but a passage must be cleared.",
+            "desc": "Your team needs to make it through an alley. Unfortunately the end of the alley has a stairwell, full of debris. The structure is stable, but a passage must be cleared.",
             "continue_failure_desc": "Your team searches for another staircase and loses valuable time.",
             "final_failure_desc": "Your team cannot reach the upper level before access is sealed."
         },
 
         "Retracted Loading Walkway": {
             "challenge_name": "Retracted Loading Walkway",
-            "viable_locations": ["City", "Ocean"],
+            "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
                 "Grapling Hook": {"use_desc": "You secure the grappling hook to the railing and use its line to cross the gap.", "used": False, "point_value": 100, "point_desc": "The hook provides a secure crossing point without restarting the walkway."},
             },
             "failure_items": {},
-            "desc": "A loading walkway has retracted, leaving a narrow gap above a dry service platform. A sturdy railing stands on the far side.",
+            "desc": "Your team needs to make it to the other side of a walkway. Unfortunately the walkway has retracted, leaving a narrow gap above a dry service platform. A sturdy railing stands on the far side.",
             "continue_failure_desc": "Your team climbs down to the service platform and takes a slow alternate route.",
             "final_failure_desc": "Your exhausted team cannot complete the alternate route before the loading area closes."
         },
