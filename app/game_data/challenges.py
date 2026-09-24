@@ -65,6 +65,9 @@ challenges_dict = {
             "items":{
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the arctic bear and use the gas mask to slip by unscathed. The gas is used up in the process.", "used": True, "point_value": 70, "point_desc": "The gas worked, but took a while to knock the bear out. You were delayed because of this."},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the arctic bear retreats.", "used": False, "point_value": 60, "point_desc": "The axes scared the bear away, but it sure wasn't a picnic for your team to be forced to get that close. Some of you came away with minor injuries."},
+                "Axe": {"use_desc": "You wield the axe as a weapon. You land a hit and the bear retreats.", "used": False, "point_value": 90, "point_desc": "The axe does its job, but it sure wasn't a picnic having to get that close to the bear."},
+                "Mirror": {"use_desc": "You use the glint of the mirror to distract the bear and slip by unscathed. The mirror is dropped in the escape.", "used": True, "point_value": 90, "point_desc": "The mirror was effective at getting by the bear."},
+                            
             }, 
             "failure_items": {},
             "desc": "Your team stumbles across an arctic bear. It looks like it's on the hunt and your its next meal. You'll need to find a way to evade it if you want to continue your mission.", 
@@ -134,26 +137,48 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed. The gas is used up in the process", "used": True, "point_value": 100, "point_desc": "Incomplete"},
-                "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the crocodile retreats.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed. The gas is used up in the process", "used": True, "point_value": 80, "point_desc": "The gas did manage to subdue teh crocodile, but it took a while to take effect, so your team had to scramble into the trees while you waited."},
+                "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the crocodile retreats.", "used": False, "point_value": 80, "point_desc": "The ice axes are unwieldy, but do their job. But it sure wasn't a picnic having to get that close to the croc."},
+                "Axe": {"use_desc": "You wield the axe as a weapon. You land a hit and the crocodile retreats.", "used": False, "point_value": 90, "point_desc": "The axe does its job, but it sure wasn't a picnic having to get that close toe the croc."},
+                "Mirror": {"use_desc": "You use the glint of the mirror to distract the crocodile and slip by unscathed. The mirror is dropped in the escape.", "used": True, "point_value": 90, "point_desc": "The mirror was effective at getting by the croc."},
             }, 
             "failure_items": {},
-            "desc": "Imcomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "Your team walk beside a river. A crocodile lurches from the deep. You'll need to find a way past it.", 
+            "continue_failure_desc": "Your team is forced to take to the trees and wait for the reptile to leave. It takes a long time and your team are exhausted and scratched up from clinging to the trees.", 
+            "final_failure_desc": "Your team, exhausted from earlier, react too slowly. The crocodile is on you in moments. Your mission ends here."
         },
         
         "Cyclone": {
             "challenge_name": "Cyclone",
-            "viable_locations": ["Jungle", "City", "Ocean"],
+            "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Tent": {"use_desc": "Incomplete. The tent is damaged in the process", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Tent": {"use_desc": "Your team pitches the tent and takes shelter. You are forced to wait out the storm. The tent is damaged in the process", "used": True, "point_value": 40, "point_desc": "The tent did provide shelter, but your team was forced to wait for the storm to subside, whilst sitting under nothing but canvas."},
             }, 
-            "failure_items": {},
-            "desc": "Imcomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "failure_items": {
+                "Helicopter": {"use_desc": "Your team attempt to go up in the helicopter. Unfortunately the winds are too strong and the chopper is tossed about in the wind like a leaf.", "used": True, "point_value": 0, "point_desc": "The helicopter was unable to handle the winds. It crashed miles from where you were and your whole team was wiped out."},
+                "Paraglider": {"use_desc": "Your team attempts to glide away using the paragliders. Unfortunately the winds are too strong and your team is tossed about in the wind like leaves.", "used": True, "point_value": 0, "point_desc": "The paragliders ripped apart in the strong winds. But that was after they got yanked up much higher into the sky then your team anticipated. It was a long way to fall."},       
+            },
+            "desc": "The winds pick up. On teh horizon your team can see a cyclone brewing. It won't be long before it arrives.", 
+            "continue_failure_desc": "Your team shelter together as best you can and wait it out. It takes a long time for the storm to subside and your team is left exhausted.", 
+            "final_failure_desc": "Unable to do anything else, your team opt to shelter together as best you can and wait it out. Unfortunately, you are all so exhausted that you begin to fall asleep. The sleep you don't wake up from. Your mission ends here."
+        },
+
+        "Cyclone - Ocean": {
+            "challenge_name": "Cyclone",
+            "viable_locations": ["Ocean"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{
+                "Boat": {"use_desc": "Your team pile onto a boat and take off in the opposite direction, eventually rounding the cyclone and being able to continue safely on your mission.", "used": True, "point_value": 100, "point_desc": "The boat allowed you to safely escape the path of the cyclone and continue swiftly with your mission."},
+                "Inflatable Raft": {"use_desc": "Your team pile onto the raft. You try to paddle but can't outrun the storm. The raft shelters your team but near the end of the cyclone gets ripped.", "used": True, "point_value": 60, "point_desc": "The raft allowed you to survive teh storm. But it was a pretty harrowing time. You definitely thought that you were done for."},
+            }, 
+            "failure_items": {
+                "Helicopter": {"use_desc": "Your team attempt to go up in the helicopter. Unfortunately the winds are too strong and the chopper is tossed about in the wind like a leaf.", "used": True, "point_value": 0, "point_desc": "The helicopter was unable to handle the winds. It crashed miles from where you were and your whole team was wiped out."},
+                "Paraglider": {"use_desc": "Your team attempts to glide away using the paragliders. Unfortunately the winds are too strong and your team is tossed about in the wind like leaves.", "used": True, "point_value": 0, "point_desc": "The paragliders ripped apart in the strong winds. But that was after they got yanked up much higher into the sky then your team anticipated. It was a long way to fall."},       
+            },
+            "desc": "The winds pick up. On teh horizon your team can see a cyclone brewing. It won't be long before it arrives.", 
+            "continue_failure_desc": "Your team shelter together as best you can and wait it out. It takes a long time for the storm to subside and your team is left exhausted.", 
+            "final_failure_desc": "Unable to do anything else, your team opt to shelter together as best you can and wait it out. Unfortunately, you are all so exhausted that you begin to fall asleep. The sleep you don't wake up from. Your mission ends here."
         },
         
         "Deadly Insects": {
@@ -190,12 +215,12 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "Incomplete. The ice axes are damaged in the process", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Helmet": {"use_desc": "Your team don helmets and take shelter. The rocks begin to fall, and there are a couple of occasions where it would have been over were it not for the hard hats. The helmets are damaged in the process", "used": True, "point_value": 65, "point_desc": "The helmets do protect your team, but don't help them avoid the danger altogether."},
             }, 
             "failure_items": {}, 
-            "desc": "Imcomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "The earth begins to shake. It's a strong earthquake cuased by the volcano. You need to take cover or risk being hit by falling rocks.", 
+            "continue_failure_desc": "Your team, unable to find another solution, tucks themselves against a rock shelf. The earthquake hits and the rocks begin to fall. Your team is protected by the shelf, but still recieve some injuries.", 
+            "final_failure_desc": "Your team spots a rock shelf that you could shelter under. They start to head for it but are exhausted and only make it halfway before the quake hits. It sends rocks tumbling towards the team and burries them alive."
         },
 
         "Extreme Heat": {
@@ -203,12 +228,15 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Still-suit": {"use_desc": "Incomplete. The extreme heat damages the still suit beyond repair.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Still-suit": {"use_desc": "The still suit doesn't do much, but the extra layer between you and the temperature gives you enough time to get out of the patch of heat. The extreme heat damages the still suit beyond repair.", "used": True, "point_value": 70, "point_desc": "The still suit allows your team to survive the temperature, but only acts as a second layer of skin. Some of it even melts onto your skin, burning you. So you live, but it isn't pretty."},
+                "Heat Resistant Suit": {"use_desc": "The heat resistant suit protects your team from the temperature and allows them to safely navigate away. It does, however, suffer dammage from loose rocks.", "used": True, "point_value": 100, "point_desc": "The heat resistant suit is ideal for this situation and allows your team to get by unscathed."},
             }, 
-            "failure_items": {}, 
-            "desc": "Imcomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "failure_items": {
+                "Thermal Clothing": {"use_desc": "The extra warmth really doesn't help. Your team is wiped out.", "used": True, "point_value": 0, "point_desc": "Warm clothing? To survive extreme heat? Really? Yeah. Shockingly your whole team is roasted alive."},
+            }, 
+            "desc": "As the volcano stirs your team is hit by a wave of extreme heat. You'll need to find a way to protect yourself from it.", 
+            "continue_failure_desc": "Your team finds a nook in the rockface and take shelter. It feels like you are being fried alive, but you do survive until the heat subsides.", 
+            "final_failure_desc": "Your team, are exhausted and unable to get to safety in time. You are cooked alive."
         },
 
         "Fallen Trees Block Path": {
@@ -216,12 +244,12 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Axe": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Axe": {"use_desc": "Your team use the axe to cut the trees into smaller pieces that they are able to lug off the path.", "used": False, "point_value": 80, "point_desc": "It takes a while, but the axe is effective at clearing the path."},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "The path is blocked by fallen trees. You'll need to find a way past or a way to clear the trees.", 
+            "continue_failure_desc": "Your team, unable to find a way get past the trees is forced to carefully climb over. You have to be very cautious as the wood is eaten away in places by termites. More than a couple of times your team almost makes a fatal error. But you get by in the end, exhuasted and behind schedule.", 
+            "final_failure_desc": "Your team, unable to find a way get past the trees is forced to carefully climb over. Unfortunately, many sections of the wood have been eaten away by termites. Your team doesn't realise this until it's too late. Your team puts a foot through the thin wood and falls. Your mission ends here."
         },
 
         "Fire": {
@@ -229,12 +257,12 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete. The water is used up in the process", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Heat Resistant Suit": {"use_desc": "The heat resistant suit protects your team from the fire and allows them to safely navigate around the border. It does, however, suffer dammage from flames.", "used": True, "point_value": 90, "point_desc": "The heat resistant suit did allow your team to navigate around the fire safely, but your team did still suffer from smoke inhalation. Nothing that you won't recover from, mind you."},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "Your team is bathed in orange light. A roaring fire tears it's way through the trees towards your team. You'll need to find a way around it, or a way to put it out.", 
+            "continue_failure_desc": "Your team, unequipped for the task at hand is forced to flee from the fire. You finally hit a river too wide for the flames to cross and take the plunge. Your team is forced to wait for the fire to burn itself out. This delays you significantly and the run has exhausted your team.", 
+            "final_failure_desc": "Your team attempts to flee the fire, but being so exhausted, can't make it to safety in time. Your team is consumed by the flames."
         },
 
         "Flash Flood": {
@@ -245,7 +273,7 @@ challenges_dict = {
                 "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -258,7 +286,7 @@ challenges_dict = {
                 "Ice Skates": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -271,7 +299,7 @@ challenges_dict = {
                 "Still-suit": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -284,7 +312,7 @@ challenges_dict = {
                 "Ice Axes": {"use_desc": "You use the Ice Axes to scale the ice cliff.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -297,7 +325,7 @@ challenges_dict = {
                 "Ice Axes": {"use_desc": "You wedge the ice axes as deep into the surrounding rock as possible and hold on tight. After the landslide has past, you need to dig yourselves out, but you are otherwise fine. The ice axes are damaged in the process", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -310,7 +338,7 @@ challenges_dict = {
                 "Still-suit": {"use_desc": "Incomplete. The extreme heat damages the still suit beyond repair.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -323,7 +351,7 @@ challenges_dict = {
                 "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -337,7 +365,7 @@ challenges_dict = {
                 "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister into the nest, the gas causes the scorpions to scatter allowing you to pass by unscathed. The gas is used up in the process", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -350,7 +378,7 @@ challenges_dict = {
                 "Ice Axes": {"use_desc": "You use wedge the ice axes into the surrounding solid ground and use them to pull yourselves out. The ice axes are damaged in the process", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -363,7 +391,7 @@ challenges_dict = {
                 "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -376,7 +404,7 @@ challenges_dict = {
                 "Helmet": {"use_desc": "Incomplete. The helmet is damaged in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -389,7 +417,7 @@ challenges_dict = {
                 "Dune Buggy": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -402,7 +430,7 @@ challenges_dict = {
                 "Shovel": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -415,7 +443,7 @@ challenges_dict = {
                 "Scuba Gear": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -428,7 +456,7 @@ challenges_dict = {
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the shark retreats.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -441,7 +469,7 @@ challenges_dict = {
                 "Grapling Hook": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {},
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -454,7 +482,7 @@ challenges_dict = {
                 "Blanket": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -467,7 +495,7 @@ challenges_dict = {
                 "Scuba Gear": {"use_desc": "Incomplete. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -481,7 +509,7 @@ challenges_dict = {
                 "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister near the snake, harmlessly incapacitating it and you use the gas mask to slip by unscathed. The gas is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -494,7 +522,7 @@ challenges_dict = {
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -896,7 +924,7 @@ challenges_dict = {
                 "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -909,7 +937,7 @@ challenges_dict = {
                 "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -922,7 +950,7 @@ challenges_dict = {
                 "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -950,7 +978,7 @@ challenges_dict = {
                 "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -963,7 +991,7 @@ challenges_dict = {
                 "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -976,7 +1004,7 @@ challenges_dict = {
                 "Grapling Hook": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -989,7 +1017,7 @@ challenges_dict = {
                 "Scuba Gear": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -1002,7 +1030,7 @@ challenges_dict = {
                 "Scuba Gear": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {},
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -1015,7 +1043,7 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "Incomplete. The truck gets damaged as you ram your way through traffic.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -1239,7 +1267,7 @@ challenges_dict = {
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, filtering the air and making it breathable.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             }, 
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -1252,7 +1280,7 @@ challenges_dict = {
                 "Blanket": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -1265,7 +1293,7 @@ challenges_dict = {
                 "Handheld Radios": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -1278,7 +1306,7 @@ challenges_dict = {
                 "Still-suit": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -1291,7 +1319,7 @@ challenges_dict = {
                 "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
@@ -1304,7 +1332,7 @@ challenges_dict = {
                 "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
             },  
             "failure_items": {}, 
-            "desc": "Imcomplete", 
+            "desc": "Incomplete", 
             "continue_failure_desc": "Incomplete", 
             "final_failure_desc": "Incomplete"
         },
