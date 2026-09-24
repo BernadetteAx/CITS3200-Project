@@ -30,10 +30,16 @@
 # you never have to write your own "which event was this?" dispatch
 # code (unlike the raw `ws` library in Node, where we built that by hand)
 
-#if you get an error here make sure to download socketio and flask_socketio using pip install socketio flask_socketio
+# if you get an error here make sure to download socketio and flask_socketio
+# using pip install socketio flask_socketio
 from flask_socketio import emit, join_room, leave_room
 from app.extensions import socketio
-from app.sockets.sessions import get_or_create_session, get_session, sessions, change_host
+from app.sockets.sessions import (
+    get_or_create_session,
+    get_session,
+    sessions,
+    change_host,
+)
 import time
 from app.services.scoring_service import build_result_state
 
@@ -41,15 +47,14 @@ from app.services.scoring_service import build_result_state
 @socketio.on('join_session')
 def handle_join_session(payload):
     """
-    payload example: { "sessionCode": "ABCD", "name": "Bernadette", "playerId": null }
+    payload example:
+    { "sessionCode": "ABCD", "name": "Bernadette", "playerId": null }
 
     Runs once, right when a player first opens the lobby page and
-    connects. `request.sid` (imported below) is Flask-SocketIO's way of
-    identifying THIS specific browser tab's connection — think of it as
-    the Python equivalent of the raw `socket` object we stored per
-    player in the Node version.
+    connects. `request.sid` is Flask-SocketIO's way of identifying
+    this specific browser tab's connection.
     """
-    from flask import request  # local import keeps this file's top imports focused
+    from flask import request
 
     session_code = payload['sessionCode']
     is_host = payload.get('isHost', False)
@@ -64,70 +69,66 @@ def handle_join_session(payload):
             emit('invalid_session')
             return
 
-    # RECONNECT SUPPORT: if the client already has a playerId saved from
-    # before (e.g. their WiFi dropped and the page reconnected), reuse
-    # their old player record instead of creating a brand new one.
+    # RECONNECT SUPPORT
     player_id = payload.get('playerId')
+
     if player_id and player_id in session['players']:
         player = session['players'][player_id]
         player['connected'] = True
         player['socket_id'] = request.sid
     else:
         import uuid
-        player_id = str(uuid.uuid4())  # unique so we never mix up two different players
+
+        player_id = str(uuid.uuid4())
         player = {
-            'name': payload.get('name') or f"Player {len(session['players']) + 1}",
+            'name': payload.get('name')
+            or f"Player {len(session['players']) + 1}",
             'ready': False,
             'connected': True,
             'socket_id': request.sid,
         }
         session['players'][player_id] = player
-        
+
     # If this player created the game, remember them as the host
     if is_host and session['host_id'] is None:
         session['host_id'] = player_id
 
-    # JOIN_ROOM is Flask-SocketIO's version of "put this connection in
-    # the group of sockets that belong to session ABCD". Once a
-    # connection is in a room, `emit(..., room='ABCD')` will reach it
-    # automatically — we never manually loop over connections ourselves.
     join_room(session_code)
 
-    # Tell THIS player (and only this player) their assigned ID, so
-    # their browser can save it and send it back if they reconnect later.
-    # `emit` with no `room` argument sends only to whoever triggered
-    # this handler — the equivalent of `socket.send(...)` in the Node version.
     joined_data = {
         'playerId': player_id,
         'phase': session['phase'],
-        'isHost': player_id == session['host_id']
-}
+        'isHost': player_id == session['host_id'],
+    }
 
     # If the auction has already started, tell this player when it started
-    # so their timer can match everyone else's timer
     if session['phase'] == 'auction' and 'auction_start_time' in session:
         joined_data['auctionStartTime'] = session['auction_start_time']
 
     emit('joined', joined_data)
 
     broadcast_lobby_state(session_code, session)
+
     if session.get('auction') and session['phase'] in ('auction', 'mission'):
         from app.sockets.handlers.auction import emit_auction_state_to_player
         emit_auction_state_to_player(session, player_id)
+
     if session.get('mission') and session['phase'] == 'mission':
         from app.sockets.handlers.mission import emit_mission_state_to_player
         emit_mission_state_to_player(session)
-        
-    # send stored results for when a player arrives or reconnects.
+
+    # Send stored results when a player arrives or reconnects
     if session['phase'] == 'result_page':
         result_state = build_result_state(session)
 
         if result_state is None:
-            emit('result_error', {
-                'message': 'Results are not available for this game yet.'
-            })
+            emit(
+                'result_error',
+                {'message': 'Results are not available for this game yet.'},
+            )
         else:
             emit('result_state', result_state)
+
 
 def reassign_host_after_disconnect(session_code, old_host_id):
     """
@@ -138,18 +139,16 @@ def reassign_host_after_disconnect(session_code, old_host_id):
 
     session = get_session(session_code)
 
-    # Session may no longer exist
     if session is None:
         return
 
-    # Make sure this player is still the host
-    if session["host_id"] != old_host_id:
+    if session['host_id'] != old_host_id:
         return
 
-    old_host = session["players"].get(old_host_id)
+    old_host = session['players'].get(old_host_id)
 
     # Host rejoined during the 30 seconds
-    if old_host and old_host["connected"]:
+    if old_host and old_host['connected']:
         return
 
     new_host_id = change_host(session)
@@ -158,10 +157,11 @@ def reassign_host_after_disconnect(session_code, old_host_id):
         socketio.emit(
             'host_changed',
             {'hostId': new_host_id},
-            room=session_code
-    )
+            room=session_code,
+        )
 
     broadcast_lobby_state(session_code, session)
+
 
 @socketio.on('disconnect')
 def handle_disconnect():
@@ -177,17 +177,23 @@ def handle_disconnect():
 
                 broadcast_lobby_state(session_code, session)
 
-                if session.get('phase') == 'auction' and session.get('auction'):
-                    from app.sockets.handlers.auction import handle_player_disconnected
+                # A disconnected player must not block auction voting.
+                # Keep the player in the session so they can reconnect.
+                if (
+                    session.get('phase') == 'auction'
+                    and session.get('auction')
+                ):
+                    from app.sockets.handlers.auction import (
+                        handle_player_disconnected,
+                    )
                     handle_player_disconnected(session_code, session)
 
-                # If the host disconnected, give them 30 seconds to reconnect
-                # before transferring host to another connected player.
+                # Give a disconnected host 30 seconds to reconnect.
                 if player_id == session['host_id']:
                     socketio.start_background_task(
                         reassign_host_after_disconnect,
                         session_code,
-                        player_id
+                        player_id,
                     )
 
                 return
@@ -195,20 +201,32 @@ def handle_disconnect():
 
 @socketio.on('leave_session')
 def handle_leave_session(payload):
+    """Permanently remove a player who deliberately leaves a game."""
+    from flask import request
+
     if not isinstance(payload, dict):
-        emit('left_session')
-        return
+        return {'ok': False}
+
     session_code = payload.get('sessionCode')
     player_id = payload.get('playerId')
     session = get_session(session_code)
-    if session is None or player_id not in session['players']:
-        emit('left_session')
-        return
-    was_host = player_id == session.get('host_id')
-    del session['players'][player_id]
 
-    # Deliberate departures immediately change who an active auction is
-    # waiting for. Unexpected disconnects still use the reconnect grace path.
+    if not session or not player_id:
+        return {'ok': False}
+
+    # Only allow the socket belonging to this player to remove them.
+    player = session['players'].get(player_id)
+
+    if not player or player.get('socket_id') != request.sid:
+        return {'ok': False}
+
+    was_host = player_id == session.get('host_id')
+
+    del session['players'][player_id]
+    leave_room(session_code)
+
+    # If voting is underway, immediately re-evaluate using the
+    # players who remain in the game.
     if session.get('phase') == 'auction' and session.get('auction'):
         from app.sockets.handlers.auction import handle_player_left
         handle_player_left(session_code, session, player_id)
@@ -216,50 +234,71 @@ def handle_leave_session(payload):
     if was_host:
         session['host_id'] = None
         new_host_id = change_host(session)
+
         if new_host_id:
-            socketio.emit('host_changed', {'hostId': new_host_id}, room=session_code)
-    broadcast_lobby_state(session_code, session)
-    leave_room(session_code)
+            socketio.emit(
+                'host_changed',
+                {'hostId': new_host_id},
+                room=session_code,
+            )
+
+    # Delete an empty session; otherwise update remaining players.
+    if not session['players']:
+        del sessions[session_code]
+    else:
+        broadcast_lobby_state(session_code, session)
+
     emit('left_session')
+    return {'ok': True}
+
 
 @socketio.on('play_again')
 def handle_play_again(payload):
     session_code = payload.get('sessionCode')
     session = get_session(session_code)
-    if session is None or session.get('phase') != 'result_page' or payload.get('playerId') != session.get('host_id'):
+
+    if (
+        session is None
+        or session.get('phase') != 'result_page'
+        or payload.get('playerId') != session.get('host_id')
+    ):
         return
+
     session['phase'] = 'lobby'
+
     for player in session['players'].values():
         player['ready'] = False
-    for key in ('generated_mission', 'auction', 'auction_start_time', 'purchased_items', 'mission', 'mission_result'):
+
+    for key in (
+        'generated_mission',
+        'auction',
+        'auction_start_time',
+        'purchased_items',
+        'mission',
+        'mission_result',
+    ):
         session.pop(key, None)
+
     socketio.emit('play_again_started', room=session_code)
     broadcast_lobby_state(session_code, session)
+
 
 @socketio.on('player_ready')
 def handle_player_ready(payload):
     """
     payload example: { "playerId": "...", "ready": true }
-
-    NOTE: we need the client to tell us their playerId in the payload, 
-    since Flask-SocketIO's `request.sid`changes on every reconnect. 
-    Make sure your frontend always includes the playerId it got back 
-    from the 'joined' event in future messages that need to know who sent them.
     """
     session_code = payload['sessionCode']
     session = get_or_create_session(session_code)
     player = session['players'].get(payload['playerId'])
+
     if not player:
-        return  # unknown player — ignore rather than crash
+        return
 
     player['ready'] = bool(payload.get('ready'))
     broadcast_lobby_state(session_code, session)
 
-    # PHASE TRANSITION:
-    # Once every player has readied up and there are enough players,
-    # the host can move the game forward.
-    # Copy this "check a condition across all players, then change phase
-    # and broadcast it" pattern in auction.py/mission.py.
+
 @socketio.on('start_game')
 def handle_start_game(payload):
     session_code = payload['sessionCode']
@@ -269,26 +308,26 @@ def handle_start_game(payload):
     if payload['playerId'] != session['host_id']:
         return
 
-    all_ready = all(p['ready'] for p in session['players'].values())
+    all_ready = all(
+        player['ready']
+        for player in session['players'].values()
+    )
 
-    # The lobby permits the host to start with however many players are
-    # currently in the room, provided everyone has marked themselves ready
+    # Start when everyone currently in the room is ready
     if all_ready and session['players']:
-        # The auction is initialised after the mission briefing.
         session['phase'] = 'start_game'
-        emit('game_started', {'phase': session['phase']}, room=session_code)
+        emit(
+            'game_started',
+            {'phase': session['phase']},
+            room=session_code,
+        )
 
-        # TODO (auction teammate): initialise session['auction'] = {...}
-        # here, then call a broadcast_auction_state(session_code, session)
-        # function (mirroring broadcast_lobby_state below) so clients get
-        # the first auction screen's data.
 
 @socketio.on('start_auction')
 def handle_start_auction(payload):
     session_code = payload['sessionCode']
     session = get_session(session_code)
 
-    # Session must exist
     if session is None:
         return
 
@@ -300,31 +339,40 @@ def handle_start_auction(payload):
     if session['phase'] != 'start_game':
         return
 
-    # Update the session's current phase
     session['phase'] = 'auction'
 
     # Remember when the auction started so rejoining players
-    # continue from the same timer instead of restarting it
+    # continue from the same timer instead of restarting it.
     session['auction_start_time'] = time.time()
 
-    # Tell everyone in the session to move to the auction
-    emit('auction_started', {
-    'phase': session['phase'],
-    'auctionStartTime': session['auction_start_time']
-}, room=session_code)
+    emit(
+        'auction_started',
+        {
+            'phase': session['phase'],
+            'auctionStartTime': session['auction_start_time'],
+        },
+        room=session_code,
+    )
+
 
 def broadcast_lobby_state(session_code, session):
-    """
-    Sends the current player list + phase to EVERYONE in this session's
-    room. Follow this exact pattern for auction/mission — a small
-    "build the payload, then emit it to the room" function per phase.
-    """
+    """Send the current public lobby state to everyone in the session."""
     players = [
-        {'id': pid, 'name': p['name'], 'ready': p['ready'], 'connected': p['connected'],'isHost': pid == session['host_id']}
-        for pid, p in session['players'].items()
+        {
+            'id': player_id,
+            'name': player['name'],
+            'ready': player['ready'],
+            'connected': player['connected'],
+            'isHost': player_id == session['host_id'],
+        }
+        for player_id, player in session['players'].items()
     ]
+
     socketio.emit(
-    'lobby_state',
-    {'players': players, 'phase': session['phase']},
-    room=session_code
+        'lobby_state',
+        {
+            'players': players,
+            'phase': session['phase'],
+        },
+        room=session_code,
     )

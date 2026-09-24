@@ -79,6 +79,26 @@ startGameBtn.addEventListener("click", () => {
   });
 });
 
+leaveLobbyBtn.addEventListener("click", () => {
+  leaveLobbyBtn.disabled = true;
+
+  window.gameSocket.emit("leave_session", {
+    sessionCode: window.getSessionCode(),
+    playerId: window.getPlayerId()
+  }, (response) => {
+    if (!response?.ok) {
+      leaveLobbyBtn.disabled = false;
+      return;
+    }
+
+    sessionStorage.removeItem("sessionCode");
+    sessionStorage.removeItem("playerId");
+    sessionStorage.removeItem("isHost");
+    sessionStorage.removeItem("auctionStartTime");
+    window.location.replace("/join");
+  });
+});
+
 // When the server starts the game, send everyone to the auction
 window.gameSocket.on("game_started", () => {
   window.location.href = "/start_game";
