@@ -554,7 +554,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "You use the map to orient yourself and work out where the nearest stretch of land is. The map isn't waterproof so gets damaged in the process.", "used": True, "point_value": 80, "point_desc": "The map is successful in getting your team to orient themselves, but it disintergrates in the water, so your team is forced to memorise the heading. A risky but successful maneuver."},
             },  
             "failure_items": {}, 
             "desc": "Your team has been out amoung the elements for far too long. You'll need to find some land for your team to re-cooperate on, if you hold out any hope of completing your mission.", 
@@ -567,7 +567,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "You use the map to orient yourself and work out where the nearest shelter would be. This helps your team get there efficiently.", "used": False, "point_value": 80, "point_desc": "The map is successful in ensuring that your team is on the fastest path, but doesn't help them get there."},
             },  
             "failure_items": {}, 
             "desc": "Your team has been out in the open too long. Exposure to the elements is starting to slow you down. You'll need to take shelter if you hold out any hope of finishing your mission.", 
@@ -584,7 +584,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
             },  
             "failure_items": {}, 
             "desc": "In such a harsh environment, your team finds that they have become severely dehydrated. You'll need to find a source of water if you have any hope of continuing your mission.", 
@@ -612,7 +612,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
             },  
             "failure_items": {}, 
             "desc": "So much exertion has left your team severely dehydrated. You'll need to find a source of clean water if you have any hope of continuing your mission.", 
@@ -625,7 +625,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
             },  
             "failure_items": {}, 
             "desc": "In such a harsh environment, your team finds that they have become severely dehydrated. You'll need to find a source of water if you have any hope of continuing your mission.",  
@@ -638,7 +638,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Water Bottle": {"use_desc": "Incomplete. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
             },  
             "failure_items": {}, 
             "desc": "In such a harsh environment, your team finds that they have become severely dehydrated. You'll need to find a source of water if you have any hope of continuing your mission.", 
@@ -669,7 +669,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Armoured Truck": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and tear off. Nothing stands in your way and whilst it's a messy getaway, it is successful.", "used": False, "point_value": 90, "point_desc": "The getaway is messy, but the armoured truck means that you can move as fast as you like without having to worry about anything."},
             },  
             "failure_items": {}, 
             "desc": "Your team is going to need to get away, and fast. The only way out, is overland land.", 
@@ -682,8 +682,8 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "Incomplete. The kindling is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
-            },  
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of your pursuers. You travel in the opposite direction, using teh fire as a diversion. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully mislead the pursuers, but it did cause some significant damage in the process."},
+                },  
             "failure_items": {}, 
             "desc": "Your team isn't going to be able to outmaneuver your pursuers. Looks like you'll have to out-think them instead and lead them in the wrong direction before doubling back.", 
             "continue_failure_desc": "Without any better ideas, your team is forced to deploy the fastest of you. They make their way in the opposite direction, luring the attackers away. When they have lead them far enough away, they double back. It took a lot of time to shake them and trip tires your teammate out significantly.", 
@@ -695,7 +695,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Dune Buggy": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and tear off. It is fast even over the sand and your team is able to continue their mission.", "used": False, "point_value": 100, "point_desc": "The dune buggy is ideal for traversing desert."},
             },  
             "failure_items": {}, 
             "desc": "Your team is going to need to get away, and fast. The only way out, is across the dunes.", 
@@ -708,7 +708,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Snow Mobile": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Snow Mobile": {"use_desc": "Your team pile into teh snow modile and it tears off across the fresh snow.", "used": False, "point_value": 100, "point_desc": "The snow mobile is ideal for getting places fast on snow."},
             },  
             "failure_items": {}, 
             "desc": "Your team is going to need to get away, and fast. The only way out, is over the freshly powdered snow.", 
@@ -721,7 +721,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "Your team don teh stolen uniforms and blend right in. There's a terrifying moment when another guard asks to see your id, but you manage to bluff your way past.", "used": False, "point_value": 80, "point_desc": "Putting yourself in plain sight. An effective but dangerous maneuver."},
             },  
             "failure_items": {
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly. The armoured truck is blown up.", "used": True, "point_value": 0, "point_desc": "What about an armoured truck struck you as particularly sneaky. Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed rpg and your team was no more. Let's try a subtler approach next time, huh?"},
@@ -736,7 +736,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Boat": {"use_desc": "Your team pile into the boat and tear away.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for quick getaways on the water."},
             },  
             "failure_items": {}, 
             "desc": "Your team is going to need to get away, and fast. The only way out, is via the water.", 
@@ -753,7 +753,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Survival", "Rescue"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the wall into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
             },  
             "failure_items": {}, 
             "desc": "Your base has sustained damage to one of the outward-facing walls. You'll need to repair it.", 
@@ -766,7 +766,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Your team welds shut a section that had been torn. It should hold for some time yet. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding supplies are ideal for re-connecting the 2 sections of metal wall."},
             },  
             "failure_items": {}, 
             "desc": "Your base has sustained damage to one of the outward-facing walls and a whole quadrant of your base is flooded and sealed off. You'll need to repair the wall before you can even think about pumping the water out",
@@ -779,7 +779,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the enviro-dome room into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
             },  
             "failure_items": {}, 
             "desc": "Your base has sustained damage to it's enviro-dome, housing numerous samples your team has collected from their time here. You'll need to work fast, but carefully to repair it, before the samples become inmpacted.", 
@@ -792,7 +792,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Your team welds shut a section that had been torn. It should hold for some time yet. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding supplies are ideal for re-connecting the 2 sections of metal wall."},
             },  
             "failure_items": {}, 
             "desc": "Your base has sustained damage and flooding to the enviro-dome, housing numerous samples your team has collected from their time here. You'll need to perform any repairs carefully, and quickly before the samples are impacted.",
@@ -805,10 +805,10 @@ challenges_dict = {
             "viable_locations": ["Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "You find that the hinges to the door have been knocked out of alignment. You use the welding kit to fuse them back in the correct position, allowing the door to open. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for handling a job like this."},
             },  
             "failure_items": {
-                "Explosives": {"use_desc": " The explosives, well, explode in the process.", "used": True, "point_value": 0, "point_desc": "You do realise that you're stuck inside the base, right? Not your brightest idea......................................................"},
+                "Explosives": {"use_desc": " The explosives, well, explode in the process.", "used": True, "point_value": 0, "point_desc": "You do realise that you're stuck inside the base, right? Not your brightest idea. I mean you got it open, it's just not really of any use to you anymore."},
             }, 
             "desc": "In a recent rock fall, your base suffered damage to the exit hatch. It's holding together for now, but there's no telling how long it will be before the door caves and everything beyond it, will find its way in. As well as that, whilst it's broken, your team has no way out.", 
             "continue_failure_desc": "Without the right equipment all your team can do is hope that it holds. You are, however, trapped. You are forced to re-wire the rover exit hatch to gain access to the outside of the base. It takes a long time, and squeezing through the tiny gap is an arduous feat.", 
@@ -820,7 +820,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "You add scraps of metal to 'Gerogie' and weld them into place. It should hold for some time yet. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "You do successfully repair the damage to the rover, but are unable to fix some of the inner mechanisms with such a crude implement."},
             },  
             "failure_items": {}, 
             "desc": "Your friendly little rover 'Georgie' has suffered damage in a recent rockfall. You'll need it to be in working condition if you hope to collect any more samples before they are destroyed by changing outside conditions.", 
@@ -833,7 +833,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "You re-attach the solar panels to their correct positions and use the welding kit to fuse it in place. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "You do manage to re-attach the solar panels, but unfortunately, you can do little to repair their functionality with such a crude implement."},
             },  
             "failure_items": {}, 
             "desc": "The solar panels that help power vital sections of your base have been knocked out of alignment. You'll need to make a few repairs and get them back in their rightful places if you want to keep getting power.", 
@@ -846,10 +846,10 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "You use scraps of metal and weld them over the damaged portions of the vehicle. It's messy, but should hold. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "The vehicle is now in working order, but the solution is only temporary."},
             },  
             "failure_items": {}, 
-            "desc": "There is a nearby base that your team needs to gather supplies from. Unfortunately the vehicle that your team uses to make trips has suffered damage and will need to be repaired. ", 
+            "desc": "There is a nearby base that your team needs to gather supplies from. Unfortunately the vehicle that your team uses to make trips has suffered damage and will need to be repaired.", 
             "continue_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. You'll be forced to trek to the outposts without it. This is a time consuming process and exhausting.", 
             "final_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. They are too tired to make the trips without it and are forced to give up the mission."
         },
@@ -872,7 +872,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
-                "Shovel": {"use_desc": "You clear the sand from the hatch and expose its handle and hinges.", "used": False, "point_value": 100, "point_desc": "The shovel restores access without damaging the hatch."},
+                "Shovel": {"use_desc": "You clear the sand from the hatch, making it usable once more.", "used": False, "point_value": 100, "point_desc": "The shovel is ideal for this situation as it restores access without damaging the hatch."},
             },
             "failure_items": {},
             "desc": "Windblown sand has buried the service hatch needed to reach the repair controls.",
