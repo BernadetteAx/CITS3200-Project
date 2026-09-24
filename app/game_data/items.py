@@ -23,12 +23,15 @@ items_dict = {
     "Thermal Clothing": {"desc": "Insulated clothing designed to protect the wearer from dangerously cold conditions.", "cost": 70, "image": "icons8-winter-clothes-64.png", "hotbar_image": "icons8-winter-clothes-32.png"},
     "Snow Boots": {"desc": "Heavy insulated boots providing warmth and traction across snow and ice.", "cost": 60, "image": "icons8-winter-boots-64.png", "hotbar_image": "icons8-winter-boots-32.png"},
     "Heat Resistant Suit": {"desc": "A protective suit designed to reduce exposure to extreme heat and hazardous environments.", "cost": 140, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"},
+    "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},
 
+        
+    # NEEDS IMAGE
+    "Ice Skates": {"desc": "A pair of shoes with a blade attached to the bottom. They are ideal for moving across ice.", "cost": 60, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
+   
 
 
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
-    "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},
-    "Apple": {"desc": "A fresh apple that provides a small snack during your journey.", "cost": 15, "image": "apple-64.png", "hotbar_image": "apple-64.png"},
     "Armoured Boots": {"desc": "A pair of reinforced boots for protecting your feet on rough terrain.", "cost": 80, "image": "icons8-armored-boot-64.png", "hotbar_image": "icons8-armored-boot-32.png"},
     "Hat": {"desc": "A sturdy hat that provides basic protection from the sun.", "cost": 20, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},
     "GPS": {"desc": "A portable navigation device for determining your location and following routes.", "cost": 90, "image": "icons8-gps-signal-64.png", "hotbar_image": "icons8-gps-signal-32.png"},
