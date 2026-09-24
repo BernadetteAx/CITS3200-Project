@@ -66,6 +66,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the truck. The bear tries to break in but has no success. Eventually it looses interest and leaves you alone.", "used": False, "point_value": 100, "point_desc": "You successfully and safely avoided the bear without hurting it. Though it did take a while for the bear to leave."},
                 "Fire Starter Kit": {"use_desc": "You use the firestarter kit to create a flame. You wield in in an effort to scare the bear off. It lunges anyway but retreats once it is burned. The fire kindling is used up in the process", "used": True, "point_value": 20, "point_desc": "Barely made it out of that one alive. You're lucky the bear wasn't too hungry. The firestarter kit was successful, but without much to burn, not a great option."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the arctic bear and use the gas mask to slip by unscathed. The gas is used up in the process.", "used": True, "point_value": 70, "point_desc": "The gas worked, but took a while to knock the bear out. You were delayed because of this."},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the arctic bear retreats.", "used": False, "point_value": 60, "point_desc": "The axes scared the bear away, but it sure wasn't a picnic for your team to be forced to get that close. Some of you came away with minor injuries."},
@@ -96,6 +97,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the blizzard. You are safe inside until the blizzard pases. You are even able to continue to move towards your destination.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Fire Starter Kit": {"use_desc": "Your team use the fire starter kit to create a small flame. You protect it with your bodies and use it to keep you warm. It's not much, but it's enough. The fire starter kit is used up in the process", "used": True, "point_value": 20, "point_desc": "This is a barely passable solution. Without anything to burn the flame is tiny and can barely keep your crew warm. Besides that, your team is forced to wait with it until the blizzard subsides."},
                 "Snow Boots": {"use_desc": "The snow boots keep your team warm and give them good grip on the ground. Despite barely being able to see, the team is able to make it out of the blizzard through sheer force of will.", "used": False, "point_value": 70, "point_desc": "The snow boots are effective in keeping your team warm and getting them out of the blizzard. However some time is lost as the team is unable to see where they are going."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team put on the gas masks. They don't help much, but the goggles protect your eyes and allow you to navigate out of the path of the blizzard.", "used": False, "point_value": 50, "point_desc": "The gas mask doesn't keep you warm and it is a lot more cumbersome than other eye equippment, but it does the job."},
@@ -160,6 +162,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the cyclone. You are safe inside until the cyclone pases. You are even able to continue to move towards your destination.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Tent": {"use_desc": "Your team pitches the tent and takes shelter. You are forced to wait out the storm. The tent is damaged in the process", "used": True, "point_value": 40, "point_desc": "The tent did provide shelter, but your team was forced to wait for the storm to subside, whilst sitting under nothing but canvas."},
             }, 
             "failure_items": {
@@ -223,6 +226,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the falling rocks. The rocks bounce harmlessly off the truck.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Helmet": {"use_desc": "Your team don helmets and take shelter. The rocks begin to fall, and there are a couple of occasions where it would have been over were it not for the hard hats. The helmets are damaged in the process", "used": True, "point_value": 65, "point_desc": "The helmets do protect your team, but don't help them avoid the danger altogether."},
             }, 
             "failure_items": {}, 
@@ -252,6 +256,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it into the blocked path. Like an icebreaker it clears the way through.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle these kinds of environmental challenges with ease."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small flame. You light a branch on fire and use it to dot small fires around a central tree. It burns through the tree slowly and eventually a path through it burned.", "used": True, "point_value": 40, "point_desc": "You made it past the trees but using the fire safely took a long time. You of course could have sent the whole thing up in flames but that would have risked starting a forest fire."},
                 "Ice Axes": {"use_desc": "Your team uses the ice axes to hook into the trees to drag them out of the way.", "used": False, "point_value": 50, "point_desc": "It takes a lot of effort and the ice axes don't help nearly enough."},
                 "Axe": {"use_desc": "Your team use the axe to cut the trees into smaller pieces that they are able to lug off the path.", "used": False, "point_value": 80, "point_desc": "It takes a while, but the axe is effective at clearing the path."},
@@ -267,6 +272,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight through the fire. The tires melt in the extreme heat, rendering the truck unusable.", "used": True, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle these kinds of environmental challenges with ease."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team wears the gas masks, protecting them from the smoke of the fire. It allows them to traverse the edge of the flames without risking smoke inhalation.", "used": False, "point_value": 60, "point_desc": "The gas mask doesn't protect you from the fire, but it does allow your team to navigate swifty around the flames, a lot closer than you otherwise could."},
                 "Heat Resistant Suit": {"use_desc": "The heat resistant suit protects your team from the fire and allows them to safely navigate around the border. It does, however, suffer dammage from flames.", "used": True, "point_value": 90, "point_desc": "The heat resistant suit did allow your team to navigate around the fire safely, but your team did still suffer from smoke inhalation. Nothing that you won't recover from, mind you."},
             },  
@@ -298,7 +304,9 @@ challenges_dict = {
                 "Ice Axes": {"use_desc": "Your team uses the ice axes to test the depth of the ice. It's a long process and involves a lot of crawling around on your stomachs, but by driving the ice axes into the ice, you are able to work out if a section is stable enough to support your weight.", "used": False, "point_value": 30, "point_desc": "The ice axes help get you across the lake, but it is a gruelling task."},
                 "Ice Skates": {"use_desc": "The team don the ice skates and use them to easily navigate over the forzen lake.", "used": False, "point_value": 100, "point_desc": "The ice skates are idel for navigating over the lake and your team is able to move quickly to their next challenge."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight out onto the ice. It is too heavy and breaks the ice. Your team try to exit but are trapped beneath the ice.", "used": True, "point_value": 0, "point_desc": "Whilst the armoured truck can handle a lot, it really isn't suited to delicately traversing thin ice."},
+            }, 
             "desc": "A frozen lake seperates your from your destination. You'll need to cross it, but be careful. The ice can be thin in places.", 
             "continue_failure_desc": "Without the appropriate eqipment, your team is forced to navigate the river on foot. It's slow and there is a lot of slipping involved. But your team is able to carefully avoid the thin ice and make it to the other side.", 
             "final_failure_desc": "Without the appropriate eqipment, your team is forced to navigate the river on foot. It's slow and there is a lot of slipping involved. The time you lost earlier is weighing on your team and they try to move fast. Unfortunately, it means that they miss the patch of thin ice. It cracks and they are plunged into the icy depths. Perhaps if they were less tired they could have pulled themselves out. We'll never know. They are claimed by the frozen waters."
@@ -335,6 +343,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and brace for impact. The landslide hits rolling the truck, but your team is all safely secured inside. Once it is over your team is able to exit througha safety hatch on the roof. The truck is burried too deep to be retrieved.", "used": True, "point_value": 100, "point_desc": "The armoured truck is ideal as it managed to protect your team from the landslide without causing any significant delays."},
                 "Ice Axes": {"use_desc": "You wedge the ice axes as deep into the surrounding rock as possible and hold on tight. After the landslide has past, you need to dig yourselves out, but you are otherwise fine. The ice axes are damaged in the process", "used": True, "point_value": 70, "point_desc": "The ice axes helped your team get a grip and keep together, but your team was still caught in the slide."},
             }, 
             "failure_items": {}, 
@@ -348,6 +357,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight past the lava spout. It gets uncomfortably warm inside, but you make it past. The tires melt in the extreme heat, rendering the truck unusable.", "used": True, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle these kinds of environmental challenges with ease."},
                 "Heat Resistant Suit": {"use_desc": "You don the heat resistant suits and are able to safely navigate areound the lava spout. It may be good, but even the heat resistant suit can barely hold it's own against lava. The extreme heat damages the heat-resistant suit beyond repair.", "used": True, "point_value": 90, "point_desc": "The heat resistant suit allowed your team to navigate around the lava spout, though it was a bit precarious being so close to the lava."},
             },  
             "failure_items": {}, 
@@ -417,6 +427,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the falling rocks. The rocks bounce harmlessly off the truck.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Helmet": {"use_desc": "Your team don helmets. When to rocks hit your team only suffers minor injuries. The helmets are damaged in the process.", "used": True, "point_value": 40, "point_desc": "The helmets meant that your team survived the rocks, but it still left the rest of your bodies exposed. Your team still suffered damage from the fall."},
             },  
             "failure_items": {}, 
@@ -430,6 +441,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and try to drive it across the sand dunes. It's too heavy though and you only get halfway before it becomes too bogged to salvage. Your team is forced to walk the rest of the way.The truck is too bogged to retrieve.", "used": True, "point_value": 60, "point_desc": "The armoured truck is a little too heavy to be suited to this situation, although it does get you most of the way there."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and tear off. It makes quick work of the dunes and your team is able to continue their mission.", "used": False, "point_value": 100, "point_desc": "The dune buggy is ideal for traversing sand dunes."},
             },  
             "failure_items": {}, 
@@ -443,6 +455,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the sand storm. You are safe inside until the storm pases. You are even able to continue to move towards your destination.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Shovel": {"use_desc": "Your team dig down and make a shallow pit to hide in. The winds swirl above you, but you're safe until the storm passes.", "used": False, "point_value": 40, "point_desc": "The shovel helped you keep your team safe, but it did mean that you had to wait for the storm to subside."},
             },  
             "failure_items": {}, 
@@ -499,6 +512,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the weather. You are safe inside until the temperature returns to normal. You are even able to continue to move towards your destination.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Fire Starter Kit": {"use_desc": "Your team use the fire starter kit to create a small flame. You protect it with your bodies and use it to keep you warm. It's not much, but it's enough. The fire starter kit is used up in the process", "used": True, "point_value": 40, "point_desc": "Without anything to burn the flame is tiny and can barely keep your crew warm. Besides that, your team is forced to wait with it, until the temperature increased before moving on."},
                 "Blanket": {"use_desc": "Your team huddle under the blanket for warmth and wait for the temperature to climb once more.", "used": False, "point_value": 70, "point_desc": "The team is able to survive the tempertaure drop, but is unable to go anywhere until the climate improved."},
                 "Thermal Clothing": {"use_desc": "Your team don the thermal clothing and are able to continue their mission unhindered.", "used": False, "point_value": 100, "point_desc": "Thermal clothing is ideal for this time of climate related problem."},
@@ -531,6 +545,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight across the gas field. You are safe inside.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "used": False, "point_value": 100, "point_desc": "The gas mask is ideal for handling toxic gases."},
             },
             "failure_items": {}, 
@@ -562,6 +577,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across civilization. The truck can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find civilization, but it took a long time and required you to use ass the petrol in the tank."},
                 "Handheld Radios": {"use_desc": "Your team uses the radios and finds an active frequency. Depending on whether the signal strengthens or weakens, you are able to use it to navigate towards whatever radio tower is broadcasting and therefore towards civilization, where you can take shelter. The radios' batteries are used up in the process.", "used": True, "point_value": 70, "point_desc": "This is an effective solution but it takes a lot of trial and error before you find civilization."},
                 "Map": {"use_desc": "Your team is able to use the few landmarks nearby to orient themselves. Your team is able to use the map to work out where the nearest patch of civilization is and head towards it.", "used": False, "point_value": 100, "point_desc": "The map is ideal for helping your team navigate towards civilization."},
             },  
@@ -590,6 +606,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. It's as good a shelter as anything and allows your team a chance to regroup.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Map": {"use_desc": "You use the map to orient yourself and work out where the nearest shelter would be. This helps your team get there efficiently.", "used": False, "point_value": 80, "point_desc": "The map is successful in ensuring that your team is on the fastest path, but doesn't help them get there."},
             },  
             "failure_items": {}, 
@@ -677,7 +694,22 @@ challenges_dict = {
     "Getaway": {
         "Air Based Getaway": {
             "challenge_name": "Getaway",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Paraglider": {"use_desc": "Your team finds the highest point they can and paraglide silently away.", "used": False, "point_value": 80, "point_desc": "The paragliders quickly put some distance between you and your would be pursuors. They are particularly effective due to how silently they move, but once you reach the forested jungle, they become cumbersome and impractical. Fortunately by that point you are pretty much in the clear."},
+                "Helicopter": {"use_desc": "You quickly pile into the helicopter that is standing by and take off.", "used": False, "point_value": 90, "point_desc": "The helicopter is very efficient at putting putting some distance between you and your would be pursuors. It is very loud, which alerts the guards to your presences, but fortunately you're out of there before they get the chance to follow you."},
+            }, 
+            "failure_items": {},
+            "desc": "Your team is going to need to get away, and fast. The only way out, from your current position, is by air.", 
+            "continue_failure_desc": "Your team is forced to make a run for it. You manage to evade your pursuors, but the trip tires your team significantly and takes a long time.", 
+            "final_failure_desc": "Your team tries desperately to flee, but are too tired to escape by foot. It isn't long before your pursuors catch up to the team and take them captive. Your mission ends here."
+        },
+
+        "Air Based Getaway - Ocean": {
+            "challenge_name": "Getaway",
+            "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Paraglider": {"use_desc": "Your team finds the highest point they can and paraglide silently away.", "used": False, "point_value": 80, "point_desc": "The paragliders quickly put some distance between you and your would be pursuors. They are particularly effective due to how silently they move, but once you reach the forested jungle, they become cumbersome and impractical. Fortunately by that point you are pretty much in the clear."},
@@ -707,6 +739,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off. Your pursuers are hot on your heels but you loose them in dense undegrowth that only the truck can get through. The truck is damaged in the process.", "used": True, "point_value": 50, "point_desc": "You didn't exactly mislead your pursuers, more, outran them. Oh well the effect is the same."},
                 "Handheld Radios": {"use_desc": "Your team leaves one of the radios at your current position and moves away. You then call it. The chatter attracts the attention of your pursuers and misleads them. The radio is left behind.", "used": True, "point_value": 70, "point_desc": "The radio is effective at misleading pursuers, but if they find it you risk them using it to locate your team."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of your pursuers. You travel in the opposite direction, using the fire as a diversion. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully mislead the pursuers, but it did cause some significant damage in the process."},
                 "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light and the guards swarm to the location, assuming it is your team. The mirror gets left behind in the process.", "used": True, "point_value": 100, "point_desc": "The mirror successfully mislead your pursuers."},
@@ -723,6 +756,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the sand, and whilst you get away, it becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and tear off. It is fast even over the sand and your team is able to continue their mission.", "used": False, "point_value": 100, "point_desc": "The dune buggy is ideal for traversing desert."},
             },  
             "failure_items": {}, 
@@ -736,6 +770,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the snow, and whilst you get away, it becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Snow Mobile": {"use_desc": "Your team pile into the snow modile and it tears off across the fresh snow.", "used": False, "point_value": 100, "point_desc": "The snow mobile is ideal for getting places fast on snow."},
             },  
             "failure_items": {}, 
@@ -785,6 +820,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Survival", "Rescue"],
             "items":{
+                "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the wall. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 100, "point_desc": "The panel from the truck is ideal for repairing the wall as it is large and sturdy enough to withstand anything."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the wall into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
             },  
             "failure_items": {}, 
@@ -811,6 +847,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the outside of the enviro-dome. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 90, "point_desc": "The panel from the truck is the wrong shape, but works well enough to cover the damaged portion of the dome."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the enviro-dome room into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
             },  
             "failure_items": {}, 
@@ -877,7 +914,21 @@ challenges_dict = {
 
         "Repair Vehicle": {
             "challenge_name": "Repair Vehicle",
-            "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Volcano"],
+            "viable_mission_types": ["Survival"],
+            "items":{
+                "Armoured Truck": {"use_desc": "Your team decide to use the armoured truck as the new stand in for the broken vehicle. The truck is therefore unavailable for other use.", "used": True, "point_value": 100, "point_desc": "The truck is an ideal alternative to the original vehicle."},
+                "Welding Kit": {"use_desc": "You use scraps of metal and weld them over the damaged portions of the vehicle. It's messy, but should hold. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "The vehicle is now in working order, but the solution is only temporary."},
+            },  
+            "failure_items": {}, 
+            "desc": "There is a nearby base that your team needs to gather supplies from. Unfortunately the vehicle that your team uses to make trips has suffered damage and will need to be repaired.", 
+            "continue_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. You'll be forced to trek to the outposts without it. This is a time consuming process and exhausting.", 
+            "final_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. They are too tired to make the trips without it and are forced to give up the mission."
+        },
+
+        "Repair Vehicle - Ocean": {
+            "challenge_name": "Repair Vehicle",
+            "viable_locations": ["Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
                 "Welding Kit": {"use_desc": "You use scraps of metal and weld them over the damaged portions of the vehicle. It's messy, but should hold. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "The vehicle is now in working order, but the solution is only temporary."},
@@ -922,6 +973,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the blockade. The truck is damaged in the process.", "used": True, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the blockade rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate. Your team slips by. The radios get left behind in the process.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there may be someone trying to make it past the blockade."},
                 "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to slip by the blockade. The mirror gets left behind in the process.", "used": True, "point_value": 100, "point_desc": "The mirror successfully distracted the guards and allowed you to sneak by without raising suspicion."},
@@ -940,6 +992,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the gate. It only sustains minor damage.", "used": False, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
                 "Ice Axes": {"use_desc": "You use the ice axes to break down the door to the building and get the key. You use it to unlock the gate and pass by unhindered.", "used": False, "point_value": 70, "point_desc": "It takes a while to break down the door and more than a little effort. But you do successfully pass the challenge."},
                 "Fire Starter Kit": {"use_desc": "The door to the building is wooden, so your team uses the firestarter kit to create a flame. Soon enough the door is slowly being burnt away. Once enough of it has turned to embers, your team is able to slip inside, grab the key and get through the gate.", "used": False, "point_value": 30, "point_desc": "Burning the door worked, but took a very long time."},
                 "Explosives": {"use_desc": "Your team set up the explosives next to gate and blow it. You dash through before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the gate."},
@@ -955,6 +1008,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the checkpoint. It only sustains minor damage.", "used": False, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the checkpoint rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate. Your team slips by. The radios get left behind in the process.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there may be someone trying to make it past the checkpoint."},
                 "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to slip by the checkpoint. The mirror gets left behind in the process.", "used": True, "point_value": 100, "point_desc": "The mirror successfully distracted the guards and allowed you to sneak by without raising suspicion."},
@@ -1120,6 +1174,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "One member of your team jumps into the armoured truck and drives it past the base. Guards come running to see the commotion and the team slips by unnoticed.", "used": False, "point_value": 30, "point_desc": "It does successfully distract the guards but alerts them to your presence and leaves a teammate behind."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of the guards and they leave their post to investigate. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully drew the guards away, but it did cause some significant damage in the process."},
                 "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate. The radios get left behind in the process.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there was someone on the premises."},
                 "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The glint of the mirror attracts the attention of the closest guards and they leave their post to investigate. The mirror gets left behind in the process.", "used": True, "point_value": 80, "point_desc": "The mirror successfully attracted the attention of the guards, its subtlety did not raise suspicion, but not all of the guards left their post to investigate."},
@@ -1343,8 +1398,22 @@ challenges_dict = {
 
     "Travel To Rendezvous": {
         "Air Based Travel": {
-            "challenge_name": "Travel To Rendezvou",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
+            "challenge_name": "Travel To Rendezvous",
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and make your way to the rendezvous quickly and safely.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for air based travel"},
+            },  
+            "failure_items": {}, 
+            "desc": "Your team needs to travel to the agreed rendezvous point. From your current position, the fastest and safest way to get there is using air based transport.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvous point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
+        },
+
+        "Air Based Travel - Ocean": {
+            "challenge_name": "Travel To Rendezvous",
+            "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and make your way to the rendezvous quickly and safely.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for air based travel"},
@@ -1356,7 +1425,7 @@ challenges_dict = {
         },
 
         "Land Based Travel": {
-            "challenge_name": "Travel To Rendezvou",
+            "challenge_name": "Travel To Rendezvous",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1369,10 +1438,11 @@ challenges_dict = {
         },
 
         "Sand Based Travel": {
-            "challenge_name": "Travel To Rendezvou",
+            "challenge_name": "Travel To Rendezvous",
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the sand. It gets the team almost all the way there, but becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to rendezvous, but it wasn't the ideal method of transport."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The Dune Buggy is an ideal option for travel over sand."},
             },  
             "failure_items": {}, 
@@ -1382,10 +1452,11 @@ challenges_dict = {
         },
 
         "Snow Based Travel": {
-            "challenge_name": "Travel To Rendezvou",
+            "challenge_name": "Travel To Rendezvous",
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the snow. It gets the team almost all the way there, but becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to rendezvous, but it wasn't the ideal method of transport."},
                 "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The snow mobile is an ideal option for travel over snow."},
             },  
             "failure_items": {}, 
@@ -1395,7 +1466,7 @@ challenges_dict = {
         },
 
         "Water Based Travel": {
-            "challenge_name": "Travel To Rendezvou",
+            "challenge_name": "Travel To Rendezvous",
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1414,6 +1485,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Armoured Truck": {"use_desc": "Unable to deactivate the bomb, your team throws it inside the armoured truck and shuts the doors. You get as much distance as you can from it and it explodes, destroying the truck in the process.", "used": True, "point_value": 40, "point_desc": "You don't deactivate the bomb and it still goes off, but you did manage to mitigate the damage it caused."},
                 "Handheld Radios": {"use_desc": "You strip the batteries of their wiring and use it to cross wires in the bomb and deactivate it. The radios' are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The radio wiring did successfully deactivate the bomb, but it was more of a 50/50 if it would work."},
                 "Toolkit": {"use_desc": "You use the toolkit to repair the damaged safety controls and activate the bomb's shutdown sequence. The countdown stops.", "used": False, "point_value": 100, "point_desc": "The toolkit restores the safety controls, allowing your team to deactivate the device without triggering it."},
             },
