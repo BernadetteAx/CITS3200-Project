@@ -348,7 +348,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Your team is able to use the few landmarks nearby to orient themselves. With a better Idea of where they are going, the team is able to continue the mission.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding your way through the desert."},
+                "Map": {"use_desc": "Your team is able to use the few landmarks nearby to orient themselves. With a better idea of where they are going, the team is able to continue the mission.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding your way through the desert."},
                 "Compass": {"use_desc": "your team use the compass to orient themselves. With a better idea of where they are, the team is able to continue the mission.", "used": False, "point_value": 100, "point_desc": "The compass is ideal for getting your team headed in the right direction."},              
             },  
             "failure_items": {}, 
@@ -469,12 +469,12 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Grapling Hook": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Grapling Hook": {"use_desc": "In the few moments you have, your team manages to latch the grapling hook to the far side of the hole. When the ground gives way, your team is able to swing to safety.", "used": False, "point_value": 90, "point_desc": "The grapling hook handly passes the challenge, and apart from a few minor cuts, your team comes away unscathed."},
             }, 
             "failure_items": {},
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "Your team is travelling along when suddenly the ground seems to open. A sinkhole has just appeared and your team is falling into it.", 
+            "continue_failure_desc": "Without the right tools your team manages to scramble to the edge of the hole and haul themselves out. It is an exhausting process and your team is forced to take time to recover.", 
+            "final_failure_desc": "Your team is exhausted and reacts slowly. They fall into the sinkhole and those who survive the fall, can find no way out. Your mission ends here."
         },
 
         "Temperature Drop": {
@@ -482,25 +482,14 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Blanket": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Blanket": {"use_desc": "Your team huddle under the blanket for warmth and wait for the temperature to climb once more.", "used": False, "point_value": 70, "point_desc": "The team is able to survive the tempertaure drop, but is unable to go anywhere until the climate improved."},
+                "Thermal Clothing": {"use_desc": "Your team don the thermal clothing and are able to continue their mission unhindered.", "used": False, "point_value": 100, "point_desc": "Thermal clothing is ideal for this time of climate related problem."},
+                "Snow Boots": {"use_desc": "Your team wear the snow boots, which keeps their toes warm at teh least. It does little to keep teh rest of your bodies warm. Fortunately your team is able to find their way out of the cold patch and continue the mission.", "used": True, "point_value": 40, "point_desc": "The snow boots are barely enough, but do allow your team to exit the cold patch."},    
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
-        },
-
-        "Underwater Earthquake": {
-            "challenge_name": "Underwater Earthquake",
-            "viable_locations": ["Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
-            "items":{
-                "Scuba Gear": {"use_desc": "Incomplete. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
-            },  
-            "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "There is a sudden drop in temperature and your team is caught out in it. You'll need to find a way to withstand the cold if you want to continue your mission.", 
+            "continue_failure_desc": "With nothing to keep them warm, your team is forced to huddle together and wait for the climate to return to normal. It takes a long time and leaves your team exhausted.", 
+            "final_failure_desc": "With nothing to keep them warm, your team is forced to huddle together and wait for the climate to return to normal. It takes longer than you can spare. Your team is already exhausted and very soon, they are frozen. Your mission ends here."
         },
         
         "Venemous Snake": {
@@ -508,13 +497,13 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You use the flame to keep the reptile at bay, and pass by unscathed. The kindling is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
-                "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister near the snake, harmlessly incapacitating it and you use the gas mask to slip by unscathed. The gas is used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You use the flame to keep the reptile at bay, and pass by unscathed. The kindling is used up in the process.", "used": True, "point_value": 100, "point_desc": "The fire is very effective at keeping the snake at bay. And it didn't require any injuries to wildlife."},
+                "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister near the snake, harmlessly incapacitating it and you use the gas mask to slip by unscathed. The gas is used up in the process.", "used": True, "point_value": 100, "point_desc": "The gas is great at handling the snake. And it didn't require any injuries to wildlife."},
             }, 
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "A venemous snake blocks the path. Your team will need to evade it if you want to continue your mission.", 
+            "continue_failure_desc": "Your team are forced to double back and go the long, long way round, costing significant time and energy.", 
+            "final_failure_desc": "Your team don't have time to double back and attempt to slip by the snake. Unfortunately one of you gets too close and it strikes. There's a panic and within moments the entire team has the snake's venom coursing through them. Even after yu kill teh snake there is nothing your team can do. Your mission ends here."
         },
         
         "Volcanic Gases": {
@@ -522,50 +511,25 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "used": False, "point_value": 100, "point_desc": "The gas mask is ideal for handling toxic gases."},
             },
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "Your team passes through what appears to be an empty section of rock. But something is wrong. There is a dense layer of volcanic gases, deadly to anything that breathes. You'll need to find a way around, or through it is you want to continue your mission.", 
+            "continue_failure_desc": "Your team are forced to double back and go the long, long way round, costing significant time and energy.", 
+            "final_failure_desc": "Your team have lost too much time to double back now. They make the unwise decision to try and pass through, afterall, there are probably patches of air somewhere in there. They hold their breath and start walking. They don't get far. The gases knock the team out and they slump to the ground one by one, never to wake again."
         },
+
         "Narrow Crevasse": {
             "challenge_name": "Narrow Crevasse",
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
-                "Rope": {"use_desc": "You secure the rope to solid anchors and help each teammate cross the gap.", "used": False, "point_value": 100, "point_desc": "The anchored rope gives everyone a controlled crossing."},
+                "Rope": {"use_desc": "Your team manage to lasoo a rock jutting up on the far side. You carefully swing each teammate across the gap.", "used": False, "point_value": 70, "point_desc": "The rope is able to get your team across, but it's a risky maneuver."},
             },
             "failure_items": {},
-            "desc": "A narrow crevasse splits the trail. Your team needs a secure way across.",
-            "continue_failure_desc": "Your team follows the crevasse until it narrows, losing time on the detour.",
-            "final_failure_desc": "Your team cannot find a crossing before the extraction window closes."
-        },
-
-        "Loose Scree Slope": {
-            "challenge_name": "Loose Scree Slope",
-            "viable_locations": ["Desert", "Volcano"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
-            "items": {
-                "Rope": {"use_desc": "You anchor the rope to solid rock and lower the team down the slope.", "used": False, "point_value": 100, "point_desc": "A controlled descent prevents slips and keeps the group together."},
-            },
-            "failure_items": {},
-            "desc": "Loose stones slide beneath your feet on a steep descent. Stable rock anchors line the slope.",
-            "continue_failure_desc": "Your team searches for a gentler descent and loses valuable time.",
-            "final_failure_desc": "Your team cannot descend safely before the mission deadline."
-        },
-
-        "Drifting Ice Floes": {
-            "challenge_name": "Drifting Ice Floes",
-            "viable_locations": ["Arctic Tundra"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
-            "items": {
-                "Boat": {"use_desc": "You navigate slowly through the open gaps and reach the opposite shore.", "used": False, "point_value": 100, "point_desc": "The boat carries everyone across without relying on unstable ice."},
-            },
-            "failure_items": {},
-            "desc": "A sheltered channel of broken ice separates your team from the far shore. Gaps between the floes are wide enough for a small boat.",
-            "continue_failure_desc": "Your team walks inland to find a crossing, adding a long detour.",
-            "final_failure_desc": "The ice drifts farther apart and your team cannot reach the objective in time."
+            "desc": "A crevasse blocks your path. Your team needs to cross it if you want to continue your mission.",
+            "continue_failure_desc": "Your team follows the crevasse until it narrows, losing time and energy on the detour.",
+            "final_failure_desc": "Your team, out of time and energy make a desperate decision to try to jump the distance, it is after all, only a narrow crevasse. Unfortunately they are too tired to get a proper run. The fall is a lot further than they could have imagined. Your mission ends here."
         },
     },
 
@@ -577,7 +541,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "Your team is able to use the few landmarks nearby to orient themselves. Your team is able to use the map to work out where the nearest patch of civilization is and head towards it.", "used": False, "point_value": 100, "point_desc": "The map is ideal for helping your team navigate towards civilization."},
             },  
             "failure_items": {}, 
             "desc": "Your team has been out in the open for too long. You'll need to find your way back to civilization if you have any hope of continuing your mission.", 
