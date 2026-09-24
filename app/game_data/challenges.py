@@ -355,6 +355,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Handheld Radios": {"use_desc": "Your team tunes the radios and manages to find an active frequency. Based on whether the signal gets stronger or weaker your team is able to use them to navigate towards whichever radio tower is broadcasting. It helps you orient yourselves in the desert and continue on your mission. The radios' batteries are used up in the process.", "used": True, "point_value": 80, "point_desc": "An effective technique, it just takes a while for your team to work out how to use the radios to orient themselves."},
                 "Map": {"use_desc": "Your team is able to use the few landmarks nearby to orient themselves. With a better idea of where they are going, the team is able to continue the mission.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding your way through the desert."},
                 "Compass": {"use_desc": "your team use the compass to orient themselves. With a better idea of where they are, the team is able to continue the mission.", "used": False, "point_value": 100, "point_desc": "The compass is ideal for getting your team headed in the right direction."},              
             },  
@@ -549,6 +550,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Handheld Radios": {"use_desc": "Your team uses the radios and finds an active frequency. Depending on whether the signal strengthens or weakens, you are able to use it to navigate towards whatever radio tower is broadcasting and therefore towards civilization, where you can take shelter. The radios' batteries are used up in the process.", "used": True, "point_value": 70, "point_desc": "This is an effective solution but it takes a lot of trial and error before you find civilization."},
                 "Map": {"use_desc": "Your team is able to use the few landmarks nearby to orient themselves. Your team is able to use the map to work out where the nearest patch of civilization is and head towards it.", "used": False, "point_value": 100, "point_desc": "The map is ideal for helping your team navigate towards civilization."},
             },  
             "failure_items": {}, 
@@ -562,6 +564,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Handheld Radios": {"use_desc": "Your team uses the radios and finds an active frequency. Depending on whether the signal strengthens or weakens, you are able to use it to navigate towards whatever radio tower is broadcasting and therefore towards land, where you can take shelter. The radios' batteries are used up in the process.", "used": True, "point_value": 70, "point_desc": "This is an effective solution but it takes a lot of trial and error before you find land."},
                 "Map": {"use_desc": "You use the map to orient yourself and work out where the nearest stretch of land is. The map isn't waterproof so gets damaged in the process.", "used": True, "point_value": 80, "point_desc": "The map is successful in getting your team to orient themselves, but it disintergrates in the water, so your team is forced to memorise the heading. A risky but successful maneuver."},
             },  
             "failure_items": {}, 
@@ -691,8 +694,9 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
+                "Handheld Radios": {"use_desc": "Your team leaves one of the radios at your current position and moves away. You then call it. The chatter attracts the attention of your pursuers and misleads them. The radio is left behind.", "used": True, "point_value": 70, "point_desc": "The radio is effective at misleading pursuers, but if they find it you risk them using it to locate your team."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of your pursuers. You travel in the opposite direction, using the fire as a diversion. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully mislead the pursuers, but it did cause some significant damage in the process."},
-                },  
+            },  
             "failure_items": {}, 
             "desc": "Your team isn't going to be able to outmaneuver your pursuers. Looks like you'll have to out-think them instead and lead them in the wrong direction before doubling back.", 
             "continue_failure_desc": "Without any better ideas, your team is forced to deploy the fastest of you. They make their way in the opposite direction, luring the attackers away. When they have lead them far enough away, they double back. It took a lot of time to shake them and trip tires your teammate out significantly.", 
@@ -730,6 +734,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
+                "Handheld Radios": {"use_desc": "Your team tunes the radios to the frequency used by the security. You talk on the comms about an intruder in a different section of the base. It tricks the guards without raising the alarm. The radios' batteries are used up in the process.", "used": True, "point_value": 90, "point_desc": "An effective solution, and one that doesn't lead back to you. It both mislead the guards and didn't raise suspicion. Although now the base is on high alert, looking for intruders, no less."},
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and blend right in. There's a terrifying moment when another guard asks to see your id, but you manage to bluff your way past.", "used": False, "point_value": 80, "point_desc": "Putting yourself in plain sight. An effective but dangerous maneuver."},
             },  
             "failure_items": {
@@ -830,6 +835,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Handheld Radios": {"use_desc": "The rover has a series of wires that have been broken. Your team strips the wiring from the radios and uses it to repair the rover. The radios' are damaged in the process.", "used": True, "point_value": 100, "point_desc": "You managed to fix the inner mechanisms or 'Georgie' but didn't manage to repair his chassis."},
                 "Welding Kit": {"use_desc": "You add scraps of metal to 'Gerogie' and weld them into place. It should hold for some time yet. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "You do successfully repair the damage to the rover, but are unable to fix some of the inner mechanisms with such a crude implement."},
             },  
             "failure_items": {}, 
@@ -899,6 +905,7 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the blockade rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
+                "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate. Your team slips by. The radios get left behind in the process.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there may be someone trying to make it past the blockade."},
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
                 "Explosives": {"use_desc": "Your team set up the explosives next to one of the unmanned walls and blow it. You dash through the hole in the wall before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the blockade."},
             },  
@@ -928,6 +935,7 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the checkpoint rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
+                "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate. Your team slips by. The radios get left behind in the process.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there may be someone trying to make it past the checkpoint."},
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
             },  
             "failure_items": {}, 
@@ -957,10 +965,11 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards on the dam wall rush to investigate, and whilst they aren't at their post, your team takes the opportunity to make a break for it across the top of the dam wall. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
+                "Handheld Radios": {"use_desc": "Your team tunes the radios to the frequency used by the guards. You talk on the comms about a possible leak in the dam. The guards rush to investigate allowing your team to make a break for it across the dam wal. The radios' batteries are used up in the process.", "used": True, "point_value": 90, "point_desc": "An effective solution, and one that doesn't lead back to you."},
                 "Boat": {"use_desc": "Your team pile into the boat and take off across the dam. Security spots you and try to intercept you, but you make it across safely. Unfortunatley you have to abandon the boat.", "used": True, "point_value": 60, "point_desc": "Not exactly a subtle maneuver, although it did get you across the dam pretty quick."},
             },  
             "failure_items": {}, 
-            "desc": "A dam stands between you and your destination. You'll need to find a way over or around it if you want to continue your mission.", 
+            "desc": "A dam stands between you and your destination. Guards patrol the dam wall. You'll need to find a way over or around it if you want to continue your mission.", 
             "continue_failure_desc": "Your team are forced to trek around the enitre lake feeding the dam. A lengthy and tiring process.", 
             "final_failure_desc": "Your team attempts to cross the walkway across the dam. It is however blocked off. So when guards find you on the wrong side of the fence, they take you in for questioning. Your mission ends here."
         },
@@ -1096,6 +1105,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Handheld Radios": {"use_desc": "You tune the radios to the frequency the guards use and listen in. You discover another entrance out back that isn't on the schematics and use it to get in. The radios' batteries are used up in the process.", "used": True, "point_value": 80, "point_desc": "This is an effective solution, it just takes a long time before the information you need is discussed."},
                 "Map": {"use_desc": "Your team check the schematics of the building. You use it to locate a service entrance that your team sneaks in through.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding alternate routes inside."},
             },  
             "failure_items": {}, 
@@ -1110,6 +1120,7 @@ challenges_dict = {
             "viable_mission_types": ["Escape"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team creates a small flame using the fire starter kit. You bring it near to a smoke alarm to trigger it. The fire causes safety protocols and gates that would otherwise be closed, open. Your team escapes through a fire exit. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "Unfortunately the maneuver did draw attention to your escape. But you were still able to find a new exit but using the fire starter kit."},
+                "Handheld Radios": {"use_desc": "You tune the radios to the frequency the guards use and listen in. You discover another exit out back that isn't on the schematics and use it to get out. The radios' batteries are used up in the process.", "used": True, "point_value": 80, "point_desc": "This is an effective solution, it just takes a long time before the information you need is discussed."},
                 "Map": {"use_desc": "Your team check the schematics of the building. You use it to locate a service entrance that your team sneaks out through.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding alternate routes out of the building."},
             },  
             "failure_items": {}, 
@@ -1364,6 +1375,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Handheld Radios": {"use_desc": "You strip the batteries of their wiring and use it to cross wires in the bomb and deactivate it. The radios' are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The radio wiring did successfully deactivate the bomb, but it was more of a 50/50 if it would work."},
                 "Toolkit": {"use_desc": "You use the toolkit to repair the damaged safety controls and activate the bomb's shutdown sequence. The countdown stops.", "used": False, "point_value": 100, "point_desc": "The toolkit restores the safety controls, allowing your team to deactivate the device without triggering it."},
             },
             "failure_items": {
