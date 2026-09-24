@@ -6,13 +6,13 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Rescue Op"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. The other team sees it and is alerted to your position. The fire starter kit is used up in the process", "used": True, "point_value": 70, "point_desc": "The signal fire gets the team's attention and gives them a clear destination to aim for. It does, however, risk attracting unwanted attention."}, 
-                "Handheld Radios": {"use_desc": "You use your handheld radios to call the the other team and alert them to your position. The radio batteries are used up in the process", "used": True, "point_value": 100, "point_desc": "The radios are perfectly suited for this scenario. Both teams are able to communicate and discuss a rendezvouz point."},
+                "Handheld Radios": {"use_desc": "You use your handheld radios to call the the other team and alert them to your position. The radio batteries are used up in the process", "used": True, "point_value": 100, "point_desc": "The radios are perfectly suited for this scenario. Both teams are able to communicate and discuss a rendezvous point."},
                 "Mirror": {"use_desc": "You use the mirror to reflect light in the direction of the other team. They see it and are able to track it back, alerting them to your position.", "used": False, "point_value": 60, "point_desc": "The mirror was able to attract the other team's attention, but it was hard to trace back to an origin and took a while for them to even notice it in the first place."},
             }, 
             "failure_items": {},
             "desc": "To be able to continue your mission you are going to need to be able to alert the other team to your position.",
-            "continue_failure_desc": "Without the right equipment, your team is unable to alert the other team to your presence. You'll just have to continue the mission and hope that they will know where to rendezvouz. You do have a regular spot nearby. Let's hope they remember it. This will take a long time and slow your team down.", 
-            "final_failure_desc": "Your team is unable to work out how to contact the other team. Without being able to alert them to your position, you'll never be able to rendezvouz. Your mission ends here."
+            "continue_failure_desc": "Without the right equipment, your team is unable to alert the other team to your presence. You'll just have to continue the mission and hope that they will know where to rendezvous. You do have a regular spot nearby. Let's hope they remember it. This will take a long time and slow your team down.", 
+            "final_failure_desc": "Your team is unable to work out how to contact the other team. Without being able to alert them to your position, you'll never be able to rendezvous. Your mission ends here."
         },
 
         "Contact Rescue Team - Survival": {
@@ -49,7 +49,7 @@ challenges_dict = {
             "viable_mission_types": ["Rescue"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. Your teammate sees it and is alerted to your position. The fire starter kit is used up in the process", "used": True, "point_value": 70, "point_desc": "The signal fire gets the teammate's attention and gives them a clear destination to aim for. However, it only allows communication in 1 direction."},
-                "Handheld Radios": {"use_desc": "You use the handheld radios to contact your lost teammate and discuss a rendezvouz point. The radio batteries are used up in the process", "used": True, "point_value": 100, "point_desc": "The radios are ideal for getting in contact."},
+                "Handheld Radios": {"use_desc": "You use the handheld radios to contact your lost teammate and discuss a rendezvous point. The radio batteries are used up in the process", "used": True, "point_value": 100, "point_desc": "The radios are ideal for getting in contact."},
             }, 
             "failure_items": {},
             "desc": "To have any hope of reconnecting with your teammate, you'll need to find a way to contact them and let know where to meet you.", 
@@ -253,6 +253,7 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small flame. You light a branch on fire and use it to dot small fires around a central tree. It burns through the tree slowly and eventually a path through it burned.", "used": True, "point_value": 40, "point_desc": "You made it past the trees but using the fire safely took a long time. You of course could have sent the whole thing up in flames but that would have risked starting a forest fire."},
+                "Ice Axes": {"use_desc": "Your team uses the ice axes to hook into the trees to drag them out of the way.", "used": False, "point_value": 50, "point_desc": "It takes a lot of effort and the ice axes don't help nearly enough."},
                 "Axe": {"use_desc": "Your team use the axe to cut the trees into smaller pieces that they are able to lug off the path.", "used": False, "point_value": 80, "point_desc": "It takes a while, but the axe is effective at clearing the path."},
             },  
             "failure_items": {}, 
@@ -280,6 +281,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Ice Axes": {"use_desc": "Your team climb into the trees nearby. You wedge the ice axes deep into the trunk to give yourselves a better grip. You hold on until the flood passes.", "used": False, "point_value": 20, "point_desc": "You very nearly get swept away, but your team does manage to survive the flood with the help of the ice axes."},
                 "Boat": {"use_desc": "Your team pile into the boat. As soon as the waters are high enough, the boat is able to navigate on top.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for handling the flooding."},
             },  
             "failure_items": {}, 
@@ -293,6 +295,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Ice Axes": {"use_desc": "Your team uses the ice axes to test the depth of the ice. It's a long process and involves a lot of crawling around on your stomachs, but by driving the ice axes into the ice, you are able to work out if a section is stable enough to support your weight.", "used": False, "point_value": 30, "point_desc": "The ice axes help get you across the lake, but it is a gruelling task."},
                 "Ice Skates": {"use_desc": "The team don the ice skates and use them to easily navigate over the forzen lake.", "used": False, "point_value": 100, "point_desc": "The ice skates are idel for navigating over the lake and your team is able to move quickly to their next challenge."},
             },  
             "failure_items": {}, 
@@ -400,6 +403,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Ice Axes": {"use_desc": "Your team jumps into the ragin river and swims across. You use the ice axes to latch onto tree roots on the far side and pull yourselves across. The ice axes are damaged in the process.", "used": True, "point_value": 50, "point_desc": "The ice axes help you get to the other side of the river without washing too far downstream, but the method of getting a hold was kind of painfull and pulled a lot of arms in uncomfortable ways."},
                 "Boat": {"use_desc": "Your team pile into the boat, and just moments later you are safely on the other bank fo the river.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for crossing the river."},
             },  
             "failure_items": {}, 
@@ -481,6 +485,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Ice Axes": {"use_desc": "Your team wedge the ice axes into the surrounding rock just as the floor gives way. Your teeam is able to haul themselves out of the hole using the ice axes. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "It's an efficient way out of the hole, but it takes a lot of effort."},
                 "Grapling Hook": {"use_desc": "In the few moments you have, your team manages to latch the grapling hook to the far side of the hole. When the ground gives way, your team is able to swing to safety.", "used": False, "point_value": 90, "point_desc": "The grapling hook handly passes the challenge, and apart from a few minor cuts, your team comes away unscathed."},
             }, 
             "failure_items": {},
@@ -513,7 +518,9 @@ challenges_dict = {
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You use the flame to keep the reptile at bay, and pass by unscathed. The kindling is used up in the process.", "used": True, "point_value": 100, "point_desc": "The fire is very effective at keeping the snake at bay. And it didn't require any injuries to wildlife."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister near the snake, harmlessly incapacitating it and you use the gas mask to slip by unscathed. The gas is used up in the process.", "used": True, "point_value": 100, "point_desc": "The gas is great at handling the snake. And it didn't require any injuries to wildlife."},
             }, 
-            "failure_items": {}, 
+            "failure_items": {
+                "Ice Axes": {"use_desc": "You swing the ice axes wildly at the snake. The movement panics the snake and it strikes. The snake is too small a target to hit, so it lands the bite cleanly and then slithers into the undergrowth.", "used": False, "point_value": 0, "point_desc": "An unfortunate event. Nothing more. It's simply a pity that it ended this way. Just remember in future, snakes are pretty hard to hit."},
+            }, 
             "desc": "A venemous snake blocks the path. Your team will need to evade it if you want to continue your mission.", 
             "continue_failure_desc": "Your team are forced to double back and go the long, long way round, costing significant time and energy.", 
             "final_failure_desc": "Your team don't have time to double back and attempt to slip by the snake. Unfortunately one of you gets too close and it strikes. There's a panic and within moments the entire team has the snake's venom coursing through them. Even after yu kill the snake there is nothing your team can do. Your mission ends here."
@@ -537,6 +544,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Ice Axes": {"use_desc": "You descend down the crevasse using the ice axes, until you hit a section that is thinner. You are able to switch sides and climb back the other side of the creavasse using the ice axes. The ice axes are damaged in the process.", "used": False, "point_value": 70, "point_desc": "It is an efficcient way to handle the obstacle, but required a lot of effort."},
                 "Rope": {"use_desc": "Your team manage to lasso a rock jutting up on the far side. You carefully swing each teammate across the gap.", "used": False, "point_value": 70, "point_desc": "The rope is able to get your team across, but it's a risky maneuver."},
             },
             "failure_items": {},
@@ -932,6 +940,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Ice Axes": {"use_desc": "You use the ice axes to break down the door to the building and get the key. You use it to unlock the gate and pass by unhindered.", "used": False, "point_value": 70, "point_desc": "It takes a while to break down the door and more than a little effort. But you do successfully pass the challenge."},
                 "Fire Starter Kit": {"use_desc": "The door to the building is wooden, so your team uses the firestarter kit to create a flame. Soon enough the door is slowly being burnt away. Once enough of it has turned to embers, your team is able to slip inside, grab the key and get through the gate.", "used": False, "point_value": 30, "point_desc": "Burning the door worked, but took a very long time."},
                 "Explosives": {"use_desc": "Your team set up the explosives next to gate and blow it. You dash through before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the gate."},
             },  
@@ -995,6 +1004,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Ice Axes": {"use_desc": "You wedge the ice axes deep in the wall and use them to scale it. It's almost impossible but it gets you up and over. The ice axes are damaged in the process.", "used": True, "point_value": 70, "point_desc": "It is a lot of work and quite a risky maneuver, but the ice axes do get you successfully over the wall."},
                 "Grapling Hook": {"use_desc": "Your team secure the grapling hook to the top of the wall, and make your way easily to the top. Then you secure it again and make your way down. Easy.", "used": False, "point_value": 100, "point_desc": "The grapling hook is ideal for climbing especially walls. It's what grapling hooks are built for after all."},
             },  
             "failure_items": {}, 
@@ -1049,6 +1059,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Ice Axes": {"use_desc": "You wedge the ice axes into sections of the debris and use them as a handle to drag the debris out of the way, clearing a path through. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The ice axes help speed up the clearing of the stairway, but are not altogether a great tool for the task."},
                 "Shovel": {"use_desc": "You shovel the loose rubble aside until everyone can reach the stairs.", "used": False, "point_value": 100, "point_desc": "The shovel clears the obstruction efficiently."},
             },
             "failure_items": {},
@@ -1082,7 +1093,9 @@ challenges_dict = {
                 "Fire Starter Kit": {"use_desc": "Your team figures that the best way to deactivate the alarms is to get them to do it for you. You create a small flame and put it near a smoke detector. Alarms blare and your crew sneaks by. Eventually once they deactivate the fire alarm they realise that other alarms have been tripped, but toss it up to a system malfunction. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "A risky maneuver that luckily paid off. Still drew a lot of attention."},
                 "Wire Cutters": {"use_desc": "Your team break open a fuse box that powers the alarms. You cut the wires to the alarms in the nearby sections preventing them from triggering.", "used": False, "point_value": 100, "point_desc": "The wire cutters are ideal for this task, they not only deactivate the alarms, but the appraoch is subtle enough that it didn't draw any attention."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Ice Axes": {"use_desc": "You plunge the ice axes into the alarm wiring. It sets them all off at once. Within moments, you are surrounded by guards.", "used": False, "point_value": 0, "point_desc": "Not your brightest idea. Unfortunately the ice axes aren't the sort of delicate implement you want to use when handling alarms."},
+            }, 
             "desc": "The area you're attempting to sneak through is rigged with numerous alarms, all set to go off at the slightest disturbance. You'll have to deactivate them before you can proceed.", 
             "continue_failure_desc": "Without the proper equipment, your team is forced to navigate through the area at a tortoise's pace to avoid triggering any of the alarms. It takes a long time and isn't easy on any of the team.", 
             "final_failure_desc": "Without the appropriate equipment, your team is unable to deactivate the alarms, so have to try and make it past without triggering any. Unfortunately, your earlier delays have put you behind schedule and you team is forced to move through the area faster than you would have liked. You make it just 20m before the first alarm is triggered. Within a moment there's a cacophany as alarms blare and guards yell. Your team is captured. Your mission ends here."
@@ -1094,6 +1107,7 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Wire Cutters": {"use_desc": "Your team break open a fuse box that powers the security cameras. You cut the wires to the cameras, and thereby cut the feed.", "used": False, "point_value": 70, "point_desc": "You were successful in deactivating the cameras, but cutting the feeds will draw unwanted attention. It won't be long before someone is sent to find out what went wrong."},
+                "Ice Axes": {"use_desc": "You plunge the ice axes into the camera wiring. All the cameras go out. This damages the ice axes.", "used": True, "point_value": 70, "point_desc": "You were successful in deactivating the cameras, but cutting the feeds will draw unwanted attention. It won't be long before someone is sent to find out what went wrong."},
             },  
             "failure_items": {}, 
             "desc": "The area you're attempting to sneak through is under constant video surveillance. You'll need to find a way to deactivate the security cameras if you want to get past.", 
@@ -1169,6 +1183,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Ice Axes": {"use_desc": "You use the ice axes to smash the hinges of the vault. The ice axes are broken in the process.", "used": True, "point_value": 10, "point_desc": "It takes a long time to break the hinges and is not at all quiet. Even if it did work."},
                 "Lock Picks": {"use_desc": "Your team uses the lock picks to break into the vault. It's tricky and not exactly what they were designed for. But it gets the job done. The lock picks get damaged in the process.", "used": True, "point_value": 80, "point_desc": "It's a time consuming process, but using the lock picks does allow the team to break open the safe subtly."},
             },  
             "failure_items": {}, 
@@ -1183,6 +1198,7 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team use the frie starter kit to create a small flame. You place it on the wooden crate, and soon enough it begins to burn. It takes a while but eventually the crate burns away and you're able to get the goods. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "You do get through the crate, but it takes a long time for the flames to do their work."},
+                "Ice Axes": {"use_desc": "Your team uses the ice axes to break the wooden crate. It's easy enough to do, just a little loud.", "used": False, "point_value": 75, "point_desc": "The ice axes are effective at getting the goods from the crate, but creates a lot of noise in the process."},
                 "Axe": {"use_desc": "Your team uses the axe to break the wooden crate. It's easy enough to do, just a little loud.", "used": False, "point_value": 80, "point_desc": "The axe is effective at getting the goods from the crate, but creates a lot of noise in the process."},
             },  
             "failure_items": {}, 
@@ -1215,6 +1231,7 @@ challenges_dict = {
                 "Mirror": {"use_desc": "You use the mirror to reflect the lasers away as one of you reaches in and grabs the goods.", "used": False, "point_value": 100, "point_desc": "The mirror was an ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the goods have even been taken."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team wears their masks and opens the gas canister. As the gas fills the air the laser beams become much, much easier to see. You are able to carefully weave your between the beams and retrieve the item. The gas was used up in the process.", "used": True, "point_value": 100, "point_desc": "An ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the goods have even been taken."},
                 "Wire Cutters": {"use_desc": "You find the system that powers the laser grid and cut the wires. It deactivates the grid and you are able to grab the goods.", "used": False, "point_value": 80, "point_desc": "You were successful in grabbing the goods, but there was evidence of your theft and the disappearence of the item was quickly noticed."},
+                "Ice Axes": {"use_desc": "You find the system that powers the laser grid and use the ice axes to break the wires. It deactivates the grid and you are able to grab the goods. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "You were successful in grabbing the goods, but the ice axes knocked out a few other systems, making your theft all the more obvious."},
             }, 
             "failure_items": {},
             "desc": "You find the item, but it's protected by a laser grid. You'll need to find a way to get the item past it.", 
@@ -1227,6 +1244,7 @@ challenges_dict = {
             "viable_locations": ["City", "Desert", "Arctic Tundra"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Ice Axes": {"use_desc": "You loudly smash open the case using the ice axes and get the documents. The ice axes are damaged in the process.", "used": True, "point_value": 50, "point_desc": "You do get the documents but your method was very noisy and likely attracted some unwanted attention."},
                 "Lock Picks": {"use_desc": "You open the case lock and retrieve the documents.", "used": False, "point_value": 100, "point_desc": "The lock picks preserve the documents and leave the case intact."},
             },
             "failure_items": {},
@@ -1323,18 +1341,18 @@ challenges_dict = {
 
 
 
-    "Travel To Rendezvouz": {
+    "Travel To Rendezvous": {
         "Air Based Travel": {
             "challenge_name": "Travel To Rendezvou",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Helicopter": {"use_desc": "Your team pile into the helicopter and make your way to the rendezvouz quickly and safely.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for air based travel"},
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and make your way to the rendezvous quickly and safely.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for air based travel"},
             },  
             "failure_items": {}, 
-            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using air based transport.", 
-            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
-            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
+            "desc": "Your team needs to travel to the agreed rendezvous point. From your current position, the fastest and safest way to get there is using air based transport.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvous point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
         },
 
         "Land Based Travel": {
@@ -1342,12 +1360,12 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off towards the rendezvouz point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The armoured truck is an ideal option for land based travel."},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The armoured truck is an ideal option for land based travel."},
             },  
             "failure_items": {}, 
-            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using on-the-ground transport.", 
-            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
-            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
+            "desc": "Your team needs to travel to the agreed rendezvous point. From your current position, the fastest and safest way to get there is using on-the-ground transport.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvous point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
         },
 
         "Sand Based Travel": {
@@ -1355,12 +1373,12 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and take off towards the rendezvouz point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The Dune Buggy is an ideal option for travel over sand."},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The Dune Buggy is an ideal option for travel over sand."},
             },  
             "failure_items": {}, 
-            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is over the dunes.", 
-            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
-            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
+            "desc": "Your team needs to travel to the agreed rendezvous point. From your current position, the fastest and safest way to get there is over the dunes.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvous point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
         },
 
         "Snow Based Travel": {
@@ -1368,12 +1386,12 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off towards the rendezvouz point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The snow mobile is an ideal option for travel over snow."},
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The snow mobile is an ideal option for travel over snow."},
             },  
             "failure_items": {}, 
-            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is over the ice and snow.", 
-            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
-            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
+            "desc": "Your team needs to travel to the agreed rendezvous point. From your current position, the fastest and safest way to get there is over the ice and snow.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvous point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
         },
 
         "Water Based Travel": {
@@ -1381,12 +1399,12 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Your team pile into the boat and take off towards the rendezvouz point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The boat is an ideal option for travel over water."},
+                "Boat": {"use_desc": "Your team pile into the boat and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The boat is an ideal option for travel over water."},
             },  
             "failure_items": {}, 
-            "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using water based transport.", 
-            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to swim the distance. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
-            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt to swim the distance. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut through rough waters. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team struggles to stay afloat in the raging waters. It isn't long before catastrophe. Your team never makes it to their destination."
+            "desc": "Your team needs to travel to the agreed rendezvous point. From your current position, the fastest and safest way to get there is using water based transport.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to swim the distance. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvous point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt to swim the distance. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut through rough waters. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team struggles to stay afloat in the raging waters. It isn't long before catastrophe. Your team never makes it to their destination."
         },
     },
     
@@ -1429,6 +1447,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Ice Axes": {"use_desc": "You smash the ice axes into the control system and the weapon shuts down. The ice axes are damaged in the process.", "used": True, "point_value": 50, "point_desc": "That had a 50/50 chance of working and damaging the controls was a pretty risky maneuver, as once you broke them there would be no other way to deactivate the weapon. Still, it worked."},
                 "Toolkit": {"use_desc": "You use the toolkit to free the jammed emergency shutdown mechanism. The weapon powers down and its charging sequence stops.", "used": False, "point_value": 100, "point_desc": "The toolkit allows your team to activate the emergency shutdown without damaging the surrounding facility."},
             },
             "failure_items": {},
