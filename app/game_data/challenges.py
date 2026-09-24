@@ -103,7 +103,7 @@ challenges_dict = {
 
         "Cliff": {
             "challenge_name": "Cliff",
-            "viable_locations": ["Arctic Tundra", "Jungle"],
+            "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Ice Axes": {"use_desc": "Your team use the ice axes to wedge into the had rock and pull themselves up. The ice axes were damaged in the process.", "used": True, "point_value": 60, "point_desc": "The ice axes were able to get your team over the cliff, but they took a lot of work to use in this kind of climbing. Beyond that, the ascent was pretty dangerous."},
@@ -943,7 +943,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Your team pile into the boat and take off across the dam. Security spotsyou and try to intercept you, but you make it across safely. Unfortunatley you have to abandon the boat.", "used": True, "point_value": 60, "point_desc": "Not exactly a subtle maneuver, although it did get you across the dam pretty quick."},
+                "Boat": {"use_desc": "Your team pile into the boat and take off across the dam. Security spots you and try to intercept you, but you make it across safely. Unfortunatley you have to abandon the boat.", "used": True, "point_value": 60, "point_desc": "Not exactly a subtle maneuver, although it did get you across the dam pretty quick."},
             },  
             "failure_items": {}, 
             "desc": "A dam stands between you and your destination. You'll need to find a way over or around it if you want to continue your mission.", 

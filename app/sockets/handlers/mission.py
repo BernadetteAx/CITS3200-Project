@@ -138,11 +138,38 @@ def _resolve(code, session, mission, item=None, timed_out=False):
     instant_failure = False
 
     if item:
-        # If the item is in gets used after it's use, include it in used items
-        if item["id"] in challenge["success_items"].keys() and challenge["success_items"][item["id"]]["used"]:
-            mission["used_items"].append(item["id"])
-        elif item["id"] in challenge["failure_items"].keys() and challenge["failure_items"][item["id"]]["used"]:
-            mission["used_items"].append(item["id"])
+        # If the item gets used up after it's use, include it in used items
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+        print("ANG")
+
+        print(item["id"])
+        print(challenge["success_items"].keys())
+        print(challenge["failure_items"].keys())
+
+        # If the item is in noted as being used, then count it as used
+        for success_item in challenge["success_items"].keys():
+            normalised_item = success_item.lower().strip().replace(" ", "-")
+            if item["id"] == normalised_item and challenge["success_items"][success_item]["used"]:
+                mission["used_items"].append(item["id"])
+        for failure_item in challenge["failure_items"].keys():
+                normalised_item = failure_item.lower().strip().replace(" ", "-")
+                if item["id"] == normalised_item and challenge["failure_items"][failure_item]["used"]:
+                    mission["used_items"].append(item["id"])     
         
 
         item_result = challenge["success_items"].get(item["name"])
