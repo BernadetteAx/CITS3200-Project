@@ -138,7 +138,12 @@ def _resolve(code, session, mission, item=None, timed_out=False):
     instant_failure = False
 
     if item:
-        # mission["used_items"].append(item["id"])
+        # If the item is in gets used after it's use, include it in used items
+        if item["id"] in challenge["success_items"].keys() and challenge["success_items"][item["id"]]["used"]:
+            mission["used_items"].append(item["id"])
+        elif item["id"] in challenge["failure_items"].keys() and challenge["failure_items"][item["id"]]["used"]:
+            mission["used_items"].append(item["id"])
+        
 
         item_result = challenge["success_items"].get(item["name"])
         failure_result = challenge["failure_items"].get(item["name"])

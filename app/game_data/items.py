@@ -15,7 +15,8 @@ items_dict = {
     "Explosives": {"desc": "A demolition pack capable of breaking through solid barriers and clearing obstacles.", "cost": 100, "image": "icons8-grenade-64.png", "hotbar_image": "icons8-grenade-32.png"},
     "Water Bottle": {"desc": "A durable, refillable bottle filled with clean drinking water.", "cost": 100,"image": "sport-bottle-white-64.png", "hotbar_image": "sport-bottle-white-64.png"},
     "Fuel": {"desc": "Keep the vehicle moving when every kilometre matters.", "cost": 40, "image": "icons8-petrol-64.png", "hotbar_image": "icons8-petrol-32.png"},
-
+    "Mountain Gear": {"desc": "A set of climbing equipment including a harness, helmet and carabiners for navigating steep terrain.", "cost": 120, "image": "icons8-mountain-64.png", "hotbar_image": "icons8-mountain-32.png"},
+    
 
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
     "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},
@@ -25,7 +26,6 @@ items_dict = {
     "Hat": {"desc": "A sturdy hat that provides basic protection from the sun.", "cost": 20, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},
     "GPS": {"desc": "A portable navigation device for determining your location and following routes.", "cost": 90, "image": "icons8-gps-signal-64.png", "hotbar_image": "icons8-gps-signal-32.png"},
     "Map": {"desc": "A detailed paper map showing nearby terrain, landmarks and routes.", "cost": 30, "image": "icons8-map-64.png", "hotbar_image": "icons8-map-32.png"},
-    "Mountain Gear": {"desc": "A set of climbing equipment including a harness, helmet and carabiners for navigating steep terrain.", "cost": 120, "image": "icons8-mountain-64.png", "hotbar_image": "icons8-mountain-32.png"},
     "Car": {"desc": "A standard passenger car for transporting your team and equipment along roads.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Toolkit": {"desc": "A portable collection of tools for repairing equipment and carrying out basic mechanical work.", "cost": 100, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
     "Shovel": {"desc": "A sturdy digging tool for moving soil, clearing debris and uncovering buried objects.", "cost": 60, "image": "shovel-32.png", "hotbar_image": "shovel-32.png"},
