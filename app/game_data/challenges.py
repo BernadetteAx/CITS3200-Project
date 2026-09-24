@@ -80,12 +80,12 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "The gas mask is able to protect your team from breathing in teh ash, and the goggles allow them to see.", "used": False, "point_value": 100, "point_desc": "The gas mask is ideal for the situation. It allows your team to both breathe, and see enough to find a way out."},
+                "Gas Mask and Knockout Gas": {"use_desc": "The gas mask is able to protect your team from breathing in the ash, and the goggles allow them to see.", "used": False, "point_value": 100, "point_desc": "The gas mask is ideal for the situation. It allows your team to both breathe, and see enough to find a way out."},
             }, 
             "failure_items": {},
             "desc": "A plume of ash from the volcano fills the sky. Your team begins to choke, and can't see through it to find a way out of the ash cloud.", 
             "continue_failure_desc": "Your team, unable to see or breathe properly are forced to stay where they are and cover their faces with their clothes. It is a long time before the ash subsides and they are able to continue their mission.", 
-            "final_failure_desc": "Without the right tools, your team attempts to continue on, unable to see or breathe. One after teh other, just like lemmings, your team slips down a sheer cliff, unaware it was there until it was too late. Your mission ends here."
+            "final_failure_desc": "Without the right tools, your team attempts to continue on, unable to see or breathe. One after the other, just like lemmings, your team slips down a sheer cliff, unaware it was there until it was too late. Your mission ends here."
         },
 
         "Blizzard": {
@@ -93,7 +93,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Snow Boots": {"use_desc": "The snow boots keep your team warm and give them good grip on teh ground. Despite barely being able to see, the team is able to make it out of the blizzard through sheer force of will.", "used": False, "point_value": 70, "point_desc": "The snow boots are effective in keeping your team warm and getting them out of the blizzard. However some time is lost as the team is unable to see where they are going."},
+                "Snow Boots": {"use_desc": "The snow boots keep your team warm and give them good grip on the ground. Despite barely being able to see, the team is able to make it out of the blizzard through sheer force of will.", "used": False, "point_value": 70, "point_desc": "The snow boots are effective in keeping your team warm and getting them out of the blizzard. However some time is lost as the team is unable to see where they are going."},
             }, 
             "failure_items": {},
             "desc": "The wind picks up and snow begins to fall, faster, faster. Soon enough your team is caught in a terrible blizzard. You're freezing and can't see 2ft in front of you. You'll need to get out of the storm.", 
@@ -137,7 +137,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed. The gas is used up in the process", "used": True, "point_value": 80, "point_desc": "The gas did manage to subdue teh crocodile, but it took a while to take effect, so your team had to scramble into the trees while you waited."},
+                "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed. The gas is used up in the process", "used": True, "point_value": 80, "point_desc": "The gas did manage to subdue the crocodile, but it took a while to take effect, so your team had to scramble into the trees while you waited."},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the crocodile retreats.", "used": False, "point_value": 80, "point_desc": "The ice axes are unwieldy, but do their job. But it sure wasn't a picnic having to get that close to the croc."},
                 "Axe": {"use_desc": "You wield the axe as a weapon. You land a hit and the crocodile retreats.", "used": False, "point_value": 90, "point_desc": "The axe does its job, but it sure wasn't a picnic having to get that close toe the croc."},
                 "Mirror": {"use_desc": "You use the glint of the mirror to distract the crocodile and slip by unscathed. The mirror is dropped in the escape.", "used": True, "point_value": 90, "point_desc": "The mirror was effective at getting by the croc."},
@@ -159,7 +159,7 @@ challenges_dict = {
                 "Helicopter": {"use_desc": "Your team attempt to go up in the helicopter. Unfortunately the winds are too strong and the chopper is tossed about in the wind like a leaf.", "used": True, "point_value": 0, "point_desc": "The helicopter was unable to handle the winds. It crashed miles from where you were and your whole team was wiped out."},
                 "Paraglider": {"use_desc": "Your team attempts to glide away using the paragliders. Unfortunately the winds are too strong and your team is tossed about in the wind like leaves.", "used": True, "point_value": 0, "point_desc": "The paragliders ripped apart in the strong winds. But that was after they got yanked up much higher into the sky then your team anticipated. It was a long way to fall."},       
             },
-            "desc": "The winds pick up. On teh horizon your team can see a cyclone brewing. It won't be long before it arrives.", 
+            "desc": "The winds pick up. On the horizon your team can see a cyclone brewing. It won't be long before it arrives.", 
             "continue_failure_desc": "Your team shelter together as best you can and wait it out. It takes a long time for the storm to subside and your team is left exhausted.", 
             "final_failure_desc": "Unable to do anything else, your team opt to shelter together as best you can and wait it out. Unfortunately, you are all so exhausted that you begin to fall asleep. The sleep you don't wake up from. Your mission ends here."
         },
@@ -170,13 +170,13 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Boat": {"use_desc": "Your team pile onto a boat and take off in the opposite direction, eventually rounding the cyclone and being able to continue safely on your mission.", "used": True, "point_value": 100, "point_desc": "The boat allowed you to safely escape the path of the cyclone and continue swiftly with your mission."},
-                "Inflatable Raft": {"use_desc": "Your team pile onto the raft. You try to paddle but can't outrun the storm. The raft shelters your team but near the end of the cyclone gets ripped.", "used": True, "point_value": 60, "point_desc": "The raft allowed you to survive teh storm. But it was a pretty harrowing time. You definitely thought that you were done for."},
+                "Inflatable Raft": {"use_desc": "Your team pile onto the raft. You try to paddle but can't outrun the storm. The raft shelters your team but near the end of the cyclone gets ripped.", "used": True, "point_value": 60, "point_desc": "The raft allowed you to survive the storm. But it was a pretty harrowing time. You definitely thought that you were done for."},
             }, 
             "failure_items": {
                 "Helicopter": {"use_desc": "Your team attempt to go up in the helicopter. Unfortunately the winds are too strong and the chopper is tossed about in the wind like a leaf.", "used": True, "point_value": 0, "point_desc": "The helicopter was unable to handle the winds. It crashed miles from where you were and your whole team was wiped out."},
                 "Paraglider": {"use_desc": "Your team attempts to glide away using the paragliders. Unfortunately the winds are too strong and your team is tossed about in the wind like leaves.", "used": True, "point_value": 0, "point_desc": "The paragliders ripped apart in the strong winds. But that was after they got yanked up much higher into the sky then your team anticipated. It was a long way to fall."},       
             },
-            "desc": "The winds pick up. On teh horizon your team can see a cyclone brewing. It won't be long before it arrives.", 
+            "desc": "The winds pick up. On the horizon your team can see a cyclone brewing. It won't be long before it arrives.", 
             "continue_failure_desc": "Your team shelter together as best you can and wait it out. It takes a long time for the storm to subside and your team is left exhausted.", 
             "final_failure_desc": "Unable to do anything else, your team opt to shelter together as best you can and wait it out. Unfortunately, you are all so exhausted that you begin to fall asleep. The sleep you don't wake up from. Your mission ends here."
         },
@@ -274,7 +274,7 @@ challenges_dict = {
             },  
             "failure_items": {}, 
             "desc": "A torrential downpour begins. Your team recognises the conditions. It won't be long before a flood follows.", 
-            "continue_failure_desc": "Your team, unabel to get to safety, are forced to climb trees and hope they don't get swpet away with the current. It is exhausting, but your team manages to cling on through the ragin waters. When teh flood subsides, your team is exhausted and has lost a lot of time.", 
+            "continue_failure_desc": "Your team, unabel to get to safety, are forced to climb trees and hope they don't get swpet away with the current. It is exhausting, but your team manages to cling on through the ragin waters. When the flood subsides, your team is exhausted and has lost a lot of time.", 
             "final_failure_desc": "Your team, unabel to get to safety, are forced to climb trees and hope they don't get swpet away with the current. Unfortunately, they are exhausted from their earlier trials, and when the first wave hits, they are wrenched from the trees and scattered. You can't outswim that kind of water. Your team drowns."
         },
 
@@ -309,7 +309,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "You use the Ice Axes to scale the ice cliff with ease.", "used": False, "point_value": 100, "point_desc": "The ice axes are ideal for this kind of challenge as they are able to easily get a hold on teh smooth surface."},
+                "Ice Axes": {"use_desc": "You use the Ice Axes to scale the ice cliff with ease.", "used": False, "point_value": 100, "point_desc": "The ice axes are ideal for this kind of challenge as they are able to easily get a hold on the smooth surface."},
             }, 
             "failure_items": {}, 
             "desc": "Your team comes across an ice cliff that you'll need to scale if you want to continue your mission.", 
@@ -335,7 +335,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Heat Resistant Suit": {"use_desc": "You don teh heat resistant suits and are able to safely navigate areound the lava spout. It may be good, but even the heat resistant suit can barely hold it's own against lava. The extreme heat damages the heat-resistant suit beyond repair.", "used": True, "point_value": 90, "point_desc": "The heat resistant suit allowed your team to navigate around the lava spout, though it was a bit precarious being so close to the lava."},
+                "Heat Resistant Suit": {"use_desc": "You don the heat resistant suits and are able to safely navigate areound the lava spout. It may be good, but even the heat resistant suit can barely hold it's own against lava. The extreme heat damages the heat-resistant suit beyond repair.", "used": True, "point_value": 90, "point_desc": "The heat resistant suit allowed your team to navigate around the lava spout, though it was a bit precarious being so close to the lava."},
             },  
             "failure_items": {}, 
             "desc": "A lava spout erupts from the earth and blocks your path. You'll need to find a way past it.", 
@@ -368,7 +368,7 @@ challenges_dict = {
             "failure_items": {}, 
             "desc": "Your team stumbles across a nest of scorpions blocking your path. You'll need to get by them to continue your mission.", 
             "continue_failure_desc": "Your team is forced to take the long way around. And let me tell you. It's a long, long way. By the time your team reach their destination they are exhausted and well behind schedule.", 
-            "final_failure_desc": "Your team doesn't have the time nor the stamina to go teh long way around. Your team is forced to try and pass through the nest. Unfortunately your exhaustion makes you sloppy, and you step on one of the little guys. In seconds the scorpions turn on teh team and sting them. It's a painful way to go."
+            "final_failure_desc": "Your team doesn't have the time nor the stamina to go the long way around. Your team is forced to try and pass through the nest. Unfortunately your exhaustion makes you sloppy, and you step on one of the little guys. In seconds the scorpions turn on the team and sting them. It's a painful way to go."
         },
         
         "Quick Sand": {
@@ -389,7 +389,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Your team pile into the boat, and just moments later you are safely on teh other bank fo the river.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for crossing the river."},
+                "Boat": {"use_desc": "Your team pile into the boat, and just moments later you are safely on the other bank fo the river.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for crossing the river."},
             },  
             "failure_items": {}, 
             "desc": "A raging river stands between your team and their destination. You'll have to cross it if you want to continue your mission.", 
@@ -460,7 +460,7 @@ challenges_dict = {
             }, 
             "failure_items": {},
             "desc": "Your team are travelling when you come under attack by a shark. You'll need to fend him off or outrun him if you have any hope of continuing the mission.", 
-            "continue_failure_desc": "Without any better ideas, you team comes together. You try to look like 1 very big animal to scare teh shark off. It takes a long time and the shark tries to attack you a couple of times but eventually it gives up and leave you alone. You're team is exhausted and lost a lot of time.", 
+            "continue_failure_desc": "Without any better ideas, you team comes together. You try to look like 1 very big animal to scare the shark off. It takes a long time and the shark tries to attack you a couple of times but eventually it gives up and leave you alone. You're team is exhausted and lost a lot of time.", 
             "final_failure_desc": "Your team are exhausted and scatter as the shark approaches. Without any coordination, it isn't long before you are picked off one, by one. Your mission ends here."
         },
 
@@ -484,7 +484,7 @@ challenges_dict = {
             "items":{
                 "Blanket": {"use_desc": "Your team huddle under the blanket for warmth and wait for the temperature to climb once more.", "used": False, "point_value": 70, "point_desc": "The team is able to survive the tempertaure drop, but is unable to go anywhere until the climate improved."},
                 "Thermal Clothing": {"use_desc": "Your team don the thermal clothing and are able to continue their mission unhindered.", "used": False, "point_value": 100, "point_desc": "Thermal clothing is ideal for this time of climate related problem."},
-                "Snow Boots": {"use_desc": "Your team wear the snow boots, which keeps their toes warm at teh least. It does little to keep teh rest of your bodies warm. Fortunately your team is able to find their way out of the cold patch and continue the mission.", "used": True, "point_value": 40, "point_desc": "The snow boots are barely enough, but do allow your team to exit the cold patch."},    
+                "Snow Boots": {"use_desc": "Your team wear the snow boots, which keeps their toes warm at the least. It does little to keep the rest of your bodies warm. Fortunately your team is able to find their way out of the cold patch and continue the mission.", "used": True, "point_value": 40, "point_desc": "The snow boots are barely enough, but do allow your team to exit the cold patch."},    
             },  
             "failure_items": {}, 
             "desc": "There is a sudden drop in temperature and your team is caught out in it. You'll need to find a way to withstand the cold if you want to continue your mission.", 
@@ -503,7 +503,7 @@ challenges_dict = {
             "failure_items": {}, 
             "desc": "A venemous snake blocks the path. Your team will need to evade it if you want to continue your mission.", 
             "continue_failure_desc": "Your team are forced to double back and go the long, long way round, costing significant time and energy.", 
-            "final_failure_desc": "Your team don't have time to double back and attempt to slip by the snake. Unfortunately one of you gets too close and it strikes. There's a panic and within moments the entire team has the snake's venom coursing through them. Even after yu kill teh snake there is nothing your team can do. Your mission ends here."
+            "final_failure_desc": "Your team don't have time to double back and attempt to slip by the snake. Unfortunately one of you gets too close and it strikes. There's a panic and within moments the entire team has the snake's venom coursing through them. Even after yu kill the snake there is nothing your team can do. Your mission ends here."
         },
         
         "Volcanic Gases": {
@@ -682,7 +682,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of your pursuers. You travel in the opposite direction, using teh fire as a diversion. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully mislead the pursuers, but it did cause some significant damage in the process."},
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of your pursuers. You travel in the opposite direction, using the fire as a diversion. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully mislead the pursuers, but it did cause some significant damage in the process."},
                 },  
             "failure_items": {}, 
             "desc": "Your team isn't going to be able to outmaneuver your pursuers. Looks like you'll have to out-think them instead and lead them in the wrong direction before doubling back.", 
@@ -708,7 +708,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Snow Mobile": {"use_desc": "Your team pile into teh snow modile and it tears off across the fresh snow.", "used": False, "point_value": 100, "point_desc": "The snow mobile is ideal for getting places fast on snow."},
+                "Snow Mobile": {"use_desc": "Your team pile into the snow modile and it tears off across the fresh snow.", "used": False, "point_value": 100, "point_desc": "The snow mobile is ideal for getting places fast on snow."},
             },  
             "failure_items": {}, 
             "desc": "Your team is going to need to get away, and fast. The only way out, is over the freshly powdered snow.", 
@@ -721,7 +721,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Your team don teh stolen uniforms and blend right in. There's a terrifying moment when another guard asks to see your id, but you manage to bluff your way past.", "used": False, "point_value": 80, "point_desc": "Putting yourself in plain sight. An effective but dangerous maneuver."},
+                "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and blend right in. There's a terrifying moment when another guard asks to see your id, but you manage to bluff your way past.", "used": False, "point_value": 80, "point_desc": "Putting yourself in plain sight. An effective but dangerous maneuver."},
             },  
             "failure_items": {
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly. The armoured truck is blown up.", "used": True, "point_value": 0, "point_desc": "What about an armoured truck struck you as particularly sneaky. Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed rpg and your team was no more. Let's try a subtler approach next time, huh?"},
@@ -959,7 +959,7 @@ challenges_dict = {
                 "Grapling Hook": {"use_desc": "Your team secure the grapling hook to the top of the wall, and make your way easily to the top. Then you secure it again and make your way down. Easy.", "used": False, "point_value": 100, "point_desc": "The grapling hook is ideal for climbing especially walls. It's what grapling hooks are built for after all."},
             },  
             "failure_items": {}, 
-            "desc": "An enormous wall, previously constructed by the military, stands between you and where you're going. It's abadnonded, but is still in teh way. You'll need to find a way over, around or through it is you want to continue your mission.", 
+            "desc": "An enormous wall, previously constructed by the military, stands between you and where you're going. It's abadnonded, but is still in the way. You'll need to find a way over, around or through it is you want to continue your mission.", 
             "continue_failure_desc": "You team is forced to go around. And that happens to be a long, long , long way. The trip tires your team out and takes a long time.", 
             "final_failure_desc": "Your team, without any way to get past it are forced to throw in the towel. Your mission ends here."
         },
@@ -982,12 +982,12 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Your team dons the scuba gear and quickly and easily navigate the ship wrecked environment. The oxygen tank is used up in teh process.", "used": True, "point_value": 100, "point_desc": "The scuba gear is ideal for this situation. It allows you to move efficiently and safely past the sunken ships."},
+                "Scuba Gear": {"use_desc": "Your team dons the scuba gear and quickly and easily navigate the ship wrecked environment. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear is ideal for this situation. It allows you to move efficiently and safely past the sunken ships."},
             },  
             "failure_items": {},
             "desc": "Your team needs to traverse a section of ocean, unfortunately the shallow reef has wrecked many a ship. The water is littered with the metal skeletons. Rusted metal juts at all angles. You'll need to be careful.", 
             "continue_failure_desc": "Your team decides to swim. You manage to avoid the shipwrecks, but it is a tiring and time consuming process.", 
-            "final_failure_desc": "Your team decides to swim for it. Your doing ok, but your exhaustion makes your team sloppy. One of your team gets their clothing snagged on a piece of underwater debree and is dragged under. The team rushes to help, but they are pulled further under as teh debree falls to teh ocean floor. Your team try desperately to free them but can do nothing. Very soon they are in tehir own predicament as they run out of air. Too exhausted to make it to the surface, they drown."
+            "final_failure_desc": "Your team decides to swim for it. Your doing ok, but your exhaustion makes your team sloppy. One of your team gets their clothing snagged on a piece of underwater debree and is dragged under. The team rushes to help, but they are pulled further under as the debree falls to the ocean floor. Your team try desperately to free them but can do nothing. Very soon they are in their own predicament as they run out of air. Too exhausted to make it to the surface, they drown."
         },
 
         "Traffic": {
@@ -998,7 +998,7 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and, just like an icebreaker, plow it through traffic. It's messy and almost certainly injures a few people, but you do make it through. The truck gets damaged as you ram your way through traffic.", "used": True, "point_value": 80, "point_desc": "A very messy an dangerous approach. Although you did successfully beat traffic."},
             },  
             "failure_items": {}, 
-            "desc": "Your team need to cross a busy intersection of the city if you are to continue your mission. UNfortunately an accident earlier in teh day has blocked all teh roads with traffic.", 
+            "desc": "Your team need to cross a busy intersection of the city if you are to continue your mission. UNfortunately an accident earlier in the day has blocked all the roads with traffic.", 
             "continue_failure_desc": "Your team are forced to wait for traffic to clear before they continue. It takes a long, long time.", 
             "final_failure_desc": "Your team decide to try to run between the cars. Unfortunately you miss-time one of your sprints and get hit. You go down. Your mission ends here."
         },
@@ -1038,7 +1038,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Wire Cutters": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Wire Cutters": {"use_desc": "Your team break open a fuse box that powers the alarms. You cut the wires to the alarms in the nearby sections preventing them from triggering.", "used": False, "point_value": 100, "point_desc": "The wire cutters are ideal for this task, they not only deactivate the alarms, but the appraoch is subtle enough that it didn't draw any attention."},
             },  
             "failure_items": {}, 
             "desc": "The area you're attempting to sneak through is rigged with numerous alarms, all set to go off at the slightest disturbance. You'll have to deactivate them before you can proceed.", 
@@ -1051,7 +1051,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Wire Cutters": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Wire Cutters": {"use_desc": "Your team break open a fuse box that powers the security cameras. You cut the wires to the cameras, and thereby cut the feed.", "used": False, "point_value": 70, "point_desc": "You were successful in deactivating the cameras, but cutting the feeds will draw unwanted attention. It won't be long before someone is sent to find out what went wrong."},
             },  
             "failure_items": {}, 
             "desc": "The area you're attempting to sneak through is under constant video surveillance. You'll need to find a way to deactivate the security cameras if you want to get past.", 
@@ -1080,7 +1080,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "Your team check the schematics of the building. You use it to locate a service entrance that your team sneaks in through.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding alternate routes inside."},
             },  
             "failure_items": {}, 
             "desc": "Your team approaches the facility. Unfortunately, your planned entrance is being guarded. If you want to get in, you'll need to find another way.", 
@@ -1093,7 +1093,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Escape"],
             "items":{
-                "Map": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Map": {"use_desc": "Your team check the schematics of the building. You use it to locate a service entrance that your team sneaks out through.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding alternate routes out of the building."},
             },  
             "failure_items": {}, 
             "desc": "Your team approaches the exit to the facility. Unfortunately, it's being guarded. If you want to get out, you'll need to find another way.", 
@@ -1106,7 +1106,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Mirror": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Mirror": {"use_desc": "Your team use the mirror to harmlessly deflect the lasers and get past.", "used": False, "point_value": 100, "point_desc": "The mirror is ideal for dealing with laser based problems like this."},
             },  
             "failure_items": {}, 
             "desc": "Surrounding the entire facility is a laser grid. You'll need to find a way to get past it.", 
@@ -1123,7 +1123,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Lock Picks": {"use_desc": "Incomplete. The lock picks get damaged in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Lock Picks": {"use_desc": "Your team uses the lock picks to break into the vault. It's tricky and not exactly what they were designed for. But it gets the job done. The lock picks get damaged in the process.", "used": True, "point_value": 80, "point_desc": "It's a time consuming process, but using the lock picks does allow the team to break open the safe subtly."},
             },  
             "failure_items": {}, 
             "desc": "The item you seek is stored inside a vault. It's locked with a combination. You'll need to find a way inside if you want to retrieve the item.", 
@@ -1136,7 +1136,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Axe": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Axe": {"use_desc": "Your team uses the axe to break the wooden crate. It's easy enough to do, just a little loud.", "used": False, "point_value": 80, "point_desc": "The axe is effective at getting the goods from the crate, but creates a lot of noise in the process."},
             },  
             "failure_items": {}, 
             "desc": "The item you seek is stored inside a crate. You'll need to find a way to open or break the crate if you want it's contents.", 
@@ -1149,7 +1149,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Stolen Uniforms": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Stolen Uniforms": {"use_desc": "One member of the team puts on a uniform. They act as casually as they can and 'bump' into the guard who has the item. They get the item without anyone being the wiser.", "used": False, "point_value": 100, "point_desc": "The stolen uniform is ideal for stealing the item without raising suspicion."},
             },  
             "failure_items": {}, 
             "desc": "You watch as an armed guard takes the item and slips it into their pocket for safe keeping. You'll need to find a way to get it off them", 
@@ -1193,12 +1193,12 @@ challenges_dict = {
             "viable_locations": ["Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, filtering the air and making it breathable.", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, filtering the air and making it breathable.", "used": False, "point_value": 40, "point_desc": "The gas mask is an effective, but temporary solution. You didn't actually 'fix' anything."},
             }, 
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "The base's air recycling system has gone offline. It won't be long before the air in the base becomes unbreatheable. You'll need to fix it.", 
+            "continue_failure_desc": "Your team try to fix the system with what they have, costing significant time and energy, but there's nothing they can do. With no useful tools, you team opens a roof hatch to allow fresh air in. It's a temporary solution and likely won't work for long.", 
+            "final_failure_desc": "With no useful tools your team is unable to repair the system. Unfortunately, the time your team lost earlier has meant that the air being pumped in the base is already toxic. It doesn't take long before the team collapse, never to get back up."
         },
 
         "Central Heating Offline": {
@@ -1206,12 +1206,12 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Blanket": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Blanket": {"use_desc": "Your team wear blankets that keep them warm.", "used": False, "point_value": 30, "point_desc": "The blankets are cumbersome and don't actually resolve the heating issue. They however, do your keep your team warm. For now."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "The central heating system has gone offline. You'll need to fix it if you don't want to freeze to death.", 
+            "continue_failure_desc": "Your team try to fix the system with what they have, costing significant time and energy, but there's nothing they can do. Your team rug up as best they can. They'll just have to handle the freezing temperatures.", 
+            "final_failure_desc": "Your team try to fix the system with what they have, but there's nothing they can do. Their exhaustion makes them slower and slower. They are forced to rest and eventually fall asleep, never to wake again."
         },
 
         "Communications System Failure": {
@@ -1219,12 +1219,12 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Handheld Radios": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Handheld Radios": {"use_desc": "Your team uses the handheld radios to communicate with one another. The radio's batteries are drained in the process.", "used": True, "point_value": 50, "point_desc": "Whilst it does temporarily allow for communication, the radios are only a temporary fix."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "The communications system is offline. As the base is so large and sprawling, it's going need to be fixed if the base is to remain useable.", 
+            "continue_failure_desc": "Your team manages to rig up the system to give very crackly output. It's almost workable, but took significant time to complete.", 
+            "final_failure_desc": "Your team, unable to develop a solution to the comms problem is forced to give up on the mission. Without a working comms system, the base is unusable. Your mission ends here."
         },
 
         "Cooling Offline": {
@@ -1232,12 +1232,12 @@ challenges_dict = {
             "viable_locations": ["Desert", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Still-suit": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Still-suit": {"use_desc": "Your team don still suits. They provide relief from the scorching temperatures.", "used": False, "point_value": 50, "point_desc": "The still suits are well equipped to handle the heat, but they are only a temporary fix."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "The central cooling system has gone offline. You'll need to fix it if you don't want to collapse from the heat.", 
+            "continue_failure_desc": "Your team try to fix the system with what they have, costing significant time and energy, but there's nothing they can do. They'll just have to handle the scorching temperatures.", 
+            "final_failure_desc": "Your team try to fix the system with what they have, but there's nothing they can do. Their exhaustion makes them slower and slower. They are forced to rest and eventually fall asleep, never to wake again."
         },
 
         "Geo-Thermal Reactor Failure": {
@@ -1245,25 +1245,25 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Your team uses the welding kit to reconnect the sections of the geothermal reactor that are broken and get it back into working order. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for these sorts of situations."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "There is a failure with the Geo-Thermal reactor. Without it the base won't have power. You'll need to fix it if you want the base to remain usable.", 
+            "continue_failure_desc": "Your team manage to scavange some wiring from other sections of the base and rig up some rudimentary repairs. It is by no means a solution, but it'll work for now.", 
+            "final_failure_desc": "Your team, unable to develop a solution to the problem is forced to give up on the mission. Without a access to a steady power supply the base is unusable. Your mission ends here."
         },
 
         "Main Reactor Failure": {
             "challenge_name": "Main Reactor Failure",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
+            "viable_locations": ["Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Welding Kit": {"use_desc": "Incomplete. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "Incomplete"},
+                "Welding Kit": {"use_desc": "Your team uses the welding kit to reconnect the sections of the main reactor that are broken and get it back into working order. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for these sorts of situations."},
             },  
             "failure_items": {}, 
-            "desc": "Incomplete", 
-            "continue_failure_desc": "Incomplete", 
-            "final_failure_desc": "Incomplete"
+            "desc": "There is a failure with the main reactor. Without it the base won't have power. You'll need to fix it if you want the base to remain usable.", 
+            "continue_failure_desc": "Your team manage to scavange some wiring from other sections of the base and rig up some rudimentary repairs. It is by no means a solution, but it'll work for now.", 
+            "final_failure_desc": "Your team, unable to develop a solution to the problem is forced to give up on the mission. Without a access to a steady power supply the base is unusable. Your mission ends here."
         },
     },
 
@@ -1275,7 +1275,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Helicopter": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and make your way to the rendezvouz quickly and safely.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for air based travel"},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using air based transport.", 
@@ -1288,7 +1288,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Armoured Truck": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off towards the rendezvouz point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The armoured truck is an ideal option for land based travel."},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using on-the-ground transport.", 
@@ -1301,7 +1301,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Dune Buggy": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and take off towards the rendezvouz point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The Dune Buggy is an ideal option for travel over sand."},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is over the dunes.", 
@@ -1314,7 +1314,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Snow Mobile": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off towards the rendezvouz point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The snow mobile is an ideal option for travel over snow."},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is over the ice and snow.", 
@@ -1327,12 +1327,12 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Boat": {"use_desc": "Incomplete", "used": False, "point_value": 100, "point_desc": "Incomplete"},
+                "Boat": {"use_desc": "Your team pile into the boat and take off towards the rendezvouz point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The boat is an ideal option for travel over water."},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvouz point. From your current position, the fastest and safest way to get there is using water based transport.", 
             "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to swim the distance. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvouz point they've lost a lot of time and are exhausted.", 
-            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt to swim the distance. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut through rough waters. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team struggles to stay afloat in teh raging waters. It isn't long before catastrophe. Your team never makes it to their destination."
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt to swim the distance. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvouz point on time. Your team makes the unwise decision to take a shortcut through rough waters. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team struggles to stay afloat in the raging waters. It isn't long before catastrophe. Your team never makes it to their destination."
         },
     },
     
