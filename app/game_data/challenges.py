@@ -134,7 +134,8 @@ challenges_dict = {
             "failure_items": {}, 
             "desc": "Vicious winds tear at your team. And then you notice something on the horizon. It is an enormous wave headed right for you. You'll need to find a way to avoid it or risk being plunged deep into the ocean.", 
             "continue_failure_desc": "Your team unable to do anything else comes together and braces for the wave. It strikes and your team is tossed around like paper dolls. But the wave passes you and your team managed to stay together. If a little worse for wear.", 
-            "final_failure_desc": "Your team, without the appropraite supplies attempst to come together and brace for the wave. Unfortunately you are all too exhausted from your earlier trials that it rips you from one another and you are lost to the ocean."},
+            "final_failure_desc": "Your team, without the appropraite supplies attempst to come together and brace for the wave. Unfortunately you are all too exhausted from your earlier trials that it rips you from one another and you are lost to the ocean."
+        },
         
         "Crocodile": {
             "challenge_name": "Crocodile",
@@ -464,6 +465,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Mirror": {"use_desc": "You shatter the tiny mirror and use on of the glass shards as a blade. When the shark attacks you stab it with the glass. It does a little damage. It takes 3 more passes before the shark finally leaves. The mirror is broken.", "used": True, "point_value": 5, "point_desc": "This is perhaps the most desperate thing I've seen. It worked just, but left you with a very cut hand and a lot more blood in the water. This only just worked."},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the shark retreats.", "used": False, "point_value": 70, "point_desc": "The ice axes do successfully repel the shark, but it does add some blood to the water. Who knows if more sharks are coming."},
             }, 
             "failure_items": {},
@@ -636,6 +638,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Mirror": {"use_desc": "The mirror is a compact mirror, so has 2 surfaces. You break it so that you have 2 seperate mirrors. One you situate above a patch of ocean, the other you use to direct a beam of sunlight at the patch of water. The heat from the light begins to evaporate the water and it condenses into drinkable water on the surface of the other mirror. You get next to nothing. The mirror is broken in the process.", "used": True, "point_value": 5, "point_desc": "You almost no water and it takes a very, very long time."},
                 "Fire Starter Kit": {"use_desc": "The firestarter kit comes in a metal tin. You fill the tin with ocean water and situate the lid above it. Beneath the tin you light a small flame. As the water evaporates it rises, and condenses on the lid where it collects into drinkable water. Not much, mind you, but enough.", "used": True, "point_value": 20, "point_desc": "This is an excruciatingly slow process and only gains you a small trickle of water."},
                 "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
             },  
@@ -696,6 +699,7 @@ challenges_dict = {
             "items":{
                 "Handheld Radios": {"use_desc": "Your team leaves one of the radios at your current position and moves away. You then call it. The chatter attracts the attention of your pursuers and misleads them. The radio is left behind.", "used": True, "point_value": 70, "point_desc": "The radio is effective at misleading pursuers, but if they find it you risk them using it to locate your team."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of your pursuers. You travel in the opposite direction, using the fire as a diversion. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully mislead the pursuers, but it did cause some significant damage in the process."},
+                "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light and the guards swarm to the location, assuming it is your team. The mirror gets left behind in the process.", "used": True, "point_value": 100, "point_desc": "The mirror successfully mislead your pursuers."},
             },  
             "failure_items": {}, 
             "desc": "Your team isn't going to be able to outmaneuver your pursuers. Looks like you'll have to out-think them instead and lead them in the wrong direction before doubling back.", 
@@ -735,6 +739,7 @@ challenges_dict = {
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
                 "Handheld Radios": {"use_desc": "Your team tunes the radios to the frequency used by the security. You talk on the comms about an intruder in a different section of the base. It tricks the guards without raising the alarm. The radios' batteries are used up in the process.", "used": True, "point_value": 90, "point_desc": "An effective solution, and one that doesn't lead back to you. It both mislead the guards and didn't raise suspicion. Although now the base is on high alert, looking for intruders, no less."},
+                "Mirror": {"use_desc": "Your team get as high as they can and use the glint of the mirror to signal one of the towers. They assume it is a signal from another nearby base. You use morse code to tell them to check the valley. Many guards are sent there clearing the way for your team's exit.", "used": False, "point_value": 70, "point_desc": "Very risky maneuver. You are just lucky that there was a nearby base and that they were fooled."},
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and blend right in. There's a terrifying moment when another guard asks to see your id, but you manage to bluff your way past.", "used": False, "point_value": 80, "point_desc": "Putting yourself in plain sight. An effective but dangerous maneuver."},
             },  
             "failure_items": {
@@ -849,6 +854,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Mirror": {"use_desc": "You use the mirror to focus a beam of sunlight on one of the sections of the solar panel that is still working. Creating a tiny trickle of power. The mirror is now in use.", "used": True, "point_value": 5, "point_desc": "The mirror kind of works. It means you can redirect the light, so didn't need to reattach the panels and it focuses the light on the section that works. It is however a very small and very temporary fix."},
                 "Welding Kit": {"use_desc": "You re-attach the solar panels to their correct positions and use the welding kit to fuse it in place. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "You do manage to re-attach the solar panels, but unfortunately, you can do little to repair their functionality with such a crude implement."},
             },  
             "failure_items": {}, 
@@ -906,6 +912,7 @@ challenges_dict = {
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the blockade rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate. Your team slips by. The radios get left behind in the process.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there may be someone trying to make it past the blockade."},
+                "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to slip by the blockade. The mirror gets left behind in the process.", "used": True, "point_value": 100, "point_desc": "The mirror successfully distracted the guards and allowed you to sneak by without raising suspicion."},
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
                 "Explosives": {"use_desc": "Your team set up the explosives next to one of the unmanned walls and blow it. You dash through the hole in the wall before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the blockade."},
             },  
@@ -936,6 +943,7 @@ challenges_dict = {
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the checkpoint rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate. Your team slips by. The radios get left behind in the process.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there may be someone trying to make it past the checkpoint."},
+                "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to slip by the checkpoint. The mirror gets left behind in the process.", "used": True, "point_value": 100, "point_desc": "The mirror successfully distracted the guards and allowed you to sneak by without raising suspicion."},
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
             },  
             "failure_items": {}, 
@@ -966,6 +974,7 @@ challenges_dict = {
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards on the dam wall rush to investigate, and whilst they aren't at their post, your team takes the opportunity to make a break for it across the top of the dam wall. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Handheld Radios": {"use_desc": "Your team tunes the radios to the frequency used by the guards. You talk on the comms about a possible leak in the dam. The guards rush to investigate allowing your team to make a break for it across the dam wal. The radios' batteries are used up in the process.", "used": True, "point_value": 90, "point_desc": "An effective solution, and one that doesn't lead back to you."},
+                "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to make a break for it across the dam wall. The mirror gets left behind in the process.", "used": True, "point_value": 90, "point_desc": "The mirror successfully distracted the guards however it didn't distract them for long, so your team had to move mighty fast."},
                 "Boat": {"use_desc": "Your team pile into the boat and take off across the dam. Security spots you and try to intercept you, but you make it across safely. Unfortunatley you have to abandon the boat.", "used": True, "point_value": 60, "point_desc": "Not exactly a subtle maneuver, although it did get you across the dam pretty quick."},
             },  
             "failure_items": {}, 
@@ -1134,7 +1143,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Mirror": {"use_desc": "Your team use the mirror to harmlessly deflect the lasers and get past.", "used": False, "point_value": 100, "point_desc": "The mirror is ideal for dealing with laser based problems like this."},
+                "Mirror": {"use_desc": "Your team uses the mirror to harmlessly deflect the lasers and get past.", "used": False, "point_value": 100, "point_desc": "The mirror is ideal for dealing with laser based problems like this."},
             },  
             "failure_items": {}, 
             "desc": "Surrounding the entire facility is a laser grid. You'll need to find a way to get past it.", 
@@ -1178,6 +1187,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Mirror": {"use_desc": "Your team use the glint of the mirror to lure the guard with the item down a secluded halway. Once he's alone you jump him and get the item.", "used": False, "point_value": 50, "point_desc": "It's a messy approach and hurts the guard."},
                 "Fire Starter Kit": {"use_desc": "You create a small flame using the fire starter kit. When the guard with the item stops near you, you light the bottom of their shirt on fire. Quickly they notice the fire and rip the jacket off The item goes flying and your team is able to grab it and leave whilst the guard attempts to stamp out the flames. The kindling is used up in the process.", "used": True, "point_value": 10, "point_desc": "A risky maneuver that definitely drew attention. People don't just spontaneuosly combust, you know. But, you did manage to get the item, altough you did risk damaging it with the fire."},
                 "Stolen Uniforms": {"use_desc": "One member of the team puts on a uniform. They act as casually as they can and 'bump' into the guard who has the item. They get the item without anyone being the wiser.", "used": False, "point_value": 100, "point_desc": "The stolen uniform is ideal for stealing the item without raising suspicion."},
             },  
