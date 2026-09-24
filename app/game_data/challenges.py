@@ -20,6 +20,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. A rescue team is bound to see it and make their way over to the nearest safe location.", "used": True, "point_value": 80, "point_desc": "The signal fire gets the rescuer's attention and gives them a clear destination to aim for. It does however, not allow for discussions on where they are likely to land."},
                 "Handheld Radios": {"use_desc": "Using your handheld radios you are able to find an active frequency and call for help. The radio batteries are used up in the process", "used": True, "point_value": 100, "point_desc": "The radios are ideal for getting in contact."},
             }, 
             "failure_items": {},
@@ -33,6 +34,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Escape"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. A rescue team is bound to see it and make their way over to the nearest safe location.", "used": True, "point_value": 40, "point_desc": "The signal fire gets the rescuer's attention and gives them a clear destination to aim for. It will, however, also draw the attention of your captors."},
                 "Handheld Radios": {"use_desc": "Using your handheld radios you are able to find an active frequency and call for help. The radio batteries are used up in the process", "used": True, "point_value": 100, "point_desc": "The radios are ideal for getting in contact."},
             }, 
             "failure_items": {},
@@ -46,6 +48,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Rescue"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. Your teammate sees it and is alerted to your position. The fire starter kit is used up in the process", "used": True, "point_value": 70, "point_desc": "The signal fire gets the teammate's attention and gives them a clear destination to aim for. However, it only allows communication in 1 direction."},
                 "Handheld Radios": {"use_desc": "You use the handheld radios to contact your lost teammate and discuss a rendezvouz point. The radio batteries are used up in the process", "used": True, "point_value": 100, "point_desc": "The radios are ideal for getting in contact."},
             }, 
             "failure_items": {},
@@ -63,11 +66,11 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "You use the firestarter kit to create a flame. You wield in in an effort to scare the bear off. It lunges anyway but retreats once it is burned. The fire kindling is used up in the process", "used": True, "point_value": 20, "point_desc": "Barely made it out of that one alive. You're lucky the bear wasn't too hungry. The firestarter kit was successful, but without much to burn, not a great option."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the arctic bear and use the gas mask to slip by unscathed. The gas is used up in the process.", "used": True, "point_value": 70, "point_desc": "The gas worked, but took a while to knock the bear out. You were delayed because of this."},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the arctic bear retreats.", "used": False, "point_value": 60, "point_desc": "The axes scared the bear away, but it sure wasn't a picnic for your team to be forced to get that close. Some of you came away with minor injuries."},
                 "Axe": {"use_desc": "You wield the axe as a weapon. You land a hit and the bear retreats.", "used": False, "point_value": 90, "point_desc": "The axe does its job, but it sure wasn't a picnic having to get that close to the bear."},
                 "Mirror": {"use_desc": "You use the glint of the mirror to distract the bear and slip by unscathed. The mirror is dropped in the escape.", "used": True, "point_value": 90, "point_desc": "The mirror was effective at getting by the bear."},
-                            
             }, 
             "failure_items": {},
             "desc": "Your team stumbles across an arctic bear. It looks like it's on the hunt and your its next meal. You'll need to find a way to evade it if you want to continue your mission.", 
@@ -93,6 +96,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "Your team use the fire starter kit to create a small flame. You protect it with your bodies and use it to keep you warm. It's not much, but it's enough. The fire starter kit is used up in the process", "used": True, "point_value": 20, "point_desc": "This is a barely passable solution. Without anything to burn the flame is tiny and can barely keep your crew warm. Besides that, your team is forced to wait with it until the blizzard subsides."},
                 "Snow Boots": {"use_desc": "The snow boots keep your team warm and give them good grip on the ground. Despite barely being able to see, the team is able to make it out of the blizzard through sheer force of will.", "used": False, "point_value": 70, "point_desc": "The snow boots are effective in keeping your team warm and getting them out of the blizzard. However some time is lost as the team is unable to see where they are going."},
             }, 
             "failure_items": {},
@@ -137,6 +141,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "You use the firestarter kit to light a nearby branch on fire. You wield the branch in in an effort to scare the croc off. It lunges anyway but retreats once it is burned. The fire kindling is used up in the process", "used": True, "point_value": 65, "point_desc": "You're lucky the crocodile wasn't too hungry. The firestarter kit was successful but did mean that you had to get awefully close."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed. The gas is used up in the process", "used": True, "point_value": 80, "point_desc": "The gas did manage to subdue the crocodile, but it took a while to take effect, so your team had to scramble into the trees while you waited."},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the crocodile retreats.", "used": False, "point_value": 80, "point_desc": "The ice axes are unwieldy, but do their job. But it sure wasn't a picnic having to get that close to the croc."},
                 "Axe": {"use_desc": "You wield the axe as a weapon. You land a hit and the crocodile retreats.", "used": False, "point_value": 90, "point_desc": "The axe does its job, but it sure wasn't a picnic having to get that close toe the croc."},
@@ -204,7 +209,8 @@ challenges_dict = {
                 "Scuba Gear": {"use_desc": "Your team uses the scuba tanks and masks to breathe safely as make your way through the marshlands. The oxygen tank is used up in the process", "used": True, "point_value": 90, "point_desc": "The scuba gear is very effective and keeps your team safe. It is however, unwieldy and gets snagged on marshland plants and vines, slowing your progress."},
             },
             "failure_items": {
-                "Fire Starter Kit": {"use_desc": "You use the fire starter to create a small flame. Within an instant, your entire team is wiped out.", "used": True, "point_value": 0, "point_desc": "This is what we call a bad idea. Turns out those deadly gases were not only toxic, but also highly flammable. The ensuing fireball that consumed your team was so explosive that your first clue that anything went wrong would have been you, knocking on the pearly gates."}},
+                "Fire Starter Kit": {"use_desc": "You use the fire starter to create a small flame. Within an instant, your entire team is wiped out.", "used": True, "point_value": 0, "point_desc": "This is what we call a bad idea. Turns out those deadly gases were not only toxic, but also highly flammable. The ensuing fireball that consumed your team was so explosive that your first clue that anything went wrong would have been you, knocking on the pearly gates."}
+            },
             "desc": "Your team comes across an expansive stretch of marshland that you will be forced to cross if you want to continue your mission. Unfortunately, pockets of the marshland are full of deadly gases, invisible to the human eye.", 
             "continue_failure_desc": "Your team is forced to navigate around the marshlands. This takes a significant amount of time and the longer trip significantly tires your team out.", 
             "final_failure_desc": "In desperation, your team tries to progress through the marshlands without the correct equipment. As the marshland gases slowly invade their systems, they find it harder and harder to stay awake. The exhaustion overtakes them and they rest for what they plan to only be a minute. They are claimed by the jungle."
@@ -244,6 +250,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small flame. You light a branch on fire and use it to dot small fires around a central tree. It burns through the tree slowly and eventually a path through it burned.", "used": True, "point_value": 40, "point_desc": "You made it past the trees but using the fire safely took a long time. You of course could have sent the whole thing up in flames but that would have risked starting a forest fire."},
                 "Axe": {"use_desc": "Your team use the axe to cut the trees into smaller pieces that they are able to lug off the path.", "used": False, "point_value": 80, "point_desc": "It takes a while, but the axe is effective at clearing the path."},
             },  
             "failure_items": {}, 
@@ -482,6 +489,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "Your team use the fire starter kit to create a small flame. You protect it with your bodies and use it to keep you warm. It's not much, but it's enough. The fire starter kit is used up in the process", "used": True, "point_value": 40, "point_desc": "Without anything to burn the flame is tiny and can barely keep your crew warm. Besides that, your team is forced to wait with it, until the temperature increased before moving on."},
                 "Blanket": {"use_desc": "Your team huddle under the blanket for warmth and wait for the temperature to climb once more.", "used": False, "point_value": 70, "point_desc": "The team is able to survive the tempertaure drop, but is unable to go anywhere until the climate improved."},
                 "Thermal Clothing": {"use_desc": "Your team don the thermal clothing and are able to continue their mission unhindered.", "used": False, "point_value": 100, "point_desc": "Thermal clothing is ideal for this time of climate related problem."},
                 "Snow Boots": {"use_desc": "Your team wear the snow boots, which keeps their toes warm at the least. It does little to keep the rest of your bodies warm. Fortunately your team is able to find their way out of the cold patch and continue the mission.", "used": True, "point_value": 40, "point_desc": "The snow boots are barely enough, but do allow your team to exit the cold patch."},    
@@ -524,7 +532,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
-                "Rope": {"use_desc": "Your team manage to lasoo a rock jutting up on the far side. You carefully swing each teammate across the gap.", "used": False, "point_value": 70, "point_desc": "The rope is able to get your team across, but it's a risky maneuver."},
+                "Rope": {"use_desc": "Your team manage to lasso a rock jutting up on the far side. You carefully swing each teammate across the gap.", "used": False, "point_value": 70, "point_desc": "The rope is able to get your team across, but it's a risky maneuver."},
             },
             "failure_items": {},
             "desc": "A crevasse blocks your path. Your team needs to cross it if you want to continue your mission.",
@@ -597,8 +605,8 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Ice Axes": {"use_desc": "You stumble across a frozen river. You use the ice axes to break through the thick ice and gain access to the flowing water beneath. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The ice axes were an effective tool for overcoming this obstacle."},
                 "Fire Starter Kit": {"use_desc": "You find a large chunk of ice, and using the fire starter kit to create a small fire. The small flame melts some of the ice into water. The kindling is used up in the process.", "used": True, "point_value": 70, "point_desc": "Whilst the flame was able to melt the ice, the water it produced dampened the kindling and put the fire out. So, you managed to obtain water, but not as much as you might have wanted."},
+                "Ice Axes": {"use_desc": "You stumble across a frozen river. You use the ice axes to break through the thick ice and gain access to the flowing water beneath. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The ice axes were an effective tool for overcoming this obstacle."},
                 "Mirror": {"use_desc": "You find a large chunk of ice and use the mirror to focus a beam of sunlight on it. Very slowly the ice melts into water.", "used": False, "point_value": 50, "point_desc": "The mirror did successfully help you obtain water, it took a long time and produceed barely enough water."},
             }, 
             "failure_items": {}, 
@@ -625,6 +633,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "The firestarter kit comes in a metal tin. You fill the tin with ocean water and situate the lid above it. Beneath the tin you light a small flame. As the water evaporates it rises, and condenses on the lid where it collects into drinkable water. Not much, mind you, but enough.", "used": True, "point_value": 20, "point_desc": "This is an excruciatingly slow process and only gains you a small trickle of water."},
                 "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
             },  
             "failure_items": {}, 
@@ -724,6 +733,7 @@ challenges_dict = {
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and blend right in. There's a terrifying moment when another guard asks to see your id, but you manage to bluff your way past.", "used": False, "point_value": 80, "point_desc": "Putting yourself in plain sight. An effective but dangerous maneuver."},
             },  
             "failure_items": {
+                "Fire Starter Kit": {"use_desc": "Your team create a small fire with the attention of drawing the guards away. Unfortunately, all it does is get their attention. They are all over you before your team can get away.", "used": True, "point_value": 0, "point_desc": "Starting fires isn't exactly subtle. So yeah, you got caught. Maybe next time you'll try a more stealthy approach."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly. The armoured truck is blown up.", "used": True, "point_value": 0, "point_desc": "What about an armoured truck struck you as particularly sneaky. Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed rpg and your team was no more. Let's try a subtler approach next time, huh?"},
             }, 
             "desc": "Your opponents are well equipped, your team isn't going to be able to outmaneuver or outgun them. Looks like you're going to have to perform a sneaky getaway.", 
@@ -888,6 +898,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the blockade rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
                 "Explosives": {"use_desc": "Your team set up the explosives next to one of the unmanned walls and blow it. You dash through the hole in the wall before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the blockade."},
             },  
@@ -902,6 +913,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "The door to the building is wooden, so your team uses the firestarter kit to create a flame. Soon enough the door is slowly being burnt away. Once enough of it has turned to embers, your team is able to slip inside, grab the key and get through the gate.", "used": False, "point_value": 30, "point_desc": "Burning the door worked, but took a very long time."},
                 "Explosives": {"use_desc": "Your team set up the explosives next to gate and blow it. You dash through before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the gate."},
             },  
             "failure_items": {}, 
@@ -915,6 +927,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the checkpoint rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
             },  
             "failure_items": {}, 
@@ -928,7 +941,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Rope": {"use_desc": "You use the rope and, after numerous tries, manage to lasoo the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "used": False, "point_value": 60, "point_desc": "Whilst successful, swinging across the bridge was a risky manuever and the set up cost you a lot of time."},
+                "Rope": {"use_desc": "You use the rope and, after numerous tries, manage to lasso the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "used": False, "point_value": 60, "point_desc": "Whilst successful, swinging across the bridge was a risky manuever and the set up cost you a lot of time."},
                 "Paraglider": {"use_desc": "Your team find the highest point in the surrounding area and glide across the gap. Everyone reaches the other side safely.", "used": False, "point_value": 100, "point_desc": "The glider is well suited to this kind of challenge and your team is able to quickly and easily navigate the obstacle."},
                 "Grapling Hook": {"use_desc": "The team are able to hook the grapling hook on the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "used": False, "point_value": 75, "point_desc": "Whilst swinging across the bridge was a somewhat risky manuever, the grapling hooks were efficient and ensured that the lines were well secured."},
             }, 
@@ -943,6 +956,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards on the dam wall rush to investigate, and whilst they aren't at their post, your team takes the opportunity to make a break for it across the top of the dam wall. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Boat": {"use_desc": "Your team pile into the boat and take off across the dam. Security spots you and try to intercept you, but you make it across safely. Unfortunatley you have to abandon the boat.", "used": True, "point_value": 60, "point_desc": "Not exactly a subtle maneuver, although it did get you across the dam pretty quick."},
             },  
             "failure_items": {}, 
@@ -995,6 +1009,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "You use the firestarter kit to light a small flame. You leave the fire in the hood of a parked car. Soon enough it explodes. All traffic stops as people run from their cars. You're team is able to saunter through traffic undisturbed. The kindling is used up in the process.", "used": True, "point_value": 10, "point_desc": "What the heck! That was someone's car. You can't just go around blowing things up, even if it works."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and, just like an icebreaker, plow it through traffic. It's messy and almost certainly injures a few people, but you do make it through. The truck gets damaged as you ram your way through traffic.", "used": True, "point_value": 80, "point_desc": "A very messy an dangerous approach. Although you did successfully beat traffic."},
             },  
             "failure_items": {}, 
@@ -1038,6 +1053,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "Your team figures that the best way to deactivate the alarms is to get them to do it for you. You create a small flame and put it near a smoke detector. Alarms blare and your crew sneaks by. Eventually once they deactivate the fire alarm they realise that other alarms have been tripped, but toss it up to a system malfunction. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "A risky maneuver that luckily paid off. Still drew a lot of attention."},
                 "Wire Cutters": {"use_desc": "Your team break open a fuse box that powers the alarms. You cut the wires to the alarms in the nearby sections preventing them from triggering.", "used": False, "point_value": 100, "point_desc": "The wire cutters are ideal for this task, they not only deactivate the alarms, but the appraoch is subtle enough that it didn't draw any attention."},
             },  
             "failure_items": {}, 
@@ -1093,6 +1109,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Escape"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "Your team creates a small flame using the fire starter kit. You bring it near to a smoke alarm to trigger it. The fire causes safety protocols and gates that would otherwise be closed, open. Your team escapes through a fire exit. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "Unfortunately the maneuver did draw attention to your escape. But you were still able to find a new exit but using the fire starter kit."},
                 "Map": {"use_desc": "Your team check the schematics of the building. You use it to locate a service entrance that your team sneaks out through.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding alternate routes out of the building."},
             },  
             "failure_items": {}, 
@@ -1136,6 +1153,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "Your team use the frie starter kit to create a small flame. You place it on the wooden crate, and soon enough it begins to burn. It takes a while but eventually the crate burns away and you're able to get the goods. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "You do get through the crate, but it takes a long time for the flames to do their work."},
                 "Axe": {"use_desc": "Your team uses the axe to break the wooden crate. It's easy enough to do, just a little loud.", "used": False, "point_value": 80, "point_desc": "The axe is effective at getting the goods from the crate, but creates a lot of noise in the process."},
             },  
             "failure_items": {}, 
@@ -1149,6 +1167,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "You create a small flame using the fire starter kit. When the guard with the item stops near you, you light the bottom of their shirt on fire. Quickly they notice the fire and rip the jacket off The item goes flying and your team is able to grab it and leave whilst the guard attempts to stamp out the flames. The kindling is used up in the process.", "used": True, "point_value": 10, "point_desc": "A risky maneuver that definitely drew attention. People don't just spontaneuosly combust, you know. But, you did manage to get the item, altough you did risk damaging it with the fire."},
                 "Stolen Uniforms": {"use_desc": "One member of the team puts on a uniform. They act as casually as they can and 'bump' into the guard who has the item. They get the item without anyone being the wiser.", "used": False, "point_value": 100, "point_desc": "The stolen uniform is ideal for stealing the item without raising suspicion."},
             },  
             "failure_items": {}, 
@@ -1180,8 +1199,8 @@ challenges_dict = {
             },
             "failure_items": {},
             "desc": "The target documents are sealed inside a portable case with a mechanical lock.",
-            "continue_failure_desc": "Your team cannot open the case and retreats empty-handed after wasting time.",
-            "final_failure_desc": "Security returns before your team can open the case or withdraw."
+            "continue_failure_desc": "Your team eventually manages to break the case open. But it takes a lot of time and energy.",
+            "final_failure_desc": "Security returns before your team can open the case or withdraw. Your mission ends here."
         },
     },
 
@@ -1195,7 +1214,9 @@ challenges_dict = {
             "items":{
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, filtering the air and making it breathable.", "used": False, "point_value": 40, "point_desc": "The gas mask is an effective, but temporary solution. You didn't actually 'fix' anything."},
             }, 
-            "failure_items": {}, 
+            "failure_items": {
+                "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to make a small flame. The fire quickly chews through what is left of the oxygen. Your team asphyxiates. The kindling is used up in the process.", "used": True, "point_value": 0, "point_desc": "Using a fire when there wasn't much air left. Not the best idea."},
+            }, 
             "desc": "The base's air recycling system has gone offline. It won't be long before the air in the base becomes unbreatheable. You'll need to fix it.", 
             "continue_failure_desc": "Your team try to fix the system with what they have, costing significant time and energy, but there's nothing they can do. With no useful tools, you team opens a roof hatch to allow fresh air in. It's a temporary solution and likely won't work for long.", 
             "final_failure_desc": "With no useful tools your team is unable to repair the system. Unfortunately, the time your team lost earlier has meant that the air being pumped in the base is already toxic. It doesn't take long before the team collapse, never to get back up."
@@ -1206,6 +1227,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Fire Starter Kit": {"use_desc": "Your team uses the fire starter kit to create a small flame. You huddle around it for warmth. It is barely enough to keep you warm. The kindling is used up in the process.", "used": True, "point_value": 5, "point_desc": "The flame did next to nothing to keep you guys warm and was only a temporary fix. Besides that, you created a fire indoors, which is always a bad idea."},
                 "Blanket": {"use_desc": "Your team wear blankets that keep them warm.", "used": False, "point_value": 30, "point_desc": "The blankets are cumbersome and don't actually resolve the heating issue. They however, do your keep your team warm. For now."},
             },  
             "failure_items": {}, 
@@ -1344,7 +1366,9 @@ challenges_dict = {
             "items": {
                 "Toolkit": {"use_desc": "You use the toolkit to repair the damaged safety controls and activate the bomb's shutdown sequence. The countdown stops.", "used": False, "point_value": 100, "point_desc": "The toolkit restores the safety controls, allowing your team to deactivate the device without triggering it."},
             },
-            "failure_items": {},
+            "failure_items": {
+                "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. You attempt to use the falme to burn out the trigger mechanism, but unfortunately, it lights the bomb instead. At least it's quick.", "used": True, "point_value": 0, "point_desc": "Yeah, bombs and fire. Not a great combo."},
+            },
             "desc": "Your team reaches the device, but its safety controls have been damaged. The countdown is running. You'll need suitable equipment to restore the controls and shut it down.",
             "continue_failure_desc": "Unable to deactivate the device, your team raises the alarm and helps evacuate the area. The evacuation costs valuable time, and the device remains active.",
             "final_failure_desc": "Your team cannot restore the controls before the evacuation deadline. You are forced to abandon the objective and retreat. Your mission ends here."
