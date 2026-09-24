@@ -100,6 +100,14 @@ window.gameSocket = socket;
 window.getPlayerId = () => playerId;
 window.getSessionCode = () => sessionStorage.getItem("sessionCode");
 
+socket.on("left_session", () => {
+  sessionStorage.removeItem("sessionCode");
+  sessionStorage.removeItem("playerId");
+  sessionStorage.removeItem("isHost");
+  sessionStorage.removeItem("auctionStartTime");
+  window.location.href = "/join";
+});
+
 // If the player presses Back during the game, return to the Join page
 window.addEventListener("pageshow", (event) => {
   const gamePages = ["/lobby", "/start_game","/mission_description", "/auction", "/mission", "/result_page"];

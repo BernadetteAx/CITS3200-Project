@@ -130,14 +130,58 @@ def _valid_player(session, payload):
 def _player_ids(session):
     return set(session["players"])
 
+
+def _connected_player_ids(session):
+    return {
+        player_id
+        for player_id, player in session["players"].items()
+        if player.get("connected")
+    }
+
+
+def _reevaluate_voting(
+    session_code, session, reason, broadcast_if_incomplete=True
+):
+    auction = session.get("auction")
+    if not auction or auction.get("status") != "voting":
+        return False
+
+    connected_players = _connected_player_ids(session)
+    if connected_players and connected_players.issubset(
+        auction["finished_players"]
+    ):
+        return _resolve(session_code, session, reason)
+
+    if broadcast_if_incomplete:
+        broadcast_auction_state(session_code, session)
+    return False
+
+
+def handle_player_disconnected(session_code, session):
+    """Recheck an active vote without removing reconnectable player state."""
+    _reevaluate_voting(session_code, session, "player_disconnected")
+
+
+def handle_player_left(session_code, session, player_id):
+    """Remove a departed player's round state and unblock remaining voters."""
+    auction = session.get("auction")
+    if not auction or auction.get("status") != "voting":
+        return
+
+    auction["votes"].pop(player_id, None)
+    auction["finished_players"].discard(player_id)
+    _reevaluate_voting(session_code, session, "player_left")
+
+
 def _state(session, player_id=None):
     auction = session["auction"]
+    connected_players = _connected_player_ids(session)
     item_pairs = auction["item_pairs"]
     pair = item_pairs[auction["round_index"]] if auction["round_index"] < len(item_pairs) else ()
     state = {"phase":session["phase"], "round":auction["round_index"] + 1, "totalRounds":len(item_pairs),
         "items":list(pair), "budget":auction["budget"], "purchasedItems":auction["purchased_items"],
-        "voteCount":len(auction["votes"]), "playerCount":len(_player_ids(session)),
-        "finishedCount":len(auction["finished_players"]), "status":auction["status"],
+        "voteCount":len(set(auction["votes"]) & connected_players), "playerCount":len(connected_players),
+        "finishedCount":len(auction["finished_players"] & connected_players), "status":auction["status"],
         "endsAt":auction["ends_at"], "roundResult":auction["round_result"]}
     if player_id:
         state["mySelection"] = auction.get("selections", {}).get(player_id)
@@ -192,7 +236,10 @@ def _resolve(session_code, session, reason):
     if auction["status"] != "voting": return False
     pair = auction["item_pairs"][auction["round_index"]]
     counts = {item["id"]:0 for item in pair} | {"skip":0}
-    for choice in auction["votes"].values(): counts[choice] += 1
+    connected_players = _connected_player_ids(session)
+    for player_id, choice in auction["votes"].items():
+        if player_id in connected_players:
+            counts[choice] += 1
     highest = max(counts.values())
     winners = [choice for choice, count in counts.items() if count == highest]
     winner = winners[0] if len(winners) == 1 else None
@@ -243,6 +290,9 @@ def _finish(code, session, player, skip=False):
         auction["votes"][player] = auction["selections"][player]
     auction["finished_players"].add(player)
     broadcast_auction_state(code, session); emit_auction_state_to_player(session, player)
+    _reevaluate_voting(
+        code, session, "all_finished", broadcast_if_incomplete=False
+    )
 
 @socketio.on("auction_skip")
 def auction_skip(payload):
@@ -259,4 +309,5 @@ def resolve_auction_round(payload):
     code = payload.get("sessionCode") if isinstance(payload, dict) else None; session = get_session(code)
     if not session or session.get("phase") != "auction": return
     player, auction = _valid_player(session, payload), session["auction"]
-    if player == session["host_id"] and auction["status"] == "voting": _resolve(code, session, "host")
+    connected_players = _connected_player_ids(session)
+    if player == session["host_id"] and auction["status"] == "voting" and connected_players and connected_players.issubset(auction["finished_players"]): _resolve(code, session, "host")

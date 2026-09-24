@@ -146,9 +146,8 @@
 </section>
 
 <section class="result-actions">
-    <a href="{{ url_for('join') }}" class="result-button">
-        RETURN HOME
-    </a>
+    <button type="button" id="playAgainBtn" class="result-button" hidden>PLAY AGAIN</button>
+    <a href="{{ url_for('join') }}" id="returnHomeBtn" class="result-button">RETURN HOME</a>
 </section>
 
 {% endblock %}
