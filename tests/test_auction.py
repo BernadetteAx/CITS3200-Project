@@ -5,6 +5,11 @@ import pytest
 from app.sockets.handlers import auction
 
 
+# ---------------------------------------------------------------------------
+# Fixtures and test helpers
+# ---------------------------------------------------------------------------
+
+
 @pytest.fixture
 def auction_game(sample_session, monkeypatch):
     """Create an auction and prevent real socket/timer activity."""
@@ -38,6 +43,11 @@ def payload(player="player-1", item="axe", code="ABCD"):
         "playerId": player,
         "itemId": item,
     }
+
+
+# ---------------------------------------------------------------------------
+# Auction setup and mission item generation
+# ---------------------------------------------------------------------------
 
 
 def test_initialise_auction(auction_game):
@@ -153,6 +163,11 @@ def test_build_mission_item_pairs_falls_back_for_repeated_useful_items(
     ] * 6
 
 
+# ---------------------------------------------------------------------------
+# Beginning and starting a round
+# ---------------------------------------------------------------------------
+
+
 def test_host_can_begin_auction(auction_game):
     auction_game["phase"] = "mission_description"
 
@@ -232,6 +247,11 @@ def test_start_round_resets_previous_round(
     auction.socketio.start_background_task.assert_called_once_with(
         auction._timer, "ABCD", 5
     )
+
+
+# ---------------------------------------------------------------------------
+# Voting flow and validation
+# ---------------------------------------------------------------------------
 
 
 def test_player_can_vote_and_change_vote(voting_game):
@@ -321,6 +341,11 @@ def test_finished_player_cannot_replace_vote_with_skip(voting_game):
     assert voting_game["auction"]["votes"]["player-1"] == "skip"
 
 
+# ---------------------------------------------------------------------------
+# Round resolution outcomes
+# ---------------------------------------------------------------------------
+
+
 @pytest.mark.parametrize(
     "votes, budget, expected_type, expected_budget, expected_ids",
     [
@@ -391,6 +416,11 @@ def test_resolution_cannot_charge_twice(voting_game):
     auction.socketio.start_background_task.assert_not_called()
 
 
+# ---------------------------------------------------------------------------
+# Broadcast and player-specific state
+# ---------------------------------------------------------------------------
+
+
 def test_broadcast_keeps_votes_anonymous(voting_game):
     voting_game["auction"]["votes"] = {"player-1": "axe"}
 
@@ -418,6 +448,24 @@ def test_personal_state_only_contains_own_vote(voting_game):
     assert event == "auction_state"
     assert state["myVote"] == "axe"
     assert "votes" not in state
+
+
+# ---------------------------------------------------------------------------
+# Timer and round advancement
+# ---------------------------------------------------------------------------
+
+
+def test_timer_resolves_round_when_deadline_is_reached(voting_game):
+    state = voting_game["auction"]
+    auction.socketio.start_background_task.reset_mock()
+
+    auction._timer("ABCD", state["timer_token"])
+
+    assert state["status"] == "resolved"
+    assert state["round_result"]["reason"] == "timer"
+    auction.socketio.start_background_task.assert_called_once_with(
+        auction._advance, "ABCD", 0
+    )
 
 
 @pytest.mark.parametrize(
@@ -459,6 +507,24 @@ def test_timer_ignores_missing_session(auction_game, monkeypatch):
     resolve.assert_not_called()
 
 
+def test_advance_moves_to_next_round_and_starts_new_vote_cycle(voting_game):
+    state = voting_game["auction"]
+    state["status"] = "resolved"
+    state["round_result"] = {"type": "purchase", "item": state["item_pairs"][0][0]}
+    auction.socketio.start_background_task.reset_mock()
+
+    auction._advance("ABCD", 0)
+
+    assert state["round_index"] == 1
+    assert state["status"] == "voting"
+    assert state["round_result"] is None
+    assert state["votes"] == {}
+    assert state["finished_players"] == set()
+    auction.socketio.start_background_task.assert_called_once_with(
+        auction._timer, "ABCD", 2
+    )
+
+
 def test_advance_starts_next_round(voting_game):
     state = voting_game["auction"]
     state["status"] = "resolved"
@@ -472,8 +538,27 @@ def test_advance_starts_next_round(voting_game):
     )
 
 
+def test_advance_completes_auction_and_moves_to_mission(voting_game):
+    state = voting_game["auction"]
+    state["item_pairs"] = [state["item_pairs"][0]]
+    state["status"] = "resolved"
+    state["round_result"] = {"type": "purchase", "item": state["item_pairs"][0][0]}
+    state["purchased_items"] = [state["item_pairs"][0][0]]
+    auction.socketio.start_background_task.reset_mock()
+
+    auction._advance("ABCD", 0)
+
+    assert state["status"] == "complete"
+    assert voting_game["phase"] == "mission"
+    assert voting_game["purchased_items"] == [state["item_pairs"][0][0]]
+    auction.socketio.emit.assert_any_call(
+        "auction_complete",
+        {"purchasedItems": [state["item_pairs"][0][0]]},
+        room="ABCD",
+    )
+
+
 def test_advance_completes_auction_and_starts_mission(auction_game):
-        
     state = auction_game["auction"]
     state["round_index"] = len(state["item_pairs"]) - 1
     state["status"] = "resolved"
@@ -490,7 +575,7 @@ def test_advance_completes_auction_and_starts_mission(auction_game):
         "auction_complete",
         {"purchasedItems": state["purchased_items"]},
         room="ABCD",
-    )    
+    )
 
 
 @pytest.mark.parametrize(
@@ -512,6 +597,26 @@ def test_invalid_advance_is_ignored(
 
     assert state["round_index"] == 0
     auction.socketio.start_background_task.assert_not_called()
+
+
+# ---------------------------------------------------------------------------
+# Host resolution permissions and round override
+# ---------------------------------------------------------------------------
+
+
+def test_host_can_resolve_round_when_all_players_have_finished(voting_game):
+    state = voting_game["auction"]
+    state["votes"] = {"player-1": "axe", "player-2": "water-bottle"}
+    state["finished_players"] = {"player-1", "player-2"}
+    auction.socketio.start_background_task.reset_mock()
+
+    auction.resolve_auction_round(payload(player="player-1"))
+
+    assert state["status"] == "resolved"
+    assert state["round_result"]["type"] == "tie"
+    auction.socketio.start_background_task.assert_called_once_with(
+        auction._advance, "ABCD", 0
+    )
 
 
 @pytest.mark.parametrize(
