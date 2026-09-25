@@ -139,29 +139,6 @@ def _resolve(code, session, mission, item=None, timed_out=False):
 
     if item:
         # If the item gets used up after it's use, include it in used items
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-
-        print(item["id"])
-        print(challenge["success_items"].keys())
-        print(challenge["failure_items"].keys())
-
-        # If the item is in noted as being used, then count it as used
         for success_item in challenge["success_items"].keys():
             normalised_item = success_item.lower().strip().replace(" ", "-")
             if item["id"] == normalised_item and challenge["success_items"][success_item]["used"]:
