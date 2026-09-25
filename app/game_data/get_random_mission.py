@@ -38,18 +38,6 @@ def get_mission():
         # Add somethings that catches if there is no option found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         challenge_options = []
         # Find all viable challenge options
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print("ANG")
-        print(mission_location, randomised_mission["mission"])
         for challenge_name in challenges_dict[challenge_type]:
             challenge_dict = challenges_dict[challenge_type][challenge_name]
             if mission_location in challenge_dict["viable_locations"] and selected_mission_dict["mission_type"] in challenge_dict["viable_mission_types"]:
