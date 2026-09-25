@@ -48,6 +48,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Rescue"],
             "items":{
+                "Paraglider": {"use_desc": "Your team rip up the paraglider sail into 2 large-ish squares. You use the squares to signal your teammate using semaphore. The paraglider is damaged in the process", "used": True, "point_value": 70, "point_desc": "The signal semaphore via paraglider sail gets the teammate's attention. However, it only allows communication in 1 direction."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. Your teammate sees it and is alerted to your position. The fire starter kit is used up in the process", "used": True, "point_value": 70, "point_desc": "The signal fire gets the teammate's attention and gives them a clear destination to aim for. However, it only allows communication in 1 direction."},
                 "Handheld Radios": {"use_desc": "You use the handheld radios to contact your lost teammate and discuss a rendezvous point. The radio batteries are used up in the process", "used": True, "point_value": 100, "point_desc": "The radios are ideal for getting in contact."},
             }, 
@@ -66,6 +67,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team use the paraglider to put some distance between you and the bear. It chases you down adn eventually catches up, ripping the sail. Your team abandon the paraglider and the bear is distracted and it continues to rip the glider. Your team slips away. The paraglider is damaged beyond repair.", "used": True, "point_value": 30, "point_desc": "It got you away from the bear in the end, but the paraglider wasn't idea, and you guys very nearly became bear lunch."},
                 "Armoured Truck": {"use_desc": "Your team pile into the truck. The bear tries to break in but has no success. Eventually it looses interest and leaves you alone.", "used": False, "point_value": 100, "point_desc": "You successfully and safely avoided the bear without hurting it. Though it did take a while for the bear to leave."},
                 "Fire Starter Kit": {"use_desc": "You use the firestarter kit to create a flame. You wield in in an effort to scare the bear off. It lunges anyway but retreats once it is burned. The fire kindling is used up in the process", "used": True, "point_value": 20, "point_desc": "Barely made it out of that one alive. You're lucky the bear wasn't too hungry. The firestarter kit was successful, but without much to burn, not a great option."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the arctic bear and use the gas mask to slip by unscathed. The gas is used up in the process.", "used": True, "point_value": 70, "point_desc": "The gas worked, but took a while to knock the bear out. You were delayed because of this."},
@@ -84,6 +86,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team use the sail of the paraglider to cover yourselves as you walk. It protects you from teh falling ash and allows you to continue your mission. The paraglider gets tangled as you walk and becomes unusable.", "used": True, "point_value": 90, "point_desc": "The paraglider does an effective job at protecting your team from the ash, but it is cumbersome to use in this way."},
                 "Gas Mask and Knockout Gas": {"use_desc": "The gas mask is able to protect your team from breathing in the ash, and the goggles allow them to see.", "used": False, "point_value": 100, "point_desc": "The gas mask is ideal for the situation. It allows your team to both breathe, and see enough to find a way out."},
             }, 
             "failure_items": {},
@@ -103,7 +106,9 @@ challenges_dict = {
                 "Snow Boots": {"use_desc": "The snow boots keep your team warm and give them good grip on the ground. Despite barely being able to see, the team is able to make it out of the blizzard through sheer force of will.", "used": False, "point_value": 70, "point_desc": "The snow boots are effective in keeping your team warm and getting them out of the blizzard. However some time is lost as the team is unable to see where they are going."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team put on the gas masks. They don't help much, but the goggles protect your eyes and allow you to navigate out of the path of the blizzard.", "used": False, "point_value": 50, "point_desc": "The gas mask doesn't keep you warm and it is a lot more cumbersome than other eye equippment, but it does the job."},
             }, 
-            "failure_items": {},
+            "failure_items": {
+                "Paraglider": {"use_desc": "Your team open teh paraglider with the intention of sheltering under it's sail. Unfortunately the wind catches it and drags it up into the sky. Your team's legs get caught in the rope and you are brought along for the ride too. It's a long fall, when your feet finally slip the rope.", "used": True, "point_value": 0, "point_desc": "Unfortunately the winds were far to strong to allow for the use of any item with a large sail."},
+            },
             "desc": "The wind picks up and snow begins to fall, faster, faster. Soon enough your team is caught in a terrible blizzard. You're freezing and can't see 2ft in front of you. You'll need to get out of the storm.", 
             "continue_failure_desc": "The team, unable to think of anything else to do are forced to huddle together for warmth and wait out the storm. It takes a long, long time and your team are freezing and exhausted by the end.", 
             "final_failure_desc": "The team, unable to think of anything else to do are forced to huddle together for warmth and wait out the storm. Unfortunately, their so exhausted from their earlier trials, that it isn't long before they start to fall asleep. The sort of sleep you don't wake up from. Your mission ends here."
@@ -147,6 +152,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team throw the paraglider over the corc and run for it. The croc is disoriented and gets tangled in teh ropes, allowing you to make a quick getaway. The paraglider is abandoned in teh process.", "used": True, "point_value": 80, "point_desc": "The paraglider helped you safely get around the croc, although you did have to get might close before you could throw it over teh croc."},       
                 "Rope": {"use_desc": "A member of your team uses the rope to lasso the crocs mouth shut. As they don't have very strong opening jaw muscles, it is unable to hurt you and your team slip by. Your team abandon the rope in the process.", "used": True, "point_value": 100, "point_desc": "A fairly good solution that didn't hurt the croc and did let your team slip by unscathed."},
                 "Fire Starter Kit": {"use_desc": "You use the firestarter kit to light a nearby branch on fire. You wield the branch in in an effort to scare the croc off. It lunges anyway but retreats once it is burned. The fire kindling is used up in the process", "used": True, "point_value": 65, "point_desc": "You're lucky the crocodile wasn't too hungry. The firestarter kit was successful but did mean that you had to get awefully close."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed. The gas is used up in the process", "used": True, "point_value": 80, "point_desc": "The gas did manage to subdue the crocodile, but it took a while to take effect, so your team had to scramble into the trees while you waited."},
@@ -245,6 +251,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "The hot air fills the paraglider sail and lifts you up into the air like a hot air balloon. Your team is able to use the extra height to sail safely over the sections of land.", "used": False, "point_value": 100, "point_desc": "The paraglider is a quick and easy solution to quickly get out of the extreme heat."},
                 "Still-suit": {"use_desc": "The still suit doesn't do much, but the extra layer between you and the temperature gives you enough time to get out of the patch of heat. The extreme heat damages the still suit beyond repair.", "used": True, "point_value": 70, "point_desc": "The still suit allows your team to survive the temperature, but only acts as a second layer of skin. Some of it even melts onto your skin, burning you. So you live, but it isn't pretty."},
                 "Heat Resistant Suit": {"use_desc": "The heat resistant suit protects your team from the temperature and allows them to safely navigate away. It does, however, suffer dammage from loose rocks.", "used": True, "point_value": 100, "point_desc": "The heat resistant suit is ideal for this situation and allows your team to get by unscathed."},
             }, 
@@ -308,6 +315,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team put on the paragliders. Wind fills the sail and begins to drag you forward quickly across the ice.", "used": False, "point_value": 100, "point_desc": "The paraglider is ideal as it gets you across the ice fast, and makes you lighter on your feet so you don't fall through the ice."},
                 "Rope": {"use_desc": "Your team tie themselves together in a line and start the very slow journey across the ice. On 2 occasions team members fall through the ice, but your team is able to use the rope to drag them back out.", "used": False, "point_value": 20, "point_desc": "The rope doesn't do much to help your team as they cross, it merely prevents your teammates from being lost to the lake, and they still end up freezing cold when they take the plunge."},
                 "Ice Axes": {"use_desc": "Your team uses the ice axes to test the depth of the ice. It's a long process and involves a lot of crawling around on your stomachs, but by driving the ice axes into the ice, you are able to work out if a section is stable enough to support your weight.", "used": False, "point_value": 30, "point_desc": "The ice axes help get you across the lake, but it is a gruelling task."},
                 "Ice Skates": {"use_desc": "The team don the ice skates and use them to easily navigate over the forzen lake.", "used": False, "point_value": 100, "point_desc": "The ice skates are idel for navigating over the lake and your team is able to move quickly to their next challenge."},
@@ -325,6 +333,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team put on the paraglider. In the hot air it easily lifts into the air. You are too heavy for it to lift you, but it does station itself above your team and acts like a portable parasol, protecting your team from the worst of the sun's heat.", "used": False, "point_value": 90, "point_desc": "The paraglider protects you from teh worst of teh heat and allows your team to continue the mission, even though you're still pretty warm."},
                 "Still-suit": {"use_desc": "The still suit recycles the water from your team's bodies. It keeps you cool and hydrated and allows your team to continue without hinderance.", "used": False, "point_value": 100, "point_desc": "The still-suit is ideal for handling a heatwave."},
             },  
             "failure_items": {}, 
@@ -386,7 +395,7 @@ challenges_dict = {
                 "Compass": {"use_desc": "your team use the compass to orient themselves. With a better idea of where they are, the team is able to continue the mission.", "used": False, "point_value": 100, "point_desc": "The compass is ideal for getting your team headed in the right direction."},              
             },  
             "failure_items": {}, 
-            "desc": "Your team is trying to progress, but keeps getting truned around by mirages cause by the desert heat. You'll need to find a way to know where your going.", 
+            "desc": "Your team is trying to progress, but keeps getting turned around by mirages cause by the desert heat. You'll need to find a way to know where your going.", 
             "continue_failure_desc": "Unable to find your way, your team is forced to wait for the heat of the day to subside. It takes a long, long time and your team is exhausted from waiting out in the heat.", 
             "final_failure_desc": "Your team has lost too much time to wait for th eheat of the day to subside. They decide to trust their guts. They travel deep into the desert, but in the wrong direction. It isn't long before they are claimed by the desert heat."
         },
@@ -424,6 +433,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team climb high into the trees and paraglide across the river. When you land the paragliders get caught in the trees on teh far side. It's quite an effort to get down, but you do eventually succeed. The paragliders are unable to be retrieved.", "used": True, "point_value": 80, "point_desc": "The paragliders get you across the river, but it took a lot of effort to get down from the trees when the gliders got snagged."},
                 "Rope": {"use_desc": "Your team attach the rope to the top of a very tall tree and use it to swing across the river. The rope is left behind.", "used": True, "point_value": 90, "point_desc": "The rope is good for this challenge, but setting it up took some time."},
                 "Ice Axes": {"use_desc": "Your team jumps into the ragin river and swims across. You use the ice axes to latch onto tree roots on the far side and pull yourselves across. The ice axes are damaged in the process.", "used": True, "point_value": 50, "point_desc": "The ice axes help you get to the other side of the river without washing too far downstream, but the method of getting a hold was kind of painfull and pulled a lot of arms in uncomfortable ways."},
                 "Boat": {"use_desc": "Your team pile into the boat, and just moments later you are safely on the other bank fo the river.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for crossing the river."},
@@ -453,6 +463,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team trudge up a sand dune and then use the paragliders to sail down it. You do this over and over until you have passed them. The paraglider gets constantly filled with sand, eventually damaging it.", "used": True, "point_value": 80, "point_desc": "The paraglider certainly made it faster to traverse the dunes, but you team still had to trudge up each hill themselves."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and try to drive it across the sand dunes. It's too heavy though and you only get halfway before it becomes too bogged to salvage. Your team is forced to walk the rest of the way.The truck is too bogged to retrieve.", "used": True, "point_value": 60, "point_desc": "The armoured truck is a little too heavy to be suited to this situation, although it does get you most of the way there."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and tear off. It makes quick work of the dunes and your team is able to continue their mission.", "used": False, "point_value": 100, "point_desc": "The dune buggy is ideal for traversing sand dunes."},
             },  
@@ -471,7 +482,9 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the sand storm. You are safe inside until the storm pases. You are even able to continue to move towards your destination.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Shovel": {"use_desc": "Your team dig down and make a shallow pit to hide in. The winds swirl above you, but you're safe until the storm passes.", "used": False, "point_value": 40, "point_desc": "The shovel helped you keep your team safe, but it did mean that you had to wait for the storm to subside."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Paraglider": {"use_desc": "Your team open teh paraglider with the intention of sheltering under it's sail. Unfortunately the wind catches it and drags it up into the sky. Your team's legs get caught in the rope and you are brought along for the ride too. It's a long fall, when your feet finally slip the rope.", "used": True, "point_value": 0, "point_desc": "Unfortunately the winds were far to strong to allow for the use of any item with a large sail."},
+            }, 
             "desc": "The wind picks up and begins to stir the sands into the air. In a matter of minutes the world around you is plunged into darkness as sand swirls around you. You'll need to find a way out if you have any hope of coontinuing your mission.", 
             "continue_failure_desc": "With no other equipment, your team huddles together and waits out the storm. It is a time consuming and taxing ordeal.", 
             "final_failure_desc": "With no time to spare your team attempts to continue their mission despite the storm. In seconds the team is scattered by the strong winds. You call to one another, but nothing is heard over the howling wind. Your mission ends here."
@@ -497,6 +510,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "You drop the paraglider in the water. The shark is quickly tangled in the rope and your team is able to get past it.", "used": False, "point_value": 70, "point_desc": "You're lucky the shark got tangled, because otherwise that might not have worked."},
                 "Mirror": {"use_desc": "You shatter the tiny mirror and use on of the glass shards as a blade. When the shark attacks you stab it with the glass. It does a little damage. It takes 3 more passes before the shark finally leaves. The mirror is broken.", "used": True, "point_value": 5, "point_desc": "This is perhaps the most desperate thing I've seen. It worked just, but left you with a very cut hand and a lot more blood in the water. This only just worked."},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the shark retreats.", "used": False, "point_value": 70, "point_desc": "The ice axes do successfully repel the shark, but it does add some blood to the water. Who knows if more sharks are coming."},
             }, 
@@ -511,6 +525,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Before the ground gives way, your team put on their paragliders and jump. You get just enough clearance to make it across the sinkhole safely.", "used": False, "point_value": 100, "point_desc": "The paragliders are ideal for this situation as they allow you to get across the sinkhole without having to fall in first."},
                 "Rope": {"use_desc": "Your team manage to lasso a rock near the edge of the sinkhole and use the rope to haul yourselves out. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 80, "point_desc": "The rope is able to easly help your team out of the sinkhole, but you did have to fall in it frst."},
                 "Ice Axes": {"use_desc": "Your team wedge the ice axes into the surrounding rock just as the floor gives way. Your teeam is able to haul themselves out of the hole using the ice axes. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "It's an efficient way out of the hole, but it takes a lot of effort."},
                 "Grapling Hook": {"use_desc": "In the few moments you have, your team manages to latch the grapling hook to the far side of the hole. When the ground gives way, your team is able to swing to safety.", "used": False, "point_value": 90, "point_desc": "The grapling hook handly passes the challenge, and apart from a few minor cuts, your team comes away unscathed."},
@@ -562,7 +577,9 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight across the gas field. You are safe inside.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "used": False, "point_value": 100, "point_desc": "The gas mask is ideal for handling toxic gases."},
             },
-            "failure_items": {}, 
+            "failure_items": {
+                "Paraglider": {"use_desc": "Your team find a higher section of rock and attempt to sail rigth across the gas. Unfortunately, the gas is denser than air, and once your team is over it, you drop like stones, landing right amidst the gas. It isn't long before your team asphixiate.", "used": False, "point_value": 0, "point_desc": "An unfortunate event. Guess you should know what kind of gas you're dealing with before you try a maneuver like that."},
+            }, 
             "desc": "Your team passes through what appears to be an empty section of rock. But something is wrong. There is a dense layer of volcanic gases, deadly to anything that breathes. You'll need to find a way around, or through it is you want to continue your mission.", 
             "continue_failure_desc": "Your team are forced to double back and go the long, long way round, costing significant time and energy.", 
             "final_failure_desc": "Your team have lost too much time to double back now. They make the unwise decision to try and pass through, afterall, there are probably patches of air somewhere in there. They hold their breath and start walking. They don't get far. The gases knock the team out and they slump to the ground one by one, never to wake again."
@@ -573,6 +590,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Paraglider": {"use_desc": "Your team use the paraglider to glide across the gap.", "used": False, "point_value": 100, "point_desc": "The paragliders weer an ideal and quick solution."},
                 "Ice Axes": {"use_desc": "You descend down the crevasse using the ice axes, until you hit a section that is thinner. You are able to switch sides and climb back the other side of the creavasse using the ice axes. The ice axes are damaged in the process.", "used": False, "point_value": 70, "point_desc": "It is an efficcient way to handle the obstacle, but required a lot of effort."},
                 "Rope": {"use_desc": "Your team manage to lasso a rock jutting up on the far side. You carefully swing each teammate across the gap.", "used": False, "point_value": 70, "point_desc": "The rope is able to get your team across, but it's a risky maneuver."},
             },
@@ -740,6 +758,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team put on their paragliders and set off. It's very tricky to navigate by air, but you manage it. You do get snagged on obstacles a few time but your team is able to use the paragliders to getaway. The paragliders are damaged in the process.", "used": True, "point_value": 60, "point_desc": "The paragliders do help you get away, but they were not idea for this situation."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and tear off. Nothing stands in your way and whilst it's a messy getaway, it is successful.", "used": False, "point_value": 90, "point_desc": "The getaway is messy, but the armoured truck means that you can move as fast as you like without having to worry about anything."},
             },  
             "failure_items": {}, 
@@ -770,6 +789,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team trudge up a sand dune and then use the paragliders to sail down it. You do this over and over until you have passed them. You eventually manage to evade your pursuers. The paraglider gets constantly filled with sand, eventually damaging it.", "used": True, "point_value": 60, "point_desc": "It is a slow and tiring process but the glider does work as a transport method in the sand."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the sand, and whilst you get away, it becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and tear off. It is fast even over the sand and your team is able to continue their mission.", "used": False, "point_value": 100, "point_desc": "The dune buggy is ideal for traversing desert."},
             },  
@@ -784,6 +804,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "There is an frozen river near your team. Your team put on the paragliders. Wind fills the sail and begins to drag you forward quickly across the ice.", "used": False, "point_value": 70, "point_desc": "The paraglider is effective at getting you across the ice fast. Unfortunately you are forecd to follow the lake, which isn't eactly the direction you wanted, but it works well enough."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the snow, and whilst you get away, it becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Snow Mobile": {"use_desc": "Your team pile into the snow modile and it tears off across the fresh snow.", "used": False, "point_value": 100, "point_desc": "The snow mobile is ideal for getting places fast on snow."},
             },  
@@ -805,6 +826,7 @@ challenges_dict = {
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and blend right in. There's a terrifying moment when another guard asks to see your id, but you manage to bluff your way past.", "used": False, "point_value": 80, "point_desc": "Putting yourself in plain sight. An effective but dangerous maneuver."},
             },  
             "failure_items": {
+                "Paraglider": {"use_desc": "Your team put on the paragliders and aim to glide safely away. Your team is shot down.", "used": False, "point_value": 0, "point_desc": "The glider sails are huge and brightly coloured. Not exactly stealthy. They were like a giant target for the enemy to aim at."},
                 "Fire Starter Kit": {"use_desc": "Your team create a small fire with the attention of drawing the guards away. Unfortunately, all it does is get their attention. They are all over you before your team can get away.", "used": True, "point_value": 0, "point_desc": "Starting fires isn't exactly subtle. So yeah, you got caught. Maybe next time you'll try a more stealthy approach."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly. The armoured truck is blown up.", "used": True, "point_value": 0, "point_desc": "What about an armoured truck struck you as particularly sneaky. Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed rpg and your team was no more. Let's try a subtler approach next time, huh?"},
             }, 
@@ -818,6 +840,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team wear the paragliders and use them to get a serious distance before you land.", "used": False, "point_value": 90, "point_desc": "The paragliders are pretty effective at getting some distance, but once you land, it's hard to get going again."},
                 "Boat": {"use_desc": "Your team pile into the boat and tear away.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for quick getaways on the water."},
             },  
             "failure_items": {}, 
@@ -835,6 +858,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Survival", "Rescue"],
             "items":{
+                "Paraglider": {"use_desc": "Your team cut up the giant sail of the paraglider. The canvas is thick and you use it to cover the hole in the wall, securing the canvas in place with the paraglider ropes. The paraglider is now in use.", "used": True, "point_value": 90, "point_desc": "It's an effective temporary solution."},
                 "Rope": {"use_desc": "Your team secure another beam to the wall using the rope. The wall is now braced and should hold. The rope is used up in the process.", "used": True, "point_value": 50, "point_desc": "The rope did allow you to brace the wall, but its only a temporary fix."},
                 "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the wall. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 100, "point_desc": "The panel from the truck is ideal for repairing the wall as it is large and sturdy enough to withstand anything."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the wall into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
@@ -863,6 +887,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team cut up the giant sail of the paraglider. The canvas is thick and you use it to cover the hole in the enviro-dome, securing the canvas in place with the paraglider ropes. The paraglider is now in use.", "used": True, "point_value": 90, "point_desc": "It's an effective temporary solution."},
                 "Rope": {"use_desc": "Your team secure another beam to the enviro-dome using the rope. It is now braced and should hold. The rope is used up in the process.", "used": True, "point_value": 50, "point_desc": "The rope did allow you to brace the enviro-dome, but its only a temporary fix."},
                 "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the outside of the enviro-dome. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 90, "point_desc": "The panel from the truck is the wrong shape, but works well enough to cover the damaged portion of the dome."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the enviro-dome room into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
@@ -962,6 +987,7 @@ challenges_dict = {
             "viable_locations": ["City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Paraglider": {"use_desc": "Your team tie the handrail back into position using the paraglider ropes. The paraglider is now unusable.", "used": True, "point_value": 65, "point_desc": "An crude but effective solution."},
                 "Rope": {"use_desc": "Your team tie the handrail back into position. The rope is used up in the process.", "used": True, "point_value": 70, "point_desc": "An crude but effective solution."},
                 "Welding Kit": {"use_desc": "You weld the damaged mounting and check the repaired handrail before crossing. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The repair restores support along the narrow walkway."},
             },
@@ -1061,6 +1087,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Paraglider": {"use_desc": "Your team paraglide down to the lower section of land on the other side of the dam. It's a long climb back up, but you made it to the other side.", "used": False, "point_value": 60, "point_desc": "You got across but the walk back up is long and tiring."},
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards on the dam wall rush to investigate, and whilst they aren't at their post, your team takes the opportunity to make a break for it across the top of the dam wall. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Handheld Radios": {"use_desc": "Your team tunes the radios to the frequency used by the guards. You talk on the comms about a possible leak in the dam. The guards rush to investigate allowing your team to make a break for it across the dam wal. The radios' batteries are used up in the process.", "used": True, "point_value": 90, "point_desc": "An effective solution, and one that doesn't lead back to you."},
                 "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to make a break for it across the dam wall. The mirror gets left behind in the process.", "used": True, "point_value": 90, "point_desc": "The mirror successfully distracted the guards however it didn't distract them for long, so your team had to move mighty fast."},
@@ -1093,6 +1120,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team use the paraglider to sail easily over the surface of the water, never coming near the mines.", "used": False, "point_value": 100, "point_desc": "The paraglider is ideal for getting you past the sea mines as you never actually have to go near them."},
                 "Scuba Gear": {"use_desc": "Your team don the scuba gear. The flippers help you to move swiftly through the mine field and your maneuverable enough to get by unscathed. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear is ideal for this situation. It allows you to move efficiently and safely past the sea mines."},
             },  
             "failure_items": {}, 
@@ -1106,6 +1134,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "You team attempts to sail acorss the surface of the water using the paragliders. You get most of the way there before they become snagged on a piece of metal. You have to swim the rest of the way. The paragliders are lost in the process.", "used": True, "point_value": 60, "point_desc": "The paragliders get you most of the way there, but don't handle the wrecked ships well."},
                 "Scuba Gear": {"use_desc": "Your team dons the scuba gear and quickly and easily navigate the ship wrecked environment. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear is ideal for this situation. It allows you to move efficiently and safely past the sunken ships."},
             },  
             "failure_items": {},
@@ -1119,6 +1148,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Paraglider": {"use_desc": "Your team climb up the fire-escape of a tall building and use the paraglider to sail safely over traffic.", "used": False, "point_value": 90, "point_desc": "The paragliders easily get your team past traffic, although you did loose a bit of time climbing the fire escape."},
                 "Fire Starter Kit": {"use_desc": "You use the firestarter kit to light a small flame. You leave the fire in the hood of a parked car. Soon enough it explodes. All traffic stops as people run from their cars. You're team is able to saunter through traffic undisturbed. The kindling is used up in the process.", "used": True, "point_value": 10, "point_desc": "What the heck! That was someone's car. You can't just go around blowing things up, even if it works."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You throw the gas canister into traffic. When it goes off there are a few accidents as drivers are knocked unconscious, but soon enough all traffic comes to a stand still. Your team is able to make their way across the road with no risk of injury by car. The gas was used up in the process.", "used": True, "point_value": 40, "point_desc": "Whilst it did successfully stop traffic, using the knockout gas did lead to a number of injuries to innocent people."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and, just like an icebreaker, plow it through traffic. It's messy and almost certainly injures a few people, but you do make it through. The truck gets damaged as you ram your way through traffic.", "used": True, "point_value": 80, "point_desc": "A very messy an dangerous approach. Although you did successfully beat traffic."},
@@ -1149,6 +1179,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items": {
+                "Paraglider": {"use_desc": "Your team wear the paragliders and sail cleanly over the gap.", "used": False, "point_value": 100, "point_desc": "The paragliders are ideal for getting you across short gaps."},
                 "Rope": {"use_desc": "Your team lasso the rope to the railing and use it sto swing across.", "used": False, "point_value": 90, "point_desc": "It takes a while to lasso the rail, but once you have it's a fairly easy trip."},
                 "Grapling Hook": {"use_desc": "You secure the grappling hook to the railing and use its line to cross the gap.", "used": False, "point_value": 100, "point_desc": "The hook provides a secure crossing point without restarting the walkway."},
             },
@@ -1197,6 +1228,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team tie the paraglider in a tree. The guards spot the giant sail and move to investigate it, allowing you to slip by unnoticed. You leave the gliders behind in teh process.", "used": True, "point_value": 80, "point_desc": "The gliders act as a quick and easy distraction, although they do put the base on high alert."},
                 "Rope": {"use_desc": "Each time a guard passes, your team jump them and tie them up using the rope. Eventually you've got enough of them that you can simply avoid the others by being stealthy. You are forced to leave the rope behind.", "used": True, "point_value": 60, "point_desc": "It takes a long time to catch enough guards to clear a path."},
                 "Armoured Truck": {"use_desc": "One member of your team jumps into the armoured truck and drives it past the base. Guards come running to see the commotion and the team slips by unnoticed.", "used": False, "point_value": 30, "point_desc": "It does successfully distract the guards but alerts them to your presence and leaves a teammate behind."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of the guards and they leave their post to investigate. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully drew the guards away, but it did cause some significant damage in the process."},
@@ -1293,6 +1325,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team use the paraglider rope and tie it across a halway. When the guard passes by, they trip on the rope and fall, knocking themselves unconscious. Your team is able to grab the item The paraglider is rendered unusable with the ropes removed.", "used": True, "point_value": 65, "point_desc": "You get the item, and with very little set up, but the body in the hallway is likely to get noticed."},
                 "Rope": {"use_desc": "Your team tie the rope across a halway. When the guard passes by, they trip on the rope and fall, knocking themselves unconscious. Your team is able to grab the item.", "used": False, "point_value": 70, "point_desc": "You get the item, and with very little set up, but the body in the hallway is likely to get noticed."},
                 "Mirror": {"use_desc": "Your team use the glint of the mirror to lure the guard with the item down a secluded halway. Once he's alone you jump him and get the item.", "used": False, "point_value": 50, "point_desc": "It's a messy approach and hurts the guard."},
                 "Fire Starter Kit": {"use_desc": "You create a small flame using the fire starter kit. When the guard with the item stops near you, you light the bottom of their shirt on fire. Quickly they notice the fire and rip the jacket off The item goes flying and your team is able to grab it and leave whilst the guard attempts to stamp out the flames. The kindling is used up in the process.", "used": True, "point_value": 10, "point_desc": "A risky maneuver that definitely drew attention. People don't just spontaneuosly combust, you know. But, you did manage to get the item, altough you did risk damaging it with the fire."},
@@ -1429,6 +1462,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team use the paraglider to make your way to the rendezvous by air.", "used": False, "point_value": 100, "point_desc": "The paraglider is ideal for air based travel."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and make your way to the rendezvous quickly and safely.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for air based travel"},
             },  
@@ -1443,6 +1477,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team use the paraglider to make your way to the rendezvous by air.", "used": False, "point_value": 100, "point_desc": "The paraglider is ideal for air based travel."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and make your way to the rendezvous quickly and safely.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for air based travel"},
             },  
             "failure_items": {}, 
@@ -1456,6 +1491,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team put on their paragliders and set off. It's very tricky to navigate by air, but you manage it. You do get snagged on obstacles a few time but your team is able to use the paragliders to make it to the rendezvous. The paragliders are damaged in the process.", "used": True, "point_value": 60, "point_desc": "The paragliders do help you travel, but they were not idea for this situation."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The armoured truck is an ideal option for land based travel."},
             },  
             "failure_items": {}, 
@@ -1469,6 +1505,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team trudge up a sand dune and then use the paragliders to sail down it. You do this over and over until you have passed them. The paraglider gets constantly filled with sand, eventually damaging it.", "used": True, "point_value": 80, "point_desc": "The paraglider certainly made it faster to traverse the desert, but it wasn't the ideal method of transport"},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the sand. It gets the team almost all the way there, but becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to rendezvous, but it wasn't the ideal method of transport."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The Dune Buggy is an ideal option for travel over sand."},
             },  
@@ -1483,6 +1520,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "There is an frozen river near your team. Your team put on the paragliders. Wind fills the sail and begins to drag you forward quickly across the ice.", "used": False, "point_value": 70, "point_desc": "The paraglider is effective at getting you across the ice fast. Unfortunately you are forecd to follow the lake, which isn't eactly the direction you wanted, but it works well enough."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the snow. It gets the team almost all the way there, but becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to rendezvous, but it wasn't the ideal method of transport."},
                 "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The snow mobile is an ideal option for travel over snow."},
             },  
@@ -1497,6 +1535,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Paraglider": {"use_desc": "Your team wear the paragliders and use them to get a serious distance before you land.", "used": False, "point_value": 90, "point_desc": "The paragliders are pretty effective at getting some distance, but they aren't the ideal option."},
                 "Boat": {"use_desc": "Your team pile into the boat and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The boat is an ideal option for travel over water."},
             },  
             "failure_items": {}, 

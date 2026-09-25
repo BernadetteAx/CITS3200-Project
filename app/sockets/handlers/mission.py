@@ -175,7 +175,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
             points_earned = 0
             title = "A Costly Detour"
             description = (
-                f"The {item['name']} could not be used here; " + challenge.get("continue_failure_desc", "")
+                f"The {item['name']} could not be used here. " + challenge.get("continue_failure_desc", "")
             )
 
     elif timed_out:
@@ -183,7 +183,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         points_earned = 0
         title = "Time Ran Out"
         description = (
-            "The team deliberated for too long and was forced to make a hasty decision; " + challenge.get("continue_failure_desc", "")
+            "The team deliberated for too long and was forced to make a hasty decision. " + challenge.get("continue_failure_desc", "")
         )
 
     else:
@@ -191,7 +191,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         points_earned = 0
         title = "A Costly Detour"
         description = (
-            "No item was used; " + challenge.get("continue_failure_desc", "")
+            "No item was used. " + challenge.get("continue_failure_desc", "")
         )
 
     # Normal failures count towards the three-failure limit.
