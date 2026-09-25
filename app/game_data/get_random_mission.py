@@ -35,7 +35,6 @@ def get_mission():
     for challenge_num in challenge_nums:
         challenge_type = selected_mission_dict[challenge_num]
 
-        # Add somethings that catches if there is no option found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         challenge_options = []
         # Find all viable challenge options
         for challenge_name in challenges_dict[challenge_type]:

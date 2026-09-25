@@ -97,6 +97,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tie themselves together in a line so they don't loose each other and trudge on, eventually making it out of the blizzard.", "used": False, "point_value": 5, "point_desc": "This did very little to counteract the freezing winds or help you get out of the weather faster, but it did at least mean that you didn't lose anyone."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the blizzard. You are safe inside until the blizzard pases. You are even able to continue to move towards your destination.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Fire Starter Kit": {"use_desc": "Your team use the fire starter kit to create a small flame. You protect it with your bodies and use it to keep you warm. It's not much, but it's enough. The fire starter kit is used up in the process", "used": True, "point_value": 20, "point_desc": "This is a barely passable solution. Without anything to burn the flame is tiny and can barely keep your crew warm. Besides that, your team is forced to wait with it until the blizzard subsides."},
                 "Snow Boots": {"use_desc": "The snow boots keep your team warm and give them good grip on the ground. Despite barely being able to see, the team is able to make it out of the blizzard through sheer force of will.", "used": False, "point_value": 70, "point_desc": "The snow boots are effective in keeping your team warm and getting them out of the blizzard. However some time is lost as the team is unable to see where they are going."},
@@ -129,6 +130,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tie themselves together in a line so they don't loose each other and brace for impact. The wave hits and your team is tossed about, but the rope helps you find one another afterwards and continue the mission.", "used": False, "point_value": 5, "point_desc": "This did very little to counteract the impact of the wave or help you get out of the way, but it did at least mean that you didn't lose anyone."},
                 "Scuba Gear": {"use_desc": "Your team don the scuba gear and go under the water. You get rocked by the wave as it passes over you, but are safe and able to continue your mission. The scuba oxygen tank is used up in the process", "used": True, "point_value": 90, "point_desc": "The scuba gear is effective at getting you out of the path of the wave. But it does mean that you are forced to wait for the wave to pass before continuing your mission."},
                 "Paraglider": {"use_desc": "Your team use the paraglider to put some distance between you and the wave. Damaging winds break the paraglider, making it unusable.", "used": True, "point_value": 60, "point_desc": "The paraglider is slow and bearly gets your team out in time. It is also precarious in the damaging winds."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. The damaging winds tear at the craft and damage the blades, but not before you escape the wave.", "used": True, "point_value": 80, "point_desc": "The helicopter gets you away from the wave, but in the high winds, it's a dangerous maneuver."},
@@ -145,6 +147,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "A member of your team uses the rope to lasso the crocs mouth shut. As they don't have very strong opening jaw muscles, it is unable to hurt you and your team slip by. Your team abandon the rope in the process.", "used": True, "point_value": 100, "point_desc": "A fairly good solution that didn't hurt the croc and did let your team slip by unscathed."},
                 "Fire Starter Kit": {"use_desc": "You use the firestarter kit to light a nearby branch on fire. You wield the branch in in an effort to scare the croc off. It lunges anyway but retreats once it is burned. The fire kindling is used up in the process", "used": True, "point_value": 65, "point_desc": "You're lucky the crocodile wasn't too hungry. The firestarter kit was successful but did mean that you had to get awefully close."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You use the knockout gas to harmlessly incapacitate the Crocodile and use the gas mask to slip by unscathed. The gas is used up in the process", "used": True, "point_value": 80, "point_desc": "The gas did manage to subdue the crocodile, but it took a while to take effect, so your team had to scramble into the trees while you waited."},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the crocodile retreats.", "used": False, "point_value": 80, "point_desc": "The ice axes are unwieldy, but do their job. But it sure wasn't a picnic having to get that close to the croc."},
@@ -162,6 +165,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tie themselves together in a line so they don't loose each other and trudge on through the storm.", "used": False, "point_value": 5, "point_desc": "This did very little to counteract the impact of the cyclone or help your team get out of the weather faster, but it did at least mean that you didn't lose anyone."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the cyclone. You are safe inside until the cyclone pases. You are even able to continue to move towards your destination.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Tent": {"use_desc": "Your team pitches the tent and takes shelter. You are forced to wait out the storm. The tent is damaged in the process", "used": True, "point_value": 40, "point_desc": "The tent did provide shelter, but your team was forced to wait for the storm to subside, whilst sitting under nothing but canvas."},
             }, 
@@ -179,6 +183,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tie themselves together in a line so they don't loose each other and continue on through the storm.", "used": False, "point_value": 5, "point_desc": "This did very little to counteract the impact of the cyclone or help your team get out of the weather faster, but it did at least mean that you didn't lose anyone."},
                 "Boat": {"use_desc": "Your team pile onto a boat and take off in the opposite direction, eventually rounding the cyclone and being able to continue safely on your mission.", "used": True, "point_value": 100, "point_desc": "The boat allowed you to safely escape the path of the cyclone and continue swiftly with your mission."},
                 "Inflatable Raft": {"use_desc": "Your team pile onto the raft. You try to paddle but can't outrun the storm. The raft shelters your team but near the end of the cyclone gets ripped.", "used": True, "point_value": 60, "point_desc": "The raft allowed you to survive the storm. But it was a pretty harrowing time. You definitely thought that you were done for."},
             }, 
@@ -256,6 +261,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team attaches the rope to one of the fallen trees and loops the rope over the branch of another nearby tree. You then usehaul on the rope and it slowly shifts the trees out of the path. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 90, "point_desc": "Using the rope takes a while, but does safely clear the whole path."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it into the blocked path. Like an icebreaker it clears the way through.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle these kinds of environmental challenges with ease."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small flame. You light a branch on fire and use it to dot small fires around a central tree. It burns through the tree slowly and eventually a path through it burned.", "used": True, "point_value": 40, "point_desc": "You made it past the trees but using the fire safely took a long time. You of course could have sent the whole thing up in flames but that would have risked starting a forest fire."},
                 "Ice Axes": {"use_desc": "Your team uses the ice axes to hook into the trees to drag them out of the way.", "used": False, "point_value": 50, "point_desc": "It takes a lot of effort and the ice axes don't help nearly enough."},
@@ -287,6 +293,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tie themselves to the surroundning trees and wait for the flood to hit. The rope holds you in place until the flood passes. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 80, "point_desc": "Tying yourselves to the trees meant there was no chance of anyone being swept away. It was, however risky, as if the waters had gotten high enough, your team would have been tied down and unable to surface for air."},
                 "Ice Axes": {"use_desc": "Your team climb into the trees nearby. You wedge the ice axes deep into the trunk to give yourselves a better grip. You hold on until the flood passes.", "used": False, "point_value": 20, "point_desc": "You very nearly get swept away, but your team does manage to survive the flood with the help of the ice axes."},
                 "Boat": {"use_desc": "Your team pile into the boat. As soon as the waters are high enough, the boat is able to navigate on top.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for handling the flooding."},
             },  
@@ -301,6 +308,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tie themselves together in a line and start the very slow journey across the ice. On 2 occasions team members fall through the ice, but your team is able to use the rope to drag them back out.", "used": False, "point_value": 20, "point_desc": "The rope doesn't do much to help your team as they cross, it merely prevents your teammates from being lost to the lake, and they still end up freezing cold when they take the plunge."},
                 "Ice Axes": {"use_desc": "Your team uses the ice axes to test the depth of the ice. It's a long process and involves a lot of crawling around on your stomachs, but by driving the ice axes into the ice, you are able to work out if a section is stable enough to support your weight.", "used": False, "point_value": 30, "point_desc": "The ice axes help get you across the lake, but it is a gruelling task."},
                 "Ice Skates": {"use_desc": "The team don the ice skates and use them to easily navigate over the forzen lake.", "used": False, "point_value": 100, "point_desc": "The ice skates are idel for navigating over the lake and your team is able to move quickly to their next challenge."},
             },  
@@ -330,6 +338,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tries again, and again to lasso an ice outcropping, but it's so slippery that it's almost impossible. You do eventually manage it and use it as an anchor point to climb up. The repeated tries to lasso the outcropping frays the rope, rendering it unusable.", "used": True, "point_value": 40, "point_desc": "The rope does successfully get your team up the ice cliff, but having your anchor point be so slippery and unstable is a very, very rsiky move."},
                 "Ice Axes": {"use_desc": "You use the Ice Axes to scale the ice cliff with ease.", "used": False, "point_value": 100, "point_desc": "The ice axes are ideal for this kind of challenge as they are able to easily get a hold on the smooth surface."},
             }, 
             "failure_items": {}, 
@@ -343,6 +352,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team ties themselves together and when the landslide hits you are burried beneath it. You manage to dig yourselves out, using the rope as a guide to where people are. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 5, "point_desc": "This was only just enough and by the time you got around to rescuing the last member of the team from under the earth they had very nearly suffocated. The process is exhausting and time consuming."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and brace for impact. The landslide hits rolling the truck, but your team is all safely secured inside. Once it is over your team is able to exit througha safety hatch on the roof. The truck is burried too deep to be retrieved.", "used": True, "point_value": 100, "point_desc": "The armoured truck is ideal as it managed to protect your team from the landslide without causing any significant delays."},
                 "Ice Axes": {"use_desc": "You wedge the ice axes as deep into the surrounding rock as possible and hold on tight. After the landslide has past, you need to dig yourselves out, but you are otherwise fine. The ice axes are damaged in the process", "used": True, "point_value": 70, "point_desc": "The ice axes helped your team get a grip and keep together, but your team was still caught in the slide."},
             }, 
@@ -400,6 +410,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team manage to lasso a rock near the edge of the pit and use the rope to haul yourselves out. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 95, "point_desc": "The rope is able to easly help your team out of the pit."},
                 "Ice Axes": {"use_desc": "You use wedge the ice axes into the surrounding solid ground and use them to pull yourselves out. The ice axes are damaged in the process", "used": True, "point_value": 90, "point_desc": "The ice axes are able to help your team haul themselves out of th epit, though it takes a lot of effort."},
             }, 
             "failure_items": {},
@@ -413,6 +424,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team attach the rope to the top of a very tall tree and use it to swing across the river. The rope is left behind.", "used": True, "point_value": 90, "point_desc": "The rope is good for this challenge, but setting it up took some time."},
                 "Ice Axes": {"use_desc": "Your team jumps into the ragin river and swims across. You use the ice axes to latch onto tree roots on the far side and pull yourselves across. The ice axes are damaged in the process.", "used": True, "point_value": 50, "point_desc": "The ice axes help you get to the other side of the river without washing too far downstream, but the method of getting a hold was kind of painfull and pulled a lot of arms in uncomfortable ways."},
                 "Boat": {"use_desc": "Your team pile into the boat, and just moments later you are safely on the other bank fo the river.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for crossing the river."},
             },  
@@ -455,6 +467,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tie themselves together in a line so they don't loose each other and trudge on, eventually making it out of the sand storm.", "used": False, "point_value": 5, "point_desc": "This did very little to counteract the winds or help you get out of the weather faster, but it did at least mean that you didn't lose anyone."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the sand storm. You are safe inside until the storm pases. You are even able to continue to move towards your destination.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Shovel": {"use_desc": "Your team dig down and make a shallow pit to hide in. The winds swirl above you, but you're safe until the storm passes.", "used": False, "point_value": 40, "point_desc": "The shovel helped you keep your team safe, but it did mean that you had to wait for the storm to subside."},
             },  
@@ -498,6 +511,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team manage to lasso a rock near the edge of the sinkhole and use the rope to haul yourselves out. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 80, "point_desc": "The rope is able to easly help your team out of the sinkhole, but you did have to fall in it frst."},
                 "Ice Axes": {"use_desc": "Your team wedge the ice axes into the surrounding rock just as the floor gives way. Your teeam is able to haul themselves out of the hole using the ice axes. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "It's an efficient way out of the hole, but it takes a lot of effort."},
                 "Grapling Hook": {"use_desc": "In the few moments you have, your team manages to latch the grapling hook to the far side of the hole. When the ground gives way, your team is able to swing to safety.", "used": False, "point_value": 90, "point_desc": "The grapling hook handly passes the challenge, and apart from a few minor cuts, your team comes away unscathed."},
             }, 
@@ -736,7 +750,7 @@ challenges_dict = {
 
         "Mislead Pursuers": {
             "challenge_name": "Mislead Pursuers",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off. Your pursuers are hot on your heels but you loose them in dense undegrowth that only the truck can get through. The truck is damaged in the process.", "used": True, "point_value": 50, "point_desc": "You didn't exactly mislead your pursuers, more, outran them. Oh well the effect is the same."},
@@ -784,6 +798,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
+                "Rope": {"use_desc": "Each time a guard passes, your team jump them and tie them up using the rope. Eventually you've got enough of them that you can simply avoid the others by being stealthy. You are forced to leave the rope behind.", "used": True, "point_value": 60, "point_desc": "It takes a long time to catch enough guards to clear a path."},
                 "Handheld Radios": {"use_desc": "Your team tunes the radios to the frequency used by the security. You talk on the comms about an intruder in a different section of the base. It tricks the guards without raising the alarm. The radios' batteries are used up in the process.", "used": True, "point_value": 90, "point_desc": "An effective solution, and one that doesn't lead back to you. It both mislead the guards and didn't raise suspicion. Although now the base is on high alert, looking for intruders, no less."},
                 "Mirror": {"use_desc": "Your team get as high as they can and use the glint of the mirror to signal one of the towers. They assume it is a signal from another nearby base. You use morse code to tell them to check the valley. Many guards are sent there clearing the way for your team's exit.", "used": False, "point_value": 70, "point_desc": "Very risky maneuver. You are just lucky that there was a nearby base and that they were fooled."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team don their gas masks and use the gas to knockout anyone you come across. You manage to basically clear the are without anyone noticing you were there. The gas was used up in the process.", "used": True, "point_value": 100, "point_desc": "This is the ideal use of the gas as it allows you to harmlessly take out the enemy without raising any alarms."},
@@ -820,6 +835,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Survival", "Rescue"],
             "items":{
+                "Rope": {"use_desc": "Your team secure another beam to the wall using the rope. The wall is now braced and should hold. The rope is used up in the process.", "used": True, "point_value": 50, "point_desc": "The rope did allow you to brace the wall, but its only a temporary fix."},
                 "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the wall. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 100, "point_desc": "The panel from the truck is ideal for repairing the wall as it is large and sturdy enough to withstand anything."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the wall into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
             },  
@@ -847,6 +863,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team secure another beam to the enviro-dome using the rope. It is now braced and should hold. The rope is used up in the process.", "used": True, "point_value": 50, "point_desc": "The rope did allow you to brace the enviro-dome, but its only a temporary fix."},
                 "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the outside of the enviro-dome. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 90, "point_desc": "The panel from the truck is the wrong shape, but works well enough to cover the damaged portion of the dome."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the enviro-dome room into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
             },  
@@ -903,6 +920,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "City", "Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team uses the rope to re-attch the solar panels in the correct positions. The rope is used up in the process.", "used": True, "point_value": 60, "point_desc": "You successfully get the panels back into the correct place, but it doesn't fix the damage to them. Still, they'll work a bit."},
                 "Mirror": {"use_desc": "You use the mirror to focus a beam of sunlight on one of the sections of the solar panel that is still working. Creating a tiny trickle of power. The mirror is now in use.", "used": True, "point_value": 5, "point_desc": "The mirror kind of works. It means you can redirect the light, so didn't need to reattach the panels and it focuses the light on the section that works. It is however a very small and very temporary fix."},
                 "Welding Kit": {"use_desc": "You re-attach the solar panels to their correct positions and use the welding kit to fuse it in place. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "You do manage to re-attach the solar panels, but unfortunately, you can do little to repair their functionality with such a crude implement."},
             },  
@@ -944,6 +962,7 @@ challenges_dict = {
             "viable_locations": ["City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Rope": {"use_desc": "Your team tie the handrail back into position. The rope is used up in the process.", "used": True, "point_value": 70, "point_desc": "An crude but effective solution."},
                 "Welding Kit": {"use_desc": "You weld the damaged mounting and check the repaired handrail before crossing. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The repair restores support along the narrow walkway."},
             },
             "failure_items": {},
@@ -992,6 +1011,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team secure the rope to a spike on the gate and haul yourselves up and over leaving the gate intact.", "used": False, "point_value": 100, "point_desc": "You get by the gate quickly and by not damaging the gate, no one will know you got past it."},
                 "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the gate. It only sustains minor damage.", "used": False, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
                 "Ice Axes": {"use_desc": "You use the ice axes to break down the door to the building and get the key. You use it to unlock the gate and pass by unhindered.", "used": False, "point_value": 70, "point_desc": "It takes a while to break down the door and more than a little effort. But you do successfully pass the challenge."},
                 "Fire Starter Kit": {"use_desc": "The door to the building is wooden, so your team uses the firestarter kit to create a flame. Soon enough the door is slowly being burnt away. Once enough of it has turned to embers, your team is able to slip inside, grab the key and get through the gate.", "used": False, "point_value": 30, "point_desc": "Burning the door worked, but took a very long time."},
@@ -1058,6 +1078,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tries again and again to lasso the top of the wall. Eventually they succeed and you are able to climb up and over. The repeated lasso attempts fray the rope, rendering it unusable.", "used": True, "point_value": 70, "point_desc": "It takes a long time before your team is able to lasso the top of the wall and the climb is fairly risky."},
                 "Ice Axes": {"use_desc": "You wedge the ice axes deep in the wall and use them to scale it. It's almost impossible but it gets you up and over. The ice axes are damaged in the process.", "used": True, "point_value": 70, "point_desc": "It is a lot of work and quite a risky maneuver, but the ice axes do get you successfully over the wall."},
                 "Grapling Hook": {"use_desc": "Your team secure the grapling hook to the top of the wall, and make your way easily to the top. Then you secure it again and make your way down. Easy.", "used": False, "point_value": 100, "point_desc": "The grapling hook is ideal for climbing especially walls. It's what grapling hooks are built for after all."},
             },  
@@ -1113,6 +1134,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items": {
+                "Rope": {"use_desc": "Your team tie the rope to bits of debris and drag them out of the way. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 80, "point_desc": "The rope is fairly efficient at clearing the stairwell."},
                 "Ice Axes": {"use_desc": "You wedge the ice axes into sections of the debris and use them as a handle to drag the debris out of the way, clearing a path through. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The ice axes help speed up the clearing of the stairway, but are not altogether a great tool for the task."},
                 "Shovel": {"use_desc": "You shovel the loose rubble aside until everyone can reach the stairs.", "used": False, "point_value": 100, "point_desc": "The shovel clears the obstruction efficiently."},
             },
@@ -1127,6 +1149,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items": {
+                "Rope": {"use_desc": "Your team lasso the rope to the railing and use it sto swing across.", "used": False, "point_value": 90, "point_desc": "It takes a while to lasso the rail, but once you have it's a fairly easy trip."},
                 "Grapling Hook": {"use_desc": "You secure the grappling hook to the railing and use its line to cross the gap.", "used": False, "point_value": 100, "point_desc": "The hook provides a secure crossing point without restarting the walkway."},
             },
             "failure_items": {},
@@ -1174,6 +1197,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Each time a guard passes, your team jump them and tie them up using the rope. Eventually you've got enough of them that you can simply avoid the others by being stealthy. You are forced to leave the rope behind.", "used": True, "point_value": 60, "point_desc": "It takes a long time to catch enough guards to clear a path."},
                 "Armoured Truck": {"use_desc": "One member of your team jumps into the armoured truck and drives it past the base. Guards come running to see the commotion and the team slips by unnoticed.", "used": False, "point_value": 30, "point_desc": "It does successfully distract the guards but alerts them to your presence and leaves a teammate behind."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of the guards and they leave their post to investigate. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully drew the guards away, but it did cause some significant damage in the process."},
                 "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate. The radios get left behind in the process.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there was someone on the premises."},
@@ -1238,6 +1262,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team loops the rope around several pillars and then attaches the end to the vault handle. With a lot of work and a lot of pulling, you manage to rip the door off. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 20, "point_desc": "It takes a long time, is exhausting and very noisy, but you do eventually get the goods."},
                 "Ice Axes": {"use_desc": "You use the ice axes to smash the hinges of the vault. The ice axes are broken in the process.", "used": True, "point_value": 10, "point_desc": "It takes a long time to break the hinges and is not at all quiet. Even if it did work."},
                 "Lock Picks": {"use_desc": "Your team uses the lock picks to break into the vault. It's tricky and not exactly what they were designed for. But it gets the job done. The lock picks get damaged in the process.", "used": True, "point_value": 80, "point_desc": "It's a time consuming process, but using the lock picks does allow the team to break open the safe subtly."},
             },  
@@ -1252,6 +1277,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tie the crate up and loop the rope over a roof beam. You then haul on the rope, lifting the crate. When it's high enough you drop it and the crate breaks, giving you access to the contents. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 60, "point_desc": "It's a noisy and tiring solution, but does get the job done."},
                 "Fire Starter Kit": {"use_desc": "Your team use the frie starter kit to create a small flame. You place it on the wooden crate, and soon enough it begins to burn. It takes a while but eventually the crate burns away and you're able to get the goods. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "You do get through the crate, but it takes a long time for the flames to do their work."},
                 "Ice Axes": {"use_desc": "Your team uses the ice axes to break the wooden crate. It's easy enough to do, just a little loud.", "used": False, "point_value": 75, "point_desc": "The ice axes are effective at getting the goods from the crate, but creates a lot of noise in the process."},
                 "Axe": {"use_desc": "Your team uses the axe to break the wooden crate. It's easy enough to do, just a little loud.", "used": False, "point_value": 80, "point_desc": "The axe is effective at getting the goods from the crate, but creates a lot of noise in the process."},
@@ -1267,6 +1293,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Rope": {"use_desc": "Your team tie the rope across a halway. When the guard passes by, they trip on the rope and fall, knocking themselves unconscious. Your team is able to grab the item.", "used": False, "point_value": 70, "point_desc": "You get the item, and with very little set up, but the body in the hallway is likely to get noticed."},
                 "Mirror": {"use_desc": "Your team use the glint of the mirror to lure the guard with the item down a secluded halway. Once he's alone you jump him and get the item.", "used": False, "point_value": 50, "point_desc": "It's a messy approach and hurts the guard."},
                 "Fire Starter Kit": {"use_desc": "You create a small flame using the fire starter kit. When the guard with the item stops near you, you light the bottom of their shirt on fire. Quickly they notice the fire and rip the jacket off The item goes flying and your team is able to grab it and leave whilst the guard attempts to stamp out the flames. The kindling is used up in the process.", "used": True, "point_value": 10, "point_desc": "A risky maneuver that definitely drew attention. People don't just spontaneuosly combust, you know. But, you did manage to get the item, altough you did risk damaging it with the fire."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team wear their gas masks and open the gas canister. It safely knocks out the guard and you are able to retrieve the item. The gas was used up in the process.", "used": True, "point_value": 100, "point_desc": "This is an ideal use of the gas masks and gas canister. It allowed you to get the item without raising any alarms and without hurting anyone."},
