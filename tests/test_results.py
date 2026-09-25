@@ -157,6 +157,20 @@ def test_missing_challenge_name_uses_fallback(completed_game):
     assert result["challenges"][0]["name"] == "Challenge 1"
 
 
+def test_mission_metadata_and_challenge_type_are_passed_through(
+    completed_game,
+):
+    completed_game["mission"]["mission_name"] = "The Final Push"
+    completed_game["mission"]["location"] = "Cinder Ridge"
+    completed_game["mission"]["challenges"][0]["type"] = "skill"
+
+    result = build_result_state(completed_game)
+
+    assert result["missionName"] == "The Final Push"
+    assert result["location"] == "Cinder Ridge"
+    assert result["challenges"][0]["type"] == "skill"
+
+
 def test_missing_challenge_list_uses_fallbacks(completed_game):
     del completed_game["mission"]["challenges"]
 
