@@ -51,3 +51,31 @@ def test_generated_briefing_survives_shop_to_mission_transition(
     for challenge in sample_session["mission"]["challenges"]:
         assert challenge["description"].lower() not in {"incomplete", "imcomplete"}
         assert "insert_item_here" not in challenge["description"]
+
+
+def test_missing_or_placeholder_descriptions_get_fallback_text(sample_session):
+    generated = {
+        "mission": "Fallback Mission",
+        "location": "The Docks",
+        "mission_description": "A quiet evening on the waterfront.",
+    }
+    for index in range(1, 7):
+        generated[f"challenge_{index}"] = {
+            "challenge_name": f"Challenge {index}",
+            "desc": "Incomplete" if index == 2 else "" if index == 4 else "The team needs insert_item_here to continue.",
+            "items": {},
+            "failure_items": {},
+        }
+
+    sample_session["purchased_items"] = [{"id": "axe", "name": "Axe"}]
+    initialise_mission(sample_session, generated)
+
+    challenges = sample_session["mission"]["challenges"]
+    assert "Your crew faces Challenge 2" in challenges[1]["description"]
+    assert "Your crew faces Challenge 4" in challenges[3]["description"]
+    assert "insert_item_here" not in challenges[2]["description"]
+    assert all(challenge["description"] for challenge in challenges)
+    assert all(
+        "incomplete" not in challenge["description"].lower()
+        for challenge in challenges
+    )
