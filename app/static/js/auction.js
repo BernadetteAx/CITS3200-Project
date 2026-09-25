@@ -5,6 +5,7 @@ const voteCountText = document.getElementById("voteCountText");
 const progressFill = document.getElementById("progressFill");
 const finishBtn = document.getElementById("finishBtn");
 const skipBtn = document.getElementById("skipBtn");
+const endRoundBtn = document.getElementById("endRoundBtn");
 const timerValue = document.getElementById("timerValue");
 const timerPill = document.getElementById("timerPill");
 const countdownFill = document.getElementById("countdownFill");
@@ -19,9 +20,11 @@ function action(event, extra = {}) {
 }
 
 function render(state) {
-  // Room broadcasts keep choices anonymous. A player's authoritative personal
-  // choice is sent separately by the server after its action/reconnect.
-  if (latestState && state.myVote === undefined && state.round === latestState.round) state.myVote = latestState.myVote;
+  // room broadcasts keep choices anonymous, a players selection and submitted vote are sent separately by server
+  if (latestState && state.round === latestState.round) {
+    if (state.mySelection === undefined) state.mySelection = latestState.mySelection;
+    if (state.myVote === undefined) state.myVote = latestState.myVote;
+  }
   latestState = state;
   budgetValue.textContent = `$${state.budget}`;
   roundText.textContent = `${Math.min(state.round, state.totalRounds)} OF ${state.totalRounds}`;
@@ -29,21 +32,22 @@ function render(state) {
   progressFill.style.width = `${state.playerCount ? state.voteCount / state.playerCount * 100 : 0}%`;
   itemGrid.innerHTML = "";
   state.items.forEach((item) => {
-    const selected = state.myVote === item.id;
+    const selected = state.mySelection === item.id;
     const unavailable = state.status !== "voting" || item.cost > state.budget;
     const tile = document.createElement("button");
     tile.type = "button"; tile.className = "item-tile";
     tile.dataset.state = unavailable ? "unavailable" : selected ? "selected" : "idle";
     tile.disabled = unavailable;
     tile.setAttribute("aria-pressed", String(selected));
-    tile.innerHTML = `<div class="item-image"><img src="/static/images/${item.image}" alt="${item.name}"></div><div class="item-name">${item.name}</div><div class="item-desc">${item.description}</div><div class="item-footer"><span class="cost-tag">$${item.cost}</span><span class="vote-check">${selected ? "✓ YOUR VOTE" : "TAP TO VOTE"}</span></div>`;
+    tile.innerHTML = `<div class="item-image"><img src="/static/images/${item.image}" alt="${item.name}"></div><div class="item-name">${item.name}</div><div class="item-desc">${item.description}</div><div class="item-footer"><span class="cost-tag">$${item.cost}</span><span class="vote-check">${selected ? "✓ SELECTED" : "TAP TO SELECT"}</span></div>`;
     tile.querySelector('.item-image').replaceChildren(window.gameVisuals.itemArt(item));
     if (!unavailable) tile.addEventListener("click", () => action("auction_vote", { itemId: item.id }));
     itemGrid.appendChild(tile);
   });
   const voting = state.status === "voting";
-  finishBtn.disabled = !voting || !state.myVote || state.myVote === "skip";
+  finishBtn.disabled = !voting || !state.mySelection;
   skipBtn.disabled = !voting;
+  endRoundBtn.hidden = sessionStorage.getItem("isHost") !== "true" || !voting;
   inventoryLabel.textContent = `TEAM INVENTORY · ${state.purchasedItems.length}/8 SLOTS FILLED`;
   inventory.innerHTML = state.purchasedItems.map((item) => `<div class="hotbar-slot filled" title="${item.name}"><img src="/static/images/${item.hotbar_image}" alt="${item.name}"></div>`).join("") + Array.from({length: Math.max(0, 8 - state.purchasedItems.length)}, () => '<div class="hotbar-slot empty">＋</div>').join("");
   inventory.querySelectorAll('.filled').forEach((slot, index) => slot.replaceChildren(window.gameVisuals.itemArt(state.purchasedItems[index])));
@@ -93,6 +97,7 @@ function hideResult() { resultPopup.classList.remove("show"); resultPopup.classL
 
 finishBtn.addEventListener("click", () => action("auction_finish_voting"));
 skipBtn.addEventListener("click", () => action("auction_skip"));
+endRoundBtn.addEventListener("click", () => action("resolve_auction_round"));
 document.getElementById("closeResult").addEventListener("click", hideResult);
 
 const helpBtn = document.getElementById("helpBtn"), helpPopup = document.getElementById("helpPopup");

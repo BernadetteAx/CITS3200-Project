@@ -117,7 +117,7 @@ def initialise_auction(session, generated_mission=None):
         session["generated_mission"] = generated_mission
         session["auction"] = {"item_pairs": item_pairs, "round_index":0, "round_progress":0,
             "current_item_pair":list(item_pairs[0]),
-            "votes":{}, "finished_players":set(), "budget":1000, "purchased_items":[],
+            "selections":{}, "votes":{}, "finished_players":set(), "budget":1000, "purchased_items":[],
             "status":"waiting", "round_result":None, "ends_at":None, "timer_token":0}
     return session["auction"]
 
@@ -130,16 +130,61 @@ def _valid_player(session, payload):
 def _player_ids(session):
     return set(session["players"])
 
+
+def _connected_player_ids(session):
+    return {
+        player_id
+        for player_id, player in session["players"].items()
+        if player.get("connected")
+    }
+
+
+def _reevaluate_voting(
+    session_code, session, reason, broadcast_if_incomplete=True
+):
+    auction = session.get("auction")
+    if not auction or auction.get("status") != "voting":
+        return False
+
+    connected_players = _connected_player_ids(session)
+    if connected_players and connected_players.issubset(
+        auction["finished_players"]
+    ):
+        return _resolve(session_code, session, reason)
+
+    if broadcast_if_incomplete:
+        broadcast_auction_state(session_code, session)
+    return False
+
+
+def handle_player_disconnected(session_code, session):
+    """Recheck an active vote without removing reconnectable player state."""
+    _reevaluate_voting(session_code, session, "player_disconnected")
+
+
+def handle_player_left(session_code, session, player_id):
+    """Remove a departed player's round state and unblock remaining voters."""
+    auction = session.get("auction")
+    if not auction or auction.get("status") != "voting":
+        return
+
+    auction["votes"].pop(player_id, None)
+    auction["finished_players"].discard(player_id)
+    _reevaluate_voting(session_code, session, "player_left")
+
+
 def _state(session, player_id=None):
     auction = session["auction"]
+    connected_players = _connected_player_ids(session)
     item_pairs = auction["item_pairs"]
     pair = item_pairs[auction["round_index"]] if auction["round_index"] < len(item_pairs) else ()
     state = {"phase":session["phase"], "round":auction["round_index"] + 1, "totalRounds":len(item_pairs),
         "items":list(pair), "budget":auction["budget"], "purchasedItems":auction["purchased_items"],
-        "voteCount":len(auction["votes"]), "playerCount":len(_player_ids(session)),
-        "finishedCount":len(auction["finished_players"]), "status":auction["status"],
+        "voteCount":len(set(auction["votes"]) & connected_players), "playerCount":len(connected_players),
+        "finishedCount":len(auction["finished_players"] & connected_players), "status":auction["status"],
         "endsAt":auction["ends_at"], "roundResult":auction["round_result"]}
     if player_id:
+        state["mySelection"] = auction.get("selections", {}).get(player_id)
         state["myVote"] = auction["votes"].get(player_id)
     return state
 
@@ -161,7 +206,7 @@ def _timer(session_code, token):
 def _start_round(session_code, session):
     auction = session["auction"]
     auction.update({"current_item_pair":list(auction["item_pairs"][auction["round_index"]]),
-        "round_progress":auction["round_index"], "votes":{}, "finished_players":set(), "status":"voting", "round_result":None,
+        "round_progress":auction["round_index"], "selections":{}, "votes":{}, "finished_players":set(), "status":"voting", "round_result":None,
         "ends_at":time.time()+ROUND_SECONDS, "timer_token":auction["timer_token"]+1})
     broadcast_auction_state(session_code, session)
     socketio.start_background_task(_timer, session_code, auction["timer_token"])
@@ -191,7 +236,10 @@ def _resolve(session_code, session, reason):
     if auction["status"] != "voting": return False
     pair = auction["item_pairs"][auction["round_index"]]
     counts = {item["id"]:0 for item in pair} | {"skip":0}
-    for choice in auction["votes"].values(): counts[choice] += 1
+    connected_players = _connected_player_ids(session)
+    for player_id, choice in auction["votes"].items():
+        if player_id in connected_players:
+            counts[choice] += 1
     highest = max(counts.values())
     winners = [choice for choice, count in counts.items() if count == highest]
     winner = winners[0] if len(winners) == 1 else None
@@ -225,17 +273,26 @@ def auction_vote(payload):
     player, auction = _valid_player(session, payload), session["auction"]
     choices = {item["id"] for item in auction["item_pairs"][auction["round_index"]]}
     if not player or auction["status"] != "voting" or payload.get("itemId") not in choices: return
-    auction["votes"][player] = payload["itemId"]
-    broadcast_auction_state(code, session); emit_auction_state_to_player(session, player)
+    # Selections stay private until submitted, and may be changed while the
+    # round remains open.
+    auction["selections"][player] = payload["itemId"]
+    emit_auction_state_to_player(session, player)
 
 def _finish(code, session, player, skip=False):
     auction = session["auction"]
     if not player or auction["status"] != "voting": return
-    if skip: auction["votes"][player] = "skip"
-    if player not in auction["votes"]: return
+    if skip:
+        auction["votes"][player] = "skip"
+    elif player not in auction["selections"]:
+        return
+    else:
+        #replaces the players vote with their most current one
+        auction["votes"][player] = auction["selections"][player]
     auction["finished_players"].add(player)
     broadcast_auction_state(code, session); emit_auction_state_to_player(session, player)
-    if auction["finished_players"] == _player_ids(session): _resolve(code, session, "all_finished")
+    _reevaluate_voting(
+        code, session, "all_finished", broadcast_if_incomplete=False
+    )
 
 @socketio.on("auction_skip")
 def auction_skip(payload):
@@ -252,4 +309,5 @@ def resolve_auction_round(payload):
     code = payload.get("sessionCode") if isinstance(payload, dict) else None; session = get_session(code)
     if not session or session.get("phase") != "auction": return
     player, auction = _valid_player(session, payload), session["auction"]
-    if player == session["host_id"] and auction["status"] == "voting" and auction["finished_players"] == _player_ids(session): _resolve(code, session, "host")
+    connected_players = _connected_player_ids(session)
+    if player == session["host_id"] and auction["status"] == "voting" and connected_players and connected_players.issubset(auction["finished_players"]): _resolve(code, session, "host")
