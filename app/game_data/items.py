@@ -44,8 +44,6 @@ items_dict = {
     "Hat": {"desc": "A sturdy hat that provides basic protection from the sun.", "cost": 20, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},
     "GPS": {"desc": "A portable navigation device for determining your location and following routes.", "cost": 90, "image": "icons8-gps-signal-64.png", "hotbar_image": "icons8-gps-signal-32.png"},
     "Car": {"desc": "A standard passenger car for transporting your team and equipment along roads.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
-    "Medical Supplies": {"desc": "A pack of medical equipment for treating injured teammates.", "cost": 100, "image": "icons8-intravenous-bag-64.png", "hotbar_image": "icons8-intravenous-bag-32.png"},
-
 
     
     "Satellite Phone": {
@@ -83,7 +81,6 @@ items_dict = {
         "hotbar_image": "icons8-whistle-32.png"
     },
 
-
     "Protective Goggles": {
         "desc": "Sealed protective goggles that shield the eyes from dust, sand, ash and debris.",
         "cost": 40,
@@ -105,7 +102,6 @@ items_dict = {
         "hotbar_image": "icons8-life-jacket-32.png"
     },
 
-
     "Water Purifier": {
         "desc": "A portable purification system that makes contaminated water safer to drink.",
         "cost": 70,
@@ -125,34 +121,6 @@ items_dict = {
         "cost": 40,
         "image": "icons8-waterproof-bag-64.png",
         "hotbar_image": "icons8-waterproof-bag-32.png"
-    },
-
-    "First Aid Kit": {
-        "desc": "A portable collection of basic medical equipment for treating injuries.",
-        "cost": 80,
-        "image": "icons8-first-aid-kit-64.png",
-        "hotbar_image": "icons8-first-aid-kit-32.png"
-    },
-
-    "Bandages": {
-        "desc": "Sterile dressings used to cover wounds and control minor bleeding.",
-        "cost": 25,
-        "image": "icons8-bandage-64.png",
-        "hotbar_image": "icons8-bandage-32.png"
-    },
-
-    "Splint": {
-        "desc": "A rigid support used to stabilise an injured limb during an emergency.",
-        "cost": 35,
-        "image": "icons8-splint-64.png",
-        "hotbar_image": "icons8-splint-32.png"
-    },
-
-    "Emergency Rations": {
-        "desc": "Compact high-energy food supplies designed for survival situations.",
-        "cost": 35,
-        "image": "icons8-food-64.png",
-        "hotbar_image": "icons8-food-32.png"
     },
 
     "Duct Tape": {
