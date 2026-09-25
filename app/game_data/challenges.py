@@ -17,7 +17,7 @@ challenges_dict = {
 
         "Contact Rescue Team - Survival": {
             "challenge_name": "Contact Rescue Team",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. A rescue team is bound to see it and make their way over to the nearest safe location.", "used": True, "point_value": 80, "point_desc": "The signal fire gets the rescuer's attention and gives them a clear destination to aim for. It does however, not allow for discussions on where they are likely to land."},
@@ -45,7 +45,7 @@ challenges_dict = {
 
         "Contact Stranded Teammate": {
             "challenge_name": "Contact Stranded Teammate",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Rescue"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small signal fire. Your teammate sees it and is alerted to your position. The fire starter kit is used up in the process", "used": True, "point_value": 70, "point_desc": "The signal fire gets the teammate's attention and gives them a clear destination to aim for. However, it only allows communication in 1 direction."},
@@ -74,7 +74,7 @@ challenges_dict = {
                 "Mirror": {"use_desc": "You use the glint of the mirror to distract the bear and slip by unscathed. The mirror is dropped in the escape.", "used": True, "point_value": 90, "point_desc": "The mirror was effective at getting by the bear."},
             }, 
             "failure_items": {},
-            "desc": "Your team stumbles across an arctic bear. It looks like it's on the hunt and your its next meal. You'll need to find a way to evade it if you want to continue your mission.", 
+            "desc": "Your team stumbles across an arctic bear. It looks like it's on the hunt and you're its next meal. You'll need to find a way to evade it if you want to continue your mission.", 
             "continue_failure_desc": "Your team find a tiny crevice and jump in. The bear is too large to reach you. But it sure tries. Your team is forced to wait hours in the cramped hole before the bear gives up. It has left your team, stiff, sore and well behind schedule.", 
             "final_failure_desc": "Your team, lost too much time already and can't afford to wait the bear out. You attempt to make a run for it, but exhaustion means that the bear easily catches you. Your mission ends here."
         },
@@ -603,7 +603,7 @@ challenges_dict = {
 
         "Find Shelter": {
             "challenge_name": "Find Shelter",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. It's as good a shelter as anything and allows your team a chance to regroup.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
@@ -649,7 +649,7 @@ challenges_dict = {
 
         "Get Water - Jungle": {
             "challenge_name": "Get Water",
-            "viable_locations": ["Jungle"],
+            "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
@@ -817,7 +817,7 @@ challenges_dict = {
     "Make Repairs": {
         "Repair Collapsed Wall": {
             "challenge_name": "Repair Collapsed Wall",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Survival", "Rescue"],
             "items":{
                 "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the wall. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 100, "point_desc": "The panel from the truck is ideal for repairing the wall as it is large and sturdy enough to withstand anything."},
@@ -844,7 +844,7 @@ challenges_dict = {
 
         "Repair Enviro-Dome": {
             "challenge_name": "Repair Enviro-Dome",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
                 "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the outside of the enviro-dome. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 90, "point_desc": "The panel from the truck is the wrong shape, but works well enough to cover the damaged portion of the dome."},
@@ -900,7 +900,7 @@ challenges_dict = {
 
         "Repair Solar Panels": {
             "challenge_name": "Repair Solar Panels",
-            "viable_locations": ["Desert", "Ocean"],
+            "viable_locations": ["Desert", "City", "Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
                 "Mirror": {"use_desc": "You use the mirror to focus a beam of sunlight on one of the sections of the solar panel that is still working. Creating a tiny trickle of power. The mirror is now in use.", "used": True, "point_value": 5, "point_desc": "The mirror kind of works. It means you can redirect the light, so didn't need to reattach the panels and it focuses the light on the section that works. It is however a very small and very temporary fix."},
@@ -970,13 +970,13 @@ challenges_dict = {
     "Manmade Obstacle": {
         "Blockade": {
             "challenge_name": "Blockade",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
                 "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the blockade. The truck is damaged in the process.", "used": True, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the blockade rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Handheld Radios": {"use_desc": "You leave one of the handheld radios at your current position and move a distance away, calling it from your new position. The noise attracts the attention of the guards and they leave their post to investigate. Your team slips by. The radios get left behind in the process.", "used": True, "point_value": 60, "point_desc": "The handheld radios successfully drew the guards away, but its presence alerted them to the fact that there may be someone trying to make it past the blockade."},
-                "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to slip by the blockade. The mirror gets left behind in the process.", "used": True, "point_value": 100, "point_desc": "The mirror successfully distracted the guards and allowed you to sneak by without raising suspicion."},
+                "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light attracts the guards' attention. They approach it, leaving their posts and your team uses the opportunity to slip by the blockade. The mirror gets left behind in the process.", "used": True, "point_value": 100, "point_desc": "The mirror successfully distracted the guards and allowed you to sneak by without raising suspicion."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team don their gas masks and when they approach the blockade, release the gas. It knocks out the guards and allows you to pass by without incident. The gas was used up in the process.", "used": True, "point_value": 100, "point_desc": "This is the ideal use of the gas as it allows you to harmlessly take out the guards without raising any alarms."},              
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
                 "Explosives": {"use_desc": "Your team set up the explosives next to one of the unmanned walls and blow it. You dash through the hole in the wall before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the blockade."},
@@ -1006,7 +1006,7 @@ challenges_dict = {
         "Checkpoint": {
             "challenge_name": "Checkpoint",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
                 "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the checkpoint. It only sustains minor damage.", "used": False, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the checkpoint rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
@@ -1039,7 +1039,7 @@ challenges_dict = {
         "Dam": {
             "challenge_name": "Dam",
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards on the dam wall rush to investigate, and whilst they aren't at their post, your team takes the opportunity to make a break for it across the top of the dam wall. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Handheld Radios": {"use_desc": "Your team tunes the radios to the frequency used by the guards. You talk on the comms about a possible leak in the dam. The guards rush to investigate allowing your team to make a break for it across the dam wal. The radios' batteries are used up in the process.", "used": True, "point_value": 90, "point_desc": "An effective solution, and one that doesn't lead back to you."},
@@ -1096,7 +1096,7 @@ challenges_dict = {
         "Traffic": {
             "challenge_name": "Traffic",
             "viable_locations": ["City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the firestarter kit to light a small flame. You leave the fire in the hood of a parked car. Soon enough it explodes. All traffic stops as people run from their cars. You're team is able to saunter through traffic undisturbed. The kindling is used up in the process.", "used": True, "point_value": 10, "point_desc": "What the heck! That was someone's car. You can't just go around blowing things up, even if it works."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You throw the gas canister into traffic. When it goes off there are a few accidents as drivers are knocked unconscious, but soon enough all traffic comes to a stand still. Your team is able to make their way across the road with no risk of injury by car. The gas was used up in the process.", "used": True, "point_value": 40, "point_desc": "Whilst it did successfully stop traffic, using the knockout gas did lead to a number of injuries to innocent people."},
@@ -1111,7 +1111,7 @@ challenges_dict = {
         "Debris Filled Stairwell": {
             "challenge_name": "Debris Filled Stairwell",
             "viable_locations": ["City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items": {
                 "Ice Axes": {"use_desc": "You wedge the ice axes into sections of the debris and use them as a handle to drag the debris out of the way, clearing a path through. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The ice axes help speed up the clearing of the stairway, but are not altogether a great tool for the task."},
                 "Shovel": {"use_desc": "You shovel the loose rubble aside until everyone can reach the stairs.", "used": False, "point_value": 100, "point_desc": "The shovel clears the obstruction efficiently."},
@@ -1125,7 +1125,7 @@ challenges_dict = {
         "Retracted Loading Walkway": {
             "challenge_name": "Retracted Loading Walkway",
             "viable_locations": ["City"],
-            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items": {
                 "Grapling Hook": {"use_desc": "You secure the grappling hook to the railing and use its line to cross the gap.", "used": False, "point_value": 100, "point_desc": "The hook provides a secure crossing point without restarting the walkway."},
             },
@@ -1141,7 +1141,7 @@ challenges_dict = {
     "Security Obstacle": {
         "Deactivate Alarms": {
             "challenge_name": "Deactivate Alarms",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team figures that the best way to deactivate the alarms is to get them to do it for you. You create a small flame and put it near a smoke detector. Alarms blare and your crew sneaks by. Eventually once they deactivate the fire alarm they realise that other alarms have been tripped, but toss it up to a system malfunction. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "A risky maneuver that luckily paid off. Still drew a lot of attention."},
@@ -1157,7 +1157,7 @@ challenges_dict = {
 
         "Deactivate Security Cameras": {
             "challenge_name": "Deactivate Security Cameras",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Wire Cutters": {"use_desc": "Your team break open a fuse box that powers the security cameras. You cut the wires to the cameras, and thereby cut the feed.", "used": False, "point_value": 70, "point_desc": "You were successful in deactivating the cameras, but cutting the feeds will draw unwanted attention. It won't be long before someone is sent to find out what went wrong."},
@@ -1171,7 +1171,7 @@ challenges_dict = {
         
         "Distract Guards": {
             "challenge_name": "Distract Guards",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Armoured Truck": {"use_desc": "One member of your team jumps into the armoured truck and drives it past the base. Guards come running to see the commotion and the team slips by unnoticed.", "used": False, "point_value": 30, "point_desc": "It does successfully distract the guards but alerts them to your presence and leaves a teammate behind."},
@@ -1188,7 +1188,7 @@ challenges_dict = {
         
         "Find Another Entrance": {
             "challenge_name": "Find Another Entrance",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Handheld Radios": {"use_desc": "You tune the radios to the frequency the guards use and listen in. You discover another entrance out back that isn't on the schematics and use it to get in. The radios' batteries are used up in the process.", "used": True, "point_value": 80, "point_desc": "This is an effective solution, it just takes a long time before the information you need is discussed."},
@@ -1202,7 +1202,7 @@ challenges_dict = {
 
         "Find Another Exit": {
             "challenge_name": "Find Another Exit",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Escape"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team creates a small flame using the fire starter kit. You bring it near to a smoke alarm to trigger it. The fire causes safety protocols and gates that would otherwise be closed, open. Your team escapes through a fire exit. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "Unfortunately the maneuver did draw attention to your escape. But you were still able to find a new exit but using the fire starter kit."},
@@ -1217,7 +1217,7 @@ challenges_dict = {
         
         "Get Past the Laser Grid": {
             "challenge_name": "Get Past the Laser Grid",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Mirror": {"use_desc": "Your team uses the mirror to harmlessly deflect the lasers and get past.", "used": False, "point_value": 100, "point_desc": "The mirror is ideal for dealing with laser based problems like this."},
@@ -1235,7 +1235,7 @@ challenges_dict = {
     "Steal": {
         "Break into the Vault": {
             "challenge_name": "Break into the Vault",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Ice Axes": {"use_desc": "You use the ice axes to smash the hinges of the vault. The ice axes are broken in the process.", "used": True, "point_value": 10, "point_desc": "It takes a long time to break the hinges and is not at all quiet. Even if it did work."},
@@ -1249,7 +1249,7 @@ challenges_dict = {
 
         "Open the crate": {
             "challenge_name": "Open the crate",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Fire Starter Kit": {"use_desc": "Your team use the frie starter kit to create a small flame. You place it on the wooden crate, and soon enough it begins to burn. It takes a while but eventually the crate burns away and you're able to get the goods. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "You do get through the crate, but it takes a long time for the flames to do their work."},
@@ -1264,7 +1264,7 @@ challenges_dict = {
 
         "Pickpocket it": {
             "challenge_name": "Pickpocket it",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Mirror": {"use_desc": "Your team use the glint of the mirror to lure the guard with the item down a secluded halway. Once he's alone you jump him and get the item.", "used": False, "point_value": 50, "point_desc": "It's a messy approach and hurts the guard."},
@@ -1280,7 +1280,7 @@ challenges_dict = {
         
         "Retrieve the Item from the Laser Grid": {
             "challenge_name": "Retrieve the Item from the Laser Grid",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Mirror": {"use_desc": "You use the mirror to reflect the lasers away as one of you reaches in and grabs the goods.", "used": False, "point_value": 100, "point_desc": "The mirror was an ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the goods have even been taken."},
@@ -1398,7 +1398,7 @@ challenges_dict = {
 
     "Travel To Rendezvous": {
         "Air Based Travel": {
-            "challenge_name": "Travel To Rendezvous",
+            "challenge_name": "Travel To Rendezvous Point",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1412,7 +1412,7 @@ challenges_dict = {
         },
 
         "Air Based Travel - Ocean": {
-            "challenge_name": "Travel To Rendezvous",
+            "challenge_name": "Travel To Rendezvous Point",
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1425,7 +1425,7 @@ challenges_dict = {
         },
 
         "Land Based Travel": {
-            "challenge_name": "Travel To Rendezvous",
+            "challenge_name": "Travel To Rendezvous Point",
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1438,7 +1438,7 @@ challenges_dict = {
         },
 
         "Sand Based Travel": {
-            "challenge_name": "Travel To Rendezvous",
+            "challenge_name": "Travel To Rendezvous Point",
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1452,7 +1452,7 @@ challenges_dict = {
         },
 
         "Snow Based Travel": {
-            "challenge_name": "Travel To Rendezvous",
+            "challenge_name": "Travel To Rendezvous Point",
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1466,7 +1466,7 @@ challenges_dict = {
         },
 
         "Water Based Travel": {
-            "challenge_name": "Travel To Rendezvous",
+            "challenge_name": "Travel To Rendezvous Point",
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
@@ -1482,7 +1482,7 @@ challenges_dict = {
     "Deactivate Bomb": {
         "Disable the Bomb Controls": {
             "challenge_name": "Disable the Bomb Controls",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
                 "Armoured Truck": {"use_desc": "Unable to deactivate the bomb, your team throws it inside the armoured truck and shuts the doors. You get as much distance as you can from it and it explodes, destroying the truck in the process.", "used": True, "point_value": 40, "point_desc": "You don't deactivate the bomb and it still goes off, but you did manage to mitigate the damage it caused."},
@@ -1501,7 +1501,7 @@ challenges_dict = {
     "Destroy Information": {
         "Destroy the Stolen Records": {
             "challenge_name": "Destroy the Stolen Records",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
                 "Fire Starter Kit": {"use_desc": "You gather the stolen paper records in an empty metal disposal bin and burn them until the information is unreadable. The kindling is used up in the process.", "used": True, "point_value": 100, "point_desc": "The fire destroys the records completely, preventing the enemy from recovering your team's information."},
@@ -1516,7 +1516,7 @@ challenges_dict = {
     "Deactivate Super Weapon": {
         "Shut Down the Weapon": {
             "challenge_name": "Shut Down the Weapon",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
+            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
                 "Ice Axes": {"use_desc": "You smash the ice axes into the control system and the weapon shuts down. The ice axes are damaged in the process.", "used": True, "point_value": 50, "point_desc": "That had a 50/50 chance of working and damaging the controls was a pretty risky maneuver, as once you broke them there would be no other way to deactivate the weapon. Still, it worked."},

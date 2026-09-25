@@ -3,7 +3,7 @@ missions_list = [
         "mission_name": "Train Heist", 
         "mission_type" : "Heist", 
         "location_options": ["Jungle", "City"], 
-        "challenge_1": "Environmental Obstacle", "challenge_2": "Security Obstacle", "challenge_3": "Steal", "challenge_4": "Getaway", "challenge_5": "Environmental Obstacle", "challenge_6": "Travel To Rendezvouz",
+        "challenge_1": "Environmental Obstacle", "challenge_2": "Security Obstacle", "challenge_3": "Steal", "challenge_4": "Getaway", "challenge_5": "Environmental Obstacle", "challenge_6": "Travel To Rendezvous",
         "w1": 1, "w2": 1.5, "w3": 2, "w4": 2, "w5": 1, "w6": 1.5,
     },
 
@@ -35,7 +35,7 @@ missions_list = [
         "mission_name": "Escape Enemy Base", 
         "mission_type" : "Escape", 
         "location_options": ["Arctic Tundra", "Desert", "Jungle"], 
-        "challenge_1": "Security Obstacle", "challenge_2": "Manmade Obstacle", "challenge_3": "Security Obstacle", "challenge_4": "Getaway", "challenge_5": "Contact Teammate/s", "challenge_6": "Travel To Rendezvouz",
+        "challenge_1": "Security Obstacle", "challenge_2": "Manmade Obstacle", "challenge_3": "Security Obstacle", "challenge_4": "Getaway", "challenge_5": "Contact Teammate/s", "challenge_6": "Travel To Rendezvous",
         "w1": 2, "w2": 1, "w3": 1.5, "w4": 2, "w5": 1, "w6": 1.5,
     },
 
@@ -43,7 +43,7 @@ missions_list = [
         "mission_name": "Break Out Another Team", 
         "mission_type" : "Rescue Op", 
         "location_options": ["Arctic Tundra", "Desert", "Jungle", "City"], 
-        "challenge_1": "Travel To Rendezvouz", "challenge_2": "Manmade Obstacle", "challenge_3": "Security Obstacle", "challenge_4": "Contact Teammate/s", "challenge_5": "Security Obstacle", "challenge_6": "Getaway",
+        "challenge_1": "Travel To Rendezvous", "challenge_2": "Manmade Obstacle", "challenge_3": "Security Obstacle", "challenge_4": "Contact Teammate/s", "challenge_5": "Security Obstacle", "challenge_6": "Getaway",
         "w1": 1, "w2": 1, "w3": 2, "w4": 1.5, "w5": 1.5, "w6": 2,
     },
 
@@ -51,7 +51,7 @@ missions_list = [
         "mission_name": "Extract Another Team", 
         "mission_type" : "Rescue Op", 
         "location_options": ["Arctic Tundra", "Desert", "Jungle"], 
-        "challenge_1": "Contact Teammate/s", "challenge_2": "Environmental Obstacle", "challenge_3": "Travel To Rendezvouz", "challenge_4": "Getaway", "challenge_5": "Environmental Obstacle", "challenge_6": "Find Shelter",
+        "challenge_1": "Contact Teammate/s", "challenge_2": "Environmental Obstacle", "challenge_3": "Travel To Rendezvous", "challenge_4": "Getaway", "challenge_5": "Environmental Obstacle", "challenge_6": "Find Shelter",
         "w1": 1.5, "w2": 1, "w3": 1.5, "w4": 2, "w5": 1, "w6": 1.5,
     },
 
@@ -59,7 +59,7 @@ missions_list = [
         "mission_name": "Rescue Stranded Teammate",
         "mission_type" : "Rescue", 
         "location_options": ["Arctic Tundra", "Desert", "Ocean", "Volcano"], 
-        "challenge_1": "System Failure", "challenge_2": "Find Shelter", "challenge_3": "Environmental Obstacle", "challenge_4": "Contact Teammate/s", "challenge_5": "Travel To Rendezvouz", "challenge_6": "Environmental Obstacle",
+        "challenge_1": "System Failure", "challenge_2": "Find Shelter", "challenge_3": "Environmental Obstacle", "challenge_4": "Contact Teammate/s", "challenge_5": "Travel To Rendezvous", "challenge_6": "Environmental Obstacle",
         "w1": 1.5, "w2": 2, "w3": 1, "w4": 2, "w5": 1, "w6": 1.5,
     },
 
@@ -75,7 +75,7 @@ missions_list = [
         "mission_name": "Get Rescued", 
         "mission_type" : "Survival", 
         "location_options": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"], 
-        "challenge_1": "Environmental Obstacle", "challenge_2": "Find Water", "challenge_3": "Environmental Obstacle", "challenge_4": "Find Shelter", "challenge_5": "Contact Teammate/s", "challenge_6": "Travel To Rendezvouz",
+        "challenge_1": "Environmental Obstacle", "challenge_2": "Find Water", "challenge_3": "Environmental Obstacle", "challenge_4": "Find Shelter", "challenge_5": "Contact Teammate/s", "challenge_6": "Travel To Rendezvous",
         "w1": 1, "w2": 2, "w3": 1, "w4": 1.5, "w5": 1.5, "w6": 2,
     },
    
@@ -88,7 +88,7 @@ missions_list = [
         "challenge_3": "Security Obstacle",
         "challenge_4": "Deactivate Bomb",
         "challenge_5": "Getaway",
-        "challenge_6": "Travel To Rendezvouz",
+        "challenge_6": "Travel To Rendezvous",
         "w1": 1, "w2": 1, "w3": 2, "w4": 2, "w5": 1.5, "w6": 1.5,
     },
 
@@ -109,12 +109,12 @@ missions_list = [
         "mission_name": "Smuggle Goods",
         "mission_type": "Heist",
         "location_options": ["Arctic Tundra", "Desert", "Jungle", "City"],
-        "challenge_1": "Travel To Rendezvouz",
+        "challenge_1": "Travel To Rendezvous",
         "challenge_2": "Contact Teammate/s",
         "challenge_3": "Environmental Obstacle",
         "challenge_4": "Manmade Obstacle",
         "challenge_5": "Security Obstacle",
-        "challenge_6": "Travel To Rendezvouz",
+        "challenge_6": "Travel To Rendezvous",
         "w1": 2, "w2": 1.5, "w3": 1, "w4": 1, "w5": 1.5, "w6": 2,
     },
 
@@ -123,11 +123,11 @@ missions_list = [
         "mission_type": "Rescue",
         "location_options": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
         "challenge_1": "Contact Teammate/s",
-        "challenge_2": "Travel To Rendezvouz",
+        "challenge_2": "Travel To Rendezvous",
         "challenge_3": "Environmental Obstacle",
         "challenge_4": "System Failure",
         "challenge_5": "Make Repairs",
-        "challenge_6": "Travel To Rendezvouz",
+        "challenge_6": "Travel To Rendezvous",
         "w1": 1.5, "w2": 1.5, "w3": 1, "w4": 2, "w5": 1, "w6": 2,
     },
 
@@ -140,7 +140,7 @@ missions_list = [
         "challenge_3": "Security Obstacle",
         "challenge_4": "Deactivate Super Weapon",
         "challenge_5": "Getaway",
-        "challenge_6": "Travel To Rendezvouz",
+        "challenge_6": "Travel To Rendezvous",
         "w1": 1, "w2": 1, "w3": 2, "w4": 2, "w5": 1.5, "w6": 1.5,
     },
 ]
