@@ -3,21 +3,38 @@ from selenium.webdriver.common.by import By
 
 def test_purchase_updates_both_budgets_and_inventories(auction_pair):
     host, guest = auction_pair
+
     for browser in (host, guest):
         assert not browser.element('#finishBtn').is_enabled()
+
+    # Selecting an item enables submission.
     host.choose('Rope')
     host.wait(lambda d: host.element('#finishBtn').is_enabled())
-    guest.contains('#voteCountText', '1 / 2')
-    # A teammate's vote must not appear as the guest's personal selection.
-    assert not guest.driver.find_elements(By.CSS_SELECTOR, '#itemGrid [aria-pressed="true"]')
-    guest.choose('Rope')
+
+    # Submit before expecting the shared vote count to increase.
+    host.click('#finishBtn')
+
     for browser in (host, guest):
-        browser.click('#finishBtn')
+        browser.contains('#voteCountText', '1 / 2')
+
+    # The host's choice must not become the guest's selection.
+    assert not guest.driver.find_elements(
+        By.CSS_SELECTOR,
+        '#itemGrid [aria-pressed="true"]'
+    )
+
+    guest.choose('Rope')
+    guest.click('#finishBtn')
+
     for browser in (host, guest):
         browser.text('#budgetValue', '$900')
         browser.contains('#inventoryLabel', '1/8')
-        assert browser.element('#inventorySlots .filled').get_attribute('title') == 'Rope'
-    # Checking the following round avoids relying on a short-lived result popup.
+        assert (
+            browser.element('#inventorySlots .filled')
+            .get_attribute('title') == 'Rope'
+        )
+
+    # Confirm the purchase persists into the next round.
     for browser in (host, guest):
         browser.round(2)
         browser.text('#budgetValue', '$900')
