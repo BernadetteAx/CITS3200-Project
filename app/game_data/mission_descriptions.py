@@ -28,7 +28,7 @@ challenge_desc_struc = {
         "challenge_3_to_4_desc": "You've got the goods. Your team jump from the train, landing amoungst some vegetation. It won't be long before the theft is discovered. Time to make a hasty departure.", 
         "challenge_4_to_5_desc": "You've managed to get away, but you're not home free yet.", 
         "challenge_5_to_6_desc": "Time to get the goods to your mysterious employer.", 
-        "mission_complete_desc": "Your team arrive at the rendezvouz. It's all a bit cloak and dagger, but you makes the switch. Your employer seems very happy about their new purchase, and your team is happy to be walking around 12 million dollars richer." 
+        "mission_complete_desc": "Your team arrive at the rendezvous. It's all a bit cloak and dagger, but you makes the switch. Your employer seems very happy about their new purchase, and your team is happy to be walking around 12 million dollars richer." 
     },
     "Artifact Heist": 			{
         "mission_start_desc":    "Your team sets off in the early hours of the morning, eager to get the heist underway. You begin the trek towards the fortified base. You set off with high hopes, but it isn't long before you hit your first obstacle.", 
@@ -55,7 +55,7 @@ challenge_desc_struc = {
         "challenge_3_to_4_desc": "With security out of the way, your team is going to need to move fast. You recall the blueprints and find your way to the room that stores the files.", 
         "challenge_4_to_5_desc": "With the files safely stored, your team is going to need to get out. Unfortunately, you haven't finished with their security yet.", 
         "challenge_5_to_6_desc": "You're out, but for how long? Better put some distance between you and this base.", 
-        "mission_complete_desc": "Safe at last! As your team make their way to the rendezvouz point they excitedly discuss their possible reward. Jewels? Money? Cars? When you arrive, there is, what appears to be, a secret service team waiting for you. Your team is nervous as you hand over the files. But then, you receive your illusive reward. Immunity for all previous crimes. That's certainly handy."
+        "mission_complete_desc": "Safe at last! As your team make their way to the rendezvous point they excitedly discuss their possible reward. Jewels? Money? Cars? When you arrive, there is, what appears to be, a secret service team waiting for you. Your team is nervous as you hand over the files. But then, you receive your illusive reward. Immunity for all previous crimes. That's certainly handy."
     },
     "Escape Enemy Base": 		{
         "mission_start_desc":    "Captured! How could this happen? Well, no time to dwell, you've got to get out of here. Your whole team is ready to spring into action. Only trouble is...how are you going to get past security?", 
@@ -67,8 +67,8 @@ challenge_desc_struc = {
         "mission_complete_desc": "Finally safe at last. The rescue team you called, picked you up in an army helicopter and are taking you home. Now all that still troubles you is how you eneded up captured in the first place."
     },
     "Break Out Another Team": 	{
-        "mission_start_desc":    "Your team's pretty worried. The group that your fetching are pros. Despite the fact that they haven't yet made contact, you'd still better make it to the rendezvouz. Just in case they make it.",       
-        "challenge_1_to_2_desc": "2 hours passed the rendezvouz. Something has definitely gone wrong. They were breaking into a pretty secure facility. Your team makes a unanimous decision. You're going after them. Your team sets off determined to rescue their friends, but it isn't long before you hit your first challenge.", 
+        "mission_start_desc":    "Your team's pretty worried. The group that your fetching are pros. Despite the fact that they haven't yet made contact, you'd still better make it to the rendezvous. Just in case they make it.",       
+        "challenge_1_to_2_desc": "2 hours passed the rendezvous. Something has definitely gone wrong. They were breaking into a pretty secure facility. Your team makes a unanimous decision. You're going after them. Your team sets off determined to rescue their friends, but it isn't long before you hit your first challenge.", 
         "challenge_2_to_3_desc": "You made it. Your team takes just a moment to catch their breath and then they're off again. It isn't long before you reach the facility. This might be harder than you anticipated.", 
         "challenge_3_to_4_desc": "Made it past security. Your team fan out and serach the base. You quickly come upon the building where they are being held. Your not going to be able to bust em out, but they're a crafty crew. Your team knows that they can get themselves out as long as they know there's somewhere for them to go. You'll need to find a way to get in contact with them.", 
         "challenge_4_to_5_desc": "Well, that worked. As soon as the team knew there was someone who could give them a lift they sprung into action. They take down the door and a couple of guards. Quietly too. I said they were professionals. Now all you have to deal with is more security. Seems they really didn't want these guys getting out.", 
@@ -78,8 +78,8 @@ challenge_desc_struc = {
     "Extract Another Team": 	{
         "mission_start_desc":    "Your team is pretty worried. The <location_name> can be pretty harsh. You'll need to get to them fast. First order of buisness, getting in contact.", 
         "challenge_1_to_2_desc": "Well, you managed to get in contact. Now you've got to meet them. Your team set out but it isn't long before your team hits an obstacle.", 
-        "challenge_2_to_3_desc": "Having made it past that obstacle, your team continues their journey. You'll need to make it to the agreed rendezvouz point.", 
-        "challenge_3_to_4_desc": "Arrive at the rendezvouz and the other team is already waiting for you. They're in bad shape. You need to get them to safety. And quick. You get the sense that something else is going to go wrong very soon.", 
+        "challenge_2_to_3_desc": "Having made it past that obstacle, your team continues their journey. You'll need to make it to the agreed rendezvous point.", 
+        "challenge_3_to_4_desc": "Arrive at the rendezvous and the other team is already waiting for you. They're in bad shape. You need to get them to safety. And quick. You get the sense that something else is going to go wrong very soon.", 
         "challenge_4_to_5_desc": "You make some serious progress, but it's not long before the hit an obstacle.", 
         "challenge_5_to_6_desc": "Having made it past that obstacle, your team is exhausted. You'll need to find shelter. The wheather is turning.", 
         "mission_complete_desc": "Safe, and able to recuperate. You team takes the opportunity to catch their breath and see to their friend's injuries. Your pretty close to home. with a small push, tomorrow, both teams, will be home free."            
@@ -90,7 +90,7 @@ challenge_desc_struc = {
         "challenge_2_to_3_desc": "Your team is able to catch their breath, but can't stay too long. You're on a timer. You head back out and get a lot further before your next obstacle.", 
         "challenge_3_to_4_desc": "Having cleared that obstacle your team is able to finish following the trail. You reach the research destination and there's evidence that your teammate was here recently. Now you just need a way of getting in contact with them.", 
         "challenge_4_to_5_desc": "They're hurt, and can't get far. They'll need you to come to them.", 
-        "challenge_5_to_6_desc": "You arrive at the rendezvouz and find your teammate. Their in a bad way and have a broken leg. You need to get them back to your base. Once again you find yourself facing another challenge.", 
+        "challenge_5_to_6_desc": "You arrive at the rendezvous and find your teammate. Their in a bad way and have a broken leg. You need to get them back to your base. Once again you find yourself facing another challenge.", 
         "mission_complete_desc": "Your team make it past the obstacle, injured friend and all. It's a hike back to the base, but fortunately it seems like the world has granted you safe passage back to the base. You are all so relieved when you see the glimmer of the envirodome on the distance. Home sweet home."            
     },
     "Repair Research Base": 	{
@@ -109,7 +109,7 @@ challenge_desc_struc = {
         "challenge_3_to_4_desc": "The weather takes a turn. Your team will need to find shelter.", 
         "challenge_4_to_5_desc": "Your team gathers their strength. You may have shelter but you still need to make it home. You'll need to contact a team to rescue you.", 
         "challenge_5_to_6_desc": "With a team contected, now all you have to do is make it to the pickup point.", 
-        "mission_complete_desc": "Safe at last. Your team makes it to the rendezvouz and finds themselves being wisked away home. Won't be long now."
+        "mission_complete_desc": "Safe at last. Your team makes it to the rendezvous and finds themselves being wisked away home. Won't be long now."
     },
         "Deactivate Bomb": {
         "mission_start_desc": "Your team sets off towards the enemy facility. Every minute counts, but the surrounding terrain soon puts an obstacle in your path.",

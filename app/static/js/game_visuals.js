@@ -20,7 +20,7 @@
   const originalObjectives = { 'Train Heist': 6, 'Artifact Heist': 7, 'Jewel Heist': 8, 'Steal Enemy Information': 9, 'Escape Enemy Base': 10, 'Break Out Another Team': 11, 'Extract Another Team': 12, 'Rescue Stranded Teammate': 13, 'Repair Research Base': 14, 'Get Rescued': 15 };
   const planningScenes = [{ source: 'preparation', cell: 0 }, { source: 'game', cell: 1 }, { source: 'game', cell: 0 }];
   const equipment = [
-    ['Fire Starter Kit', 'Handheld Radios', 'Mirror', 'Gas Mask and Knockout Gas', 'Ice Axes', 'Armoured Truck', 'Rope', 'Paraglider', 'Helicopter', 'Grapling Hook', 'Scuba Gear', 'Wire Cutters', 'Explosives', 'Water Bottle', 'Fuel', 'Taser'],
+    ['Fire Starter Kit', 'Handheld Radios', 'Mirror', 'Gas Mask and Knockout Gas', 'Ice Axes', 'Armoured Truck', 'Rope', 'Paraglider', 'Helicopter', 'Grappling Hook', 'Scuba Gear', 'Wire Cutters', 'Explosives', 'Water Bottle', 'Fuel', 'Taser'],
     ['Compass', 'Apple', 'Armoured Boots', 'Camping Tent', 'Hat', 'GPS', 'Map', 'Mountain Gear', 'Car', 'Toolkit', 'Shovel', 'Medical Supplies', 'Weapons', 'Axe', 'Boat', 'Lock Picks'],
     ['Stolen Uniforms', 'Welding Kit', 'Dune Buggy'],
   ];
@@ -185,7 +185,7 @@
     else if (type === 'System Failure' || /offline|reactor|failure/.test(name)) theme = 13;
     else if (/air based/.test(name)) theme = 10;
     else if (/water based|canal|sea mines|ship graveyard|fishing net/.test(name)) theme = 11;
-    else if (['Getaway', 'Travel To Rendezvouz'].includes(type) || /land based|sand based|snow based|desert basin/.test(name)) theme = 9;
+    else if (['Getaway', 'Travel To Rendezvous'].includes(type) || /land based|sand based|snow based|desert basin/.test(name)) theme = 9;
     else if (/locked|entrance|exit|staff only/.test(name)) theme = 4;
     else if (type === 'Steal') theme = 17;
     else if (/building|fortefied|wall|blockade|checkpoint|gate|dam/.test(name)) theme = 1;
