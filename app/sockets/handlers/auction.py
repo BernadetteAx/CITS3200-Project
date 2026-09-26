@@ -1,6 +1,6 @@
 import time
 import re
-from random import sample
+from random import sample, shuffle
 from flask_socketio import emit
 from app.extensions import socketio
 from app.game_data.example_mission import example_mission
@@ -108,6 +108,9 @@ def _build_mission_item_pairs(generated_mission):
         pairs.append(tuple(random_pair))
         for item in random_pair:
             random_items.remove(item)
+
+    #fully random challenge offer first then shuffling the completed auction rounds
+    shuffle(pairs)
     return pairs
 
 def initialise_auction(session, generated_mission=None):
