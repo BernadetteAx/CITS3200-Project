@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastChallengeIndex = null;
   let transitioning = false;
   let pendingState = null;
+  let submittedVotes = {};
 
   const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
@@ -82,6 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function applyState(next) {
     state = next;
     if (state.phase === "result_page") return window.location.replace("/result_page");
+    if (state.myVote !== undefined && state.myVote !== null) submittedVotes[state.currentChallengeIndex] = state.myVote;
+    const submittedVote = submittedVotes[state.currentChallengeIndex];
     const challenge = state.challenge;
     document.getElementById("missionName").textContent = state.missionName;
     document.getElementById("challengeCount").textContent = `${Math.min(state.currentChallengeIndex + 1, state.totalChallenges)} OF ${state.totalChallenges}`;
@@ -97,7 +100,7 @@ function applyState(next) {
 
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
         timerChallengeIndex = state.currentChallengeIndex;
-        challengeEndsAt = Date.now() / 1000 + CHALLENGE_SECONDS;
+        challengeEndsAt = state.endsAt || Date.now() / 1000 + CHALLENGE_SECONDS;
         timedOutChallengeIndex = null;
       }
       if (state.status !== "active") {
@@ -116,7 +119,7 @@ function applyState(next) {
       itemGrid.appendChild(empty);
     }
     state.inventory.forEach((item) => {
-      const usable = active && !item.used;
+      const usable = active && submittedVote === undefined && !item.used;
       const card = document.createElement("button");
       card.type = "button";
       card.className = "item-card";
@@ -147,8 +150,14 @@ function applyState(next) {
       hotbarSlots.appendChild(slot);
     });
 
-    useItemBtn.disabled = !active || !selectedItemId;
-    continueBtn.disabled = !active;
+    useItemBtn.disabled = !active || submittedVote !== undefined || !selectedItemId;
+    continueBtn.disabled = !active || submittedVote !== undefined;
+    const tally = Object.entries(state.voteTally || {})
+      .map(([id, count]) => `${id === "__continue__" ? "No item" : (state.inventory.find((item) => item.id === id)?.name || id)}: ${count}`)
+      .join(" · ");
+    document.getElementById("voteStatus").textContent = submittedVote !== undefined
+      ? `Your vote is submitted. Votes: ${state.voteCount}/${state.playerCount}${tally ? ` · ${tally}` : ""}`
+      : `Votes submitted: ${state.voteCount}/${state.playerCount}${tally ? ` · ${tally}` : ""}`;
 
     if (state.status === "resolved" && state.outcome) {
       feedbackBox.dataset.outcome = state.outcome.success ? "success" : "fail";
@@ -525,8 +534,18 @@ function animateJourney(fromChallenge, toChallenge) {
     }
   }
 
-  useItemBtn.addEventListener("click", () => action("mission_use_item", { itemId: selectedItemId }));
-  continueBtn.addEventListener("click", () => action("mission_continue"));
+  useItemBtn.addEventListener("click", () => {
+    if (!selectedItemId || submittedVotes[state.currentChallengeIndex] !== undefined) return;
+    submittedVotes[state.currentChallengeIndex] = selectedItemId;
+    action("mission_use_item", { itemId: selectedItemId });
+    applyState(state);
+  });
+  continueBtn.addEventListener("click", () => {
+    if (submittedVotes[state.currentChallengeIndex] !== undefined) return;
+    submittedVotes[state.currentChallengeIndex] = "__continue__";
+    action("mission_continue");
+    applyState(state);
+  });
   feedbackClose.addEventListener("click", () => {
     if (state && (state.status === "resolved" || timedOutChallengeIndex === state.currentChallengeIndex)) {
       action("mission_advance");

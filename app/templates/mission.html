@@ -271,7 +271,7 @@
   <section class="items-block">
     <div class="section-heading-row">
       <h3 class="section-heading">USABLE ITEMS</h3>
-      <span class="section-hint">Pick one for your team to use</span>
+      <span class="section-hint">Vote for the item your team should submit</span>
     </div>
 
     <div class="item-grid mission-item-grid" id="itemGrid">
@@ -279,10 +279,10 @@
     </div>
 
     <div class="items-actions">
-      <button class="lobby-btn primary" id="useItemBtn" disabled>USE SELECTED ITEM</button>
-      <button class="lobby-btn secondary" id="continueBtn" disabled>CONTINUE WITHOUT ITEM</button>
+      <button class="lobby-btn primary" id="useItemBtn" disabled>SUBMIT ITEM VOTE</button>
+      <button class="lobby-btn secondary" id="continueBtn" disabled>VOTE TO CONTINUE</button>
     </div>
-    <p class="helper-note mission-helper-note">No matching item? Your team can push on without one.</p>
+    <p class="helper-note mission-helper-note" id="voteStatus" aria-live="polite">Votes submitted: 0/0</p>
   </section>
 
 </div>
