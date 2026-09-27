@@ -1,11 +1,22 @@
 """Authoritative Socket.IO state and actions for the generated mission phase."""
 
+import time
+import threading
+
 from flask import request
 from flask_socketio import emit
 
 from app.extensions import socketio
 from app.game_data.example_mission import example_mission
 from app.sockets.sessions import get_session
+
+_mission_locks = {}
+_mission_locks_guard = threading.Lock()
+
+
+def _mission_lock(session_code):
+    with _mission_locks_guard:
+        return _mission_locks.setdefault(session_code, threading.RLock())
 
 
 # Challenge Card Detail - START
@@ -82,7 +93,8 @@ def initialise_mission(session, generated_mission=None):
             "mission_description": generated_mission.get("mission_description", generated_mission.get("mission_desc", "")),
             "challenges": _normalise_challenges(generated_mission), "current_challenge_index": 0,
             "inventory": [dict(item) for item in session.get("purchased_items", [])], "used_items": [],
-            "outcome_log": [], "score": 0, "penalties": 0, "status": "active", "outcome": None}
+            "outcome_log": [], "score": 0, "penalties": 0, "status": "active", "outcome": None,
+            "votes": {}, "challenge_ends_at": time.time() + 60}
     return session["mission"]
 
 
@@ -103,20 +115,77 @@ def _state(session):
     current = mission["challenges"][index] if index < len(mission["challenges"]) else None
     used = set(mission["used_items"])
     inventory = [{**item, "used": item["id"] in used} for item in mission["inventory"]]
+    tally = {}
+    for vote in mission.get("votes", {}).values():
+        tally[vote] = tally.get(vote, 0) + 1
     return {"phase": session["phase"], "missionName": mission["mission_name"], "location": mission.get("location", ""),
         "missionDescription": mission["mission_description"], "currentChallengeIndex": index,
         "totalChallenges": len(mission["challenges"]), "challenge": current, "inventory": inventory,
         "usedItems": list(mission["used_items"]), "outcomeLog": list(mission["outcome_log"]),
-        "score": mission["score"], "penalties": mission["penalties"], "status": mission["status"], "outcome": mission["outcome"]}
+        "score": mission["score"], "penalties": mission["penalties"], "status": mission["status"], "outcome": mission["outcome"],
+        "voteTally": tally, "voteCount": len(mission.get("votes", {})),
+        "playerCount": sum(1 for player in session["players"].values() if player.get("connected")),
+        "voting": mission["status"] == "active", "endsAt": mission.get("challenge_ends_at")}
 
 
 def broadcast_mission_state(session_code, session):
     socketio.emit("mission_state", _state(session), room=session_code)
 
 
-def emit_mission_state_to_player(session):
+def emit_mission_state_to_player(session, player_id=None):
     if session.get("mission"):
-        emit("mission_state", _state(session))
+        state = _state(session)
+        state["myVote"] = session["mission"].get("votes", {}).get(player_id)
+        emit("mission_state", state)
+
+
+def _submit_vote(code, session, mission, player_id, vote):
+    with _mission_lock(code):
+        if mission.get("status") != "active" or player_id in mission.setdefault("votes", {}):
+            return
+        connected = {pid for pid, player in session["players"].items() if player.get("connected")}
+        mission["votes"][player_id] = vote
+        if connected and connected.issubset(mission["votes"]):
+            _finalize_current_votes(code, session, mission)
+        else:
+            broadcast_mission_state(code, session)
+
+
+def handle_player_disconnected(session_code, session):
+    """Resolve a completed vote when a voter disconnects."""
+    mission = session.get("mission")
+    if not mission or mission.get("status") != "active":
+        return
+    connected = {pid for pid, player in session["players"].items() if player.get("connected")}
+    if connected and connected.issubset(mission.get("votes", {})):
+        _finalize_current_votes(session_code, session, mission)
+
+
+def handle_player_left(session_code, session, player_id):
+    """Drop a departed player's vote and recheck the remaining voters."""
+    mission = session.get("mission")
+    if not mission or mission.get("status") != "active":
+        return
+    mission.get("votes", {}).pop(player_id, None)
+    handle_player_disconnected(session_code, session)
+    if mission.get("status") == "active":
+        broadcast_mission_state(session_code, session)
+
+
+def _finalize_current_votes(code, session, mission):
+    with _mission_lock(code):
+        if mission.get("status") != "active":
+            return
+        counts = {}
+        for submitted in mission.get("votes", {}).values():
+            counts[submitted] = counts.get(submitted, 0) + 1
+        if not counts:
+            _resolve(code, session, mission, timed_out=True)
+            return
+        winner = max(counts, key=lambda candidate: (counts[candidate], -next(
+            (i for i, item in enumerate(mission["inventory"]) if item["id"] == candidate), len(mission["inventory"]))))
+        item = None if winner == "__continue__" else next((item for item in mission["inventory"] if item["id"] == winner), None)
+        _resolve(code, session, mission, item)
 
 
 def _action_session(payload):
@@ -284,19 +353,23 @@ def mission_use_item(payload):
     if not session or mission["status"] != "active": return
     item_id = payload.get("itemId")
     item = next((item for item in mission["inventory"] if item["id"] == item_id), None)
-    if not item or item_id in mission["used_items"]: return
-    _resolve(code, session, mission, item)
+    player_id = _valid_player(session, payload)
+    if not item or item_id in mission["used_items"] or not player_id: return
+    _submit_vote(code, session, mission, player_id, item_id)
 
 
 @socketio.on("mission_continue")
 def mission_continue(payload):
     code, session, mission = _action_session(payload)
-    if session and mission["status"] == "active": _resolve(code, session, mission)
+    player_id = _valid_player(session, payload) if session else None
+    if session and player_id and mission["status"] == "active":
+        _submit_vote(code, session, mission, player_id, "__continue__")
 
 @socketio.on("mission_timeout")
 def mission_timeout(payload):
     code, session, mission = _action_session(payload)
-    if session and mission["status"] == "active": _resolve(code, session, mission, timed_out=True)
+    if session and mission["status"] == "active" and time.time() >= mission.get("challenge_ends_at", 0):
+        _finalize_current_votes(code, session, mission)
 
 
 @socketio.on("mission_advance")
@@ -305,6 +378,8 @@ def mission_advance(payload):
     if not session or mission["status"] != "resolved": return
     mission["current_challenge_index"] += 1
     mission["outcome"] = None
+    mission["votes"] = {}
+    mission["challenge_ends_at"] = time.time() + 60
     if mission["current_challenge_index"] >= len(mission["challenges"]):
         mission["status"] = "complete"
         session["mission_result"] = {"score": mission["score"], "penalties": mission["penalties"], "outcomes": list(mission["outcome_log"])}

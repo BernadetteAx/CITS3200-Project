@@ -115,7 +115,7 @@ def handle_join_session(payload):
 
     if session.get('mission') and session['phase'] == 'mission':
         from app.sockets.handlers.mission import emit_mission_state_to_player
-        emit_mission_state_to_player(session)
+        emit_mission_state_to_player(session, player_id)
 
     # Send stored results when a player arrives or reconnects
     if session['phase'] == 'result_page':
@@ -188,6 +188,10 @@ def handle_disconnect():
                     )
                     handle_player_disconnected(session_code, session)
 
+                if session.get('phase') == 'mission' and session.get('mission'):
+                    from app.sockets.handlers.mission import handle_player_disconnected
+                    handle_player_disconnected(session_code, session)
+
                 # Give a disconnected host 30 seconds to reconnect.
                 if player_id == session['host_id']:
                     socketio.start_background_task(
@@ -229,6 +233,10 @@ def handle_leave_session(payload):
     # players who remain in the game.
     if session.get('phase') == 'auction' and session.get('auction'):
         from app.sockets.handlers.auction import handle_player_left
+        handle_player_left(session_code, session, player_id)
+
+    if session.get('phase') == 'mission' and session.get('mission'):
+        from app.sockets.handlers.mission import handle_player_left
         handle_player_left(session_code, session, player_id)
 
     if was_host:
