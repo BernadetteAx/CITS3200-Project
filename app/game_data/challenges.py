@@ -107,6 +107,7 @@ challenges_dict = {
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team put on the gas masks. They don't help much, but the goggles protect your eyes and allow you to navigate out of the path of the blizzard.", "used": False, "point_value": 50, "point_desc": "The gas mask doesn't keep you warm and it is a lot more cumbersome than other eye equippment, but it does the job."},
             }, 
             "failure_items": {
+                "Helicopter": {"use_desc": "Your team pile into the helicopter with the intention of getting above the storm. Unfortunately, as soon as you take off, the wind catches the chopper and blows you off course. It's a long way to fall.", "used": True, "point_value": 0, "point_desc": "Air based vehicles aren't well suited to flying in high winds."},
                 "Paraglider": {"use_desc": "Your team open the paraglider with the intention of sheltering under it's sail. Unfortunately the wind catches it and drags it up into the sky. Your team's legs get caught in the rope and you are brought along for the ride too. It's a long fall, when your feet finally slip the rope.", "used": True, "point_value": 0, "point_desc": "Unfortunately the winds were far to strong to allow for the use of any item with a large sail."},
             },
             "desc": "The wind picks up and snow begins to fall, faster, faster. Soon enough your team is caught in a terrible blizzard. You're freezing and can't see 2ft in front of you. You'll need to get out of the storm.", 
@@ -119,6 +120,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly it to the top of the cliff. You find a good landing spot and are able to continue your mission.", "used": False, "point_value": 100, "point_desc": "The helicopter is a quick, easy and safe way to reach the top opf the cliff."},
                 "Ice Axes": {"use_desc": "Your team use the ice axes to wedge into the had rock and pull themselves up. The ice axes were damaged in the process.", "used": True, "point_value": 60, "point_desc": "The ice axes were able to get your team over the cliff, but they took a lot of work to use in this kind of climbing. Beyond that, the ascent was pretty dangerous."},
                 "Rope": {"use_desc": "Your team uses the rope to secure yourselves to sections of the cliff and you successfully make the ascent. Being used in this way causes the rope to fray and become unusable.", "used": True, "point_value": 80, "point_desc": "The rope is able to get your team up the cliff successfully, but is a rather dangerous approach."},
                 "Grappling hook":{"use_desc": "Your team uses the grappling hook to haul yourselves up sections of the cliff.", "used": False, "point_value": 90, "point_desc": "The grappling hook is great at getting your team up the cliff, even if it is a bit unsafe."},
@@ -135,6 +137,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. The wave passes safely beneath you. It is a struggle to keep the chopper level in the strong winds.", "used": False, "point_value": 80, "point_desc": "The chopper allows you to avoid the wave, but it was dangerous going up in such strong winds."},
                 "Grappling Hook": {"use_desc": "Your team lower the grappling hook and drag it until it catches on an underwater rock. Your team all grab a hold of the rope. When the wave hits, the grappling hook acts like and anchor and keeps your team from being washed out to sea. The grappling hook end is damaged in the process.", "used": True, "point_value": 70, "point_desc": "The grappling hook did help you keep your team together, although it didn't help you avoid the wave."},
                 "Rope": {"use_desc": "Your team tie themselves together in a line so they don't loose each other and brace for impact. The wave hits and your team is tossed about, but the rope helps you find one another afterwards and continue the mission.", "used": False, "point_value": 5, "point_desc": "This did very little to counteract the impact of the wave or help you get out of the way, but it did at least mean that you didn't lose anyone."},
                 "Scuba Gear": {"use_desc": "Your team don the scuba gear and go under the water. You get rocked by the wave as it passes over you, but are safe and able to continue your mission. The scuba oxygen tank is used up in the process", "used": True, "point_value": 90, "point_desc": "The scuba gear is effective at getting you out of the path of the wave. But it does mean that you are forced to wait for the wave to pass before continuing your mission."},
@@ -240,6 +243,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and lift off. You aren't on the ground when the earthquake hits, but it shifts the rocks making it tricky to find a landing spot afterward.", "used": False, "point_value": 90, "point_desc": "The helicopter helped your team safely avoid any of the dangers of the earthquake, but it took a long time before you were able to find a place to land."},
                 "Grappling Hook": {"use_desc": "Your team swing the grappling hook over the top of the ridge and haul yourselves up. No at least no rocks can fall on you, you'll just need to keep your footing.", "used": False, "point_value": 50, "point_desc": "The grappling hook successfully got you out of the way of any rocks that might come loose, but now you are standing atop a very precarious hills when the earthquake hits."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the falling rocks. The rocks bounce harmlessly off the truck.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Helmet": {"use_desc": "Your team don helmets and take shelter. The rocks begin to fall, and there are a couple of occasions where it would have been over were it not for the hard hats. The helmets are damaged in the process", "used": True, "point_value": 65, "point_desc": "The helmets do protect your team, but don't help them avoid the danger altogether."},
@@ -255,6 +259,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and lift off. As soon as you are off the ground the temperature lessens. It takes a while but eventually you find a place to land.", "used": False, "point_value": 90, "point_desc": "The helicopter was a good way to escape the heat, but it isn't well suited to landings on such an uneven environment."},
                 "Paraglider": {"use_desc": "The hot air fills the paraglider sail and lifts you up into the air like a hot air balloon. Your team is able to use the extra height to sail safely over the sections of land.", "used": False, "point_value": 100, "point_desc": "The paraglider is a quick and easy solution to quickly get out of the extreme heat."},
                 "Still-suit": {"use_desc": "The still suit doesn't do much, but the extra layer between you and the temperature gives you enough time to get out of the patch of heat. The extreme heat damages the still suit beyond repair.", "used": True, "point_value": 70, "point_desc": "The still suit allows your team to survive the temperature, but only acts as a second layer of skin. Some of it even melts onto your skin, burning you. So you live, but it isn't pretty."},
                 "Heat Resistant Suit": {"use_desc": "The heat resistant suit protects your team from the temperature and allows them to safely navigate away. It does, however, suffer dammage from loose rocks.", "used": True, "point_value": 100, "point_desc": "The heat resistant suit is ideal for this situation and allows your team to get by unscathed."},
@@ -280,7 +285,7 @@ challenges_dict = {
                 "Axe": {"use_desc": "Your team use the axe to cut the trees into smaller pieces that they are able to lug off the path.", "used": False, "point_value": 80, "point_desc": "It takes a while, but the axe is effective at clearing the path."},
             },  
             "failure_items": {}, 
-            "desc": "The path is blocked by fallen trees. You'll need to find a way past or a way to clear the trees.", 
+            "desc": "Your team are travelling through the canopy of trees when you stop short. The path is blocked by fallen trees. You'll need to find a way past or a way to clear the trees.", 
             "continue_failure_desc": "Your team, unable to find a way get past the trees is forced to carefully climb over. You have to be very cautious as the wood is eaten away in places by termites. More than a couple of times your team almost makes a fatal error. But you get by in the end, exhuasted and behind schedule.", 
             "final_failure_desc": "Your team, unable to find a way get past the trees is forced to carefully climb over. Unfortunately, many sections of the wood have been eaten away by termites. Your team doesn't realise this until it's too late. Your team puts a foot through the thin wood and falls. Your mission ends here."
         },
@@ -290,6 +295,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. You fly safely over the fire.", "used": False, "point_value": 90, "point_desc": "The helicopter allows your team to safely avoid the flames, but the extra wind it produces does cause the falmes to leap awefully close."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight through the fire. The tires melt in the extreme heat, rendering the truck unusable.", "used": True, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle these kinds of environmental challenges with ease."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team wears the gas masks, protecting them from the smoke of the fire. It allows them to traverse the edge of the flames without risking smoke inhalation.", "used": False, "point_value": 60, "point_desc": "The gas mask doesn't protect you from the fire, but it does allow your team to navigate swifty around the flames, a lot closer than you otherwise could."},
                 "Heat Resistant Suit": {"use_desc": "The heat resistant suit protects your team from the fire and allows them to safely navigate around the border. It does, however, suffer dammage from flames.", "used": True, "point_value": 90, "point_desc": "The heat resistant suit did allow your team to navigate around the fire safely, but your team did still suffer from smoke inhalation. Nothing that you won't recover from, mind you."},
@@ -305,6 +311,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. It's tricky to maneuver in the rain, but you are able to stay above the ground until the flood passes. There is too much debris to land safely and your chopper was in the air so long it has just about run out of fuel.", "used": True, "point_value": 95, "point_desc": "The helicopter is a great solution to help your team stay safe from the flood. It's just a bit tricky to manuever in the weather."},
                 "Grappling Hook": {"use_desc": "Your team wedge the grappling hook into the trees and use it as an anchor point to tie yourselves to the trees. You wait for the flood to hit. The grappling hook holds you in place until the flood passes. The gappling hook rope frays in the process, rendering it unusable.", "used": True, "point_value": 85, "point_desc": "Tying yourselves to the trees meant there was no chance of anyone being swept away. It was, however risky, as if the waters had gotten high enough, your team would have been tied down and unable to surface for air."},
                 "Rope": {"use_desc": "Your team tie themselves to the surroundning trees and wait for the flood to hit. The rope holds you in place until the flood passes. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 80, "point_desc": "Tying yourselves to the trees meant there was no chance of anyone being swept away. It was, however risky, as if the waters had gotten high enough, your team would have been tied down and unable to surface for air."},
                 "Ice Axes": {"use_desc": "Your team climb into the trees nearby. You wedge the ice axes deep into the trunk to give yourselves a better grip. You hold on until the flood passes.", "used": False, "point_value": 20, "point_desc": "You very nearly get swept away, but your team does manage to survive the flood with the help of the ice axes."},
@@ -321,6 +328,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the lake.", "used": False, "point_value": 100, "point_desc": "The helicopter is an ideal way to avoid the lake crossing altogether."},
                 "Grappling Hook": {"use_desc": "Your team try to make their way across the ice without any tools. When someone falls through, your team is able to toss the grappling hook to them and haul them out. You eventually make it to the other side, a lot colder than you started.", "used": False, "point_value": 10, "point_desc": "The grappling hook does next to nothng to help the team, it just means that you're able to rescuse your teammates when something inevitably goes wrong."},
                 "Paraglider": {"use_desc": "Your team put on the paragliders. Wind fills the sail and begins to drag you forward quickly across the ice.", "used": False, "point_value": 100, "point_desc": "The paraglider is ideal as it gets you across the ice fast, and makes you lighter on your feet so you don't fall through the ice."},
                 "Rope": {"use_desc": "Your team tie themselves together in a line and start the very slow journey across the ice. On 2 occasions team members fall through the ice, but your team is able to use the rope to drag them back out.", "used": False, "point_value": 20, "point_desc": "The rope doesn't do much to help your team as they cross, it merely prevents your teammates from being lost to the lake, and they still end up freezing cold when they take the plunge."},
@@ -340,6 +348,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team switch the helicopter on. The wind produced by the blades cools your team down, but it kicks a lot of sand into the air as well.", "used": False, "point_value": 80, "point_desc": "The helicopter cools you down, but it's a very tempoarary solution and gets a lot of sand in your eyes."},
                 "Paraglider": {"use_desc": "Your team put on the paraglider. In the hot air it easily lifts into the air. You are too heavy for it to lift you, but it does station itself above your team and acts like a portable parasol, protecting your team from the worst of the sun's heat.", "used": False, "point_value": 90, "point_desc": "The paraglider protects you from the worst of the heat and allows your team to continue the mission, even though you're still pretty warm."},
                 "Still-suit": {"use_desc": "The still suit recycles the water from your team's bodies. It keeps you cool and hydrated and allows your team to continue without hinderance.", "used": False, "point_value": 100, "point_desc": "The still-suit is ideal for handling a heatwave."},
             },  
@@ -354,6 +363,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly it to the top of the cliff. It takes a while for your team to find a good spot to land on the slippery ice.", "used": False, "point_value": 90, "point_desc": "The helicopter is a quick and easy way to reach the top opf the cliff, it just is quite hard to land safely."},
                 "Grappling Hook": {"use_desc": "Your team toss the grappling hook up to icy outcroppings above you and the hook easily grips the ice. Your team is able to quickly haul yourselves up.", "used": False, "point_value": 100, "point_desc": "The grappling hook is ideal fro challenges like this as its hook is able to wedge itself deep into the ice."},
                 "Rope": {"use_desc": "Your team tries again, and again to lasso an ice outcropping, but it's so slippery that it's almost impossible. You do eventually manage it and use it as an anchor point to climb up. The repeated tries to lasso the outcropping frays the rope, rendering it unusable.", "used": True, "point_value": 40, "point_desc": "The rope does successfully get your team up the ice cliff, but having your anchor point be so slippery and unstable is a very, very rsiky move."},
                 "Ice Axes": {"use_desc": "You use the Ice Axes to scale the ice cliff with ease.", "used": False, "point_value": 100, "point_desc": "The ice axes are ideal for this kind of challenge as they are able to easily get a hold on the smooth surface."},
@@ -369,6 +379,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly it up. The landslide passes safely beneath you. There is a lot of debris, making it hard to find a place to land.", "used": False, "point_value": 90, "point_desc": "The helicopter kept your team out of harms way, it was just tricky to find a landing spot."},
                 "Grappling Hook": {"use_desc": "Right before the landslide hits, your team chuck the grapple over a nearby rocky outcropping. You haul yourselves into the air as the landslide passes beneath you.", "used": False, "point_value": 90, "point_desc": "The grappling hook helped your team successfully avoid being caught in the landslide, but having to hold on for so long has tired your team out and given them rope-burn."},
                 "Rope": {"use_desc": "Your team ties themselves together and when the landslide hits you are burried beneath it. You manage to dig yourselves out, using the rope as a guide to where people are. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 5, "point_desc": "This was only just enough and by the time you got around to rescuing the last member of the team from under the earth they had very nearly suffocated. The process is exhausting and time consuming."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and brace for impact. The landslide hits rolling the truck, but your team is all safely secured inside. Once it is over your team is able to exit througha safety hatch on the roof. The truck is burried too deep to be retrieved.", "used": True, "point_value": 100, "point_desc": "The armoured truck is ideal as it managed to protect your team from the landslide without causing any significant delays."},
@@ -385,6 +396,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly around the lava spout. It's tricky to find a landing place.", "used": False, "point_value": 90, "point_desc": "The helicopter is greate at helping you pass the obstacle, but it is tricky to land."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight past the lava spout. It gets uncomfortably warm inside, but you make it past. The tires melt in the extreme heat, rendering the truck unusable.", "used": True, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle these kinds of environmental challenges with ease."},
                 "Heat Resistant Suit": {"use_desc": "You don the heat resistant suits and are able to safely navigate areound the lava spout. It may be good, but even the heat resistant suit can barely hold it's own against lava. The extreme heat damages the heat-resistant suit beyond repair.", "used": True, "point_value": 90, "point_desc": "The heat resistant suit allowed your team to navigate around the lava spout, though it was a bit precarious being so close to the lava."},
             },  
@@ -399,6 +411,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly it straight up. From the higher vantage point you are able to work out where you are.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for this task."},
                 "Handheld Radios": {"use_desc": "Your team tunes the radios and manages to find an active frequency. Based on whether the signal gets stronger or weaker your team is able to use them to navigate towards whichever radio tower is broadcasting. It helps you orient yourselves in the desert and continue on your mission. The radios' batteries are used up in the process.", "used": True, "point_value": 80, "point_desc": "An effective technique, it just takes a while for your team to work out how to use the radios to orient themselves."},
                 "Map": {"use_desc": "Your team is able to use the few landmarks nearby to orient themselves. With a better idea of where they are going, the team is able to continue the mission.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding your way through the desert."},
                 "Compass": {"use_desc": "your team use the compass to orient themselves. With a better idea of where they are, the team is able to continue the mission.", "used": False, "point_value": 100, "point_desc": "The compass is ideal for getting your team headed in the right direction."},              
@@ -417,7 +430,9 @@ challenges_dict = {
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You toss the smoking kindling into the nest and the smoke pacifies the scorpions allowing you to pass by unscathed. The kindling is used up in the process", "used": True, "point_value": 100, "point_desc": "The firestarter kit is effective at dealing with the scorpions and didn't require any animals to be hurt in the process."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister into the nest, the gas causes the scorpions to scatter allowing you to pass by unscathed. The gas is used up in the process", "used": True, "point_value": 100, "point_desc": "The gas is effective at dealing with the scorpions and didn't require any animals to be hurt in the process."},
             }, 
-            "failure_items": {}, 
+            "failure_items": {
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and switch it on. UNfortunately as you do, the draft produced by the blades stirs the sand. Within moments sand is being whipped in all directions, and with it, the scorpions. Your entire team is stung.", "used": False, "point_value": 0, "point_desc": "An unfortunate event. In future, you need to keep in mind that the helicopter take off stirs the substrate around it."},
+            }, 
             "desc": "Your team stumbles across a nest of scorpions blocking your path. You'll need to get by them to continue your mission.", 
             "continue_failure_desc": "Your team is forced to take the long way around. And let me tell you. It's a long, long way. By the time your team reach their destination they are exhausted and well behind schedule.", 
             "final_failure_desc": "Your team doesn't have the time nor the stamina to go the long way around. Your team is forced to try and pass through the nest. Unfortunately your exhaustion makes you sloppy, and you step on one of the little guys. In seconds the scorpions turn on the team and sting them. It's a painful way to go."
@@ -443,6 +458,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter. It's hard to fly with the canopy of trees above you but you eventually make it over the river, but it's nearly impossible to find somewhere to land. The long flight uses up the fuel tank.", "used": True, "point_value": 40, "point_desc": "The helicopter only just succeeded in passing the challenge. It was far too hard to find a landing place."},
                 "Grappling Hook": {"use_desc": "Your team hook the grapple to the top of a very tall tree and use it to swing across the river. You manage to yank the grapple back down and retrieve it.", "used": False, "point_value": 95, "point_desc": "The grapple is a highly efficient way to get across the river safely, although it did take 1 or 2 attempts before you successfully hooked the branch."},
                 "Paraglider": {"use_desc": "Your team climb high into the trees and paraglide across the river. When you land the paragliders get caught in the trees on the far side. It's quite an effort to get down, but you do eventually succeed. The paragliders are unable to be retrieved.", "used": True, "point_value": 80, "point_desc": "The paragliders get you across the river, but it took a lot of effort to get down from the trees when the gliders got snagged."},
                 "Rope": {"use_desc": "Your team attach the rope to the top of a very tall tree and use it to swing across the river. The rope is left behind.", "used": True, "point_value": 90, "point_desc": "The rope is good for this challenge, but setting it up took some time."},
@@ -460,6 +476,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and take off, safely clearing the rocks. It takes a while but eventually you find a safe place to land.", "used": False, "point_value": 90, "point_desc": "The helicopter successfully helped you evade the rocks, but it is tricky to land."},
                 "Grappling Hook": {"use_desc": "Your team toss the hook to a ridge to the far left of you. It catches and you are able to swing to safety just before the rocks hit.", "used": False, "point_value": 100, "point_desc": "The grappling hook is ideal as it allows your team to get out of the way quickly and safely."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the falling rocks. The rocks bounce harmlessly off the truck.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Helmet": {"use_desc": "Your team don helmets. When to rocks hit your team only suffers minor injuries. The helmets are damaged in the process.", "used": True, "point_value": 40, "point_desc": "The helmets meant that your team survived the rocks, but it still left the rest of your bodies exposed. Your team still suffered damage from the fall."},
@@ -475,6 +492,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the dunes.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for travel over sand."},
                 "Paraglider": {"use_desc": "Your team trudge up a sand dune and then use the paragliders to sail down it. You do this over and over until you have passed them. The paraglider gets constantly filled with sand, eventually damaging it.", "used": True, "point_value": 80, "point_desc": "The paraglider certainly made it faster to traverse the dunes, but you team still had to trudge up each hill themselves."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and try to drive it across the sand dunes. It's too heavy though and you only get halfway before it becomes too bogged to salvage. Your team is forced to walk the rest of the way.The truck is too bogged to retrieve.", "used": True, "point_value": 60, "point_desc": "The armoured truck is a little too heavy to be suited to this situation, although it does get you most of the way there."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and tear off. It makes quick work of the dunes and your team is able to continue their mission.", "used": False, "point_value": 100, "point_desc": "The dune buggy is ideal for traversing sand dunes."},
@@ -495,6 +513,7 @@ challenges_dict = {
                 "Shovel": {"use_desc": "Your team dig down and make a shallow pit to hide in. The winds swirl above you, but you're safe until the storm passes.", "used": False, "point_value": 40, "point_desc": "The shovel helped you keep your team safe, but it did mean that you had to wait for the storm to subside."},
             },  
             "failure_items": {
+                "Helicopter": {"use_desc": "Your team pile into the helicopter with the intention of getting above the storm. Unfortunately, as soon as you take off, the wind catches the chopper and blows you off course. It's a long way to fall.", "used": True, "point_value": 0, "point_desc": "Air based vehicles aren't well suited to flying in high winds."},
                 "Paraglider": {"use_desc": "Your team open the paraglider with the intention of sheltering under it's sail. Unfortunately the wind catches it and drags it up into the sky. Your team's legs get caught in the rope and you are brought along for the ride too. It's a long fall, when your feet finally slip the rope.", "used": True, "point_value": 0, "point_desc": "Unfortunately the winds were far to strong to allow for the use of any item with a large sail."},
             }, 
             "desc": "The wind picks up and begins to stir the sands into the air. In a matter of minutes the world around you is plunged into darkness as sand swirls around you. You'll need to find a way out if you have any hope of coontinuing your mission.", 
@@ -507,6 +526,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly over the shallow reef. Unfortunately there is no where to land the chopper and your team are forced to leave it behind.", "used": True, "point_value": 100, "point_desc": "The helicopter got you safely past the shallow reef."},
                 "Scuba Gear": {"use_desc": "The team don the scuba gear and go underwater. Your team is able to easily maneuver around the coral and even seem some cool fish.", "used": False, "point_value": 100, "point_desc": "The scuba gear is ideal for navigating easily in underwater spaces."},
             },  
             "failure_items": {
@@ -522,6 +542,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly above the waves. Eventually the shark leaves. Unfortunately there is no where to land the chopper and your team are forced to leave it behind.", "used": True, "point_value": 100, "point_desc": "The helicopter got you safely past the shark."},
                 "Paraglider": {"use_desc": "You drop the paraglider in the water. The shark is quickly tangled in the rope and your team is able to get past it.", "used": False, "point_value": 70, "point_desc": "You're lucky the shark got tangled, because otherwise that might not have worked."},
                 "Mirror": {"use_desc": "You shatter the tiny mirror and use on of the glass shards as a blade. When the shark attacks you stab it with the glass. It does a little damage. It takes 3 more passes before the shark finally leaves. The mirror is broken.", "used": True, "point_value": 5, "point_desc": "This is perhaps the most desperate thing I've seen. It worked just, but left you with a very cut hand and a lot more blood in the water. This only just worked."},
                 "Ice Axes": {"use_desc": "You wield the ice axes as weapons. You land a hit and the shark retreats.", "used": False, "point_value": 70, "point_desc": "The ice axes do successfully repel the shark, but it does add some blood to the water. Who knows if more sharks are coming."},
@@ -537,13 +558,14 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Grappling Hook": {"use_desc": "Your team toss the grapple and get it to catch on a rock near the edge of the sinkhole. You use the rope to haul yourselves out. The grappling hook rope frays in the process, rendering it unusable.", "used": True, "point_value": 90, "point_desc": "The grappling hook is able to easly help your team out of the sinkhole, but you did have to fall in it frst."},
                 "Paraglider": {"use_desc": "Before the ground gives way, your team put on their paragliders and jump. You get just enough clearance to make it across the sinkhole safely.", "used": False, "point_value": 100, "point_desc": "The paragliders are ideal for this situation as they allow you to get across the sinkhole without having to fall in first."},
                 "Rope": {"use_desc": "Your team manage to lasso a rock near the edge of the sinkhole and use the rope to haul yourselves out. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 80, "point_desc": "The rope is able to easly help your team out of the sinkhole, but you did have to fall in it frst."},
                 "Ice Axes": {"use_desc": "Your team wedge the ice axes into the surrounding rock just as the floor gives way. Your teeam is able to haul themselves out of the hole using the ice axes. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "It's an efficient way out of the hole, but it takes a lot of effort."},
                 "Grappling Hook": {"use_desc": "In the few moments you have, your team manages to latch the grappling hook to the far side of the hole. When the ground gives way, your team is able to swing to safety.", "used": False, "point_value": 90, "point_desc": "The grappling hook handly passes the challenge, and apart from a few minor cuts, your team comes away unscathed."},
             }, 
-            "failure_items": {},
+            "failure_items": {
+                "Helicopter": {"use_desc": "Your team pile into the helicopter eager to fly out of the hole. However the space is only just wide enough for the chopper normall, and as soon as you start to take off, a slight wobble causes the blades to hit the edge of the hole. The chopper crashes and then explodes..", "used": True, "point_value": 0, "point_desc": "Helicopters aren't good in small spaces."},
+            },
             "desc": "Your team is travelling along when suddenly the ground seems to open. A sinkhole has just appeared and your team is falling into it.", 
             "continue_failure_desc": "Without the right tools your team manages to scramble to the edge of the hole and haul themselves out. It is an exhausting process and your team is forced to take time to recover.", 
             "final_failure_desc": "Your team is exhausted and reacts slowly. They fall into the sinkhole and those who survive the fall, can find no way out. Your mission ends here."
@@ -587,6 +609,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team realise that the gasses are more denser than air, so you likely won't be able to fly over. Intead you switch on the chopper and the draft it produces clears the gas temporarily. Your team makes a run for it, leaving the chopper behind.", "used": True, "point_value": 100, "point_desc": "The chopper safely clear the way for your team to continue."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight across the gas field. You are safe inside.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "used": False, "point_value": 100, "point_desc": "The gas mask is ideal for handling toxic gases."},
             },
@@ -603,6 +626,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the crevasse.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for this task."},
                 "Grappling Hook": {"use_desc": "Your team manage to catch the grapple on a rock jutting up on the far side. You carefully swing each teammate across the gap.", "used": False, "point_value": 75, "point_desc": "The grapple is a quick and easy solution to get your team across, but it's a risky maneuver."},
                 "Paraglider": {"use_desc": "Your team use the paraglider to glide across the gap.", "used": False, "point_value": 100, "point_desc": "The paragliders weer an ideal and quick solution."},
                 "Ice Axes": {"use_desc": "You descend down the crevasse using the ice axes, until you hit a section that is thinner. You are able to switch sides and climb back the other side of the creavasse using the ice axes. The ice axes are damaged in the process.", "used": False, "point_value": 70, "point_desc": "It is an efficcient way to handle the obstacle, but required a lot of effort."},
@@ -623,6 +647,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight up. From the vantage point your team is able to spot civilization and head straight for it.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for getting a better lay of the land and travelling fast."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across civilization. The truck can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find civilization, but it took a long time and required you to use ass the petrol in the tank."},
                 "Handheld Radios": {"use_desc": "Your team uses the radios and finds an active frequency. Depending on whether the signal strengthens or weakens, you are able to use it to navigate towards whatever radio tower is broadcasting and therefore towards civilization, where you can take shelter. The radios' batteries are used up in the process.", "used": True, "point_value": 70, "point_desc": "This is an effective solution but it takes a lot of trial and error before you find civilization."},
                 "Map": {"use_desc": "Your team is able to use the few landmarks nearby to orient themselves. Your team is able to use the map to work out where the nearest patch of civilization is and head towards it.", "used": False, "point_value": 100, "point_desc": "The map is ideal for helping your team navigate towards civilization."},
@@ -638,6 +663,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight up. From the vantage point your team is able to spot land and head straight for it.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for getting a better lay of the land and travelling fast."},
                 "Handheld Radios": {"use_desc": "Your team uses the radios and finds an active frequency. Depending on whether the signal strengthens or weakens, you are able to use it to navigate towards whatever radio tower is broadcasting and therefore towards land, where you can take shelter. The radios' batteries are used up in the process.", "used": True, "point_value": 70, "point_desc": "This is an effective solution but it takes a lot of trial and error before you find land."},
                 "Map": {"use_desc": "You use the map to orient yourself and work out where the nearest stretch of land is. The map isn't waterproof so gets damaged in the process.", "used": True, "point_value": 80, "point_desc": "The map is successful in getting your team to orient themselves, but it disintergrates in the water, so your team is forced to memorise the heading. A risky but successful maneuver."},
             },  
@@ -652,6 +678,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight up. From the vantage point your team is able to spot shelter and head straight for it.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for getting a better lay of the land and travelling fast."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. It's as good a shelter as anything and allows your team a chance to regroup.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Map": {"use_desc": "You use the map to orient yourself and work out where the nearest shelter would be. This helps your team get there efficiently.", "used": False, "point_value": 80, "point_desc": "The map is successful in ensuring that your team is on the fastest path, but doesn't help them get there."},
             },  
@@ -772,6 +799,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and set off. It's very tricky to navigate by air, but you manage it. You have to move slowly to avoid obstacles.", "used": False, "point_value": 60, "point_desc": "You succeed in getting away, but the helicopter was not a great method of transport."},
                 "Paraglider": {"use_desc": "Your team put on their paragliders and set off. It's very tricky to navigate by air, but you manage it. You do get snagged on obstacles a few time but your team is able to use the paragliders to getaway. The paragliders are damaged in the process.", "used": True, "point_value": 60, "point_desc": "The paragliders do help you get away, but they were not idea for this situation."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and tear off. Nothing stands in your way and whilst it's a messy getaway, it is successful.", "used": False, "point_value": 90, "point_desc": "The getaway is messy, but the armoured truck means that you can move as fast as you like without having to worry about anything."},
             },  
@@ -786,6 +814,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. Your pursuers attempt to follow you in their own helicopters, but some tricky maneuvers loose them. The chopper fuel tank is drained in the process.", "used": True, "point_value": 50, "point_desc": "You didn't exactly mislead your pursuers, more, outran them. Oh well the effect is the same."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off. Your pursuers are hot on your heels but you loose them in dense undegrowth that only the truck can get through. The truck is damaged in the process.", "used": True, "point_value": 50, "point_desc": "You didn't exactly mislead your pursuers, more, outran them. Oh well the effect is the same."},
                 "Handheld Radios": {"use_desc": "Your team leaves one of the radios at your current position and moves away. You then call it. The chatter attracts the attention of your pursuers and misleads them. The radio is left behind.", "used": True, "point_value": 70, "point_desc": "The radio is effective at misleading pursuers, but if they find it you risk them using it to locate your team."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to make a small fire. The smoke attracts the attention of your pursuers. You travel in the opposite direction, using the fire as a diversion. The kindling is used up in the process.", "used": True, "point_value": 75, "point_desc": "The fire successfully mislead the pursuers, but it did cause some significant damage in the process."},
@@ -803,6 +832,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the sand.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for travel over sand."},
                 "Paraglider": {"use_desc": "Your team trudge up a sand dune and then use the paragliders to sail down it. You do this over and over until you have passed them. You eventually manage to evade your pursuers. The paraglider gets constantly filled with sand, eventually damaging it.", "used": True, "point_value": 60, "point_desc": "It is a slow and tiring process but the glider does work as a transport method in the sand."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the sand, and whilst you get away, it becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and tear off. It is fast even over the sand and your team is able to continue their mission.", "used": False, "point_value": 100, "point_desc": "The dune buggy is ideal for traversing desert."},
@@ -818,6 +848,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the snow.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for travel over snow."},
                 "Paraglider": {"use_desc": "There is an frozen river near your team. Your team put on the paragliders. Wind fills the sail and begins to drag you forward quickly across the ice.", "used": False, "point_value": 70, "point_desc": "The paraglider is effective at getting you across the ice fast. Unfortunately you are forecd to follow the lake, which isn't eactly the direction you wanted, but it works well enough."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the snow, and whilst you get away, it becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Snow Mobile": {"use_desc": "Your team pile into the snow modile and it tears off across the fresh snow.", "used": False, "point_value": 100, "point_desc": "The snow mobile is ideal for getting places fast on snow."},
@@ -840,6 +871,7 @@ challenges_dict = {
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and blend right in. There's a terrifying moment when another guard asks to see your id, but you manage to bluff your way past.", "used": False, "point_value": 80, "point_desc": "Putting yourself in plain sight. An effective but dangerous maneuver."},
             },  
             "failure_items": {
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. The vehicle makes a lot of noise as it takes off. YYou barely make it off the ground before your mission ends abruptly. The helicopter is blown up.", "used": True, "point_value": 0, "point_desc": "What about an helicopter struck you as particularly sneaky. Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed rpg and your team was no more. Let's try a subtler approach next time, huh?"},
                 "Paraglider": {"use_desc": "Your team put on the paragliders and aim to glide safely away. Your team is shot down.", "used": False, "point_value": 0, "point_desc": "The glider sails are huge and brightly coloured. Not exactly stealthy. They were like a giant target for the enemy to aim at."},
                 "Fire Starter Kit": {"use_desc": "Your team create a small fire with the attention of drawing the guards away. Unfortunately, all it does is get their attention. They are all over you before your team can get away.", "used": True, "point_value": 0, "point_desc": "Starting fires isn't exactly subtle. So yeah, you got caught. Maybe next time you'll try a more stealthy approach."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly. The armoured truck is blown up.", "used": True, "point_value": 0, "point_desc": "What about an armoured truck struck you as particularly sneaky. Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed rpg and your team was no more. Let's try a subtler approach next time, huh?"},
@@ -854,6 +886,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the water. With nowhere to land, your team is forced to abandon the chopper.", "used": True, "point_value": 100, "point_desc": "The helicopter is ideal for travel over water."},
                 "Paraglider": {"use_desc": "Your team wear the paragliders and use them to get a serious distance before you land.", "used": False, "point_value": 90, "point_desc": "The paragliders are pretty effective at getting some distance, but once you land, it's hard to get going again."},
                 "Boat": {"use_desc": "Your team pile into the boat and tear away.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for quick getaways on the water."},
             },  
@@ -959,6 +992,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "City", "Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Helicopter": {"use_desc": "You use the engine from the helicopter to temporarily power the base instead. The helicopter is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Rope": {"use_desc": "Your team uses the rope to re-attch the solar panels in the correct positions. The rope is used up in the process.", "used": True, "point_value": 60, "point_desc": "You successfully get the panels back into the correct place, but it doesn't fix the damage to them. Still, they'll work a bit."},
                 "Mirror": {"use_desc": "You use the mirror to focus a beam of sunlight on one of the sections of the solar panel that is still working. Creating a tiny trickle of power. The mirror is now in use.", "used": True, "point_value": 5, "point_desc": "The mirror kind of works. It means you can redirect the light, so didn't need to reattach the panels and it focuses the light on the section that works. It is however a very small and very temporary fix."},
                 "Welding Kit": {"use_desc": "You re-attach the solar panels to their correct positions and use the welding kit to fuse it in place. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "You do manage to re-attach the solar panels, but unfortunately, you can do little to repair their functionality with such a crude implement."},
@@ -974,6 +1008,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team decide to use the helicopter as your replacement vehicle. The chopper is now in use.", "used": True, "point_value": 90, "point_desc": "The helicopter is a good solution to the problem, but may not handle all the terrains quite as well as the original vehicle."},
                 "Armoured Truck": {"use_desc": "Your team decide to use the armoured truck as the new stand in for the broken vehicle. The truck is therefore unavailable for other use.", "used": True, "point_value": 100, "point_desc": "The truck is an ideal alternative to the original vehicle."},
                 "Welding Kit": {"use_desc": "You use scraps of metal and weld them over the damaged portions of the vehicle. It's messy, but should hold. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "The vehicle is now in working order, but the solution is only temporary."},
             },  
@@ -988,6 +1023,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team decide to use the helicopter as your replacement vehicle. The chopper is now in use.", "used": True, "point_value": 70, "point_desc": "The helicopter is a good solution to the problem, but you'll need to find nearby land to stop on every time you make a trip."},
                 "Welding Kit": {"use_desc": "You use scraps of metal and weld them over the damaged portions of the vehicle. It's messy, but should hold. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "The vehicle is now in working order, but the solution is only temporary."},
             },  
             "failure_items": {}, 
@@ -1017,6 +1053,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Helicopter": {"use_desc": "Your team turn the helicopter on. The wind produced by the spinning blades whips the sand about, clearing the hatch.", "used": False, "point_value": 100, "point_desc": "A very simple solution that required no work on your part."},
                 "Shovel": {"use_desc": "You clear the sand from the hatch, making it usable once more.", "used": False, "point_value": 100, "point_desc": "The shovel is ideal for this situation as it restores access without damaging the hatch."},
             },
             "failure_items": {},
@@ -1033,6 +1070,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the blockade.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Grappling Hook": {"use_desc": "Your team toss the grapple over one of the unmanned walls and scale it, avoiding the blockade entirely.", "used": False, "point_value": 100, "point_desc": "An efficient and clean solution."},
                 "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the blockade. The truck is damaged in the process.", "used": True, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the blockade rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
@@ -1053,6 +1091,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the locked gate.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Grappling Hook": {"use_desc": "Your team secure the grappling hook to the gate and haul yourselves up and over leaving the gate intact.", "used": False, "point_value": 100, "point_desc": "You get by the gate quickly and by not damaging the gate, no one will know you got past it."},
                 "Rope": {"use_desc": "Your team secure the rope to a spike on the gate and haul yourselves up and over leaving the gate intact.", "used": False, "point_value": 100, "point_desc": "You get by the gate quickly and by not damaging the gate, no one will know you got past it."},
                 "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the gate. It only sustains minor damage.", "used": False, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
@@ -1071,6 +1110,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the checkpoint.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Grappling Hook": {"use_desc": "Your team toss the grapple over one of the unmanned walls and scale it, avoiding the checkpoint entirely.", "used": False, "point_value": 100, "point_desc": "An efficient and clean solution."},
                 "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the checkpoint. It only sustains minor damage.", "used": False, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards of the checkpoint rush to investigate, and whilst they aren't at their post, your team sneaks past. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
@@ -1090,6 +1130,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the collapsed bridge.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Rope": {"use_desc": "You use the rope and, after numerous tries, manage to lasso the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "used": False, "point_value": 60, "point_desc": "Whilst successful, swinging across the bridge was a risky manuever and the set up cost you a lot of time."},
                 "Paraglider": {"use_desc": "Your team find the highest point in the surrounding area and glide across the gap. Everyone reaches the other side safely.", "used": False, "point_value": 100, "point_desc": "The glider is well suited to this kind of challenge and your team is able to quickly and easily navigate the obstacle."},
                 "Grappling Hook": {"use_desc": "The team are able to hook the grappling hook on the broken parapet on the far side of the bridge. After testing that it can take the weight, your team takes turns lowering themselves down the side of the bridge and swinging across.", "used": False, "point_value": 75, "point_desc": "Whilst swinging across the bridge was a somewhat risky manuever, the grappling hooks were efficient and ensured that the lines were well secured."},
@@ -1105,6 +1146,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the dam.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Paraglider": {"use_desc": "Your team paraglide down to the lower section of land on the other side of the dam. It's a long climb back up, but you made it to the other side.", "used": False, "point_value": 60, "point_desc": "You got across but the walk back up is long and tiring."},
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. Your team uses their own outer jackets to fuel the fire. Soon enough there is a roaring flame with smoke billowing. The guards on the dam wall rush to investigate, and whilst they aren't at their post, your team takes the opportunity to make a break for it across the top of the dam wall. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "It worked, but cost you your jackets, which really sucks."},
                 "Handheld Radios": {"use_desc": "Your team tunes the radios to the frequency used by the guards. You talk on the comms about a possible leak in the dam. The guards rush to investigate allowing your team to make a break for it across the dam wal. The radios' batteries are used up in the process.", "used": True, "point_value": 90, "point_desc": "An effective solution, and one that doesn't lead back to you."},
@@ -1123,6 +1165,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the giant wall.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Rope": {"use_desc": "Your team tries again and again to lasso the top of the wall. Eventually they succeed and you are able to climb up and over. The repeated lasso attempts fray the rope, rendering it unusable.", "used": True, "point_value": 70, "point_desc": "It takes a long time before your team is able to lasso the top of the wall and the climb is fairly risky."},
                 "Ice Axes": {"use_desc": "You wedge the ice axes deep in the wall and use them to scale it. It's almost impossible but it gets you up and over. The ice axes are damaged in the process.", "used": True, "point_value": 70, "point_desc": "It is a lot of work and quite a risky maneuver, but the ice axes do get you successfully over the wall."},
                 "Grappling Hook": {"use_desc": "Your team secure the grappling hook to the top of the wall, and make your way easily to the top. Then you secure it again and make your way down. Easy.", "used": False, "point_value": 100, "point_desc": "The grappling hook is ideal for climbing especially walls. It's what grappling hooks are built for after all."},
@@ -1138,6 +1181,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the sea mines. Unfortunately there is no where to land, so your team is forced to abandon the chopper afterwards.", "used": True, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Paraglider": {"use_desc": "Your team use the paraglider to sail easily over the surface of the water, never coming near the mines.", "used": False, "point_value": 100, "point_desc": "The paraglider is ideal for getting you past the sea mines as you never actually have to go near them."},
                 "Scuba Gear": {"use_desc": "Your team don the scuba gear. The flippers help you to move swiftly through the mine field and your maneuverable enough to get by unscathed. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear is ideal for this situation. It allows you to move efficiently and safely past the sea mines."},
             },  
@@ -1152,6 +1196,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the ship graveyard. Unfortunately there is no where to land, so your team is forced to abandon the chopper afterwards.", "used": True, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Paraglider": {"use_desc": "You team attempts to sail acorss the surface of the water using the paragliders. You get most of the way there before they become snagged on a piece of metal. You have to swim the rest of the way. The paragliders are lost in the process.", "used": True, "point_value": 60, "point_desc": "The paragliders get you most of the way there, but don't handle the wrecked ships well."},
                 "Scuba Gear": {"use_desc": "Your team dons the scuba gear and quickly and easily navigate the ship wrecked environment. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear is ideal for this situation. It allows you to move efficiently and safely past the sunken ships."},
             },  
@@ -1166,6 +1211,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the traffic.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Paraglider": {"use_desc": "Your team climb up the fire-escape of a tall building and use the paraglider to sail safely over traffic.", "used": False, "point_value": 90, "point_desc": "The paragliders easily get your team past traffic, although you did loose a bit of time climbing the fire escape."},
                 "Fire Starter Kit": {"use_desc": "You use the firestarter kit to light a small flame. You leave the fire in the hood of a parked car. Soon enough it explodes. All traffic stops as people run from their cars. You're team is able to saunter through traffic undisturbed. The kindling is used up in the process.", "used": True, "point_value": 10, "point_desc": "What the heck! That was someone's car. You can't just go around blowing things up, even if it works."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You throw the gas canister into traffic. When it goes off there are a few accidents as drivers are knocked unconscious, but soon enough all traffic comes to a stand still. Your team is able to make their way across the road with no risk of injury by car. The gas was used up in the process.", "used": True, "point_value": 40, "point_desc": "Whilst it did successfully stop traffic, using the knockout gas did lead to a number of injuries to innocent people."},
@@ -1198,6 +1244,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items": {
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the retracted loading walkway.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Paraglider": {"use_desc": "Your team wear the paragliders and sail cleanly over the gap.", "used": False, "point_value": 100, "point_desc": "The paragliders are ideal for getting you across short gaps."},
                 "Rope": {"use_desc": "Your team lasso the rope to the railing and use it sto swing across.", "used": False, "point_value": 90, "point_desc": "It takes a while to lasso the rail, but once you have it's a fairly easy trip."},
                 "Grappling Hook": {"use_desc": "You secure the grappling hook to the railing and use its line to cross the gap.", "used": False, "point_value": 100, "point_desc": "The hook provides a secure crossing point without restarting the walkway."},
@@ -1247,6 +1294,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Armoured Truck": {"use_desc": "One member of your team jumps into the helicopter and flies it past the base. Guards come running to see the commotion and the team slips by unnoticed.", "used": False, "point_value": 30, "point_desc": "It does successfully distract the guards but alerts them to your presence and leaves a teammate behind."},
                 "Paraglider": {"use_desc": "Your team tie the paraglider in a tree. The guards spot the giant sail and move to investigate it, allowing you to slip by unnoticed. You leave the gliders behind in the process.", "used": True, "point_value": 80, "point_desc": "The gliders act as a quick and easy distraction, although they do put the base on high alert."},
                 "Rope": {"use_desc": "Each time a guard passes, your team jump them and tie them up using the rope. Eventually you've got enough of them that you can simply avoid the others by being stealthy. You are forced to leave the rope behind.", "used": True, "point_value": 60, "point_desc": "It takes a long time to catch enough guards to clear a path."},
                 "Armoured Truck": {"use_desc": "One member of your team jumps into the armoured truck and drives it past the base. Guards come running to see the commotion and the team slips by unnoticed.", "used": False, "point_value": 30, "point_desc": "It does successfully distract the guards but alerts them to your presence and leaves a teammate behind."},
@@ -1266,6 +1314,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight up. From the vantage point your team is able to spot a different entrance. Unfortunately, now the entire base knows you are here and you are forced to land miles away and walk back.", "used": False, "point_value": 20, "point_desc": "You did find another way in, but were significantly dellayed by having to leave and walk back."},
                 "Handheld Radios": {"use_desc": "You tune the radios to the frequency the guards use and listen in. You discover another entrance out back that isn't on the schematics and use it to get in. The radios' batteries are used up in the process.", "used": True, "point_value": 80, "point_desc": "This is an effective solution, it just takes a long time before the information you need is discussed."},
                 "Map": {"use_desc": "Your team check the schematics of the building. You use it to locate a service entrance that your team sneaks in through.", "used": False, "point_value": 100, "point_desc": "The map is ideal for finding alternate routes inside."},
             },  
@@ -1454,6 +1503,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "You use the engine from the helicopter to temporarily power the base instead. The helicopter is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to reconnect the sections of the geothermal reactor that are broken and get it back into working order. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for these sorts of situations."},
             },  
             "failure_items": {}, 
@@ -1467,6 +1517,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "You use the engine from the helicopter to temporarily power the base instead. The helicopter is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to reconnect the sections of the main reactor that are broken and get it back into working order. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for these sorts of situations."},
             },  
             "failure_items": {}, 
@@ -1513,6 +1564,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and set off. It's very tricky to navigate by air, but you manage it. You have to move slowly to avoid obstacles.", "used": False, "point_value": 60, "point_desc": "You succeed in getting to the rendezvous, but the helicopter was not a great method of transport."},
                 "Paraglider": {"use_desc": "Your team put on their paragliders and set off. It's very tricky to navigate by air, but you manage it. You do get snagged on obstacles a few time but your team is able to use the paragliders to make it to the rendezvous. The paragliders are damaged in the process.", "used": True, "point_value": 60, "point_desc": "The paragliders do help you travel, but they were not idea for this situation."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The armoured truck is an ideal option for land based travel."},
             },  
@@ -1527,6 +1579,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the sand.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for travel over sand."},
                 "Paraglider": {"use_desc": "Your team trudge up a sand dune and then use the paragliders to sail down it. You do this over and over until you have passed them. The paraglider gets constantly filled with sand, eventually damaging it.", "used": True, "point_value": 80, "point_desc": "The paraglider certainly made it faster to traverse the desert, but it wasn't the ideal method of transport"},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the sand. It gets the team almost all the way there, but becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to rendezvous, but it wasn't the ideal method of transport."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The Dune Buggy is an ideal option for travel over sand."},
@@ -1542,6 +1595,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the snow.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for travel over snow."},
                 "Paraglider": {"use_desc": "There is an frozen river near your team. Your team put on the paragliders. Wind fills the sail and begins to drag you forward quickly across the ice.", "used": False, "point_value": 70, "point_desc": "The paraglider is effective at getting you across the ice fast. Unfortunately you are forecd to follow the lake, which isn't eactly the direction you wanted, but it works well enough."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. The armoured truck not as maneuverable on the snow. It gets the team almost all the way there, but becomes bogged and unretrieveable in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to rendezvous, but it wasn't the ideal method of transport."},
                 "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The snow mobile is an ideal option for travel over snow."},
@@ -1557,13 +1611,14 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the water. With nowhere to land, your team is forced to abandon the chopper.", "used": True, "point_value": 100, "point_desc": "The helicopter is well suited for travel over water."},
                 "Paraglider": {"use_desc": "Your team wear the paragliders and use them to get a serious distance before you land.", "used": False, "point_value": 90, "point_desc": "The paragliders are pretty effective at getting some distance, but they aren't the ideal option."},
                 "Boat": {"use_desc": "Your team pile into the boat and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The boat is an ideal option for travel over water."},
             },  
             "failure_items": {}, 
             "desc": "Your team needs to travel to the agreed rendezvous point. From your current position, the fastest and safest way to get there is using water based transport.", 
             "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to swim the distance. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvous point they've lost a lot of time and are exhausted.", 
-            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt to swim the distance. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut through rough waters. It's a hazardous path, one your team could barely manage in peak conddition, and they are far from that. Exhausted from their earlier efforts, your team struggles to stay afloat in the raging waters. It isn't long before catastrophe. Your team never makes it to their destination."
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt to swim the distance. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut through rough waters. It's a hazardous path, one your team could barely manage in peak condition, and they are far from that. Exhausted from their earlier efforts, your team struggles to stay afloat in the raging waters. It isn't long before catastrophe. Your team never makes it to their destination."
         },
     },
     
@@ -1573,6 +1628,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Helicopter": {"use_desc": "Your team pile into the helicopter with the bomb and fly it straight up. Once you are almsot as high as you can get, your team bail out using the parachutes in the chopper. The helicopter looses some altitude, then the bomb goes off, destroying it.", "used": True, "point_value": 30, "point_desc": "You kept the bomb from causing damage, but you didn't deactivate it and you nearly got caught in the blast."},
                 "Armoured Truck": {"use_desc": "Unable to deactivate the bomb, your team throws it inside the armoured truck and shuts the doors. You get as much distance as you can from it and it explodes, destroying the truck in the process.", "used": True, "point_value": 40, "point_desc": "You don't deactivate the bomb and it still goes off, but you did manage to mitigate the damage it caused."},
                 "Handheld Radios": {"use_desc": "You strip the batteries of their wiring and use it to cross wires in the bomb and deactivate it. The radios' are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The radio wiring did successfully deactivate the bomb, but it was more of a 50/50 if it would work."},
                 "Toolkit": {"use_desc": "You use the toolkit to repair the damaged safety controls and activate the bomb's shutdown sequence. The countdown stops.", "used": False, "point_value": 100, "point_desc": "The toolkit restores the safety controls, allowing your team to deactivate the device without triggering it."},
