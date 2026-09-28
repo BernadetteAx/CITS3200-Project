@@ -127,6 +127,9 @@ def _build_mission_item_pairs(generated_mission):
         for item in random_pair:
             random_items.remove(item)
 
+    # randomise which position the useful item is in (the left or right side)
+    pairs = [tuple(sample(list(pair), len(pair))) for pair in pairs]
+
     #fully random challenge offer first then shuffling the completed auction rounds
     shuffle(pairs)
     return pairs
