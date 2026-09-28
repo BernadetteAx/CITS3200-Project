@@ -161,6 +161,8 @@ function applyState(next) {
 
     useItemBtn.disabled = !active || submittedVote !== undefined || !selectedItemId;
     continueBtn.disabled = !active || submittedVote !== undefined;
+    useItemBtn.dataset.submitted = String(submittedVote !== undefined && submittedVote !== "__continue__");
+    continueBtn.dataset.submitted = String(submittedVote === "__continue__");
     const tally = Object.entries(state.voteTally || {})
       .map(([id, count]) => `${id === "__continue__" ? "No item" : (state.inventory.find((item) => item.id === id)?.name || id)}: ${count}`)
       .join(" · ");

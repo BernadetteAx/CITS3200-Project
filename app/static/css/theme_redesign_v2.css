@@ -376,6 +376,14 @@ label { color: var(--text-muted); }
   box-shadow: none;
 }
 
+#finishBtn[data-submitted="true"],
+#skipBtn[data-submitted="true"] {
+  background: var(--correct);
+  border-color: var(--correct);
+  color: #06140d;
+  opacity: 1;
+}
+
 /* Rounded badge/chip treatment for small status tags (not buttons) —
    a standard, low-risk cartoon-UI pattern for READY/WAITING/cost tags. */
 .status-pill,
@@ -567,6 +575,10 @@ body:has(.auction-item-grid) .lobby-card {
 .item-tile[data-state="selected"] {
   border-color: var(--correct) !important;
   box-shadow: 0 0 0 2px var(--correct), 0 0 14px rgba(61, 220, 132, 0.35);
+}
+
+.item-tile[data-state="selected"]:disabled {
+  opacity: 1;
 }
 
 /* auction.css sizes this at `width: 70%; aspect-ratio: 1/1` — in a

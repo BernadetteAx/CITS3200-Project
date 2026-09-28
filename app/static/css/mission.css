@@ -303,6 +303,14 @@ h1.challenge-progress {
   cursor: not-allowed;
 }
 
+#useItemBtn[data-submitted="true"],
+#continueBtn[data-submitted="true"] {
+  background: var(--correct);
+  border-color: var(--correct);
+  color: #fff;
+  opacity: 1;
+}
+
 .lobby-btn.secondary {
   background: var(--key-bg);
   color: #fff;
