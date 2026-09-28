@@ -726,7 +726,7 @@ h1.challenge-progress {
 }
 
 .item-card {
-  padding: 1.1rem 0.8rem 0.9rem;
+  padding: 1.1rem 0.85rem 0.9rem;
   transition: transform var(--motion-med), box-shadow var(--motion-med), border-color var(--motion-med), background var(--motion-med);
 }
 

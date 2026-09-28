@@ -510,7 +510,7 @@ h1.challenge-progress {
 
 .result-btn {
   font-family: var(--font-press);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   background: #fff;
   color: #000;
   border: none;
@@ -537,7 +537,7 @@ h1.challenge-progress {
   color: #fff;
   border: 2px solid var(--tile-border);
   font-family: var(--font-press);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1444,7 +1444,7 @@ h1.challenge-progress {
   }
 
   .section-heading {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   .challenge-name {

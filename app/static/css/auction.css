@@ -65,7 +65,7 @@ h1.lobby-title {
 }
 
 .lobby-subtext {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #ccc;
   letter-spacing: 0.05em;
   line-height: 1.8;
@@ -176,7 +176,7 @@ h1.lobby-title {
 }
 
 .item-name {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
   line-height: 1.6;
 }
@@ -485,7 +485,7 @@ h1.lobby-title {
 
 .result-btn {
   font-family: var(--font-press);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   background: #fff;
   color: #000;
   border: none;
@@ -512,7 +512,7 @@ h1.lobby-title {
   color: #fff;
   border: 2px solid var(--tile-border);
   font-family: var(--font-press);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   cursor: pointer;
   display: flex;
   align-items: center;

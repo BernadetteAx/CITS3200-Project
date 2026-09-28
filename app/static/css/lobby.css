@@ -65,7 +65,7 @@ h1.lobby-title {
 }
 
 .lobby-subtext {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 
   color: var(--text-secondary);
 
@@ -203,7 +203,7 @@ h1.lobby-title {
 }
 
 .player-tile .player-name {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 
   letter-spacing: 0.04em;
   line-height: 1.5;
@@ -634,7 +634,7 @@ h1.lobby-title {
 .result-btn {
   font-family: var(--font-press);
 
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 
   background: #fff;
 
@@ -692,7 +692,7 @@ h1.lobby-title {
 
   font-family: var(--font-press);
 
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 
   cursor: pointer;
 
@@ -732,7 +732,7 @@ h1.lobby-title {
   }
 
   .room-code {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 
     padding: 12px 14px;
 
