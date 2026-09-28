@@ -140,7 +140,16 @@ function applyState(next) {
 
     hotbarLabel.textContent = `TEAM INVENTORY · ${available.length}/${state.inventory.length} AVAILABLE · SCORE ${state.score}`;
     hotbarSlots.replaceChildren();
-    state.inventory.forEach((item) => {
+    (state.inventorySlots || state.inventory).forEach((item) => {
+      if (!item) {
+        const slot = document.createElement("div");
+        slot.className = "hotbar-slot blocked";
+        slot.textContent = "";
+        slot.title = "No item purchased this round";
+        slot.setAttribute("aria-label", slot.title);
+        hotbarSlots.appendChild(slot);
+        return;
+      }
       const slot = document.createElement("div");
       slot.className = "hotbar-slot filled";
       slot.dataset.status = item.used ? "used" : "available";

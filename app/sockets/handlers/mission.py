@@ -121,6 +121,7 @@ def _state(session):
     return {"phase": session["phase"], "missionName": mission["mission_name"], "location": mission.get("location", ""),
         "missionDescription": mission["mission_description"], "currentChallengeIndex": index,
         "totalChallenges": len(mission["challenges"]), "challenge": current, "inventory": inventory,
+        "inventorySlots": session.get("inventory_slots", inventory),
         "usedItems": list(mission["used_items"]), "outcomeLog": list(mission["outcome_log"]),
         "score": mission["score"], "penalties": mission["penalties"], "status": mission["status"], "outcome": mission["outcome"],
         "voteTally": tally, "voteCount": len(mission.get("votes", {})),

@@ -655,6 +655,25 @@ body:has(.hotbar) {
   flex-shrink: 0;
 }
 
+.hotbar-slot.blocked {
+  position: relative;
+  color: #8b9298;
+  background: #252a2f;
+  border-color: #454c53;
+  opacity: 0.85;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotbar-slot.blocked::before {
+  content: "×";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -54%);
+  font: 700 1.45rem/1 Arial, sans-serif;
+}
+
 /* -------------------------------------------------------------------- */
 /* 9. MISSION PAGE — two-column, colourful item chips                    */
 /* -------------------------------------------------------------------- */

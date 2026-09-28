@@ -49,8 +49,23 @@ function render(state) {
   skipBtn.disabled = !voting;
   endRoundBtn.hidden = sessionStorage.getItem("isHost") !== "true" || !voting;
   inventoryLabel.textContent = `TEAM INVENTORY · ${state.purchasedItems.length}/8 SLOTS FILLED`;
-  inventory.innerHTML = state.purchasedItems.map((item) => `<div class="hotbar-slot filled" title="${item.name}"><img src="/static/images/${item.hotbar_image}" alt="${item.name}"></div>`).join("") + Array.from({length: Math.max(0, 8 - state.purchasedItems.length)}, () => '<div class="hotbar-slot empty">＋</div>').join("");
-  inventory.querySelectorAll('.filled').forEach((slot, index) => slot.replaceChildren(window.gameVisuals.itemArt(state.purchasedItems[index])));
+  inventory.replaceChildren();
+  (state.slotItems || state.purchasedItems).forEach((item, index) => {
+    const slot = document.createElement("div");
+    if (item) {
+      slot.className = "hotbar-slot filled";
+      slot.title = item.name;
+      slot.replaceChildren(window.gameVisuals.itemArt(item));
+    } else {
+      const resolved = index + 1 < state.round || (index + 1 === state.round && state.status !== "voting" && state.status !== "waiting");
+      slot.className = `hotbar-slot ${resolved ? "blocked" : "empty"}`;
+      slot.textContent = "";
+      if (!resolved) slot.textContent = "＋";
+      slot.title = resolved ? "No item purchased this round" : "Shop round not completed";
+      slot.setAttribute("aria-label", slot.title);
+    }
+    inventory.appendChild(slot);
+  });
   if (state.status !== "voting") {
     countdownFill.style.width = "0%";
     countdownTrack.setAttribute("aria-valuenow", "0");
