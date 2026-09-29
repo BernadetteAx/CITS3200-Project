@@ -341,7 +341,7 @@ challenges_dict = {
                 "Ice Skates": {"use_desc": "The team don the ice skates and use them to easily navigate over the forzen lake.", "used": False, "point_value": 100, "point_desc": "The ice skates are idel for navigating over the lake and your team is able to move quickly to their next challenge."},
             },  
             "failure_items": {
-                "Scuba Gear": {"use_desc": "Your team don teh scuba gear and find an opening in the ice. The waters are absolutely freezing and your team's wetsuits don't help nearly enough. Your team don't make it far before their bodies shut down from the cold.", "used": True, "point_value": 0, "point_desc": "Unfortunately the wetsuits your team have are not sufficient to keep them warm in teh freezing artic water."},
+                "Scuba Gear": {"use_desc": "Your team don the scuba gear and find an opening in the ice. The waters are absolutely freezing and your team's wetsuits don't help nearly enough. Your team don't make it far before their bodies shut down from the cold.", "used": True, "point_value": 0, "point_desc": "Unfortunately the wetsuits your team have are not sufficient to keep them warm in the freezing artic water."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight out onto the ice. It is too heavy and breaks the ice. Your team try to exit but are trapped beneath the ice.", "used": True, "point_value": 0, "point_desc": "Whilst the armoured truck can handle a lot, it really isn't suited to delicately traversing thin ice."},
             }, 
             "desc": "A frozen lake seperates your from your destination. You'll need to cross it, but be careful. The ice can be thin in places.", 
@@ -603,7 +603,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Your team put on the wetsuits. The wetsuits are thick and when teh snake strikes, it's fangs aren't able to reach your skin. Your team is able to pass by unscathed.", "used": False, "point_value": 80, "point_desc": "The wetsuits protect your team from the snake's bite but left your hands and faces exposed. Fortunately the snake didn't go for those parts of you. You also were able to succeed without injuring the snake."},
+                "Scuba Gear": {"use_desc": "Your team put on the wetsuits. The wetsuits are thick and when the snake strikes, it's fangs aren't able to reach your skin. Your team is able to pass by unscathed.", "used": False, "point_value": 80, "point_desc": "The wetsuits protect your team from the snake's bite but left your hands and faces exposed. Fortunately the snake didn't go for those parts of you. You also were able to succeed without injuring the snake."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You use the flame to keep the reptile at bay, and pass by unscathed. The kindling is used up in the process.", "used": True, "point_value": 100, "point_desc": "The fire is very effective at keeping the snake at bay. And it didn't require any injuries to wildlife."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister near the snake, harmlessly incapacitating it and you use the gas mask to slip by unscathed. The gas is used up in the process.", "used": True, "point_value": 100, "point_desc": "The gas is great at handling the snake. And it didn't require any injuries to wildlife."},
             }, 
@@ -675,7 +675,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Your team don the scuba gear and pick a direction. The flippers help your team move swiftly through the water, but without knowing where you are going it takes a long, long time before your find land. The oxygen tank is used up in the process.", "used": True, "point_value": 30, "point_desc": "This barely worked. Whilst teh scuba gear did help you navigate the environment efficiently, your team could just have easily have missed the land and gotten lost at sea."},
+                "Scuba Gear": {"use_desc": "Your team don the scuba gear and pick a direction. The flippers help your team move swiftly through the water, but without knowing where you are going it takes a long, long time before your find land. The oxygen tank is used up in the process.", "used": True, "point_value": 30, "point_desc": "This barely worked. Whilst the scuba gear did help you navigate the environment efficiently, your team could just have easily have missed the land and gotten lost at sea."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight up. From the vantage point your team is able to spot land and head straight for it.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for getting a better lay of the land and travelling fast."},
                 "Handheld Radios": {"use_desc": "Your team uses the radios and finds an active frequency. Depending on whether the signal strengthens or weakens, you are able to use it to navigate towards whatever radio tower is broadcasting and therefore towards land, where you can take shelter. The radios' batteries are used up in the process.", "used": True, "point_value": 70, "point_desc": "This is an effective solution but it takes a lot of trial and error before you find land."},
                 "Map": {"use_desc": "You use the map to orient yourself and work out where the nearest stretch of land is. The map isn't waterproof so gets damaged in the process.", "used": True, "point_value": 80, "point_desc": "The map is successful in getting your team to orient themselves, but it disintergrates in the water, so your team is forced to memorise the heading. A risky but successful maneuver."},
@@ -828,6 +828,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find the fuse box and cut the wires. It deactivates the base's power and simultaneously triggers a number of alarms. In the panic, your team is able to slip away.", "used": False, "point_value": 100, "point_desc": "The wirecutters were a quick and effective solution that didn't give away your position."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. Your pursuers attempt to follow you in their own helicopters, but some tricky maneuvers loose them. The chopper fuel tank is drained in the process.", "used": True, "point_value": 50, "point_desc": "You didn't exactly mislead your pursuers, more, outran them. Oh well the effect is the same."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off. Your pursuers are hot on your heels but you loose them in dense undegrowth that only the truck can get through. The truck is damaged in the process.", "used": True, "point_value": 50, "point_desc": "You didn't exactly mislead your pursuers, more, outran them. Oh well the effect is the same."},
                 "Handheld Radios": {"use_desc": "Your team leaves one of the radios at your current position and moves away. You then call it. The chatter attracts the attention of your pursuers and misleads them. The radio is left behind.", "used": True, "point_value": 70, "point_desc": "The radio is effective at misleading pursuers, but if they find it you risk them using it to locate your team."},
@@ -995,7 +996,8 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
-                "Handheld Radios": {"use_desc": "The rover has a series of wires that have been broken. Your team strips the wiring from the radios and uses it to repair the rover. The radios' are damaged in the process.", "used": True, "point_value": 100, "point_desc": "You managed to fix the inner mechanisms or 'Georgie' but didn't manage to repair his chassis."},
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the rover. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the inner mechanisms of 'Georgie' but didn't manage to repair his chassis."},
+                "Handheld Radios": {"use_desc": "The rover has a series of wires that have been broken. Your team strips the wiring from the radios and uses it to repair the rover. The radios' are damaged in the process.", "used": True, "point_value": 90, "point_desc": "You managed to fix the inner mechanisms of 'Georgie' but didn't manage to repair his chassis."},
                 "Welding Kit": {"use_desc": "You add scraps of metal to 'Gerogie' and weld them into place. It should hold for some time yet. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "You do successfully repair the damage to the rover, but are unable to fix some of the inner mechanisms with such a crude implement."},
             },  
             "failure_items": {}, 
@@ -1009,6 +1011,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "City", "Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the solar panels. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the solar panels but didn't manage to reattach them to the roof."},
                 "Helicopter": {"use_desc": "You use the engine from the helicopter to temporarily power the base instead. The helicopter is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Rope": {"use_desc": "Your team uses the rope to re-attch the solar panels in the correct positions. The rope is used up in the process.", "used": True, "point_value": 60, "point_desc": "You successfully get the panels back into the correct place, but it doesn't fix the damage to them. Still, they'll work a bit."},
                 "Mirror": {"use_desc": "You use the mirror to focus a beam of sunlight on one of the sections of the solar panel that is still working. Creating a tiny trickle of power. The mirror is now in use.", "used": True, "point_value": 5, "point_desc": "The mirror kind of works. It means you can redirect the light, so didn't need to reattach the panels and it focuses the light on the section that works. It is however a very small and very temporary fix."},
@@ -1025,6 +1028,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the vehicle. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the inner mechanisms of the vehicle but didn't manage to repair the external damage."},
                 "Helicopter": {"use_desc": "Your team decide to use the helicopter as your replacement vehicle. The chopper is now in use.", "used": True, "point_value": 90, "point_desc": "The helicopter is a good solution to the problem, but may not handle all the terrains quite as well as the original vehicle."},
                 "Armoured Truck": {"use_desc": "Your team decide to use the armoured truck as the new stand in for the broken vehicle. The truck is therefore unavailable for other use.", "used": True, "point_value": 100, "point_desc": "The truck is an ideal alternative to the original vehicle."},
                 "Welding Kit": {"use_desc": "You use scraps of metal and weld them over the damaged portions of the vehicle. It's messy, but should hold. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "The vehicle is now in working order, but the solution is only temporary."},
@@ -1040,6 +1044,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the vehicle. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the inner mechanisms of the vehicle but didn't manage to repair the external damage."},
                 "Scuba Gear": {"use_desc": "Your team decide to use the scuba gear rather than the vehicle in future expeditions. The scuba gear is now in use.", "used": True, "point_value": 20, "point_desc": "The scuba gear is a very poor substitute for an ocean going vessel."},
                 "Helicopter": {"use_desc": "Your team decide to use the helicopter as your replacement vehicle. The chopper is now in use.", "used": True, "point_value": 70, "point_desc": "The helicopter is a good solution to the problem, but you'll need to find nearby land to stop on every time you make a trip."},
                 "Welding Kit": {"use_desc": "You use scraps of metal and weld them over the damaged portions of the vehicle. It's messy, but should hold. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "The vehicle is now in working order, but the solution is only temporary."},
@@ -1314,6 +1319,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find the fuse box and cut the wires. It deactivates the base's power and simultaneously triggers a number of alarms. In the panic, your team is able to slip by.", "used": False, "point_value": 90, "point_desc": "The base has backup power, so it's only temporary, but the wirecutters were a quick and effective solution that didn't give away your position."},
                 "Armoured Truck": {"use_desc": "One member of your team jumps into the helicopter and flies it past the base. Guards come running to see the commotion and the team slips by unnoticed.", "used": False, "point_value": 30, "point_desc": "It does successfully distract the guards but alerts them to your presence and leaves a teammate behind."},
                 "Paraglider": {"use_desc": "Your team tie the paraglider in a tree. The guards spot the giant sail and move to investigate it, allowing you to slip by unnoticed. You leave the gliders behind in the process.", "used": True, "point_value": 80, "point_desc": "The gliders act as a quick and easy distraction, although they do put the base on high alert."},
                 "Rope": {"use_desc": "Each time a guard passes, your team jump them and tie them up using the rope. Eventually you've got enough of them that you can simply avoid the others by being stealthy. You are forced to leave the rope behind.", "used": True, "point_value": 60, "point_desc": "It takes a long time to catch enough guards to clear a path."},
@@ -1366,6 +1372,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "You find the system that powers the laser grid and cut the wires. It deactivates the grid and you are able to slip by.", "used": False, "point_value": 80, "point_desc": "You were successful in getting by the grid, but the deactivated grid was quickly noticed."},
                 "Mirror": {"use_desc": "Your team uses the mirror to harmlessly deflect the lasers and get past.", "used": False, "point_value": 100, "point_desc": "The mirror is ideal for dealing with laser based problems like this."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team wears their masks and opens the gas canister. As the gas fills the air the laser beams become much, much easier to see. Your team is able to navigate around them. The gas was used up in the process.", "used": True, "point_value": 80, "point_desc": "It worked, but the gas masks were cumbersome and almost went in the path of the lasers on a few occasions."},
             },  
@@ -1384,6 +1391,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find the wires that power the vault's lock and cut them. Without power, it reverts to a more primitive locking mechanism that your team is easily able to crack. You get the goods.", "used": False, "point_value": 100, "point_desc": "The wire cutters were an ideal solution."},
                 "Grappling Hook": {"use_desc": "Your team loops the grappling hook rope around several pillars and then attaches the hook to the vault handle. With a lot of work and a lot of pulling, you manage to rip the door off. The grappling hook rope frays in the process, rendering it unusable.", "used": False, "point_value": 30, "point_desc": "It takes a while, is exhausting and very noisy, but you do eventually get the goods."},
                 "Rope": {"use_desc": "Your team loops the rope around several pillars and then attaches the end to the vault handle. With a lot of work and a lot of pulling, you manage to rip the door off. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 20, "point_desc": "It takes a long time, is exhausting and very noisy, but you do eventually get the goods."},
                 "Ice Axes": {"use_desc": "You use the ice axes to smash the hinges of the vault. The ice axes are broken in the process.", "used": True, "point_value": 10, "point_desc": "It takes a long time to break the hinges and is not at all quiet. Even if it did work."},
@@ -1470,6 +1478,7 @@ challenges_dict = {
             "viable_locations": ["Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the system. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the air recycling system, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
                 "Scuba Gear": {"use_desc": "You wear the regulators allowing you to breathe safely from the tank. The oxygen tank is used up in the process", "used": True, "point_value": 40, "point_desc": "The regulators are an effective, but temporary solution. You didn't actually 'fix' anything."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, filtering the air and making it breathable.", "used": False, "point_value": 40, "point_desc": "The gas mask is an effective, but temporary solution. You didn't actually 'fix' anything."},
             }, 
@@ -1486,6 +1495,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the system. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the central heating system system, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
                 "Scuba Gear": {"use_desc": "Your team put on the wetsuits. The extra layer of the wetsuits keeps your team a little bit warmer.", "used": False, "point_value": 50, "point_desc": "The wetuits don't actually resolve the heating issue. They however, do your keep your team warm. For now."},
                 "Fire Starter Kit": {"use_desc": "Your team uses the fire starter kit to create a small flame. You huddle around it for warmth. It is barely enough to keep you warm. The kindling is used up in the process.", "used": True, "point_value": 5, "point_desc": "The flame did next to nothing to keep you guys warm and was only a temporary fix. Besides that, you created a fire indoors, which is always a bad idea."},
                 "Blanket": {"use_desc": "Your team wear blankets that keep them warm.", "used": False, "point_value": 30, "point_desc": "The blankets are cumbersome and don't actually resolve the heating issue. They however, do your keep your team warm. For now."},
@@ -1501,6 +1511,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the system. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the comms system, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
                 "Handheld Radios": {"use_desc": "Your team uses the handheld radios to communicate with one another. The radio's batteries are drained in the process.", "used": True, "point_value": 50, "point_desc": "Whilst it does temporarily allow for communication, the radios are only a temporary fix."},
             },  
             "failure_items": {}, 
@@ -1514,6 +1525,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the system. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the cooling system, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
                 "Still-suit": {"use_desc": "Your team don still suits. They provide relief from the scorching temperatures.", "used": False, "point_value": 50, "point_desc": "The still suits are well equipped to handle the heat, but they are only a temporary fix."},
             },  
             "failure_items": {}, 
@@ -1527,6 +1539,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the reactor. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the geo-thermal reactor, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
                 "Helicopter": {"use_desc": "You use the engine from the helicopter to temporarily power the base instead. The helicopter is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to reconnect the sections of the geothermal reactor that are broken and get it back into working order. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for these sorts of situations."},
             },  
@@ -1541,6 +1554,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the reactor. You use the wirecutter to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the main reactor, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
                 "Helicopter": {"use_desc": "You use the engine from the helicopter to temporarily power the base instead. The helicopter is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to reconnect the sections of the main reactor that are broken and get it back into working order. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for these sorts of situations."},
             },  
@@ -1636,7 +1650,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Scuba Gear": {"use_desc": "Your team put on the scuba gear and descend below the water. Your team is able to move quickly and reach teh rendevous. The oxygen tank is used up in the process.", "used": True, "point_value": 95, "point_desc": "The scuba gearwas an ideal way to perform water based travel. It just takes longer than other methods of transport."},
+                "Scuba Gear": {"use_desc": "Your team put on the scuba gear and descend below the water. Your team is able to move quickly and reach the rendevous. The oxygen tank is used up in the process.", "used": True, "point_value": 95, "point_desc": "The scuba gearwas an ideal way to perform water based travel. It just takes longer than other methods of transport."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the water. With nowhere to land, your team is forced to abandon the chopper.", "used": True, "point_value": 100, "point_desc": "The helicopter is well suited for travel over water."},
                 "Paraglider": {"use_desc": "Your team wear the paragliders and use them to get a serious distance before you land.", "used": False, "point_value": 90, "point_desc": "The paragliders are pretty effective at getting some distance, but they aren't the ideal option."},
                 "Boat": {"use_desc": "Your team pile into the boat and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The boat is an ideal option for travel over water."},
@@ -1654,6 +1668,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Wire Cutters": {"use_desc": "Your team cut the wires in the correct order and swiftly deactivate the bomb.", "used": False, "point_value": 100, "point_desc": "The wirecutters are ideal for defusing a bomb."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter with the bomb and fly it straight up. Once you are almsot as high as you can get, your team bail out using the parachutes in the chopper. The helicopter looses some altitude, then the bomb goes off, destroying it.", "used": True, "point_value": 30, "point_desc": "You kept the bomb from causing damage, but you didn't deactivate it and you nearly got caught in the blast."},
                 "Armoured Truck": {"use_desc": "Unable to deactivate the bomb, your team throws it inside the armoured truck and shuts the doors. You get as much distance as you can from it and it explodes, destroying the truck in the process.", "used": True, "point_value": 40, "point_desc": "You don't deactivate the bomb and it still goes off, but you did manage to mitigate the damage it caused."},
                 "Handheld Radios": {"use_desc": "You strip the batteries of their wiring and use it to cross wires in the bomb and deactivate it. The radios' are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The radio wiring did successfully deactivate the bomb, but it was more of a 50/50 if it would work."},
@@ -1689,6 +1704,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Wire Cutters": {"use_desc": "Your team find the power supply to the controls and use the wire cutters to cut the wires. The superweapon powers down.", "used": False, "point_value": 100, "point_desc": "The wirecutters are ideal for shutting down the super weapon."},
                 "Ice Axes": {"use_desc": "You smash the ice axes into the control system and the weapon shuts down. The ice axes are damaged in the process.", "used": True, "point_value": 50, "point_desc": "That had a 50/50 chance of working and damaging the controls was a pretty risky maneuver, as once you broke them there would be no other way to deactivate the weapon. Still, it worked."},
                 "Toolkit": {"use_desc": "You use the toolkit to free the jammed emergency shutdown mechanism. The weapon powers down and its charging sequence stops.", "used": False, "point_value": 100, "point_desc": "The toolkit allows your team to activate the emergency shutdown without damaging the surrounding facility."},
             },
