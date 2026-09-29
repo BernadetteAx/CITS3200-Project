@@ -67,6 +67,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Before the bear can reach you your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Rubble rains from the sky. The bear, terrified, flees. The explosives are used up in the process.", "used": True, "point_value": 50, "point_desc": "A pretty risky move. The falling rubble from the explosion could have hurt your team. Besides that it left a decent mark on the landscape."},
                 "Paraglider": {"use_desc": "Your team use the paraglider to put some distance between you and the bear. It chases you down adn eventually catches up, ripping the sail. Your team abandon the paraglider and the bear is distracted and it continues to rip the glider. Your team slips away. The paraglider is damaged beyond repair.", "used": True, "point_value": 30, "point_desc": "It got you away from the bear in the end, but the paraglider wasn't idea, and you guys very nearly became bear lunch."},
                 "Armoured Truck": {"use_desc": "Your team pile into the truck. The bear tries to break in but has no success. Eventually it looses interest and leaves you alone.", "used": False, "point_value": 100, "point_desc": "You successfully and safely avoided the bear without hurting it. Though it did take a while for the bear to leave."},
                 "Fire Starter Kit": {"use_desc": "You use the firestarter kit to create a flame. You wield in in an effort to scare the bear off. It lunges anyway but retreats once it is burned. The fire kindling is used up in the process", "used": True, "point_value": 20, "point_desc": "Barely made it out of that one alive. You're lucky the bear wasn't too hungry. The firestarter kit was successful, but without much to burn, not a great option."},
@@ -128,7 +129,9 @@ challenges_dict = {
                 "Grappling hook":{"use_desc": "Your team uses the grappling hook to haul yourselves up sections of the cliff.", "used": False, "point_value": 90, "point_desc": "The grappling hook is great at getting your team up the cliff, even if it is a bit unsafe."},
                 "Mountain Gear": {"use_desc": "Your team uses the mountain gear to secure yourself safely to the cliff and make the ascent.", "used": True, "point_value": 100, "point_desc": "The mountain gear is designed exactly for this. It allows your team to safely and efficiently scale the cliff."},
             }, 
-            "failure_items": {},
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges at the base of the cliff and move a safe distance away. The explosives go off and create a huge explosion. Rubble rains from the sky. A large section of the cliff that survived the explosion is now unsupported and begins to crack off. Your team try to run, but the stone crashes down, taking out the whole team.", "used": True, "point_value": 0, "point_desc": "That's a whole lot of birds with one stone. Your team really needs to be more careful when it comes to explosives. They can often have unintended repercussions."},
+            },
             "desc": "Your team comes across a cliff that you'll need to scale if you want to continue your mission.", 
             "continue_failure_desc": "Your team, without the proper supplies is forced to free climb. It is dangerous, exhausting and very time consuming.", 
             "final_failure_desc": "Your team is desperate and without the proper supplies is forced to free climb. Unfortunately they are exhausted from earlier and are rushing to make up time. A slip turns into a fall, and the mission ends."
@@ -234,6 +237,7 @@ challenges_dict = {
                 "Scuba Gear": {"use_desc": "Your team uses the scuba tanks and masks to breathe safely as make your way through the marshlands. The oxygen tank is used up in the process", "used": True, "point_value": 90, "point_desc": "The scuba gear is very effective and keeps your team safe. It is however, unwieldy and gets snagged on marshland plants and vines, slowing your progress."},
             },
             "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Within an instant, your entire team is wiped out.", "used": True, "point_value": 0, "point_desc": "This is what we call a bad idea. Turns out those deadly gases were not only toxic, but also highly flammable. So that little explosion you rigged up. Yeah, it got a lot bigger. Your team really needs to be more careful when it comes to explosives."},
                 "Fire Starter Kit": {"use_desc": "You use the fire starter to create a small flame. Within an instant, your entire team is wiped out.", "used": True, "point_value": 0, "point_desc": "This is what we call a bad idea. Turns out those deadly gases were not only toxic, but also highly flammable. The ensuing fireball that consumed your team was so explosive that your first clue that anything went wrong would have been you, knocking on the pearly gates."}
             },
             "desc": "Your team comes across an expansive stretch of marshland that you will be forced to cross if you want to continue your mission. Unfortunately, pockets of the marshland are full of deadly gases, invisible to the human eye.", 
@@ -251,7 +255,9 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck to shelter from the falling rocks. The rocks bounce harmlessly off the truck.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
                 "Helmet": {"use_desc": "Your team don helmets and take shelter. The rocks begin to fall, and there are a couple of occasions where it would have been over were it not for the hard hats. The helmets are damaged in the process", "used": True, "point_value": 65, "point_desc": "The helmets do protect your team, but don't help them avoid the danger altogether."},
             }, 
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Rubble rains from the sky. Unfortunately Earthquake + Explosives is not a great combination. The Earth cracks and lava erupts in all directions. Your team gets real toasty, real fast.", "used": True, "point_value": 0, "point_desc": "Not sure what the plan was there, but it went about as well as you could have expected. Your team really needs to be more careful when it comes to explosives. They can often have unintended repercussions."},
+            }, 
             "desc": "The earth begins to shake. It's a strong earthquake cuased by the volcano. You need to take cover or risk being hit by falling rocks.", 
             "continue_failure_desc": "Your team, unable to find another solution, tucks themselves against a rock shelf. The earthquake hits and the rocks begin to fall. Your team is protected by the shelf, but still recieve some injuries.", 
             "final_failure_desc": "Your team spots a rock shelf that you could shelter under. They start to head for it but are exhausted and only make it halfway before the quake hits. It sends rocks tumbling towards the team and burries them alive."
@@ -268,6 +274,7 @@ challenges_dict = {
                 "Heat Resistant Suit": {"use_desc": "The heat resistant suit protects your team from the temperature and allows them to safely navigate away. It does, however, suffer dammage from loose rocks.", "used": True, "point_value": 100, "point_desc": "The heat resistant suit is ideal for this situation and allows your team to get by unscathed."},
             }, 
             "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Rubble rains from the sky. The Earth cracks and lava erupts in all directions. Your team gets real toasty, real fast.", "used": True, "point_value": 0, "point_desc": "Not sure what the plan was there, but it went about as well as you could have expected. That extreme heat you were dealing with, turns out that was because your team was practically sitting on a lava lake just below the surface. Really nicely handled. Maybe next time we don't follow the explode first, ask questions latter school of thinking."},
                 "Thermal Clothing": {"use_desc": "The extra warmth really doesn't help. Your team is wiped out.", "used": True, "point_value": 0, "point_desc": "Warm clothing? To survive extreme heat? Really? Yeah. Shockingly your whole team is roasted alive."},
             }, 
             "desc": "As the volcano stirs your team is hit by a wave of extreme heat. You'll need to find a way to protect yourself from it.", 
@@ -286,6 +293,7 @@ challenges_dict = {
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small flame. You light a branch on fire and use it to dot small fires around a central tree. It burns through the tree slowly and eventually a path through it burned.", "used": True, "point_value": 40, "point_desc": "You made it past the trees but using the fire safely took a long time. You of course could have sent the whole thing up in flames but that would have risked starting a forest fire."},
                 "Ice Axes": {"use_desc": "Your team uses the ice axes to hook into the trees to drag them out of the way.", "used": False, "point_value": 50, "point_desc": "It takes a lot of effort and the ice axes don't help nearly enough."},
                 "Axe": {"use_desc": "Your team use the axe to cut the trees into smaller pieces that they are able to lug off the path.", "used": False, "point_value": 80, "point_desc": "It takes a while, but the axe is effective at clearing the path."},
+                "Explosives": {"use_desc": "Your team set the explosive charges next to the fallen trees and move a safe distance away, taking cover behind some of the trees that are still standing. The explosives go off and create a huge explosion. Splintered wood goes flying in all directions, lucky you had cover. The path is cleared. The explosives are used up in the process.", "used": True, "point_value": 70, "point_desc": "You guys are very lucky. The explosion could have knocked down the trees you were hiding behind, or one of you could have recieved a splinter the size of a rail road spike hrough the head. Still it was very, very efficient."},
             },  
             "failure_items": {}, 
             "desc": "Your team are travelling through the canopy of trees when you stop short. The path is blocked by fallen trees. You'll need to find a way past or a way to clear the trees.", 
@@ -304,7 +312,9 @@ challenges_dict = {
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team wears the gas masks, protecting them from the smoke of the fire. It allows them to traverse the edge of the flames without risking smoke inhalation.", "used": False, "point_value": 60, "point_desc": "The gas mask doesn't protect you from the fire, but it does allow your team to navigate swifty around the flames, a lot closer than you otherwise could."},
                 "Heat Resistant Suit": {"use_desc": "The heat resistant suit protects your team from the fire and allows them to safely navigate around the border. It does, however, suffer dammage from flames.", "used": True, "point_value": 90, "point_desc": "The heat resistant suit did allow your team to navigate around the fire safely, but your team did still suffer from smoke inhalation. Nothing that you won't recover from, mind you."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges near the edge of the fire and begin moving away. Raging fire meets explosive charges and you all go out with a bang.", "used": True, "point_value": 0, "point_desc": "I don't have a lot to say here. That was really not your finest work. Maybe next time we trying thinking before exploding."},
+            }, 
             "desc": "Your team is bathed in orange light. A roaring fire tears it's way through the trees towards your team. You'll need to find a way around it, or a way to put it out.", 
             "continue_failure_desc": "Your team, unequipped for the task at hand is forced to flee from the fire. You finally hit a river too wide for the flames to cross and take the plunge. Your team is forced to wait for the fire to burn itself out. This delays you significantly and the run has exhausted your team.", 
             "final_failure_desc": "Your team attempts to flee the fire, but being so exhausted, can't make it to safety in time. Your team is consumed by the flames."
@@ -374,7 +384,9 @@ challenges_dict = {
                 "Rope": {"use_desc": "Your team tries again, and again to lasso an ice outcropping, but it's so slippery that it's almost impossible. You do eventually manage it and use it as an anchor point to climb up. The repeated tries to lasso the outcropping frays the rope, rendering it unusable.", "used": True, "point_value": 40, "point_desc": "The rope does successfully get your team up the ice cliff, but having your anchor point be so slippery and unstable is a very, very rsiky move."},
                 "Ice Axes": {"use_desc": "You use the Ice Axes to scale the ice cliff with ease.", "used": False, "point_value": 100, "point_desc": "The ice axes are ideal for this kind of challenge as they are able to easily get a hold on the smooth surface."},
             }, 
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges at the base of the ice cliff and move a safe distance away. The explosives go off and create a huge explosion. Chunks of ice and newly liquified scalding water rain down from the heavens. Your team doesn't stand a chance.", "used": True, "point_value": 0, "point_desc": "Your team really needs to be more careful when it comes to explosives. They can often have unintended repercussions."},
+            }, 
             "desc": "Your team comes across an ice cliff that you'll need to scale if you want to continue your mission.", 
             "continue_failure_desc": "Your team, without the proper supplies is forced to free climb. It is dangerous, exhausting and very time consuming.", 
             "final_failure_desc": "Your team is desperate and without the proper supplies is forced to free climb. Unfortunately they are exhausted from earlier and are rushing to make up time. A slip turns into a fall, and the mission ends."
@@ -390,6 +402,7 @@ challenges_dict = {
                 "Rope": {"use_desc": "Your team ties themselves together and when the landslide hits you are burried beneath it. You manage to dig yourselves out, using the rope as a guide to where people are. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 5, "point_desc": "This was only just enough and by the time you got around to rescuing the last member of the team from under the earth they had very nearly suffocated. The process is exhausting and time consuming."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and brace for impact. The landslide hits rolling the truck, but your team is all safely secured inside. Once it is over your team is able to exit througha safety hatch on the roof. The truck is burried too deep to be retrieved.", "used": True, "point_value": 100, "point_desc": "The armoured truck is ideal as it managed to protect your team from the landslide without causing any significant delays."},
                 "Ice Axes": {"use_desc": "You wedge the ice axes as deep into the surrounding rock as possible and hold on tight. After the landslide has past, you need to dig yourselves out, but you are otherwise fine. The ice axes are damaged in the process", "used": True, "point_value": 70, "point_desc": "The ice axes helped your team get a grip and keep together, but your team was still caught in the slide."},
+                "Explosives": {"use_desc": "Your team set the explosive charges and run. The explosion goes off and creates a deep crater. When the landslide reaches it, most of it gets caught in the crater. Your team still gets caught in tthe slide, but it is way less severe then it would have been. The explosives are used up in the process.", "used": True, "point_value": 60, "point_desc": "Colour me impressed. I did not see that working out. Still the quick thinking with the explosives may have saved your lives."},
             }, 
             "failure_items": {}, 
             "desc": "Your team finds themselves next to a steep slope when a minor earthquake shifts the ground. The earthquake triggers a landslide. You'll need to outrun it or withstand it.", 
@@ -406,7 +419,9 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it straight past the lava spout. It gets uncomfortably warm inside, but you make it past. The tires melt in the extreme heat, rendering the truck unusable.", "used": True, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle these kinds of environmental challenges with ease."},
                 "Heat Resistant Suit": {"use_desc": "You don the heat resistant suits and are able to safely navigate areound the lava spout. It may be good, but even the heat resistant suit can barely hold it's own against lava. The extreme heat damages the heat-resistant suit beyond repair.", "used": True, "point_value": 90, "point_desc": "The heat resistant suit allowed your team to navigate around the lava spout, though it was a bit precarious being so close to the lava."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Rubble rains from the sky. The Earth cracks and lava erupts in all directions. Your team gets real toasty, real fast.", "used": True, "point_value": 0, "point_desc": "Not sure what the plan was there, but it went about as well as you could have expected. Maybe next time we don't follow the explode first, ask questions latter school of thinking."},
+            }, 
             "desc": "A lava spout erupts from the earth and blocks your path. You'll need to find a way past it.", 
             "continue_failure_desc": "Unable to find a way past, your team is forced to wait for the spout to stop and the lava to cool. A long, long time later you are able to continue on your mission.", 
             "final_failure_desc": "Your team has lost too much time already and can't wait for the spout to stop. Your team try to make their way past, but a misplaced step sends a rocks flying. They crash into the surrounding ground allowing for more lava spouts to form, right on top of you. At least it's quick."
@@ -435,6 +450,7 @@ challenges_dict = {
             "items":{
                 "Fire Starter Kit": {"use_desc": "You use the fire starter kit to create a small fire. You toss the smoking kindling into the nest and the smoke pacifies the scorpions allowing you to pass by unscathed. The kindling is used up in the process", "used": True, "point_value": 100, "point_desc": "The firestarter kit is effective at dealing with the scorpions and didn't require any animals to be hurt in the process."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You toss the knockout gas canister into the nest, the gas causes the scorpions to scatter allowing you to pass by unscathed. The gas is used up in the process", "used": True, "point_value": 100, "point_desc": "The gas is effective at dealing with the scorpions and didn't require any animals to be hurt in the process."},
+                "Explosives": {"use_desc": "Your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Sand rains from the sky. The scorpions are no more. The explosives are used up in the process.", "used": True, "point_value": 70, "point_desc": "Could you have thought of a more violent way to get past. Geez."},
             }, 
             "failure_items": {
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and switch it on. UNfortunately as you do, the draft produced by the blades stirs the sand. Within moments sand is being whipped in all directions, and with it, the scorpions. Your entire team is stung.", "used": False, "point_value": 0, "point_desc": "An unfortunate event. In future, you need to keep in mind that the helicopter take off stirs the substrate around it."},
@@ -550,6 +566,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Your team ready the explosives and wait for the shark's next pass. As he opens his mouth you ditch the explosives into it. And, just like in Jaws, the shark is no more. The explosives are used up in the process.", "used": True, "point_value": 20, "point_desc": "That was horrific. I can't believe you did that. That poor shark. Besides that, you almost got blown up in the process."},
                 "Scuba Gear": {"use_desc": "Your team don the scuba gear and go under the waves. With the flippers making you more maneuverable, the masks helping you see and the regulators allowing you to breathe freely, you are able to avoid the shark and push it away each time it attempts an attack. Eventually the shark give up and withdraws. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "You safely avoided the shark and did so without hurting it."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly above the waves. Eventually the shark leaves. Unfortunately there is no where to land the chopper and your team are forced to leave it behind.", "used": True, "point_value": 100, "point_desc": "The helicopter got you safely past the shark."},
                 "Paraglider": {"use_desc": "You drop the paraglider in the water. The shark is quickly tangled in the rope and your team is able to get past it.", "used": False, "point_value": 70, "point_desc": "You're lucky the shark got tangled, because otherwise that might not have worked."},
@@ -573,6 +590,7 @@ challenges_dict = {
                 "Grappling Hook": {"use_desc": "In the few moments you have, your team manages to latch the grappling hook to the far side of the hole. When the ground gives way, your team is able to swing to safety.", "used": False, "point_value": 90, "point_desc": "The grappling hook handly passes the challenge, and apart from a few minor cuts, your team comes away unscathed."},
             }, 
             "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges against a wall of the sinkhole. Only then do you realize that you have nowhere to go. Your team is standing just a few metres away when the explosives go off.", "used": True, "point_value": 0, "point_desc": "Your team really needs to be more careful when it comes to explosives. Have a closer look at your surroundings before you choose such an explosive solution."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter eager to fly out of the hole. However the space is only just wide enough for the chopper normall, and as soon as you start to take off, a slight wobble causes the blades to hit the edge of the hole. The chopper crashes and then explodes.", "used": True, "point_value": 0, "point_desc": "Helicopters aren't good in small spaces."},
             },
             "desc": "Your team is travelling along when suddenly the ground seems to open. A sinkhole has just appeared and your team is falling into it.", 
@@ -626,6 +644,7 @@ challenges_dict = {
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, protecting you from the dangerous fumes of the volcano.", "used": False, "point_value": 100, "point_desc": "The gas mask is ideal for handling toxic gases."},
             },
             "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Rubble rains from the sky. The Earth cracks and lava erupts in all directions. Your team gets real toasty, real fast.", "used": True, "point_value": 0, "point_desc": "Not sure what the plan was there, but it went about as well as you could have expected. You do realise you're standing on a volcano, right? Maybe next time we don't follow the explode first, ask questions latter school of thinking."},
                 "Paraglider": {"use_desc": "Your team find a higher section of rock and attempt to sail rigth across the gas. Unfortunately, the gas is denser than air, and once your team is over it, you drop like stones, landing right amidst the gas. It isn't long before your team asphixiate.", "used": False, "point_value": 0, "point_desc": "An unfortunate event. Guess you should know what kind of gas you're dealing with before you try a maneuver like that."},
             }, 
             "desc": "Your team passes through what appears to be an empty section of rock. But something is wrong. There is a dense layer of volcanic gases, deadly to anything that breathes. You'll need to find a way around, or through it is you want to continue your mission.", 
@@ -644,7 +663,9 @@ challenges_dict = {
                 "Ice Axes": {"use_desc": "You descend down the crevasse using the ice axes, until you hit a section that is thinner. You are able to switch sides and climb back the other side of the creavasse using the ice axes. The ice axes are damaged in the process.", "used": False, "point_value": 70, "point_desc": "It is an efficcient way to handle the obstacle, but required a lot of effort."},
                 "Rope": {"use_desc": "Your team manage to lasso a rock jutting up on the far side. You carefully swing each teammate across the gap.", "used": False, "point_value": 70, "point_desc": "The rope is able to get your team across, but it's a risky maneuver."},
             },
-            "failure_items": {},
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team ready the explosives and throw them down the crevasse. Moments later they explode. Moments after that, the ground gives out from under you and your team is no more.", "used": True, "point_value": 0, "point_desc": "Not sure what the plan was there, but it went about as well as you could have expected. Maybe next time we don't follow the explode first, ask questions latter school of thinking."},
+            },
             "desc": "A crevasse blocks your path. Your team needs to cross it if you want to continue your mission.",
             "continue_failure_desc": "Your team follows the crevasse until it narrows, losing time and energy on the detour.",
             "final_failure_desc": "Your team, out of time and energy make a desperate decision to try to jump the distance, it is after all, only a narrow crevasse. Unfortunately they are too tired to get a proper run. The fall is a lot further than they could have imagined. Your mission ends here."
@@ -710,6 +731,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Your team find the lowest patch of desert that they can. There's got to be a water table somewhere. Your team rig up small amounts of the explosive and use it to slowly dig straight down. Eventually you see moisture pooling at the bottom. A little digging later and you've got water. The explosives are used up in the process.", "used": True, "point_value": 70, "point_desc": "You practically had to dig a hole to China, but it worked."},
                 "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
             },  
             "failure_items": {}, 
@@ -723,6 +745,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Your team find a large section of ice and put a small amount of explosives next to it. When they go off, a lot of the chunks of ice are sent flying,, but the rest is turned into drinkable water.", "used": True, "point_value": 80, "point_desc": "It worked, just wasn't a method I'd recommend."},
                 "Fire Starter Kit": {"use_desc": "You find a large chunk of ice, and using the fire starter kit to create a small fire. The small flame melts some of the ice into water. The kindling is used up in the process.", "used": True, "point_value": 70, "point_desc": "Whilst the flame was able to melt the ice, the water it produced dampened the kindling and put the fire out. So, you managed to obtain water, but not as much as you might have wanted."},
                 "Ice Axes": {"use_desc": "You stumble across a frozen river. You use the ice axes to break through the thick ice and gain access to the flowing water beneath. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The ice axes were an effective tool for overcoming this obstacle."},
                 "Mirror": {"use_desc": "You find a large chunk of ice and use the mirror to focus a beam of sunlight on it. Very slowly the ice melts into water.", "used": False, "point_value": 50, "point_desc": "The mirror did successfully help you obtain water, it took a long time and produceed barely enough water."},
@@ -768,7 +791,9 @@ challenges_dict = {
             "items":{
                 "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Rubble rains from the sky. The Earth cracks and lava erupts in all directions. Your team gets real toasty, real fast.", "used": True, "point_value": 0, "point_desc": "Well, that went well. Explosive + volcano. Not a good mix."},
+            }, 
             "desc": "In such a harsh environment, your team finds that they have become severely dehydrated. You'll need to find a source of water if you have any hope of continuing your mission.", 
             "continue_failure_desc": "Unable to find a source of clean water, your team is forced to continue in their dehydrated and exhausted state. You'll have to hope that you finish your mission before it catches up with you.", 
             "final_failure_desc": "Unable to find a source of clean water, your team is forced to try to continue their mission in their severely dehydrated state. Unfortunately the time and energy you expended earlier has cuaght up with you. It isn't long before your team collapses, never to wake again."
@@ -828,6 +853,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
+                "Explosives": {"use_desc": "Your team set the explosive charges and head off in the opposite direction. The explosives go off and create a huge explosion. Your pursuers are drawn to the source of the explosion and your team is able to sneak away in the other direction. The explosives are used up in the process.", "used": True, "point_value": 80, "point_desc": "A bit messy, but a decent solution. Explosions do tend to be pretty distracting."},
                 "Wire Cutters": {"use_desc": "Your team find the fuse box and cut the wires. It deactivates the base's power and simultaneously triggers a number of alarms. In the panic, your team is able to slip away.", "used": False, "point_value": 100, "point_desc": "The wirecutters were a quick and effective solution that didn't give away your position."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. Your pursuers attempt to follow you in their own helicopters, but some tricky maneuvers loose them. The chopper fuel tank is drained in the process.", "used": True, "point_value": 50, "point_desc": "You didn't exactly mislead your pursuers, more, outran them. Oh well the effect is the same."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and take off. Your pursuers are hot on your heels but you loose them in dense undegrowth that only the truck can get through. The truck is damaged in the process.", "used": True, "point_value": 50, "point_desc": "You didn't exactly mislead your pursuers, more, outran them. Oh well the effect is the same."},
@@ -884,6 +910,7 @@ challenges_dict = {
                 "Mirror": {"use_desc": "Your team get as high as they can and use the glint of the mirror to signal one of the towers. They assume it is a signal from another nearby base. You use morse code to tell them to check the valley. Many guards are sent there clearing the way for your team's exit.", "used": False, "point_value": 70, "point_desc": "Very risky maneuver. You are just lucky that there was a nearby base and that they were fooled."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team don their gas masks and use the gas to knockout anyone you come across. You manage to basically clear the are without anyone noticing you were there. The gas was used up in the process.", "used": True, "point_value": 100, "point_desc": "This is the ideal use of the gas as it allows you to harmlessly take out the enemy without raising any alarms."},
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and blend right in. There's a terrifying moment when another guard asks to see your id, but you manage to bluff your way past.", "used": False, "point_value": 80, "point_desc": "Putting yourself in plain sight. An effective but dangerous maneuver."},
+                "Explosives": {"use_desc": "Your team set the explosive charges and head off in the opposite direction. The explosives go off and create a huge explosion. Your pursuers are drawn to the source of the explosion and your team is able to sneak away in the other direction. The explosives are used up in the process.", "used": True, "point_value": 20, "point_desc": "An explosion is pretty much the least stealthy thing I can imagine. You are sol lucky that no one spotted you, becuase giving away your presence was a very risky move."},
             },  
             "failure_items": {
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. The vehicle makes a lot of noise as it takes off. YYou barely make it off the ground before your mission ends abruptly. The helicopter is blown up.", "used": True, "point_value": 0, "point_desc": "What about an helicopter struck you as particularly sneaky. Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed rpg and your team was no more. Let's try a subtler approach next time, huh?"},
@@ -926,7 +953,9 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the wall. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 100, "point_desc": "The panel from the truck is ideal for repairing the wall as it is large and sturdy enough to withstand anything."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the wall into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set up the explosives against the damage wall and take cover a distance away from the base. You set off the explosives and in an instant your entire base is destroyed. Without a base the mission is void.", "used": True, "point_value": 0, "point_desc": "Yeah, no. That didn't fix it actually."},
+            }, 
             "desc": "Your base has sustained damage to one of the outward-facing walls. You'll need to repair it.", 
             "continue_failure_desc": "Without the proper tools to mend it, your team is forced to try and make do. You manage to scavange some old beams from another section of the base and use it to support the wall structure. It takes a long time and is a very exhausting process.", 
             "final_failure_desc": "Your team attempt to repair the wall using beams, scavanged from a closed off section of your base. Unfortunately, in their rush and exhaustion, their judgment on which beams are structural is severely lacking. It isn't long before another wall collapses, making the base unusable. Your mission ends here."
@@ -940,7 +969,9 @@ challenges_dict = {
                 "Scuba Gear": {"use_desc": "Your team don scuba gear and travel to the outside of the base. From there you can see the damage better and are able to find a way to patch the hole. The oxygen tank is used up in the process.", "used": True, "point_value": 80, "point_desc": "The scuba gear allowed you to successfully repair the damage to the base."},
                 "Welding Kit": {"use_desc": "Your team welds shut a section that had been torn. It should hold for some time yet. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding supplies are ideal for re-connecting the 2 sections of metal wall."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set up the explosives against the damage wall and take cover a distance away from the base. You set off the explosives and in an instant your entire base is destroyed. Without a base the mission is void.", "used": True, "point_value": 0, "point_desc": "Yeah, no. That didn't fix it actually."},
+            }, 
             "desc": "Your base has sustained damage to one of the outward-facing walls and a whole quadrant of your base is flooded and sealed off. You'll need to repair the wall before you can even think about pumping the water out",
             "continue_failure_desc": "Without the proper tools to mend it, your team is forced to leave the section closed off. Your team is forced to constantly navigate in open ocean to access the other sections of the base. It takes a long time and is a very exhausting process.", 
             "final_failure_desc": "Your team attempt to repair the wall using beams, scavanged from a closed off section of your base. Unfortunately, in their rush and exhaustion, their judgment on which beams are structural is severely lacking. It isn't long before another wall collapses flooding the rest of the base. Your mission ends here."
@@ -956,7 +987,9 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "You remove one of the armoured panels from the truck and affix it to the outside of the enviro-dome. In removing the panel, you damaged the armoured truck, making it unusable.", "used": True, "point_value": 90, "point_desc": "The panel from the truck is the wrong shape, but works well enough to cover the damaged portion of the dome."},
                 "Welding Kit": {"use_desc": "Your team uses the welding kit to fuse another section of beams together with the enviro-dome room into a kind of braced structure. It's messy but works. The welding supplies are used up in the process.", "used": True, "point_value": 60, "point_desc": "The welding kit did the job, but it's only a temporary solution."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set up the explosives against the damaged envirodome and take cover a distance away from the base. You set off the explosives and in an instant your entire base is destroyed. Without a base the mission is void.", "used": True, "point_value": 0, "point_desc": "Yeah, no. That didn't fix it actually."},
+            }, 
             "desc": "Your base has sustained damage to it's enviro-dome, housing numerous samples your team has collected from their time here. You'll need to work fast, but carefully to repair it, before the samples become inmpacted.", 
             "continue_failure_desc": "Without the right eqipment there's nothing you can do. You manage to rescue the samples and some are still holding out, but years of work have been lost. It takes a long time to rehouse the remaining samples.", 
             "final_failure_desc": "Without the correct equipment, the enviro dome is beyond repair. And with the time your team lost earlier, all the samples have been destroyed. Your mission ends here."
@@ -970,7 +1003,9 @@ challenges_dict = {
                 "Scuba Gear": {"use_desc": "Your team don scuba gear and travel to the outside of the base. From there you can see the damage better and are able to find a way to patch the hole. The oxygen tank is used up in the process.", "used": True, "point_value": 80, "point_desc": "The scuba gear allowed you to successfully repair the damage to the base."},
                 "Welding Kit": {"use_desc": "Your team welds shut a section that had been torn. It should hold for some time yet. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding supplies are ideal for re-connecting the 2 sections of metal wall."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set up the explosives against the damaged envirodome and take cover a distance away from the base. You set off the explosives and in an instant your entire base is destroyed. Without a base the mission is void.", "used": True, "point_value": 0, "point_desc": "Yeah, no. That didn't fix it actually."},
+            }, 
             "desc": "Your base has sustained damage and flooding to the enviro-dome, housing numerous samples your team has collected from their time here. You'll need to perform any repairs carefully, and quickly before the samples are impacted.",
             "continue_failure_desc": "Without the right eqipment there's nothing you can do. You manage to rescue the samples and some are still holding out, but years of work have been lost. It takes a long time to rehouse the remaining samples.", 
             "final_failure_desc": "Without the correct equipment, the enviro dome is beyond repair. And with the time your team lost earlier, all the samples have been destroyed. Your mission ends here."
@@ -984,7 +1019,7 @@ challenges_dict = {
                 "Welding Kit": {"use_desc": "You find that the hinges to the door have been knocked out of alignment. You use the welding kit to fuse them back in the correct position, allowing the door to open. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for handling a job like this."},
             },  
             "failure_items": {
-                "Explosives": {"use_desc": " The explosives, well, explode in the process.", "used": True, "point_value": 0, "point_desc": "You do realise that you're stuck inside the base, right? Not your brightest idea. I mean you got it open, it's just not really of any use to you anymore."},
+                "Explosives": {"use_desc": "Your team set the explosives agains the Exit hatch. Unfortunately, with the hatch closed your team cant get out. You're a little too close when the explosives go off.", "used": True, "point_value": 0, "point_desc": "You do realise that you're stuck inside the base, right? Not your brightest idea. I mean you got the hatch open, along with the entire front half of the base, it's just not really of any use to you anymore."},
             }, 
             "desc": "In a recent rock fall, your base suffered damage to the exit hatch. It's holding together for now, but there's no telling how long it will be before the door caves and everything beyond it, will find its way in. As well as that, whilst it's broken, your team has no way out.", 
             "continue_failure_desc": "Without the right equipment all your team can do is hope that it holds. You are, however, trapped. You are forced to re-wire the rover exit hatch to gain access to the outside of the base. It takes a long time, and squeezing through the tiny gap is an arduous feat.", 
@@ -1000,7 +1035,9 @@ challenges_dict = {
                 "Handheld Radios": {"use_desc": "The rover has a series of wires that have been broken. Your team strips the wiring from the radios and uses it to repair the rover. The radios' are damaged in the process.", "used": True, "point_value": 90, "point_desc": "You managed to fix the inner mechanisms of 'Georgie' but didn't manage to repair his chassis."},
                 "Welding Kit": {"use_desc": "You add scraps of metal to 'Gerogie' and weld them into place. It should hold for some time yet. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "You do successfully repair the damage to the rover, but are unable to fix some of the inner mechanisms with such a crude implement."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set up the explosives against 'Georgie' and take cover a safe distance away. You set off the explosives and in an instant 'Georgie' is no more. Unfortunately you also took out one of the base's structural supports. The base collapses. Without a base the mission is void.", "used": True, "point_value": 0, "point_desc": "Yeah, no. That didn't fix it actually."},
+            }, 
             "desc": "Your friendly little rover 'Georgie' has suffered damage in a recent rockfall. You'll need it to be in working condition if you hope to collect any more samples before they are destroyed by changing outside conditions.", 
             "continue_failure_desc": "Unfortunately, without the proper equipment, there's nothing you can do for your little rover, 'Georgie'. Your team is forced to collect samples by hand before external conditions change and destroy the samples. It's a dangerous activity and takes a long time and a lot of effort.", 
             "final_failure_desc": "Without the rover your team will be unable to collect any more samples. You might have had time to collect more samples by hand, but your delays have caught up with you. Changing external conditions have destroyed any more samples you might have been able to retrieve, ending your mission."
@@ -1033,7 +1070,9 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "Your team decide to use the armoured truck as the new stand in for the broken vehicle. The truck is therefore unavailable for other use.", "used": True, "point_value": 100, "point_desc": "The truck is an ideal alternative to the original vehicle."},
                 "Welding Kit": {"use_desc": "You use scraps of metal and weld them over the damaged portions of the vehicle. It's messy, but should hold. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "The vehicle is now in working order, but the solution is only temporary."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set up the explosives against the vehicle and take cover a safe distance away. You set off the explosives and in an instant the vehicle is no more. Unfortunately you also took out one of the base's structural supports. The base collapses. Without a base the mission is void.", "used": True, "point_value": 0, "point_desc": "Yeah, no. That didn't fix it actually."},
+            }, 
             "desc": "There is a nearby base that your team needs to gather supplies from. Unfortunately the vehicle that your team uses to make trips has suffered damage and will need to be repaired.", 
             "continue_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. You'll be forced to trek to the outposts without it. This is a time consuming process and exhausting.", 
             "final_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. They are too tired to make the trips without it and are forced to give up the mission."
@@ -1049,7 +1088,9 @@ challenges_dict = {
                 "Helicopter": {"use_desc": "Your team decide to use the helicopter as your replacement vehicle. The chopper is now in use.", "used": True, "point_value": 70, "point_desc": "The helicopter is a good solution to the problem, but you'll need to find nearby land to stop on every time you make a trip."},
                 "Welding Kit": {"use_desc": "You use scraps of metal and weld them over the damaged portions of the vehicle. It's messy, but should hold. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "The vehicle is now in working order, but the solution is only temporary."},
             },  
-            "failure_items": {}, 
+            "failure_items": {
+                "Explosives": {"use_desc": "Your team set up the explosives against the vehicle and take cover a safe distance away. You set off the explosives and in an instant the vehicle is no more. Unfortunately you also took out one of the base's structural supports. The base collapses. Without a base the mission is void.", "used": True, "point_value": 0, "point_desc": "Yeah, no. That didn't fix it actually."},
+            }, 
             "desc": "There is a nearby base that your team needs to gather supplies from. Unfortunately the vehicle that your team uses to make trips has suffered damage and will need to be repaired.", 
             "continue_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. You'll be forced to trek to the outposts without it. This is a time consuming process and exhausting.", 
             "final_failure_desc": "Without the appropriate equipment, you team is unable to repair the vehicle. They are too tired to make the trips without it and are forced to give up the mission."
@@ -1076,6 +1117,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Explosives": {"use_desc": "Your team set a tiny amount of the explosives against the sand and move a safe distance away. The explosives go off and sand goes flying. The hatch is intact and most of the sand has been cleared. The explosives are used up in the process.", "used": True, "point_value": 80, "point_desc": "A quick solution to clearing the sand although there was enough left that you had to dig it out with your hands for half an hour."},
                 "Scuba Gear": {"use_desc": "Your team smash the oxyegn tank against a rock until it cracks and air starts to rush out of it. You use the rushing air like a leaf blower and clear the sand. The oxygen tank is damaged in the process.", "used": True, "point_value": 90, "point_desc": "It took a while to break the tank, but after that, clearing the sand was quick work."},
                 "Helicopter": {"use_desc": "Your team turn the helicopter on. The wind produced by the spinning blades whips the sand about, clearing the hatch.", "used": False, "point_value": 100, "point_desc": "A very simple solution that required no work on your part."},
                 "Shovel": {"use_desc": "You clear the sand from the hatch, making it usable once more.", "used": False, "point_value": 100, "point_desc": "The shovel is ideal for this situation as it restores access without damaging the hatch."},
@@ -1102,7 +1144,7 @@ challenges_dict = {
                 "Mirror": {"use_desc": "You leave the mirror at your current position and move a distance away. The mirror glints in the light attracts the guards' attention. They approach it, leaving their posts and your team uses the opportunity to slip by the blockade. The mirror gets left behind in the process.", "used": True, "point_value": 100, "point_desc": "The mirror successfully distracted the guards and allowed you to sneak by without raising suspicion."},
                 "Gas Mask and Knockout Gas": {"use_desc": "Your team don their gas masks and when they approach the blockade, release the gas. It knocks out the guards and allows you to pass by without incident. The gas was used up in the process.", "used": True, "point_value": 100, "point_desc": "This is the ideal use of the gas as it allows you to harmlessly take out the guards without raising any alarms."},              
                 "Stolen Uniforms": {"use_desc": "Your team don the stolen uniforms and saunter by with nary a turned head.", "used": False, "point_value": 100, "point_desc": "The stolen uniforms are ideal as they allow you to slip by quickly and without raising any suspicion."},
-                "Explosives": {"use_desc": "Your team set up the explosives next to one of the unmanned walls and blow it. You dash through the hole in the wall before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the blockade."},
+                "Explosives": {"use_desc": "Your team set up the explosives next to one of the unmanned walls and blow it. You dash through the hole in the wall before anyone knows what happened. The explosives are used up in the process.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the blockade."},
             },  
             "failure_items": {}, 
             "desc": "A blockade stands between you and your destination. And these guys don't look friendly. You'll need to find a way around, or through if you want to continue your mission.", 
@@ -1121,7 +1163,7 @@ challenges_dict = {
                 "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the gate. It only sustains minor damage.", "used": False, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
                 "Ice Axes": {"use_desc": "You use the ice axes to break down the door to the building and get the key. You use it to unlock the gate and pass by unhindered.", "used": False, "point_value": 70, "point_desc": "It takes a while to break down the door and more than a little effort. But you do successfully pass the challenge."},
                 "Fire Starter Kit": {"use_desc": "The door to the building is wooden, so your team uses the firestarter kit to create a flame. Soon enough the door is slowly being burnt away. Once enough of it has turned to embers, your team is able to slip inside, grab the key and get through the gate.", "used": False, "point_value": 30, "point_desc": "Burning the door worked, but took a very long time."},
-                "Explosives": {"use_desc": "Your team set up the explosives next to gate and blow it. You dash through before anyone knows what happened.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the gate."},
+                "Explosives": {"use_desc": "Your team set up the explosives next to gate and blow it. You dash through before anyone knows what happened. The explosives are used up in the process.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the gate."},
             },  
             "failure_items": {}, 
             "desc": "There is a locked gate blocking your path, and your team is going to need to get past it. There is a building nearby with a key, if you can get in.", 
@@ -1134,6 +1176,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Explosives": {"use_desc": "Your team set up the explosives next to one of the unmanned walls and blow it. You dash through the hole in the wall before anyone knows what happened. The explosives are used up in the process.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the checkpoint."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the checkpoint.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Grappling Hook": {"use_desc": "Your team toss the grapple over one of the unmanned walls and scale it, avoiding the checkpoint entirely.", "used": False, "point_value": 100, "point_desc": "An efficient and clean solution."},
                 "Armoured Truck": {"use_desc": "Your team piles into the armoured truck and drives it stright through the checkpoint. It only sustains minor damage.", "used": False, "point_value": 90, "point_desc": "The armoured truck successfully get you past the obstacle, but isn't a very clean method of doing so."},
@@ -1170,6 +1213,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Explosives": {"use_desc": "Your team set a small amount of the explosive charges against the dam wall and move a safe distance away. The explosives go off and makes a hole in the dam wall. Water begins to flood out. The guards rush to see what's happening and your team makes a break for it over the dam wall. The explosives are used up in the process.", "used": True, "point_value": 10, "point_desc": "You successfully distracted the guards, but at what cost. That water will likely go on to flood the lower regions."},
                 "Scuba Gear": {"use_desc": "Your team put on the scuba gear and descend into the dam. Your team are able to travel across the dam without ever alerting the guards to your presence. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear ideal for allowing your team to stealthily travel underwater."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the dam.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Paraglider": {"use_desc": "Your team paraglide down to the lower section of land on the other side of the dam. It's a long climb back up, but you made it to the other side.", "used": False, "point_value": 60, "point_desc": "You got across but the walk back up is long and tiring."},
@@ -1190,6 +1234,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Your team set up the explosives next to the wall and blow it. Once the rubbles has settled your team is able to safely pass through. The explosives are used up in the process.", "used": True, "point_value": 80, "point_desc": "It's certainly dramatic and destructive, but does allow your team to successfully make it past the wall."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the giant wall.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Rope": {"use_desc": "Your team tries again and again to lasso the top of the wall. Eventually they succeed and you are able to climb up and over. The repeated lasso attempts fray the rope, rendering it unusable.", "used": True, "point_value": 70, "point_desc": "It takes a long time before your team is able to lasso the top of the wall and the climb is fairly risky."},
                 "Ice Axes": {"use_desc": "You wedge the ice axes deep in the wall and use them to scale it. It's almost impossible but it gets you up and over. The ice axes are damaged in the process.", "used": True, "point_value": 70, "point_desc": "It is a lot of work and quite a risky maneuver, but the ice axes do get you successfully over the wall."},
@@ -1206,6 +1251,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Your team set the explosive charges near one of the mines. You move a safe distance away and trigger it. It's a chain reaction as mine after mine explodes and sends a funnel of water into the air. But, when everything settles back down, you have a clear path through. The explosives are used up in the process.", "used": True, "point_value": 20, "point_desc": "That was too risky. You almost went up with the mines. Besides that, you still had to swim."},
                 "Scuba Gear": {"use_desc": "Your team don the scuba gear and go under the waves. With the flippers making you more maneuverable, the masks helping you see and the regulators allowing you to breathe freely, you are able to avoid the sea mines. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "You moved quickly and safely avoided the sea mines."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the sea mines. Unfortunately there is no where to land, so your team is forced to abandon the chopper afterwards.", "used": True, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Paraglider": {"use_desc": "Your team use the paraglider to sail easily over the surface of the water, never coming near the mines.", "used": False, "point_value": 100, "point_desc": "The paraglider is ideal for getting you past the sea mines as you never actually have to go near them."},
@@ -1236,6 +1282,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Explosives": {"use_desc": "You set as small amount of explosives on the hood of a parked car. Soon enough it explodes. All traffic stops as people run from their cars. You're team is able to saunter through traffic undisturbed. The explocives are used up in the process.", "used": True, "point_value": 10, "point_desc": "What the heck! That was someone's car. You can't just go around blowing things up, even if it works."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the traffic.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
                 "Paraglider": {"use_desc": "Your team climb up the fire-escape of a tall building and use the paraglider to sail safely over traffic.", "used": False, "point_value": 90, "point_desc": "The paragliders easily get your team past traffic, although you did loose a bit of time climbing the fire escape."},
                 "Fire Starter Kit": {"use_desc": "You use the firestarter kit to light a small flame. You leave the fire in the hood of a parked car. Soon enough it explodes. All traffic stops as people run from their cars. You're team is able to saunter through traffic undisturbed. The kindling is used up in the process.", "used": True, "point_value": 10, "point_desc": "What the heck! That was someone's car. You can't just go around blowing things up, even if it works."},
@@ -1253,6 +1300,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items": {
+                "Explosives": {"use_desc": "Your team set some of the explosive charges and move a safe distance away. The explosives go off and create an explosion. The debris from the stairway is cleared, along with half the stairway. The explosives are used up in the process.", "used": True, "point_value": 50, "point_desc": "The explosives did clear the stairway, but also took out a portion of it too."},
                 "Grappling Hook": {"use_desc": "Your catch the grapple on bits of debris and drag them out of the way.", "used": False, "point_value": 85, "point_desc": "The grappling hook is fairly efficient at clearing the stairwell."},
                 "Rope": {"use_desc": "Your team tie the rope to bits of debris and drag them out of the way. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 80, "point_desc": "The rope is fairly efficient at clearing the stairwell."},
                 "Ice Axes": {"use_desc": "You wedge the ice axes into sections of the debris and use them as a handle to drag the debris out of the way, clearing a path through. The ice axes are damaged in the process.", "used": True, "point_value": 80, "point_desc": "The ice axes help speed up the clearing of the stairway, but are not altogether a great tool for the task."},
@@ -1289,7 +1337,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Fire Starter Kit": {"use_desc": "Your team figures that the best way to deactivate the alarms is to get them to do it for you. You create a small flame and put it near a smoke detector. Alarms blare and your crew sneaks by. Eventually once they deactivate the fire alarm they realise that other alarms have been tripped, but toss it up to a system malfunction. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "A risky maneuver that luckily paid off. Still drew a lot of attention."},
+                "Fire Starter Kit": {"use_desc": "Your team figures that the best way to deactivate the alarms is to get your opponents to do it for you. You create a small flame and put it near a smoke detector. Alarms blare and your crew sneaks by. Eventually once they deactivate the fire alarm they realise that other alarms have been tripped, but toss it up to a system malfunction. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "A risky maneuver that luckily paid off. Still drew a lot of attention."},
                 "Wire Cutters": {"use_desc": "Your team break open a fuse box that powers the alarms. You cut the wires to the alarms in the nearby sections preventing them from triggering.", "used": False, "point_value": 100, "point_desc": "The wire cutters are ideal for this task, they not only deactivate the alarms, but the appraoch is subtle enough that it didn't draw any attention."},
             },  
             "failure_items": {
@@ -1319,6 +1367,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Guards rush to the source of the explosion and your team is able to sneak by. The explosives are used up in the process.", "used": True, "point_value": 20, "point_desc": "You may not have given your position away, but now they'll be on high alert. Bombs don't just go off."},
                 "Wire Cutters": {"use_desc": "Your team find the fuse box and cut the wires. It deactivates the base's power and simultaneously triggers a number of alarms. In the panic, your team is able to slip by.", "used": False, "point_value": 90, "point_desc": "The base has backup power, so it's only temporary, but the wirecutters were a quick and effective solution that didn't give away your position."},
                 "Armoured Truck": {"use_desc": "One member of your team jumps into the helicopter and flies it past the base. Guards come running to see the commotion and the team slips by unnoticed.", "used": False, "point_value": 30, "point_desc": "It does successfully distract the guards but alerts them to your presence and leaves a teammate behind."},
                 "Paraglider": {"use_desc": "Your team tie the paraglider in a tree. The guards spot the giant sail and move to investigate it, allowing you to slip by unnoticed. You leave the gliders behind in the process.", "used": True, "point_value": 80, "point_desc": "The gliders act as a quick and easy distraction, although they do put the base on high alert."},
@@ -1340,6 +1389,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Your team set the explosive charges against a wall and move a safe distance away. The explosives go off and create an explosion. Your team races through the hole in the wall before the guards arrive. The explosives are used up in the process.", "used": True, "point_value": 10, "point_desc": "Not what I had in mind. Now they know someone is inside and will be on high alert."},
                 "Scuba Gear": {"use_desc": "Your team find a flooded storm drain that leads inside. You don scuba gear and make your way inside. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear allows your team to find another way in."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight up. From the vantage point your team is able to spot a different entrance. Unfortunately, now the entire base knows you are here and you are forced to land miles away and walk back.", "used": False, "point_value": 20, "point_desc": "You did find another way in, but were significantly dellayed by having to leave and walk back."},
                 "Handheld Radios": {"use_desc": "You tune the radios to the frequency the guards use and listen in. You discover another entrance out back that isn't on the schematics and use it to get in. The radios' batteries are used up in the process.", "used": True, "point_value": 80, "point_desc": "This is an effective solution, it just takes a long time before the information you need is discussed."},
@@ -1356,6 +1406,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Escape"],
             "items":{
+                "Explosives": {"use_desc": "Your team set the explosive charges against a wall and move a safe distance away. The explosives go off and create an explosion. Your team races through the hole in the wall before the guards arrive. The explosives are used up in the process.", "used": True, "point_value": 60, "point_desc": "Not what I had in mind, but decently effective. It gave away your position, but hopefully you can get away before that becomes a problem."},
                 "Scuba Gear": {"use_desc": "Your team find a flooded storm drain that leads outside. You don scuba gear and make your way out. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear allows your team to find another way out."},
                 "Fire Starter Kit": {"use_desc": "Your team creates a small flame using the fire starter kit. You bring it near to a smoke alarm to trigger it. The fire causes safety protocols and gates that would otherwise be closed, open. Your team escapes through a fire exit. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "Unfortunately the maneuver did draw attention to your escape. But you were still able to find a new exit but using the fire starter kit."},
                 "Handheld Radios": {"use_desc": "You tune the radios to the frequency the guards use and listen in. You discover another exit out back that isn't on the schematics and use it to get out. The radios' batteries are used up in the process.", "used": True, "point_value": 80, "point_desc": "This is an effective solution, it just takes a long time before the information you need is discussed."},
@@ -1391,6 +1442,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Your team set a tiny amount of the explosive charges against the vault door and blow it. The door comes off and you get the goods. The explosives are used up in the process.", "used": True, "point_value": 50, "point_desc": "Efficient but not at all stealthy. It wont be long before the theft is discovered."},
                 "Wire Cutters": {"use_desc": "Your team find the wires that power the vault's lock and cut them. Without power, it reverts to a more primitive locking mechanism that your team is easily able to crack. You get the goods.", "used": False, "point_value": 100, "point_desc": "The wire cutters were an ideal solution."},
                 "Grappling Hook": {"use_desc": "Your team loops the grappling hook rope around several pillars and then attaches the hook to the vault handle. With a lot of work and a lot of pulling, you manage to rip the door off. The grappling hook rope frays in the process, rendering it unusable.", "used": False, "point_value": 30, "point_desc": "It takes a while, is exhausting and very noisy, but you do eventually get the goods."},
                 "Rope": {"use_desc": "Your team loops the rope around several pillars and then attaches the end to the vault handle. With a lot of work and a lot of pulling, you manage to rip the door off. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 20, "point_desc": "It takes a long time, is exhausting and very noisy, but you do eventually get the goods."},
@@ -1408,6 +1460,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Explosives": {"use_desc": "Your team set a tiny amount of the explosive charges against the crate and blow it. The wood explodes your team can get the goods. The explosives are used up in the process.", "used": True, "point_value": 50, "point_desc": "Efficient but not at all stealthy. It wont be long before the theft is discovered."},
                 "Grappling Hook": {"use_desc": "Your team hook the grapple to the crate and loop the rope over a roof beam. You then haul on the rope, lifting the crate. When it's high enough you drop it and the crate breaks, giving you access to the contents. The grappling hook rope frays in the process, rendering it unusable.", "used": True, "point_value": 65, "point_desc": "It's a noisy and tiring solution, but does get the job done."},
                 "Rope": {"use_desc": "Your team tie the crate up and loop the rope over a roof beam. You then haul on the rope, lifting the crate. When it's high enough you drop it and the crate breaks, giving you access to the contents. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 60, "point_desc": "It's a noisy and tiring solution, but does get the job done."},
                 "Fire Starter Kit": {"use_desc": "Your team use the frie starter kit to create a small flame. You place it on the wooden crate, and soon enough it begins to burn. It takes a while but eventually the crate burns away and you're able to get the goods. The kindling is used up in the process.", "used": True, "point_value": 50, "point_desc": "You do get through the crate, but it takes a long time for the flames to do their work."},
@@ -1460,6 +1513,7 @@ challenges_dict = {
             "viable_locations": ["City", "Desert", "Arctic Tundra"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Explosives": {"use_desc": "Your team set a minute amount of the explosive charges against the locking mechanism of the document case. When they go off, the mechanism breaks and you get the goods.", "used": False, "point_value": 50, "point_desc": "Efficient but not at all stealthy. It wont be long before the theft is discovered."},
                 "Ice Axes": {"use_desc": "You loudly smash open the case using the ice axes and get the documents. The ice axes are damaged in the process.", "used": True, "point_value": 50, "point_desc": "You do get the documents but your method was very noisy and likely attracted some unwanted attention."},
                 "Lock Picks": {"use_desc": "You open the case lock and retrieve the documents.", "used": False, "point_value": 100, "point_desc": "The lock picks preserve the documents and leave the case intact."},
             },
@@ -1675,6 +1729,7 @@ challenges_dict = {
                 "Toolkit": {"use_desc": "You use the toolkit to repair the damaged safety controls and activate the bomb's shutdown sequence. The countdown stops.", "used": False, "point_value": 100, "point_desc": "The toolkit restores the safety controls, allowing your team to deactivate the device without triggering it."},
             },
             "failure_items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges against the bomb and move a safe distance away. The explosives go off and cause a chain reaction. At least it's quick.", "used": True, "point_value": 0, "point_desc": "You thought explosives would help you deactivate a bomb? Certainly a creative choice. Unfortunately it didn't exactly pan out. Maybe next time we put the explosive away."},
                 "Fire Starter Kit": {"use_desc": "Your team use the firestarter kit to create a small flame. You attempt to use the falme to burn out the trigger mechanism, but unfortunately, it lights the bomb instead. At least it's quick.", "used": True, "point_value": 0, "point_desc": "Yeah, bombs and fire. Not a great combo."},
             },
             "desc": "Your team reaches the device, but its safety controls have been damaged. The countdown is running. You'll need suitable equipment to restore the controls and shut it down.",
@@ -1689,6 +1744,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges next to the documents and make a run for it. The explosives go off taking the documents with them. The explosives are used up in the process.", "used": True, "point_value": 50, "point_desc": "A very risky move. It did destroy the documents efficiently but now the whole base will be on high alert."},
                 "Fire Starter Kit": {"use_desc": "You gather the stolen paper records in an empty metal disposal bin and burn them until the information is unreadable. The kindling is used up in the process.", "used": True, "point_value": 100, "point_desc": "The fire destroys the records completely, preventing the enemy from recovering your team's information."},
             },
             "failure_items": {},
@@ -1704,6 +1760,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Explosives": {"use_desc": "Your team set the explosive charges next to the control system and move a safe distance away. The explosives go off, destroying the controls and deactivating the super weapon. The explosives are used up in the process.", "used": True, "point_value": 50, "point_desc": "That had a 50/50 chance of working and damaging the controls was a pretty risky maneuver, as once you broke them there would be no other way to deactivate the weapon. Still, it worked."},
                 "Wire Cutters": {"use_desc": "Your team find the power supply to the controls and use the wire cutters to cut the wires. The superweapon powers down.", "used": False, "point_value": 100, "point_desc": "The wirecutters are ideal for shutting down the super weapon."},
                 "Ice Axes": {"use_desc": "You smash the ice axes into the control system and the weapon shuts down. The ice axes are damaged in the process.", "used": True, "point_value": 50, "point_desc": "That had a 50/50 chance of working and damaging the controls was a pretty risky maneuver, as once you broke them there would be no other way to deactivate the weapon. Still, it worked."},
                 "Toolkit": {"use_desc": "You use the toolkit to free the jammed emergency shutdown mechanism. The weapon powers down and its charging sequence stops.", "used": False, "point_value": 100, "point_desc": "The toolkit allows your team to activate the emergency shutdown without damaging the surrounding facility."},
