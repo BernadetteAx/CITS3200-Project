@@ -567,7 +567,6 @@ h1.challenge-progress {
     opacity 350ms ease,
     visibility 350ms ease;
   
-  /* Layout: flexbox with animation on top, briefing on bottom */
   display: flex;
   flex-direction: column;
 }
@@ -684,7 +683,7 @@ h1.challenge-progress {
   position: relative;
 
   width: min(94vw, 1100px);
-  height: min(70vh, 600px);
+  height: min(68vh, 600px);
 
   opacity: 0;
 
@@ -1273,20 +1272,26 @@ h1.challenge-progress {
   }
 }
 
-/* Journey briefing: occupies bottom 25% of screen */
+/* Journey briefing: occupies bottom 25% with visual separation */
 .journey-briefing {
   position: relative;
   
-  flex: 0 0 25vh;
+  flex: 0 0 auto;
+  min-height: 25vh;
   
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  border-top: 1px solid rgba(78, 127, 106, 0.3);
   
   display: flex;
   align-items: center;
   justify-content: center;
   
-  padding: 20px 24px;
+  padding: 24px 20px;
   overflow: auto;
   
   z-index: 10;
@@ -1294,59 +1299,70 @@ h1.challenge-progress {
 
 .journey-briefing-content {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   align-items: center;
+  text-align: center;
 }
 
 .journey-briefing-text {
-  text-align: center;
   width: 100%;
 }
 
 .briefing-title {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: bold;
-  color: #fff;
-  margin: 0 0 8px 0;
-  letter-spacing: 0.05em;
+  color: #2dff9b;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(78, 127, 106, 0.5);
 }
 
 .briefing-description {
-  font-size: 0.75rem;
-  color: #ddd;
+  font-size: 0.7rem;
+  color: #ccc;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
 
 .journey-briefing-btn {
   font-family: var(--font-press);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   background: #fff;
   color: #000;
-  border: none;
-  padding: 12px 24px;
-  min-height: 44px;
+  border: 2px solid #fff;
+  padding: 10px 22px;
+  min-height: 40px;
   cursor: pointer;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-  transition: transform 0.1s ease, background 0.1s ease;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+  transition: all 0.2s ease;
+  font-weight: bold;
   
   flex-shrink: 0;
+  margin-top: 4px;
+  box-shadow: 0 4px 12px rgba(45, 255, 155, 0.2);
 }
 
 .journey-briefing-btn:hover {
   background: var(--correct);
   color: #fff;
+  border-color: var(--correct);
+  box-shadow: 0 4px 16px rgba(45, 255, 155, 0.5), inset 0 0 12px rgba(45, 255, 155, 0.3);
+  transform: translateY(-1px);
 }
 
 .journey-briefing-btn:active {
-  transform: scale(0.96);
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(45, 255, 155, 0.3);
 }
 
 .briefing-btn-text {
   display: block;
+  letter-spacing: 0.05em;
 }
