@@ -817,14 +817,13 @@ h1.challenge-progress {
 }
 
 
-/* actual route */
+/* actual route - solid line */
 .journey-path-line {
   fill: none;
   stroke: var(--correct);
   stroke-width: 3;
   stroke-linecap: square;
   stroke-linejoin: miter;
-  stroke-dasharray: 8 6;
   opacity: 0.9;
 }
 
@@ -834,7 +833,6 @@ h1.challenge-progress {
   stroke-width: 2;
   stroke-linecap: square;
   stroke-linejoin: miter;
-  stroke-dasharray: 3 9;
   opacity: 0.9;
   filter: drop-shadow(0 0 4px var(--correct));
 }
@@ -1272,26 +1270,25 @@ h1.challenge-progress {
   }
 }
 
-/* Journey briefing: occupies bottom 25% with visual separation */
+/* Journey briefing panel - occupies bottom 1/4 of screen */
 .journey-briefing {
   position: relative;
   
-  flex: 0 0 auto;
-  min-height: 25vh;
+  flex: 0 0 25vh;
   
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
     rgba(0, 0, 0, 0.85) 100%
   );
-  border-top: 1px solid rgba(78, 127, 106, 0.3);
+  border-top: 2px solid rgba(78, 127, 106, 0.4);
   
   display: flex;
   align-items: center;
   justify-content: center;
   
-  padding: 24px 20px;
+  padding: 20px;
   overflow: auto;
   
   z-index: 10;
@@ -1299,7 +1296,7 @@ h1.challenge-progress {
 
 .journey-briefing-content {
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
   
   display: flex;
   flex-direction: column;
@@ -1312,22 +1309,13 @@ h1.challenge-progress {
   width: 100%;
 }
 
-.briefing-title {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #2dff9b;
-  margin: 0 0 6px 0;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-shadow: 0 0 8px rgba(78, 127, 106, 0.5);
-}
-
 .briefing-description {
-  font-size: 0.7rem;
-  color: #ccc;
+  font-size: 0.8rem;
+  color: #ddd;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
   letter-spacing: 0.02em;
+  max-width: 90ch;
 }
 
 .journey-briefing-btn {
@@ -1336,8 +1324,8 @@ h1.challenge-progress {
   background: #fff;
   color: #000;
   border: 2px solid #fff;
-  padding: 10px 22px;
-  min-height: 40px;
+  padding: 11px 24px;
+  min-height: 42px;
   cursor: pointer;
   border-radius: 2px;
   letter-spacing: 0.06em;
@@ -1345,7 +1333,7 @@ h1.challenge-progress {
   font-weight: bold;
   
   flex-shrink: 0;
-  margin-top: 4px;
+  margin-top: 6px;
   box-shadow: 0 4px 12px rgba(45, 255, 155, 0.2);
 }
 
