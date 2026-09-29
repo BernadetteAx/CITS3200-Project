@@ -29,12 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let pendingState = null;
   let submittedVotes = {};
   let challengeDescs = {};
+  let journeyTimers = [];
+  let journeyAnimationFrame = null;
+  let activeTransitionState = null;
 
   const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
   const JOURNEY_NODE_COUNT = 6;
 
   const journeyPath = document.getElementById("journeyPathLine");
+  const journeyPathEnergy = document.getElementById("journeyPathEnergy");
   const journeyRunner = document.getElementById("journeyRunner");
   const journeyParticles = document.getElementById("journeyParticles");
   const arrivalBurst = document.getElementById("arrivalBurst");
@@ -123,17 +127,26 @@ function applyState(next) {
     }
     state.inventory.forEach((item) => {
       const usable = active && submittedVote === undefined && !item.used;
+      const voteSubmittedForItem = active && submittedVote === item.id;
+      const usedForThisChallenge = state.outcome?.item?.id === item.id;
       const card = document.createElement("button");
       card.type = "button";
       card.className = "item-card";
       card.dataset.status = item.used ? "used" : "available";
       card.dataset.selected = String(selectedItemId === item.id);
+      card.dataset.voteSubmitted = String(voteSubmittedForItem);
       card.disabled = !usable;
       card.setAttribute("aria-pressed", String(selectedItemId === item.id));
       card.innerHTML = `<span class="item-icon"><img src="/static/images/${item.image}" alt=""></span><span class="item-name"></span><span class="item-status-pill"></span>`;
       card.querySelector('.item-icon').replaceChildren(window.gameVisuals.itemArt(item));
       card.querySelector(".item-name").textContent = item.name;
-      card.querySelector(".item-status-pill").textContent = item.used ? "Used" : "Owned";
+      card.querySelector(".item-status-pill").textContent = item.used
+        ? "Used"
+        : usedForThisChallenge
+          ? "Used"
+          : voteSubmittedForItem
+            ? "Vote submitted"
+            : "Owned";
       if (usable) card.addEventListener("click", () => {
         selectedItemId = selectedItemId === item.id ? null : item.id;
         applyState(state);
@@ -230,6 +243,12 @@ function applyState(next) {
 
   function setRunnerPosition(progress) {
     const point = getPathPosition(progress);
+
+    if (journeyPathEnergy && journeyPath) {
+      const pathLength = journeyPath.getTotalLength();
+      journeyPathEnergy.style.strokeDasharray = `${pathLength}`;
+      journeyPathEnergy.style.strokeDashoffset = `${pathLength * (1 - progress)}`;
+    }
 
     journeyRunner.style.left =
       `${point.x / 1000 * 100}%`;
@@ -415,7 +434,7 @@ function animateJourney(fromChallenge, toChallenge) {
 
       if (rawProgress < 1) {
 
-        requestAnimationFrame(frame);
+        journeyAnimationFrame = requestAnimationFrame(frame);
 
       } else {
         setRunnerPosition(endProgress);
@@ -428,12 +447,34 @@ function animateJourney(fromChallenge, toChallenge) {
       }
     }
 
-    requestAnimationFrame(frame);
+    journeyAnimationFrame = requestAnimationFrame(frame);
   }
 
-  function playChallengeTransition(next) {
+  function finishJourneyTransition() {
+    journeyTimers.forEach(clearTimeout);
+    journeyTimers = [];
+    if (journeyAnimationFrame !== null) {
+      cancelAnimationFrame(journeyAnimationFrame);
+      journeyAnimationFrame = null;
+    }
+    // Prefer the newest socket snapshot received during the animation so a
+    // skipped transition cannot restore an older inventory state.
+    const finalState = pendingState || activeTransitionState;
+    pendingState = null;
+    if (finalState) applyState(finalState);
+    missionTransition.classList.remove("active");
+    journeyRunner.style.opacity = "0";
+    transitioning = false;
+    activeTransitionState = null;
+
+  }
+
+function playChallengeTransition(next) {
 
     transitioning = true;
+    activeTransitionState = next;
+    journeyTimers.forEach(clearTimeout);
+    journeyTimers = [];
 
     hide(feedbackPopup);
 
@@ -474,11 +515,12 @@ function animateJourney(fromChallenge, toChallenge) {
 
     // Display the appropriate intermission description
     const descKey = `challenge_${fromChallenge}_to_${toChallenge}_desc`;
-    const briefingText = challengeDescs[descKey] || "On to the next challenge...";
+    const briefingText = challengeDescs[descKey] || challengeDescs.mission_start_desc || state?.missionDescription || "";
     journeyBriefingDesc.textContent = briefingText;
+    document.getElementById("journeyBriefingTitle").textContent = `CHALLENGE ${toChallenge}`;
 
     /*give the browser a moment to render the map before starting the actual movement.*/
-    setTimeout(() => {
+    journeyTimers.push(setTimeout(() => {
 
       journeyRunner.style.opacity = "1";
 
@@ -489,37 +531,17 @@ function animateJourney(fromChallenge, toChallenge) {
         toChallenge
       );
 
-    }, 350);
+    }, 350));
 
 
     /* load the next challenge near the end of the journey. The user sees the destination before the actual challenge screen appears.*/
-    setTimeout(() => {
+    journeyTimers.push(setTimeout(() => {
 
       applyState(next);
 
-    }, JOURNEY_TRAVEL_MS + 500);
+    }, JOURNEY_TRAVEL_MS + 500));
 
-    setTimeout(() => {
-
-      missionTransition.classList.remove("active");
-
-      journeyRunner.style.opacity = "0";
-
-      transitioning = false;
-
-      /* if another socket state arrived whilethe animation was playing, render it now. */
-      if (pendingState) {
-
-        const queued =
-          pendingState;
-
-        pendingState = null;
-
-        render(queued);
-
-      }
-
-    }, TRANSITION_MS);
+    journeyTimers.push(setTimeout(finishJourneyTransition, TRANSITION_MS));
   }
 
   function render(next) {
@@ -570,7 +592,7 @@ function animateJourney(fromChallenge, toChallenge) {
     }
   });
   journeyBriefingBtn.addEventListener("click", () => {
-    action("mission_advance");
+    finishJourneyTransition();
   });
   document.getElementById("instructionsBtn").addEventListener("click", () => show(instructionsPopup));
   document.getElementById("instructionsClose").addEventListener("click", () => hide(instructionsPopup));
