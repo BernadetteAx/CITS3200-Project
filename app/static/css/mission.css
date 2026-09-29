@@ -566,6 +566,10 @@ h1.challenge-progress {
   transition:
     opacity 350ms ease,
     visibility 350ms ease;
+  
+  /* Layout: flexbox with animation on top, briefing on bottom */
+  display: flex;
+  flex-direction: column;
 }
 
 .mission-transition.active {
@@ -575,9 +579,11 @@ h1.challenge-progress {
 }
 
 .journey-scene {
-  position: absolute;
-  inset: 0;
-
+  position: relative;
+  
+  flex: 0 0 75vh;
+  min-height: 0;
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -678,7 +684,7 @@ h1.challenge-progress {
   position: relative;
 
   width: min(94vw, 1100px);
-  height: min(76vh, 650px);
+  height: min(70vh, 600px);
 
   opacity: 0;
 
@@ -998,56 +1004,37 @@ h1.challenge-progress {
 
   box-shadow:
     0 0 10px #fff,
-    0 0 20px rgba(255,255,255,0.35);
+    0 0 20px rgba(255,255,255,0.2);
 }
 
 .journey-node.active .node-core {
-  background: #ffffff;
+  background: #fff;
 
-  border-color: var(--correct);
+  border-color: #fff;
 
   color: #000;
 
   box-shadow:
-    0 0 20px var(--correct);
+    0 0 12px #fff;
 }
 
 .journey-node.active .node-label {
   color: #fff;
-}
 
-.journey-node.active .node-pulse {
-  animation: nodePulse 1s ease infinite;
-}
-
-@keyframes nodePulse {
-
-  0%, 100% {
-    opacity: 1;
-
-    transform: scale(0.7);
-  }
-
-  50% {
-    opacity: 0;
-
-    transform: scale(1.2);
-  }
+  opacity: 1;
 }
 
 .journey-runner {
   position: absolute;
 
-  top: 50%;
-  left: 0%;
-
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 
   transform:
-    translate(-50%, -50%);
+    translate(-50%, -50%)
+    scale(0);
 
-  z-index: 20;
+  z-index: 12;
 
   opacity: 0;
 }
@@ -1055,74 +1042,106 @@ h1.challenge-progress {
 .runner-trail {
   position: absolute;
 
-  inset: 50%;
+  inset: 0;
 
-  width: 20px;
-  height: 20px;
-
-  transform:
-    translate(-50%, -50%);
+  border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      var(--correct) 0%,
-      var(--correct) 30%,
-      transparent 70%
+      var(--correct),
+      transparent
     );
 
-  border-radius: 50%;
+  opacity: 0.6;
 
-  filter: blur(3px);
+  filter: blur(8px);
 
-  opacity: 0.4;
+  animation:
+    runnerTrailPulse
+    0.8s
+    ease-in-out
+    infinite;
+}
+
+@keyframes runnerTrailPulse {
+
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
 }
 
 .runner-glow {
   position: absolute;
 
-  inset: 0;
-
-  border: 2px solid var(--correct);
+  inset: -8px;
 
   border-radius: 50%;
 
-  box-shadow:
-    0 0 8px var(--correct),
-    0 0 16px var(--correct),
-    inset 0 0 8px var(--correct);
+  border:
+    2px solid
+    var(--correct);
 
-  animation: runnerGlow 0.8s ease infinite;
+  opacity: 0.4;
+
+  animation:
+    runnerGlowPulse
+    1.2s
+    ease-in-out
+    infinite;
 }
 
-@keyframes runnerGlow {
+@keyframes runnerGlowPulse {
 
-  0%, 100% { box-shadow:
-    0 0 8px var(--correct),
-    0 0 16px var(--correct),
-    inset 0 0 8px var(--correct); }
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.2;
+  }
 
-  50% { box-shadow:
-    0 0 12px var(--correct),
-    0 0 24px var(--correct),
-    inset 0 0 12px var(--correct); }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
 }
 
 .runner-sprite {
   position: absolute;
 
-  inset: 0;
+  top: 50%;
+  left: 50%;
 
-  display: flex;
+  transform: translate(-50%, -50%);
 
-  align-items: center;
-  justify-content: center;
+  font-size: 1.8rem;
 
-  font-size: 1.6rem;
+  z-index: 2;
 
-  color: var(--correct);
+  animation:
+    runnerBounce
+    0.6s
+    cubic-bezier(.34, 1.56, .64, 1)
+    infinite;
+}
 
-  filter: drop-shadow(0 0 6px var(--correct));
+@keyframes runnerBounce {
+
+  0%, 100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, calc(-50% - 6px))
+      scale(1.1);
+  }
 }
 
 .journey-particles {
@@ -1130,66 +1149,63 @@ h1.challenge-progress {
 
   inset: 0;
 
-  z-index: 15;
-
   pointer-events: none;
+
+  z-index: 11;
 }
 
 .journey-particle {
   position: absolute;
 
-  top: 0;
-  left: 0;
-
   width: 6px;
   height: 6px;
 
-  background: var(--correct);
-
   border-radius: 50%;
 
-  opacity: 1;
+  background: var(--correct);
+
+  opacity: 0.8;
+
+  box-shadow:
+    0 0 8px var(--correct);
 
   animation:
-    journeyParticleFade
-    950ms ease forwards;
-
-  --dx: 0;
-  --dy: 0;
+    journeyParticleBurst
+    0.95s
+    ease-out
+    forwards;
 }
 
-@keyframes journeyParticleFade {
+@keyframes journeyParticleBurst {
 
   0% {
-    opacity: 0.8;
-
     transform:
       translate(0, 0)
       scale(1);
+
+    opacity: 1;
   }
 
   100% {
-    opacity: 0;
-
     transform:
       translate(var(--dx), var(--dy))
-      scale(0.4);
+      scale(0);
+
+    opacity: 0;
   }
 }
 
 .arrival-burst {
   position: absolute;
 
-  top: 50%;
-  left: 50%;
-
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
 
   transform:
-    translate(-50%, -50%);
+    translate(-50%, -50%)
+    scale(0);
 
-  z-index: 25;
+  z-index: 11;
 
   pointer-events: none;
 }
@@ -1197,234 +1213,134 @@ h1.challenge-progress {
 .arrival-burst span {
   position: absolute;
 
-  inset: 50%;
-
-  width: 8px;
-  height: 8px;
-
-  background: var(--correct);
+  inset: 0;
 
   border-radius: 50%;
 
-  transform:
-    translate(-50%, -50%);
+  border:
+    3px solid
+    var(--correct);
 
   opacity: 0;
 }
 
-.arrival-burst.play span:nth-child(1) {
+.arrival-burst.play span {
   animation:
-    arrivalBurst
-    600ms
-    cubic-bezier(.16, 1, .3, 1)
+    arrivalBurstWave
+    0.6s
+    ease-out
     forwards;
-}
-
-.arrival-burst.play span:nth-child(2) {
-  animation:
-    arrivalBurst
-    600ms
-    cubic-bezier(.16, 1, .3, 1)
-    100ms
-    forwards;
-}
-
-.arrival-burst.play span:nth-child(3) {
-  animation:
-    arrivalBurst
-    600ms
-    cubic-bezier(.16, 1, .3, 1)
-    200ms
-    forwards;
-}
-
-.arrival-burst.play span:nth-child(4) {
-  animation:
-    arrivalBurst
-    600ms
-    cubic-bezier(.16, 1, .3, 1)
-    300ms
-    forwards;
-}
-
-.arrival-burst.play span:nth-child(5) {
-  animation:
-    arrivalBurst
-    600ms
-    cubic-bezier(.16, 1, .3, 1)
-    400ms
-    forwards;
-}
-
-.arrival-burst.play span:nth-child(6) {
-  animation:
-    arrivalBurst
-    600ms
-    cubic-bezier(.16, 1, .3, 1)
-    500ms
-    forwards;
-}
-
-@keyframes arrivalBurst {
-
-  0% {
-    opacity: 1;
-
-    transform:
-      translate(-50%, -50%)
-      translate(0, 0)
-      scale(1);
-  }
-
-  100% {
-    opacity: 0;
-
-    transform:
-      translate(-50%, -50%)
-      translate(var(--burst-x), var(--burst-y))
-      scale(0.3);
-  }
 }
 
 .arrival-burst span:nth-child(1) {
-  --burst-x: 80px;
-  --burst-y: 0;
+  animation-delay: 0ms;
 }
 
 .arrival-burst span:nth-child(2) {
-  --burst-x: 40px;
-  --burst-y: 69px;
+  animation-delay: 60ms;
 }
 
 .arrival-burst span:nth-child(3) {
-  --burst-x: -40px;
-  --burst-y: 69px;
+  animation-delay: 120ms;
 }
 
 .arrival-burst span:nth-child(4) {
-  --burst-x: -80px;
-  --burst-y: 0;
+  animation-delay: 180ms;
 }
 
 .arrival-burst span:nth-child(5) {
-  --burst-x: -40px;
-  --burst-y: -69px;
+  animation-delay: 240ms;
 }
 
 .arrival-burst span:nth-child(6) {
-  --burst-x: 40px;
-  --burst-y: -69px;
+  animation-delay: 300ms;
 }
 
-/* Journey briefing overlay */
+@keyframes arrivalBurstWave {
+
+  0% {
+    transform:
+      scale(1);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      scale(2.5);
+
+    opacity: 0;
+  }
+}
+
+/* Journey briefing: occupies bottom 25% of screen */
 .journey-briefing {
-  position: absolute;
-  inset: 0;
-  z-index: 40;
+  position: relative;
+  
+  flex: 0 0 25vh;
+  
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding: 40px 24px 60px;
-  pointer-events: none;
+  
+  padding: 20px 24px;
+  overflow: auto;
+  
+  z-index: 10;
 }
 
 .journey-briefing-content {
-  pointer-events: auto;
   width: 100%;
-  max-width: 650px;
-  background: linear-gradient(
-    180deg,
-    rgba(17, 17, 17, 0.95) 0%,
-    rgba(17, 17, 17, 0.98) 100%
-  );
-  border: 3px solid var(--correct);
-  border-radius: 6px;
-  padding: 28px 32px;
+  max-width: 600px;
+  
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  box-shadow: 
-    0 0 20px var(--correct),
-    0 0 40px rgba(78, 127, 106, 0.25),
-    inset 0 0 20px rgba(78, 127, 106, 0.1);
-  animation: briefingSlideIn 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-}
-
-@keyframes briefingSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  gap: 16px;
+  align-items: center;
 }
 
 .journey-briefing-text {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  text-align: center;
+  width: 100%;
 }
 
 .briefing-title {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: bold;
-  letter-spacing: 0.08em;
-  color: var(--correct);
-  text-transform: uppercase;
-  margin: 0;
-  line-height: 1.4;
+  color: #fff;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.05em;
 }
 
 .briefing-description {
-  font-size: 0.7rem;
-  line-height: 1.8;
+  font-size: 0.75rem;
   color: #ddd;
   margin: 0;
-  max-height: 140px;
-  overflow-y: auto;
-  padding-right: 8px;
-}
-
-.briefing-description::-webkit-scrollbar {
-  width: 4px;
-}
-
-.briefing-description::-webkit-scrollbar-track {
-  background: rgba(78, 127, 106, 0.1);
-  border-radius: 2px;
-}
-
-.briefing-description::-webkit-scrollbar-thumb {
-  background: var(--correct);
-  border-radius: 2px;
-}
-
-.briefing-description::-webkit-scrollbar-thumb:hover {
-  background: #5a9076;
+  line-height: 1.6;
 }
 
 .journey-briefing-btn {
   font-family: var(--font-press);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  padding: 12px 20px;
-  min-height: 42px;
-  background: var(--correct);
+  font-size: 0.75rem;
+  background: #fff;
   color: #000;
-  border: 2px solid var(--correct);
-  border-radius: 4px;
+  border: none;
+  padding: 12px 24px;
+  min-height: 44px;
   cursor: pointer;
-  transition: all 0.15s ease;
-  align-self: flex-start;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  transition: transform 0.1s ease, background 0.1s ease;
+  
+  flex-shrink: 0;
 }
 
 .journey-briefing-btn:hover {
-  background: #5a9076;
-  border-color: #5a9076;
-  box-shadow: 0 0 12px var(--correct);
+  background: var(--correct);
+  color: #fff;
 }
 
 .journey-briefing-btn:active {
@@ -1432,56 +1348,5 @@ h1.challenge-progress {
 }
 
 .briefing-btn-text {
-  display: inline-block;
-}
-
-/* Mobile responsiveness for briefing */
-@media (max-width: 600px) {
-  .journey-briefing {
-    padding: 30px 16px 50px;
-  }
-
-  .journey-briefing-content {
-    padding: 20px 20px;
-    max-width: 100%;
-    border-width: 2px;
-  }
-
-  .briefing-title {
-    font-size: 0.75rem;
-  }
-
-  .briefing-description {
-    font-size: 0.65rem;
-    line-height: 1.6;
-    max-height: 120px;
-  }
-
-  .journey-briefing-btn {
-    font-size: 0.65rem;
-    padding: 10px 16px;
-    min-height: 38px;
-  }
-}
-
-@media (max-width: 400px) {
-  .journey-briefing-content {
-    border-radius: 4px;
-  }
-
-  .briefing-title {
-    font-size: 0.68rem;
-  }
-
-  .briefing-description {
-    font-size: 0.6rem;
-    line-height: 1.5;
-    max-height: 100px;
-  }
-
-  .journey-briefing-btn {
-    font-size: 0.6rem;
-    padding: 8px 12px;
-    min-height: 34px;
-  }
+  display: block;
 }
