@@ -32,11 +32,11 @@ function render(state) {
   progressFill.style.width = `${state.playerCount ? state.voteCount / state.playerCount * 100 : 0}%`;
   itemGrid.innerHTML = "";
   state.items.forEach((item) => {
-    const selected = state.mySelection === item.id;
+    const selected = state.mySelection === item.id || state.myVote === item.id;
     const unavailable = state.status !== "voting" || item.cost > state.budget;
     const tile = document.createElement("button");
     tile.type = "button"; tile.className = "item-tile";
-    tile.dataset.state = unavailable ? "unavailable" : selected ? "selected" : "idle";
+    tile.dataset.state = selected ? "selected" : unavailable ? "unavailable" : "idle";
     tile.disabled = unavailable;
     tile.setAttribute("aria-pressed", String(selected));
     tile.innerHTML = `<div class="item-image"><img src="/static/images/${item.image}" alt="${item.name}"></div><div class="item-name">${item.name}</div><div class="item-desc">${item.description}</div><div class="item-footer"><span class="cost-tag">$${item.cost}</span><span class="vote-check">${selected ? "✓ SELECTED" : "TAP TO SELECT"}</span></div>`;
@@ -47,10 +47,27 @@ function render(state) {
   const voting = state.status === "voting";
   finishBtn.disabled = !voting || !state.mySelection;
   skipBtn.disabled = !voting;
+  finishBtn.dataset.submitted = String(state.myVote !== undefined && state.myVote !== null && state.myVote !== "skip");
+  skipBtn.dataset.submitted = String(state.myVote === "skip");
   endRoundBtn.hidden = sessionStorage.getItem("isHost") !== "true" || !voting;
   inventoryLabel.textContent = `TEAM INVENTORY · ${state.purchasedItems.length}/8 SLOTS FILLED`;
-  inventory.innerHTML = state.purchasedItems.map((item) => `<div class="hotbar-slot filled" title="${item.name}"><img src="/static/images/${item.hotbar_image}" alt="${item.name}"></div>`).join("") + Array.from({length: Math.max(0, 8 - state.purchasedItems.length)}, () => '<div class="hotbar-slot empty">＋</div>').join("");
-  inventory.querySelectorAll('.filled').forEach((slot, index) => slot.replaceChildren(window.gameVisuals.itemArt(state.purchasedItems[index])));
+  inventory.replaceChildren();
+  (state.slotItems || state.purchasedItems).forEach((item, index) => {
+    const slot = document.createElement("div");
+    if (item) {
+      slot.className = "hotbar-slot filled";
+      slot.title = item.name;
+      slot.replaceChildren(window.gameVisuals.itemArt(item));
+    } else {
+      const resolved = index + 1 < state.round || (index + 1 === state.round && state.status !== "voting" && state.status !== "waiting");
+      slot.className = `hotbar-slot ${resolved ? "blocked" : "empty"}`;
+      slot.textContent = "";
+      if (!resolved) slot.textContent = "＋";
+      slot.title = resolved ? "No item purchased this round" : "Shop round not completed";
+      slot.setAttribute("aria-label", slot.title);
+    }
+    inventory.appendChild(slot);
+  });
   if (state.status !== "voting") {
     countdownFill.style.width = "0%";
     countdownTrack.setAttribute("aria-valuenow", "0");

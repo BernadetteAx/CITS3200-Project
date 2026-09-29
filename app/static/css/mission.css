@@ -247,6 +247,17 @@ h1.challenge-progress {
   color: #fff;
 }
 
+.item-card[data-vote-submitted="true"] {
+  border-color: var(--correct);
+  background: #16241f;
+  box-shadow: 0 0 0 2px var(--correct);
+}
+
+.item-card[data-vote-submitted="true"] .item-status-pill {
+  background: var(--correct);
+  color: #fff;
+}
+
 .item-card[data-status="used"] {
   opacity: 0.4;
   cursor: not-allowed;
@@ -566,6 +577,9 @@ h1.challenge-progress {
   transition:
     opacity 350ms ease,
     visibility 350ms ease;
+  
+  display: flex;
+  flex-direction: column;
 }
 
 .mission-transition.active {
@@ -575,9 +589,10 @@ h1.challenge-progress {
 }
 
 .journey-scene {
-  position: absolute;
-  inset: 0;
-
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -678,7 +693,8 @@ h1.challenge-progress {
   position: relative;
 
   width: min(94vw, 1100px);
-  height: min(76vh, 650px);
+  height: min(68vh, 600px);
+  flex: 0 0 auto;
 
   opacity: 0;
 
@@ -812,15 +828,14 @@ h1.challenge-progress {
 }
 
 
-/* actual route */
+/* actual route - solid line */
 .journey-path-line {
   fill: none;
   stroke: var(--correct);
   stroke-width: 3;
   stroke-linecap: square;
   stroke-linejoin: miter;
-  stroke-dasharray: 8 6;
-  opacity: 0.9;
+  opacity: 0.2;
 }
 
 .journey-path-energy {
@@ -829,9 +844,10 @@ h1.challenge-progress {
   stroke-width: 2;
   stroke-linecap: square;
   stroke-linejoin: miter;
-  stroke-dasharray: 3 9;
-  opacity: 0.9;
+  opacity: 1;
   filter: drop-shadow(0 0 4px var(--correct));
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
 }
 
 @keyframes journeyEnergyFlow {
@@ -998,195 +1014,143 @@ h1.challenge-progress {
 
   box-shadow:
     0 0 10px #fff,
-    0 0 25px var(--correct);
+    0 0 20px rgba(255,255,255,0.2);
 }
 
 .journey-node.active .node-core {
-  background: var(--correct);
+  background: #fff;
 
   border-color: #fff;
 
-  color: #fff;
+  color: #000;
 
   box-shadow:
-    0 0 15px var(--correct),
-    0 0 35px rgba(78,127,106,0.5);
-}
-
-.journey-node.active .node-pulse {
-  animation:
-    destinationPulse
-    1.2s
-    ease-out
-    infinite;
+    0 0 12px #fff;
 }
 
 .journey-node.active .node-label {
   color: #fff;
-}
 
-@keyframes destinationPulse {
-
-  0% {
-    opacity: 0.8;
-    transform: scale(0.7);
-  }
-
-  70% {
-    opacity: 0;
-    transform: scale(1.8);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1.8);
-  }
+  opacity: 1;
 }
 
 .journey-runner {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  transform: translate(-50%, -50%);
-  z-index: 20;
-  pointer-events: none;
+
+  width: 30px;
+  height: 30px;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0);
+
+  z-index: 12;
+
   opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.runner-sprite {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: var(--correct);
-  font-family: Arial, sans-serif;
-  font-size: 15px;
-  font-weight: 900;
-  line-height: 1;
-
-  text-shadow:
-    0 0 4px var(--correct),
-    0 0 9px rgba(78, 127, 106, 0.8);
-
-  image-rendering: pixelated;
-}
-
-.runner-glow {
-  position: absolute;
-  inset: 3px;
-
-  background: var(--correct);
-  opacity: 0.35;
-
-  filter: blur(5px);
-  border-radius: 50%;
 }
 
 .runner-trail {
   position: absolute;
-  width: 5px;
-  height: 5px;
-  left: 6px;
-  top: 6px;
 
-  background: var(--correct);
-  box-shadow:
-    -8px 0 0 rgba(78, 127, 106, 0.35),
-    -14px 0 0 rgba(78, 127, 106, 0.18);
+  inset: 0;
 
-  image-rendering: pixelated;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--correct),
+      transparent
+    );
+
+  opacity: 0.6;
+
+  filter: blur(8px);
+
+  animation:
+    runnerTrailPulse
+    0.8s
+    ease-in-out
+    infinite;
 }
 
-@keyframes runnerTrail {
+@keyframes runnerTrailPulse {
 
-  from {
-    transform: scaleX(0.5);
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+.runner-glow {
+  position: absolute;
+
+  inset: -8px;
+
+  border-radius: 50%;
+
+  border:
+    2px solid
+    var(--correct);
+
+  opacity: 0.4;
+
+  animation:
+    runnerGlowPulse
+    1.2s
+    ease-in-out
+    infinite;
+}
+
+@keyframes runnerGlowPulse {
+
+  0%, 100% {
+    transform: scale(0.9);
     opacity: 0.2;
   }
 
-  to {
-    transform: scaleX(1);
+  50% {
+    transform: scale(1.3);
     opacity: 0.6;
   }
 }
 
-
-/* glow */
-.runner-glow {
-  position: absolute;
-
-  inset: -16px;
-
-  border-radius: 50%;
-
-  background: var(--correct);
-
-  opacity: 0.18;
-
-  filter: blur(10px);
-
-  animation:
-    runnerGlow
-    600ms
-    ease-in-out
-    infinite alternate;
-}
-
-@keyframes runnerGlow {
-
-  from {
-    transform: scale(0.7);
-  }
-
-  to {
-    transform: scale(1.25);
-  }
-}
-
-
-/* player */
 .runner-sprite {
   position: absolute;
 
-  inset: 7px;
+  top: 50%;
+  left: 50%;
 
-  display: flex;
+  transform: translate(-50%, -50%);
 
-  align-items: center;
-  justify-content: center;
+  font-size: 1.8rem;
 
-  background: #fff;
-
-  color: #000;
-
-  border: 3px solid #fff;
-
-  font-size: 0.75rem;
-
-  box-shadow:
-    0 0 8px #fff,
-    0 0 18px var(--correct),
-    0 0 35px var(--correct);
+  z-index: 2;
 
   animation:
-    runnerBob
-    180ms
-    ease-in-out
-    infinite alternate;
+    runnerBounce
+    0.6s
+    cubic-bezier(.34, 1.56, .64, 1)
+    infinite;
 }
 
-@keyframes runnerBob {
+@keyframes runnerBounce {
 
-  from {
-    transform: translateY(0);
+  0%, 100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
   }
 
-  to {
-    transform: translateY(-5px);
+  50% {
+    transform:
+      translate(-50%, calc(-50% - 6px))
+      scale(1.1);
   }
 }
 
@@ -1197,281 +1161,224 @@ h1.challenge-progress {
 
   pointer-events: none;
 
-  z-index: 40;
+  z-index: 11;
 }
 
 .journey-particle {
   position: absolute;
 
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
 
   background: var(--correct);
 
-  box-shadow:
-    0 0 7px var(--correct),
-    0 0 14px var(--correct);
+  opacity: 0.8;
 
-  pointer-events: none;
+  box-shadow:
+    0 0 8px var(--correct);
 
   animation:
-    journeyParticleFly
-    900ms
+    journeyParticleBurst
+    0.95s
     ease-out
     forwards;
 }
 
-@keyframes journeyParticleFly {
+@keyframes journeyParticleBurst {
 
   0% {
-    opacity: 1;
-
     transform:
       translate(0, 0)
       scale(1);
+
+    opacity: 1;
   }
 
   100% {
-    opacity: 0;
-
     transform:
-      translate(
-        calc(var(--dx) * 1px),
-        calc(var(--dy) * 1px)
-      )
+      translate(var(--dx), var(--dy))
       scale(0);
+
+    opacity: 0;
   }
 }
 
 .arrival-burst {
   position: absolute;
 
-  left: 0;
-  top: 0;
+  width: 80px;
+  height: 80px;
 
-  width: 0;
-  height: 0;
+  transform:
+    translate(-50%, -50%)
+    scale(0);
 
-  z-index: 60;
+  z-index: 11;
 
   pointer-events: none;
-
-  opacity: 0;
 }
 
 .arrival-burst span {
   position: absolute;
 
-  width: 8px;
-  height: 8px;
+  inset: 0;
 
-  background: #fff;
+  border-radius: 50%;
 
-  box-shadow:
-    0 0 10px #fff,
-    0 0 20px var(--correct);
+  border:
+    3px solid
+    var(--correct);
 
-  transform:
-    translate(-50%, -50%);
-}
-
-.arrival-burst.play {
-  animation:
-    burstFlash
-    500ms
-    ease-out
-    forwards;
-}
-
-.arrival-burst.play span:nth-child(1) {
-  --burst-x: -70px;
-  --burst-y: -30px;
-}
-
-.arrival-burst.play span:nth-child(2) {
-  --burst-x: 70px;
-  --burst-y: -40px;
-}
-
-.arrival-burst.play span:nth-child(3) {
-  --burst-x: 90px;
-  --burst-y: 20px;
-}
-
-.arrival-burst.play span:nth-child(4) {
-  --burst-x: -80px;
-  --burst-y: 30px;
-}
-
-.arrival-burst.play span:nth-child(5) {
-  --burst-x: -25px;
-  --burst-y: -80px;
-}
-
-.arrival-burst.play span:nth-child(6) {
-  --burst-x: 25px;
-  --burst-y: 80px;
-}
-
-@keyframes burstFlash {
-
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+  opacity: 0;
 }
 
 .arrival-burst.play span {
   animation:
-    burstParticle
-    500ms
-    cubic-bezier(.16, 1, .3, 1)
+    arrivalBurstWave
+    0.6s
+    ease-out
     forwards;
 }
 
-@keyframes burstParticle {
+.arrival-burst span:nth-child(1) {
+  animation-delay: 0ms;
+}
 
-  from {
-    opacity: 1;
+.arrival-burst span:nth-child(2) {
+  animation-delay: 60ms;
+}
 
+.arrival-burst span:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.arrival-burst span:nth-child(4) {
+  animation-delay: 180ms;
+}
+
+.arrival-burst span:nth-child(5) {
+  animation-delay: 240ms;
+}
+
+.arrival-burst span:nth-child(6) {
+  animation-delay: 300ms;
+}
+
+@keyframes arrivalBurstWave {
+
+  0% {
     transform:
-      translate(-50%, -50%)
       scale(1);
-  }
-
-  to {
-    opacity: 0;
-
-    transform:
-      translate(
-        calc(-50% + var(--burst-x)),
-        calc(-50% + var(--burst-y))
-      )
-      scale(0);
-  }
-}
-
-@media (max-width: 600px) {
-
-  .journey-map {
-    width: 100vw;
-    height: 70vh;
-  }
-
-  .journey-node {
-    width: 45px;
-    height: 45px;
-  }
-
-  .node-core {
-    inset: 7px;
-
-    font-size: 0.55rem;
-  }
-
-  .node-label {
-    font-size: 0.4rem;
-  }
-
-  .journey-map-title {
-    font-size: 0.55rem;
-  }
-
-  .runner-trail {
-    width: 70px;
-    left: -45px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .journey-grid,
-  .journey-path-energy,
-  .node-pulse,
-  .runner-glow,
-  .runner-sprite,
-  .runner-trail {
-    animation: none;
-  }
-
-  .mission-transition.active .journey-map,
-  .mission-transition.active .journey-map-title {
-    animation: none;
 
     opacity: 1;
+  }
 
-    transform: none;
+  100% {
+    transform:
+      scale(2.5);
+
+    opacity: 0;
   }
 }
 
-@media (max-width: 600px) {
-  body {
-    padding: 36px 14px 50px;
-  }
-
-  header {
-    padding: 2px 8px 12px;
-  }
-
-  .mission-tag-label,
-  .game-tag-label,
-  .game-label {
-    font-size: 0.6rem;
-  }
-
-  .mission-tag-name {
-    font-size: 0.75rem;
-  }
-
-  h1.challenge-progress {
-    font-size: 1.3rem;
-  }
-
-  .mission-card {
-    width: 100%;
-    padding: 28px 20px;
-  }
-
-  .section-heading {
-    font-size: 0.8rem;
-  }
-
-  .challenge-name {
-    font-size: 0.95rem;
-  }
-
-  .challenge-desc {
-    font-size: 0.68rem;
-  }
-
-  .item-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-
-  .lobby-btn {
-    font-size: 0.75rem;
-  }
-
-  .hotbar {
-    width: 100%;
-  }
-
-  .instructions-trigger {
-    top: 14px;
-    right: 14px;
-    width: 44px;
-    height: 44px;
-  }
-
-  .result-box {
-    padding: 28px 20px;
-  }
+/* Journey briefing panel - occupies bottom 1/4 of screen */
+.journey-briefing {
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 25vh;
+  width: 100%;
+  
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  border-top: 2px solid rgba(78, 127, 106, 0.4);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 20px;
+  overflow: auto;
+  
+  z-index: 10;
 }
 
-/* Space below mission action buttons */
-.screen-fit .mission-helper-note {
-  padding-top: 24px;
+.journey-briefing-content {
+  width: 100%;
+  max-width: 1000px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.journey-briefing-text {
+  width: 100%;
+  max-height: 14vh;
+  overflow-y: auto;
+  padding: 12px 18px;
+  border: 1px solid rgba(78, 127, 106, 0.65);
+  background: rgba(4, 12, 9, 0.82);
+  box-shadow: inset 0 0 18px rgba(45, 255, 155, 0.08);
+}
+
+.briefing-title {
+  margin: 0 0 8px;
+  color: var(--correct);
+  font-family: var(--font-press);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.briefing-description {
+  font-size: 0.75rem;
+  color: #ddd;
+  margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  max-width: 90ch;
+}
+
+.journey-briefing-btn {
+  font-family: var(--font-press);
+  font-size: 0.7rem;
+  background: #fff;
+  color: #000;
+  border: 2px solid #fff;
+  padding: 11px 24px;
+  min-height: 42px;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+  transition: all 0.2s ease;
+  font-weight: bold;
+  
+  flex-shrink: 0;
+  margin-top: 6px;
+  box-shadow: 0 4px 12px rgba(45, 255, 155, 0.2);
+}
+
+.journey-briefing-btn:hover {
+  background: var(--correct);
+  color: #fff;
+  border-color: var(--correct);
+  box-shadow: 0 4px 16px rgba(45, 255, 155, 0.5), inset 0 0 12px rgba(45, 255, 155, 0.3);
+  transform: translateY(-1px);
+}
+
+.journey-briefing-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(45, 255, 155, 0.3);
+}
+
+.briefing-btn-text {
+  display: block;
+  letter-spacing: 0.05em;
 }

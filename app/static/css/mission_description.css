@@ -74,7 +74,7 @@
 .story-copy h2 {
     margin: 0 0 12px;
     font-family: var(--font-press);
-    font-size: clamp(0.65rem, 1.1vw, 0.8rem);
+    font-size: clamp(0.65rem, 1.1vw, 0.85rem);
     line-height: 1.8;
     color: var(--text-main);
 }
@@ -308,7 +308,7 @@
 
     color: var(--text-main);
 
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 2.1;
 
     white-space: pre-wrap;
@@ -342,7 +342,7 @@
     padding: 0.9rem 1.3rem;
 
     background: var(--correct);
-    color: #fff;
+    color: #000;
 
     border: 2px solid var(--correct);
 
@@ -376,7 +376,7 @@
 
 .continue-btn:disabled {
     background: var(--panel);
-    color: #fff;
+    color: #000;
     border-color: var(--tile-border);
 
     opacity: 1;
@@ -387,7 +387,7 @@
 .continue-btn:hover:not(:disabled) {
     background: var(--correct);
     border-color: var(--correct);
-    color: #fff;
+    color: #000;
 
     transform: translateY(-2px);
 

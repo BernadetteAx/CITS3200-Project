@@ -127,6 +127,9 @@ def _build_mission_item_pairs(generated_mission):
         for item in random_pair:
             random_items.remove(item)
 
+    # randomise which position the useful item is in (the left or right side)
+    pairs = [tuple(sample(list(pair), len(pair))) for pair in pairs]
+
     #fully random challenge offer first then shuffling the completed auction rounds
     shuffle(pairs)
     return pairs
@@ -139,6 +142,8 @@ def initialise_auction(session, generated_mission=None):
         session["auction"] = {"item_pairs": item_pairs, "round_index":0, "round_progress":0,
             "current_item_pair":list(item_pairs[0]),
             "selections":{}, "votes":{}, "finished_players":set(), "budget":1000, "purchased_items":[],
+            #one hotbar position per shop round even w/ no purchase
+            "slot_items":[None for _ in item_pairs],
             "status":"waiting", "round_result":None, "ends_at":None, "timer_token":0}
     return session["auction"]
 
@@ -201,6 +206,7 @@ def _state(session, player_id=None):
     pair = item_pairs[auction["round_index"]] if auction["round_index"] < len(item_pairs) else ()
     state = {"phase":session["phase"], "round":auction["round_index"] + 1, "totalRounds":len(item_pairs),
         "items":list(pair), "budget":auction["budget"], "purchasedItems":auction["purchased_items"],
+        "slotItems":auction["slot_items"],
         "voteCount":len(set(auction["votes"]) & connected_players), "playerCount":len(connected_players),
         "finishedCount":len(auction["finished_players"] & connected_players), "status":auction["status"],
         "endsAt":auction["ends_at"], "roundResult":auction["round_result"]}
@@ -243,6 +249,7 @@ def _advance(session_code, resolved_round):
         auction["status"] = "complete"
         #expose the final inventory at session level for the mission phase, without making it depend on auction implementation details
         session["purchased_items"] = list(auction["purchased_items"])
+        session["inventory_slots"] = list(auction["slot_items"])
         from app.sockets.handlers.mission import initialise_mission, broadcast_mission_state
         initialise_mission(session, session.get("generated_mission"))
         session["phase"] = "mission"
@@ -268,6 +275,7 @@ def _resolve(session_code, session, reason):
     if item and item["cost"] <= auction["budget"]:
         auction["budget"] -= item["cost"]
         auction["purchased_items"].append(item)
+        auction["slot_items"][auction["round_index"]] = item
         result = {"type":"purchase", "item":item, "reason":reason}
     elif item: result = {"type":"unaffordable", "item":item, "reason":reason}
     elif winner == "skip": result = {"type":"skip", "reason":reason}

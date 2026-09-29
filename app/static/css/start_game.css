@@ -76,7 +76,7 @@ body {
 }
 
 .start-subtext {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 
     color: var(--text-secondary);
 
@@ -229,7 +229,7 @@ body {
 }
 
 .briefing-heading {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 
     color: #fff;
 
@@ -347,7 +347,7 @@ body {
 
     font-family: var(--font-press);
 
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 
     cursor: pointer;
 
@@ -519,7 +519,7 @@ body {
 .result-btn {
     font-family: var(--font-press);
 
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 
     background: #fff;
 
