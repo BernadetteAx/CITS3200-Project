@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const countdownFill = document.getElementById("countdownFill");
   const countdownTrack = document.getElementById("countdownTrack");
   const missionTransition = document.getElementById("missionTransition");
+  const journeyBriefingDesc = document.getElementById("journeyBriefingDesc");
+  const journeyBriefingBtn = document.getElementById("journeyBriefingBtn");
   const challengeBlock = document.getElementById("challengeBlock");
   const CHALLENGE_SECONDS = 60;
   let timerChallengeIndex = null;
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let transitioning = false;
   let pendingState = null;
   let submittedVotes = {};
+  let challengeDescs = {};
 
   const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
@@ -469,6 +472,10 @@ function animateJourney(fromChallenge, toChallenge) {
       getNodePathProgress(fromChallenge)
     );
 
+    // Display the appropriate intermission description
+    const descKey = `challenge_${fromChallenge}_to_${toChallenge}_desc`;
+    const briefingText = challengeDescs[descKey] || "On to the next challenge...";
+    journeyBriefingDesc.textContent = briefingText;
 
     /*give the browser a moment to render the map before starting the actual movement.*/
     setTimeout(() => {
@@ -562,11 +569,20 @@ function animateJourney(fromChallenge, toChallenge) {
       action("mission_advance");
     }
   });
+  journeyBriefingBtn.addEventListener("click", () => {
+    action("mission_advance");
+  });
   document.getElementById("instructionsBtn").addEventListener("click", () => show(instructionsPopup));
   document.getElementById("instructionsClose").addEventListener("click", () => hide(instructionsPopup));
   instructionsPopup.addEventListener("click", (event) => {
     if (event.target === instructionsPopup) hide(instructionsPopup);
   });
-  window.gameSocket.on("mission_state", render);
+  window.gameSocket.on("mission_state", (data) => {
+    // Store challenge descriptions when received
+    if (data.challengeDescs) {
+      challengeDescs = data.challengeDescs;
+    }
+    render(data);
+  });
   window.gameSocket.on("mission_complete", () => window.location.replace("/result_page"));
 });
