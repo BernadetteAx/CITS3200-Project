@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       displayItems(result.itemsPurchased ?? [], result.itemsUsed ?? []);
       // Item Inventory - END
   
-      message.textContent = "YOUR TEAM'S FINAL RESULTS";
+      message.textContent = "";
     }
   
     if (!socket) {
