@@ -45,11 +45,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const pages = [];
         let page = "";
         const limit = window.innerWidth < 700 ? 280 : Infinity;
-        for (const word of (text || "").split(/\s+/)) {
-            if (page.length + word.length > limit) { pages.push(page.trim()); page = ""; }
-            page += `${word} `;
+        // Keep the data's own paragraph breaks ("\n\n") and line breaks ("\n");
+        // only stray spaces around them are tidied. .mission-description uses
+        // white-space: pre-wrap, so the typed newlines render as real breaks.
+        const paragraphs = (text || "").replace(/\r\n?/g, "\n").split(/[ \t]*\n[ \t]*\n\s*/)
+            .map((paragraph) => paragraph.replace(/[ \t]*\n[ \t]*/g, "\n").replace(/[ \t]+/g, " ").trim())
+            .filter(Boolean);
+        for (const paragraph of paragraphs) {
+            // Whole paragraphs stay together on a page when they fit.
+            if (page && page.length + 2 + paragraph.length <= limit) { page += `\n\n${paragraph}`; continue; }
+            if (paragraph.length <= limit) { if (page) pages.push(page); page = paragraph; continue; }
+            // A paragraph longer than the mobile limit is split by word anyway,
+            // so it flows on from the current page, keeping its line breaks.
+            paragraph.split("\n").forEach((line, lineIndex) => line.split(" ").forEach((word, wordIndex) => {
+                const separator = !page ? ""
+                    : lineIndex === 0 && wordIndex === 0 ? "\n\n"
+                    : wordIndex === 0 ? "\n" : " ";
+                if (page && page.length + separator.length + word.length > limit) { pages.push(page); page = word; }
+                else page += separator + word;
+            }));
         }
-        pages.push(page.trim());
+        pages.push(page);
         let index = 0;
         const controls = document.createElement("nav");
         controls.className = "page-controls";
