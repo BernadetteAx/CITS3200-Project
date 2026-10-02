@@ -18,6 +18,13 @@
 
 <div class="countdown-track" id="countdownTrack" role="progressbar" aria-label="Auction time remaining" aria-valuemin="0" aria-valuemax="60" aria-valuenow="60">
   <div class="countdown-fill" id="countdownFill"></div>
+  <!-- Countdown clock, level with the "?" button. Nested here (position:
+       fixed) so screen_layout.js keeps it out of the scaled page, like
+       the bar. The progressbar already announces the seconds. -->
+  <div class="auction-countdown" id="countdownClock" aria-hidden="true">
+    <span class="auction-countdown-label">TIME</span>
+    <span class="auction-countdown-value" id="countdownValue">01:00</span>
+  </div>
 </div>
 
 <header>
@@ -27,13 +34,12 @@
 </header>
 
 <div class="status-row">
-  <div class="status-pill-box">
-    <span class="label">BUDGET</span>
-    <span class="value" id="budgetValue">$1000</span>
-  </div>
-  <div class="status-pill-box timer" id="timerPill">
-    <span class="label">TIME LEFT</span>
-    <span class="value" id="timerValue">01:00</span>
+  <div class="budget-box" id="budgetBox">
+    <span class="budget-label">BUDGET</span>
+    <span class="budget-amount">
+      <img class="budget-coin" src="{{ url_for('static', filename='images/coin-pixel.svg') }}" alt="" aria-hidden="true">
+      <span id="budgetValue">$1000</span>
+    </span>
   </div>
 </div>
 
