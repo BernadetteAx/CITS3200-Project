@@ -14,8 +14,8 @@ items_dict = {
     "Explosives": {"desc": "A demolition pack capable of breaking through solid barriers and clearing obstacles.", "cost": 100, "image": "icons8-grenade-64.png", "hotbar_image": "icons8-grenade-32.png"},
     "Water Bottle": {"desc": "A durable, refillable bottle filled with clean drinking water.", "cost": 100,"image": "sport-bottle-white-64.png", "hotbar_image": "sport-bottle-white-64.png"},
     "Mountain Gear": {"desc": "A set of climbing equipment including a harness, helmet, carabiners, anchors and rope for navigating steep terrain.", "cost": 160, "image": "icons8-mountain-64.png", "hotbar_image": "icons8-mountain-32.png"},
-    
     "Boat": {"desc": "A small motorboat with room for your team and equipment when travelling across water.", "cost": 300, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
+    
     "Axe": {"desc": "A sturdy axe for chopping wood, cutting through tangled vegetation and clearing obstacles.", "cost": 100, "image": "icons8-minecraft-axe-64.png", "hotbar_image": "icons8-minecraft-axe-32.png"},
     "Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
     "Inflatable Raft": {"desc": "A compact inflatable raft capable of carrying the team across water.", "cost": 140, "image": "icons8-raft-64.png", "hotbar_image": "icons8-raft-32.png"}, 
