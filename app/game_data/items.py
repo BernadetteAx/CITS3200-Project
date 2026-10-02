@@ -17,8 +17,8 @@ items_dict = {
     "Boat": {"desc": "A small motorboat with room for your team and equipment when travelling across water.", "cost": 300, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Axe": {"desc": "A sturdy axe for chopping wood, cutting through tangled vegetation and clearing obstacles.", "cost": 100, "image": "icons8-minecraft-axe-64.png", "hotbar_image": "icons8-minecraft-axe-32.png"},
     "Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
-    
     "Inflatable Raft": {"desc": "A compact inflatable raft capable of carrying the team across water.", "cost": 140, "image": "icons8-raft-64.png", "hotbar_image": "icons8-raft-32.png"}, 
+    
     "Thermal Clothing": {"desc": "Insulated clothing designed to protect the wearer from dangerously cold conditions.", "cost": 70, "image": "icons8-winter-clothes-64.png", "hotbar_image": "icons8-winter-clothes-32.png"},
     "Snow Boots": {"desc": "Heavy insulated boots providing warmth and traction across snow and ice.", "cost": 60, "image": "icons8-winter-boots-64.png", "hotbar_image": "icons8-winter-boots-32.png"},
     "Heat Resistant Suit": {"desc": "A protective suit designed to reduce exposure to extreme heat and hazardous environments.", "cost": 140, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"},
@@ -35,7 +35,8 @@ items_dict = {
         
     # NEEDS IMAGE
     "Ice Skates": {"desc": "A pair of shoes with a blade attached to the bottom. They are ideal for moving across ice.", "cost": 60, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
-   
+    "Snow Mobile": {"desc": "A motorised vehicle, mounted on skis that is designed to travel across snow.", "cost": 250, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
+       
 
 
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
