@@ -31,6 +31,12 @@
     href="{{ url_for('static', filename='css/result_achievement.css') }}"
 >
 <!-- Mission Achievement - END -->
+<!-- Results Spotlight Tour - START -->
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/results_tour.css') }}"
+>
+<!-- Results Spotlight Tour - END -->
 {% endblock %}
 
 {% block scripts %}
@@ -53,9 +59,22 @@
     src="{{ url_for('static', filename='js/results_crt.js') }}"
 ></script>
 <!-- Results CRT Reveal - END -->
+<!-- Results Spotlight Tour - START -->
+<!-- Runs only when the player presses "?"; reads the rendered panels. -->
+<script
+    defer
+    src="{{ url_for('static', filename='js/results_tour.js') }}"
+></script>
+<!-- Results Spotlight Tour - END -->
 {% endblock %}
 
 {% block header %}
+<!-- Results Spotlight Tour - START -->
+<!-- Shared .instructions-trigger style; screen_layout.js keeps it fixed
+     outside the scaled stage, as on the other pages. -->
+<button type="button" class="instructions-trigger" id="resultsTourBtn"
+        title="Tour the results" aria-label="Tour the results">?</button>
+<!-- Results Spotlight Tour - END -->
 <header class="result-header">
     <h1>GAME RESULTS</h1>
     <p id="result-message" role="status" aria-live="polite">
