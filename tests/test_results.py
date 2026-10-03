@@ -39,7 +39,10 @@ def completed_game():
                     "challengeIndex": 0,
                     "item": dict(axe),
                     "success": True,
+                    "pointsEarned": 90,
                     "penalty": 0,
+                    "pointValue": 90,
+                    "pointDesc": "The axe clears the obstacle efficiently.",
                     "title": "Obstacle Cleared",
                     "description": "The Axe gets the team past the challenge.",
                 },
@@ -103,10 +106,15 @@ def test_challenge_details_are_mapped_correctly(completed_game):
         "challengeIndex": 0,
         "name": "Scale the Wall",
         "success": True,
+        "pointsEarned": 90,
         "penalty": 0,
+        "pointValue": 90,
+        "pointDesc": "The axe clears the obstacle efficiently.",
         "title": "Obstacle Cleared",
         "description": "The Axe gets the team past the challenge.",
         "itemUsed": {"id": "axe", "name": "Axe", "cost": 20},
+        "pointDesc": "The axe clears the obstacle efficiently.",
+        "pointValue": 90,
     }
 
 
@@ -147,6 +155,20 @@ def test_missing_challenge_name_uses_fallback(completed_game):
     result = build_result_state(completed_game)
 
     assert result["challenges"][0]["name"] == "Challenge 1"
+
+
+def test_mission_metadata_and_challenge_type_are_passed_through(
+    completed_game,
+):
+    completed_game["mission"]["mission_name"] = "The Final Push"
+    completed_game["mission"]["location"] = "Cinder Ridge"
+    completed_game["mission"]["challenges"][0]["type"] = "skill"
+
+    result = build_result_state(completed_game)
+
+    assert result["missionName"] == "The Final Push"
+    assert result["location"] == "Cinder Ridge"
+    assert result["challenges"][0]["type"] == "skill"
 
 
 def test_missing_challenge_list_uses_fallbacks(completed_game):
