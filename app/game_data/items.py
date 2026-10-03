@@ -18,8 +18,8 @@ items_dict = {
     "Axe": {"desc": "A sturdy axe for chopping wood, cutting through tangled vegetation and clearing obstacles.", "cost": 100, "image": "icons8-minecraft-axe-64.png", "hotbar_image": "icons8-minecraft-axe-32.png"},
     "Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
     "Inflatable Raft": {"desc": "A compact inflatable raft capable of carrying the team across water.", "cost": 140, "image": "icons8-raft-64.png", "hotbar_image": "icons8-raft-32.png"}, 
-    
     "Thermal Clothing": {"desc": "Insulated clothing designed to protect the wearer from dangerously cold conditions.", "cost": 70, "image": "icons8-winter-clothes-64.png", "hotbar_image": "icons8-winter-clothes-32.png"},
+    
     "Snow Boots": {"desc": "Heavy insulated boots providing warmth and traction across snow and ice.", "cost": 60, "image": "icons8-winter-boots-64.png", "hotbar_image": "icons8-winter-boots-32.png"},
     "Heat Resistant Suit": {"desc": "A protective suit designed to reduce exposure to extreme heat and hazardous environments.", "cost": 140, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"},
     "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},
