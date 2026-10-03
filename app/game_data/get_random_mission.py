@@ -22,7 +22,7 @@ def get_mission():
 
     # Select a random mission from that list
     selected_mission_dict = mission_options[random.randint(0, len(mission_options)-1)]
-    randomised_mission["mission"] = selected_mission_dict["mission_name"]\
+    randomised_mission["mission"] = selected_mission_dict["mission_name"]
 
     descriptions = get_mission_desc(mission_location, selected_mission_dict["mission_name"])
     randomised_mission["mission_description"] = descriptions[0]
@@ -30,12 +30,11 @@ def get_mission():
     for challenge_desc_name in descriptions[1]:
         randomised_mission[challenge_desc_name] = descriptions[1][challenge_desc_name]
     
-    # Choose a challenge for each of the 6 challenges in teh mission
+    # Choose a challenge for each of the 6 challenges in the mission
     challenge_nums = ["challenge_1", "challenge_2", "challenge_3", "challenge_4", "challenge_5", "challenge_6"]
     for challenge_num in challenge_nums:
         challenge_type = selected_mission_dict[challenge_num]
 
-        # Add somethings that catches if there is no option found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         challenge_options = []
         # Find all viable challenge options
         for challenge_name in challenges_dict[challenge_type]:
@@ -46,6 +45,12 @@ def get_mission():
         # Select a challenge
         selected_challenge_dict = challenge_options[random.randint(0, len(challenge_options)-1)]
         randomised_mission[challenge_num] = {**selected_challenge_dict, "type": challenge_type}
-        
+
+
+    # Get the weights
+        weight_nums = ["w1", "w2", "w3", "w4", "w5", "w6"]
+        for weight_num in weight_nums:
+            randomised_mission[weight_num] = selected_mission_dict[weight_num]
+
     
     return randomised_mission

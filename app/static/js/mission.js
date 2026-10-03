@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const countdownFill = document.getElementById("countdownFill");
   const countdownTrack = document.getElementById("countdownTrack");
   const missionTransition = document.getElementById("missionTransition");
+  const journeyBriefingDesc = document.getElementById("journeyBriefingDesc");
+  const journeyBriefingBtn = document.getElementById("journeyBriefingBtn");
   const challengeBlock = document.getElementById("challengeBlock");
   const CHALLENGE_SECONDS = 60;
   let timerChallengeIndex = null;
@@ -25,12 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastChallengeIndex = null;
   let transitioning = false;
   let pendingState = null;
+  let submittedVotes = {};
+  let challengeDescs = {};
+  let journeyTimers = [];
+  let journeyAnimationFrame = null;
+  let activeTransitionState = null;
 
   const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
   const JOURNEY_NODE_COUNT = 6;
 
   const journeyPath = document.getElementById("journeyPathLine");
+  const journeyPathEnergy = document.getElementById("journeyPathEnergy");
   const journeyRunner = document.getElementById("journeyRunner");
   const journeyParticles = document.getElementById("journeyParticles");
   const arrivalBurst = document.getElementById("arrivalBurst");
@@ -82,6 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function applyState(next) {
     state = next;
     if (state.phase === "result_page") return window.location.replace("/result_page");
+    if (state.myVote !== undefined && state.myVote !== null) submittedVotes[state.currentChallengeIndex] = state.myVote;
+    const submittedVote = submittedVotes[state.currentChallengeIndex];
     const challenge = state.challenge;
     document.getElementById("missionName").textContent = state.missionName;
     document.getElementById("challengeCount").textContent = `${Math.min(state.currentChallengeIndex + 1, state.totalChallenges)} OF ${state.totalChallenges}`;
@@ -97,7 +107,7 @@ function applyState(next) {
 
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
         timerChallengeIndex = state.currentChallengeIndex;
-        challengeEndsAt = Date.now() / 1000 + CHALLENGE_SECONDS;
+        challengeEndsAt = state.endsAt || Date.now() / 1000 + CHALLENGE_SECONDS;
         timedOutChallengeIndex = null;
       }
       if (state.status !== "active") {
@@ -116,18 +126,27 @@ function applyState(next) {
       itemGrid.appendChild(empty);
     }
     state.inventory.forEach((item) => {
-      const usable = active && !item.used;
+      const usable = active && submittedVote === undefined && !item.used;
+      const voteSubmittedForItem = active && submittedVote === item.id;
+      const usedForThisChallenge = state.outcome?.item?.id === item.id;
       const card = document.createElement("button");
       card.type = "button";
       card.className = "item-card";
       card.dataset.status = item.used ? "used" : "available";
       card.dataset.selected = String(selectedItemId === item.id);
+      card.dataset.voteSubmitted = String(voteSubmittedForItem);
       card.disabled = !usable;
       card.setAttribute("aria-pressed", String(selectedItemId === item.id));
       card.innerHTML = `<span class="item-icon"><img src="/static/images/${item.image}" alt=""></span><span class="item-name"></span><span class="item-status-pill"></span>`;
       card.querySelector('.item-icon').replaceChildren(window.gameVisuals.itemArt(item));
       card.querySelector(".item-name").textContent = item.name;
-      card.querySelector(".item-status-pill").textContent = item.used ? "Used" : "Owned";
+      card.querySelector(".item-status-pill").textContent = item.used
+        ? "Used"
+        : usedForThisChallenge
+          ? "Used"
+          : voteSubmittedForItem
+            ? "Vote submitted"
+            : "Owned";
       if (usable) card.addEventListener("click", () => {
         selectedItemId = selectedItemId === item.id ? null : item.id;
         applyState(state);
@@ -137,7 +156,16 @@ function applyState(next) {
 
     hotbarLabel.textContent = `TEAM INVENTORY · ${available.length}/${state.inventory.length} AVAILABLE · SCORE ${state.score}`;
     hotbarSlots.replaceChildren();
-    state.inventory.forEach((item) => {
+    (state.inventorySlots || state.inventory).forEach((item) => {
+      if (!item) {
+        const slot = document.createElement("div");
+        slot.className = "hotbar-slot blocked";
+        slot.textContent = "";
+        slot.title = "No item purchased this round";
+        slot.setAttribute("aria-label", slot.title);
+        hotbarSlots.appendChild(slot);
+        return;
+      }
       const slot = document.createElement("div");
       slot.className = "hotbar-slot filled";
       slot.dataset.status = item.used ? "used" : "available";
@@ -147,8 +175,16 @@ function applyState(next) {
       hotbarSlots.appendChild(slot);
     });
 
-    useItemBtn.disabled = !active || !selectedItemId;
-    continueBtn.disabled = !active;
+    useItemBtn.disabled = !active || submittedVote !== undefined || !selectedItemId;
+    continueBtn.disabled = !active || submittedVote !== undefined;
+    useItemBtn.dataset.submitted = String(submittedVote !== undefined && submittedVote !== "__continue__");
+    continueBtn.dataset.submitted = String(submittedVote === "__continue__");
+    const tally = Object.entries(state.voteTally || {})
+      .map(([id, count]) => `${id === "__continue__" ? "No item" : (state.inventory.find((item) => item.id === id)?.name || id)}: ${count}`)
+      .join(" · ");
+    document.getElementById("voteStatus").textContent = submittedVote !== undefined
+      ? `Your vote is submitted. Votes: ${state.voteCount}/${state.playerCount}${tally ? ` · ${tally}` : ""}`
+      : `Votes submitted: ${state.voteCount}/${state.playerCount}${tally ? ` · ${tally}` : ""}`;
 
     if (state.status === "resolved" && state.outcome) {
       feedbackBox.dataset.outcome = state.outcome.success ? "success" : "fail";
@@ -207,6 +243,12 @@ function applyState(next) {
 
   function setRunnerPosition(progress) {
     const point = getPathPosition(progress);
+
+    if (journeyPathEnergy && journeyPath) {
+      const pathLength = journeyPath.getTotalLength();
+      journeyPathEnergy.style.strokeDasharray = `${pathLength}`;
+      journeyPathEnergy.style.strokeDashoffset = `${pathLength * (1 - progress)}`;
+    }
 
     journeyRunner.style.left =
       `${point.x / 1000 * 100}%`;
@@ -392,7 +434,7 @@ function animateJourney(fromChallenge, toChallenge) {
 
       if (rawProgress < 1) {
 
-        requestAnimationFrame(frame);
+        journeyAnimationFrame = requestAnimationFrame(frame);
 
       } else {
         setRunnerPosition(endProgress);
@@ -405,12 +447,34 @@ function animateJourney(fromChallenge, toChallenge) {
       }
     }
 
-    requestAnimationFrame(frame);
+    journeyAnimationFrame = requestAnimationFrame(frame);
   }
 
-  function playChallengeTransition(next) {
+  function finishJourneyTransition() {
+    journeyTimers.forEach(clearTimeout);
+    journeyTimers = [];
+    if (journeyAnimationFrame !== null) {
+      cancelAnimationFrame(journeyAnimationFrame);
+      journeyAnimationFrame = null;
+    }
+    // Prefer the newest socket snapshot received during the animation so a
+    // skipped transition cannot restore an older inventory state.
+    const finalState = pendingState || activeTransitionState;
+    pendingState = null;
+    if (finalState) applyState(finalState);
+    missionTransition.classList.remove("active");
+    journeyRunner.style.opacity = "0";
+    transitioning = false;
+    activeTransitionState = null;
+
+  }
+
+function playChallengeTransition(next) {
 
     transitioning = true;
+    activeTransitionState = next;
+    journeyTimers.forEach(clearTimeout);
+    journeyTimers = [];
 
     hide(feedbackPopup);
 
@@ -449,9 +513,14 @@ function animateJourney(fromChallenge, toChallenge) {
       getNodePathProgress(fromChallenge)
     );
 
+    // Display the appropriate intermission description
+    const descKey = `challenge_${fromChallenge}_to_${toChallenge}_desc`;
+    const briefingText = challengeDescs[descKey] || challengeDescs.mission_start_desc || state?.missionDescription || "";
+    journeyBriefingDesc.textContent = briefingText;
+    document.getElementById("journeyBriefingTitle").textContent = `CHALLENGE ${toChallenge}`;
 
     /*give the browser a moment to render the map before starting the actual movement.*/
-    setTimeout(() => {
+    journeyTimers.push(setTimeout(() => {
 
       journeyRunner.style.opacity = "1";
 
@@ -462,37 +531,17 @@ function animateJourney(fromChallenge, toChallenge) {
         toChallenge
       );
 
-    }, 350);
+    }, 350));
 
 
     /* load the next challenge near the end of the journey. The user sees the destination before the actual challenge screen appears.*/
-    setTimeout(() => {
+    journeyTimers.push(setTimeout(() => {
 
       applyState(next);
 
-    }, JOURNEY_TRAVEL_MS + 500);
+    }, JOURNEY_TRAVEL_MS + 500));
 
-    setTimeout(() => {
-
-      missionTransition.classList.remove("active");
-
-      journeyRunner.style.opacity = "0";
-
-      transitioning = false;
-
-      /* if another socket state arrived whilethe animation was playing, render it now. */
-      if (pendingState) {
-
-        const queued =
-          pendingState;
-
-        pendingState = null;
-
-        render(queued);
-
-      }
-
-    }, TRANSITION_MS);
+    journeyTimers.push(setTimeout(finishJourneyTransition, TRANSITION_MS));
   }
 
   function render(next) {
@@ -525,18 +574,37 @@ function animateJourney(fromChallenge, toChallenge) {
     }
   }
 
-  useItemBtn.addEventListener("click", () => action("mission_use_item", { itemId: selectedItemId }));
-  continueBtn.addEventListener("click", () => action("mission_continue"));
+  useItemBtn.addEventListener("click", () => {
+    if (!selectedItemId || submittedVotes[state.currentChallengeIndex] !== undefined) return;
+    submittedVotes[state.currentChallengeIndex] = selectedItemId;
+    action("mission_use_item", { itemId: selectedItemId });
+    applyState(state);
+  });
+  continueBtn.addEventListener("click", () => {
+    if (submittedVotes[state.currentChallengeIndex] !== undefined) return;
+    submittedVotes[state.currentChallengeIndex] = "__continue__";
+    action("mission_continue");
+    applyState(state);
+  });
   feedbackClose.addEventListener("click", () => {
     if (state && (state.status === "resolved" || timedOutChallengeIndex === state.currentChallengeIndex)) {
       action("mission_advance");
     }
+  });
+  journeyBriefingBtn.addEventListener("click", () => {
+    finishJourneyTransition();
   });
   document.getElementById("instructionsBtn").addEventListener("click", () => show(instructionsPopup));
   document.getElementById("instructionsClose").addEventListener("click", () => hide(instructionsPopup));
   instructionsPopup.addEventListener("click", (event) => {
     if (event.target === instructionsPopup) hide(instructionsPopup);
   });
-  window.gameSocket.on("mission_state", render);
+  window.gameSocket.on("mission_state", (data) => {
+    // Store challenge descriptions when received
+    if (data.challengeDescs) {
+      challengeDescs = data.challengeDescs;
+    }
+    render(data);
+  });
   window.gameSocket.on("mission_complete", () => window.location.replace("/result_page"));
 });

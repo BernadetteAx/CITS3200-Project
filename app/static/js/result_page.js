@@ -105,7 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // Item Inventory - START
     // Renders ONE inventory list from itemsPurchased, marking each entry
-    // active when its id appears in itemsUsed. Replaces the former pair of
+    // active when its id appears in `used` — the items from passed
+    // challenges (see displayResults). Replaces the former pair of
     // "purchased" / "used" lists. The payload is read as-is; nothing here
     // changes result data or window.gameVisuals.
     function displayItems(purchased, used) {
@@ -144,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (active) {
           const badge = document.createElement("span");
           badge.className = "inventory-badge";
-          badge.textContent = "[ACTIVE]";
+          badge.textContent = "[UTILIZED]";
           text.appendChild(badge);
         }
 
@@ -156,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       purchased.forEach((item) => addEntry(item, usedIds.has(keyOf(item))));
 
-      // Defensive: a used item with no purchase record still shows, as active,
+      // Defensive: a utilized item with no purchase record still shows, as active,
       // rather than vanishing from the debrief.
       used.forEach((item) => {
         if (!rendered.has(keyOf(item))) addEntry(item, true);
@@ -200,10 +201,16 @@ document.addEventListener("DOMContentLoaded", () => {
       displayChallenges(result.challenges ?? [], result.location, result.missionName);
   
       // Item Inventory - START
-      displayItems(result.itemsPurchased ?? [], result.itemsUsed ?? []);
+      // Highlight only items that helped pass a challenge ("utilized"),
+      // not every item in itemsUsed. Presentation only: the payload and
+      // session data are read as-is. Duplicates collapse in displayItems.
+      const utilizedItems = (result.challenges ?? [])
+        .filter((challenge) => challenge?.success === true && challenge.itemUsed)
+        .map((challenge) => challenge.itemUsed);
+      displayItems(result.itemsPurchased ?? [], utilizedItems);
       // Item Inventory - END
   
-      message.textContent = "YOUR TEAM'S FINAL RESULTS";
+      message.textContent = "";
     }
   
     if (!socket) {

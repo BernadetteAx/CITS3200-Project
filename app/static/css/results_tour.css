@@ -1,0 +1,263 @@
+/* =====================================================================
+   RESULTS_TOUR.CSS — "?" spotlight tour for the Game Results page
+   =====================================================================
+   Additive only: overrides no existing rule. Every element styled here
+   is created at runtime by results_tour.js, except the "?" button,
+   which reuses the shared .instructions-trigger style.
+
+       .results-tour            fixed root (one per run)
+       .results-tour-scrim      the one scrim: blocks the page, click = skip
+       .results-tour-spotlight  the one spotlight: lit hole + page darkening
+       .results-tour-card       the one reusable coach mark
+
+   The darkening is the spotlight's outward box-shadow rather than a
+   separate layer, which is what lets the lit area glide between panels.
+   ===================================================================== */
+
+.results-tour {
+    position: fixed;
+    inset: 0;
+    z-index: 9500; /* above the page and the CRT reveal, below the "?" button */
+
+    pointer-events: none;
+
+    opacity: 0;
+    transition: opacity 320ms ease; /* FADE_OUT in results_tour.js */
+
+    /* Set from JS via getBoundingClientRect() — never hardcoded. */
+    --spotlight-x: 50vw;
+    --spotlight-y: 50vh;
+    --spotlight-width: 0px;
+    --spotlight-height: 0px;
+    --card-x: 50vw;
+    --card-y: 50vh;
+
+    --tour-accent: var(--correct, #3ddc84);
+    --tour-glide: 450ms cubic-bezier(0.22, 0.61, 0.36, 1); /* GLIDE */
+}
+
+.results-tour[data-visible="true"] {
+    opacity: 1;
+}
+
+
+/* ---------------------------------------------------------------
+   SCRIM — transparent click catcher
+   --------------------------------------------------------------- */
+.results-tour-scrim {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------------
+   SPOTLIGHT
+   Its own box is transparent so the target shows through untouched.
+   --------------------------------------------------------------- */
+.results-tour-spotlight {
+    position: fixed;
+    top: var(--spotlight-y);
+    left: var(--spotlight-x);
+    width: var(--spotlight-width);
+    height: var(--spotlight-height);
+    box-sizing: border-box; /* border sits inside the measured frame */
+
+    pointer-events: none;
+
+    border: 3px solid var(--tour-accent);
+    border-radius: 3px;
+
+    box-shadow:
+        0 0 0 200vmax rgba(0, 0, 0, 0.8),
+        0 0 14px rgba(61, 220, 132, 0.45),
+        inset 0 0 18px rgba(61, 220, 132, 0.12);
+
+    transition:
+        top var(--tour-glide),
+        left var(--tour-glide),
+        width var(--tour-glide),
+        height var(--tour-glide);
+}
+
+/* One-shot arrival flare. Animates a separate ring so the large page
+   shadow above is never repainted per frame. */
+.results-tour-spotlight::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    opacity: 0;
+    box-shadow:
+        0 0 28px rgba(61, 220, 132, 0.7),
+        0 0 56px rgba(61, 220, 132, 0.3);
+}
+
+.results-tour-spotlight.is-arriving::after {
+    animation: results-tour-flare 900ms ease-out 250ms 1 both;
+}
+
+@keyframes results-tour-flare {
+    0%   { opacity: 0; }
+    35%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+/* ---------------------------------------------------------------
+   COACH MARK — pixel-art card
+   --------------------------------------------------------------- */
+.results-tour-card {
+    position: fixed;
+    top: var(--card-y);
+    left: var(--card-x);
+
+    width: min(84vw, 320px);
+    box-sizing: border-box;
+
+    background: var(--card-bg, #111111);
+    border: 3px solid var(--tour-accent);
+    border-radius: 2px;
+    padding: 14px 16px;
+
+    pointer-events: auto;
+
+    font-family: var(--font-press, "Press Start 2P", system-ui);
+    color: var(--text-main, #ffffff);
+
+    box-shadow:
+        0 0 0 2px #000000,
+        0 0 16px rgba(61, 220, 132, 0.3),
+        0 6px 0 rgba(0, 0, 0, 0.55);
+
+    transition:
+        top var(--tour-glide),
+        left var(--tour-glide);
+}
+
+.results-tour-card.is-arriving {
+    animation: results-tour-card-in 260ms ease-out 1 both;
+}
+
+.results-tour-step {
+    margin: 0 0 8px;
+    font-size: 0.45rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted, #aaaaaa);
+}
+
+.results-tour-card h2 {
+    margin: 0 0 10px;
+    font-size: 0.64rem;
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+    color: var(--tour-accent);
+}
+
+.results-tour-card p[aria-live] {
+    margin: 0 0 12px;
+    font-size: 0.52rem;
+    line-height: 1.8;
+    color: var(--text-muted, #cccccc);
+}
+
+/* Pixel pointer aimed at the highlighted panel. */
+.results-tour-card::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 9px solid transparent;
+}
+
+.results-tour-card[data-placement="below"]::after {
+    bottom: 100%;
+    left: var(--pointer, 24px);
+    border-top-width: 0;
+    border-bottom-color: var(--tour-accent);
+}
+
+.results-tour-card[data-placement="above"]::after {
+    top: 100%;
+    left: var(--pointer, 24px);
+    border-bottom-width: 0;
+    border-top-color: var(--tour-accent);
+}
+
+.results-tour-card[data-placement="right"]::after {
+    right: 100%;
+    top: var(--pointer, 24px);
+    border-left-width: 0;
+    border-right-color: var(--tour-accent);
+}
+
+.results-tour-card[data-placement="left"]::after {
+    left: 100%;
+    top: var(--pointer, 24px);
+    border-right-width: 0;
+    border-left-color: var(--tour-accent);
+}
+
+
+/* ---------------------------------------------------------------
+   SKIP
+   --------------------------------------------------------------- */
+.results-tour-skip {
+    background: transparent;
+    color: var(--text-main, #ffffff);
+    border: 2px solid var(--tile-border, #3a3a3a);
+    border-radius: 2px;
+    padding: 8px 14px;
+    font-family: inherit;
+    font-size: 0.48rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+}
+
+.results-tour-skip:hover,
+.results-tour-skip:focus-visible {
+    border-color: var(--tour-accent);
+    color: var(--tour-accent);
+}
+
+.results-tour-skip:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+@keyframes results-tour-card-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ---------------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------------- */
+@media (max-width: 700px) {
+    .results-tour-card {
+        width: min(86vw, 280px);
+        padding: 12px 14px;
+    }
+
+    .results-tour-card h2 { font-size: 0.56rem; margin-bottom: 8px; }
+    .results-tour-card p[aria-live] { font-size: 0.48rem; line-height: 1.7; }
+}
+
+
+/* ---------------------------------------------------------------
+   ACCESSIBILITY — reduced motion
+   The tour still runs and SKIP still works; the spotlight jumps
+   instead of gliding and nothing flares or pops.
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .results-tour,
+    .results-tour-spotlight,
+    .results-tour-spotlight::after,
+    .results-tour-card {
+        transition: none !important;
+        animation: none !important;
+    }
+}

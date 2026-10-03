@@ -1,11 +1,22 @@
 """Authoritative Socket.IO state and actions for the generated mission phase."""
 
+import time
+import threading
+
 from flask import request
 from flask_socketio import emit
 
 from app.extensions import socketio
 from app.game_data.example_mission import example_mission
 from app.sockets.sessions import get_session
+
+_mission_locks = {}
+_mission_locks_guard = threading.Lock()
+
+
+def _mission_lock(session_code):
+    with _mission_locks_guard:
+        return _mission_locks.setdefault(session_code, threading.RLock())
 
 
 # Challenge Card Detail - START
@@ -26,14 +37,21 @@ def _normalise_challenges(generated_mission):
         challenge = generated_mission[f"challenge_{index}"]
         name = challenge["challenge_name"]
         description = (challenge.get("desc") or "").strip()
+        continue_failure_desc = (challenge.get("continue_failure_desc") or "").strip()
+        final_failure_desc = (challenge.get("final_failure_desc") or "").strip()
         if not description or description.lower() in {"incomplete", "imcomplete"}:
             description = f"Your crew faces {name}. Check your equipment and choose how to continue. Taking the long way round costs your team points."
         description = description.replace("insert_item_here", "mission objective")
+        weight = generated_mission[f"w{index}"]
+
         challenges.append({
             "id": f"challenge-{index}",
             "name": name,
             "type": challenge.get("type", ""),
             "description": description,
+            "weight": weight,
+            "continue_failure_desc": continue_failure_desc,
+            "final_failure_desc": final_failure_desc,
             "image": "icons8-about-64.png",
             # Dict keyed by item name so _resolve can look up point_value.
             # (Restored after a merge resolution reverted this to a list,
@@ -73,9 +91,12 @@ def initialise_mission(session, generated_mission=None):
         session["mission"] = {"mission_name": generated_mission["mission"],
             "location": generated_mission.get("location", ""),
             "mission_description": generated_mission.get("mission_description", generated_mission.get("mission_desc", "")),
+            "challenge_descriptions": {key: value for key, value in generated_mission.items()
+                                       if key.endswith("_desc") and isinstance(value, str)},
             "challenges": _normalise_challenges(generated_mission), "current_challenge_index": 0,
             "inventory": [dict(item) for item in session.get("purchased_items", [])], "used_items": [],
-            "outcome_log": [], "score": 0, "penalties": 0, "status": "active", "outcome": None}
+            "outcome_log": [], "score": 0, "penalties": 0, "status": "active", "outcome": None,
+            "votes": {}, "challenge_ends_at": time.time() + 60}
     return session["mission"]
 
 
@@ -96,20 +117,79 @@ def _state(session):
     current = mission["challenges"][index] if index < len(mission["challenges"]) else None
     used = set(mission["used_items"])
     inventory = [{**item, "used": item["id"] in used} for item in mission["inventory"]]
+    tally = {}
+    for vote in mission.get("votes", {}).values():
+        tally[vote] = tally.get(vote, 0) + 1
     return {"phase": session["phase"], "missionName": mission["mission_name"], "location": mission.get("location", ""),
-        "missionDescription": mission["mission_description"], "currentChallengeIndex": index,
+        "missionDescription": mission["mission_description"],
+        "challengeDescs": mission.get("challenge_descriptions", {}), "currentChallengeIndex": index,
         "totalChallenges": len(mission["challenges"]), "challenge": current, "inventory": inventory,
+        "inventorySlots": session.get("inventory_slots", inventory),
         "usedItems": list(mission["used_items"]), "outcomeLog": list(mission["outcome_log"]),
-        "score": mission["score"], "penalties": mission["penalties"], "status": mission["status"], "outcome": mission["outcome"]}
+        "score": mission["score"], "penalties": mission["penalties"], "status": mission["status"], "outcome": mission["outcome"],
+        "voteTally": tally, "voteCount": len(mission.get("votes", {})),
+        "playerCount": sum(1 for player in session["players"].values() if player.get("connected")),
+        "voting": mission["status"] == "active", "endsAt": mission.get("challenge_ends_at")}
 
 
 def broadcast_mission_state(session_code, session):
     socketio.emit("mission_state", _state(session), room=session_code)
 
 
-def emit_mission_state_to_player(session):
+def emit_mission_state_to_player(session, player_id=None):
     if session.get("mission"):
-        emit("mission_state", _state(session))
+        state = _state(session)
+        state["myVote"] = session["mission"].get("votes", {}).get(player_id)
+        emit("mission_state", state)
+
+
+def _submit_vote(code, session, mission, player_id, vote):
+    with _mission_lock(code):
+        if mission.get("status") != "active" or player_id in mission.setdefault("votes", {}):
+            return
+        connected = {pid for pid, player in session["players"].items() if player.get("connected")}
+        mission["votes"][player_id] = vote
+        if connected and connected.issubset(mission["votes"]):
+            _finalize_current_votes(code, session, mission)
+        else:
+            broadcast_mission_state(code, session)
+
+
+def handle_player_disconnected(session_code, session):
+    """Resolve a completed vote when a voter disconnects."""
+    mission = session.get("mission")
+    if not mission or mission.get("status") != "active":
+        return
+    connected = {pid for pid, player in session["players"].items() if player.get("connected")}
+    if connected and connected.issubset(mission.get("votes", {})):
+        _finalize_current_votes(session_code, session, mission)
+
+
+def handle_player_left(session_code, session, player_id):
+    """Drop a departed player's vote and recheck the remaining voters."""
+    mission = session.get("mission")
+    if not mission or mission.get("status") != "active":
+        return
+    mission.get("votes", {}).pop(player_id, None)
+    handle_player_disconnected(session_code, session)
+    if mission.get("status") == "active":
+        broadcast_mission_state(session_code, session)
+
+
+def _finalize_current_votes(code, session, mission):
+    with _mission_lock(code):
+        if mission.get("status") != "active":
+            return
+        counts = {}
+        for submitted in mission.get("votes", {}).values():
+            counts[submitted] = counts.get(submitted, 0) + 1
+        if not counts:
+            _resolve(code, session, mission, timed_out=True)
+            return
+        winner = max(counts, key=lambda candidate: (counts[candidate], -next(
+            (i for i, item in enumerate(mission["inventory"]) if item["id"] == candidate), len(mission["inventory"]))))
+        item = None if winner == "__continue__" else next((item for item in mission["inventory"] if item["id"] == winner), None)
+        _resolve(code, session, mission, item)
 
 
 def _action_session(payload):
@@ -131,16 +211,20 @@ def _resolve(code, session, mission, item=None, timed_out=False):
     instant_failure = False
 
     if item:
-        mission["used_items"].append(item["id"])
-
         item_result = challenge["success_items"].get(item["name"])
         failure_result = challenge["failure_items"].get(item["name"])
+
+        # The vote winner is the item used for this challenge. Record it even
+        # when the challenge result describes it as reusable; the mission UI
+        # and results need to retain the team's winning choice after advancing.
+        if item["id"] not in mission["used_items"]:
+            mission["used_items"].append(item["id"])
 
         successful = item_result is not None
         instant_failure = failure_result is not None
 
         if successful:
-            points_earned = int(item_result.get("point_value", 0))
+            points_earned = int(item_result.get("point_value", 50)) * float(challenge.get("weight", 1))
             title = "Obstacle Cleared"
             description = (
                 _usable_text(item_result.get("use_desc"))
@@ -159,8 +243,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
             points_earned = 0
             title = "A Costly Detour"
             description = (
-                f"The {item['name']} was not enough; "
-                "the team takes a longer route."
+                f"The {item['name']} could not be used here. " + challenge.get("continue_failure_desc", "")
             )
 
     elif timed_out:
@@ -168,15 +251,15 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         points_earned = 0
         title = "Time Ran Out"
         description = (
-            "The team ran out of time and had to take the longer route."
+            "The team deliberated for too long and was forced to make a hasty decision. " + challenge.get("continue_failure_desc", "")
         )
 
     else:
         successful = False
         points_earned = 0
-        title = "Forced to Double Back"
+        title = "A Costly Detour"
         description = (
-            "No item was used, so the team took the longer route."
+            "No item was used. " + challenge.get("continue_failure_desc", "")
         )
 
     # Normal failures count towards the three-failure limit.
@@ -195,7 +278,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         if item else None
     )
     point_desc = (effect or {}).get("point_desc")
-    point_value = (effect or {}).get("point_value")
+    point_value = ((effect or {}).get("point_value", 0))
     # Challenge Card Detail - END
 
     outcome = {
@@ -208,7 +291,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         "title": title,
         "description": description,
         "pointDesc": point_desc,
-        "pointValue": point_value
+        "pointValue": (point_value * float(challenge.get("weight", 1)))
     }
 
     mission["outcome"] = outcome
@@ -269,19 +352,23 @@ def mission_use_item(payload):
     if not session or mission["status"] != "active": return
     item_id = payload.get("itemId")
     item = next((item for item in mission["inventory"] if item["id"] == item_id), None)
-    if not item or item_id in mission["used_items"]: return
-    _resolve(code, session, mission, item)
+    player_id = _valid_player(session, payload)
+    if not item or item_id in mission["used_items"] or not player_id: return
+    _submit_vote(code, session, mission, player_id, item_id)
 
 
 @socketio.on("mission_continue")
 def mission_continue(payload):
     code, session, mission = _action_session(payload)
-    if session and mission["status"] == "active": _resolve(code, session, mission)
+    player_id = _valid_player(session, payload) if session else None
+    if session and player_id and mission["status"] == "active":
+        _submit_vote(code, session, mission, player_id, "__continue__")
 
 @socketio.on("mission_timeout")
 def mission_timeout(payload):
     code, session, mission = _action_session(payload)
-    if session and mission["status"] == "active": _resolve(code, session, mission, timed_out=True)
+    if session and mission["status"] == "active" and time.time() >= mission.get("challenge_ends_at", 0):
+        _finalize_current_votes(code, session, mission)
 
 
 @socketio.on("mission_advance")
@@ -290,6 +377,8 @@ def mission_advance(payload):
     if not session or mission["status"] != "resolved": return
     mission["current_challenge_index"] += 1
     mission["outcome"] = None
+    mission["votes"] = {}
+    mission["challenge_ends_at"] = time.time() + 60
     if mission["current_challenge_index"] >= len(mission["challenges"]):
         mission["status"] = "complete"
         session["mission_result"] = {"score": mission["score"], "penalties": mission["penalties"], "outcomes": list(mission["outcome_log"])}
