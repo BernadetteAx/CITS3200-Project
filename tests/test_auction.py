@@ -279,8 +279,8 @@ def test_invalid_vote_is_ignored(voting_game, player, item):
     assert voting_game["auction"]["votes"] == {}
 
 
-def test_finished_player_cannot_change_vote(voting_game):
-    auction.auction_vote(payload())
+def test_player_can_change_vote_until_host_ends_round(voting_game):
+    auction.auction_vote(payload(item="axe"))
     auction.auction_finish_voting(payload())
 
     auction.auction_vote(payload(item="water-bottle"))
