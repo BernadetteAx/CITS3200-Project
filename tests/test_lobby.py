@@ -457,6 +457,7 @@ def test_unknown_socket_disconnect_is_ignored(lobby_game, lobby_io):
 def test_intentional_leave_removes_player_and_updates_lobby(
     lobby_game, lobby_io
 ):
+    lobby_io.request.sid = "socket-2"
     lobby.handle_leave_session(action_payload(player="player-2"))
 
     assert set(lobby_game["players"]) == {"player-1"}
@@ -491,6 +492,7 @@ def test_intentional_host_leave_reassigns_host(lobby_game, lobby_io):
 def test_auction_leave_rechecks_progress(lobby_game, lobby_io):
     lobby_game["phase"] = "auction"
     lobby_game["auction"] = {"status": "voting"}
+    lobby_io.request.sid = "socket-2"
 
     lobby.handle_leave_session(action_payload(player="player-2"))
 
@@ -535,6 +537,7 @@ def test_reconnect_after_resolved_disconnect_keeps_current_state(
 
 
 def test_departed_player_does_not_block_start_game(lobby_game, lobby_io):
+    lobby_io.request.sid = "socket-2"
     lobby.handle_leave_session(action_payload(player="player-2"))
     lobby_game["players"]["player-1"]["ready"] = True
     lobby_io.emit.reset_mock()
