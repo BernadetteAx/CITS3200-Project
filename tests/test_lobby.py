@@ -184,7 +184,9 @@ def test_reconnect_restores_phase_state(lobby_game, lobby_io, phase):
     )
 
     if phase == "mission":
-        lobby_io.mission_state.assert_called_once_with(lobby_game)
+        lobby_io.mission_state.assert_called_once_with(
+            lobby_game, "player-1"
+        )
     else:
         assert joined_data(lobby_io)["auctionStartTime"] == 1234
         lobby_io.mission_state.assert_not_called()
@@ -202,7 +204,9 @@ def test_reconnect_in_mission_sends_auction_and_mission_state(
     lobby_io.auction_state.assert_called_once_with(
         lobby_game, "player-1"
     )
-    lobby_io.mission_state.assert_called_once_with(lobby_game)
+    lobby_io.mission_state.assert_called_once_with(
+        lobby_game, "player-1"
+    )
 
 
 @pytest.mark.parametrize("available", [True, False])
