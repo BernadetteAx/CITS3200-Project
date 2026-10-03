@@ -17,6 +17,7 @@ def mission_game(sample_session, monkeypatch):
     sample_session["phase"] = "mission"
     sample_session["players"]["player-1"]["socket_id"] = "socket-1"
     sample_session["players"]["player-2"]["socket_id"] = "socket-2"
+    sample_session["players"]["player-2"]["connected"] = False
 
     sample_session["purchased_items"] = [
         {"id": "axe", "name": "Axe"},
@@ -122,6 +123,31 @@ def test_successful_item_records_adds_its_point_value(mission_game):
     mission.socketio.emit.assert_any_call(
         "mission_outcome", outcome, room="ABCD"
     )
+
+
+def test_mission_waits_for_all_connected_players(sample_session, monkeypatch):
+    sample_session["phase"] = "mission"
+    sample_session["purchased_items"] = [{"id": "axe", "name": "Axe"}]
+    sample_session["players"]["player-1"].update(
+        socket_id="socket-1", connected=True
+    )
+    sample_session["players"]["player-2"].update(
+        socket_id="socket-2", connected=True
+    )
+    monkeypatch.setattr(
+        mission, "request", SimpleNamespace(sid="socket-1")
+    )
+    state = mission.initialise_mission(sample_session)
+
+    mission.mission_use_item(payload(item="axe"))
+    assert state["status"] == "active"
+    assert state["votes"] == {"player-1": "axe"}
+
+    mission.request.sid = "socket-2"
+    mission.mission_use_item(payload(item="axe", player="player-2"))
+
+    assert state["status"] == "resolved"
+    assert state["votes"] == {"player-1": "axe", "player-2": "axe"}
 
 
 def test_unsuitable_item_does_not_add_points_or_penalty(mission_game):
@@ -364,10 +390,13 @@ def test_state_marks_used_items_without_changing_inventory(mission_game):
 
 
 def test_personal_state_is_emitted(mission_game):
-    mission.emit_mission_state_to_player(mission_game)
+    mission.emit_mission_state_to_player(mission_game, "player-1")
 
     mission.emit.assert_called_once_with(
-        "mission_state", mission._state(mission_game)
+        "mission_state", {
+            **mission._state(mission_game),
+            "myVote": None,
+        }
     )
 
 
@@ -460,6 +489,7 @@ def test_completing_mission_records_final_results(
 
 
 def test_mission_timeout_fails_challenge_and_applies_penalty(mission_game):
+    mission_game["mission"]["challenge_ends_at"] = 0
     mission.mission_timeout(payload())
 
     state = mission_game["mission"]
@@ -477,6 +507,7 @@ def test_mission_timeout_fails_challenge_and_applies_penalty(mission_game):
 
 
 def test_timeout_cannot_resolve_already_resolved_challenge(mission_game):
+    mission_game["mission"]["challenge_ends_at"] = 0
     mission.mission_timeout(payload())
 
     outcome_count = len(mission_game["mission"]["outcome_log"])
@@ -489,6 +520,7 @@ def test_timeout_cannot_resolve_already_resolved_challenge(mission_game):
 
 
 def test_timeout_broadcasts_outcome(mission_game):
+    mission_game["mission"]["challenge_ends_at"] = 0
     mission.mission_timeout(payload())
 
     outcome = mission_game["mission"]["outcome"]
