@@ -4,11 +4,7 @@ import pytest
 
 from app.sockets.handlers import auction
 
-
-# ---------------------------------------------------------------------------
 # Fixtures and test helpers
-# ---------------------------------------------------------------------------
-
 
 @pytest.fixture
 def auction_game(sample_session, monkeypatch):
@@ -45,9 +41,7 @@ def payload(player="player-1", item="axe", code="ABCD"):
     }
 
 
-# ---------------------------------------------------------------------------
 # Auction setup and mission item generation
-# ---------------------------------------------------------------------------
 
 
 def test_initialise_auction(auction_game):
@@ -132,6 +126,7 @@ def test_build_mission_item_pairs_selects_one_useful_item_per_challenge(
         "sample",
         lambda population, count: population[:count],
     )
+    monkeypatch.setattr(auction, "shuffle", lambda population: None)
 
     pairs = auction._build_mission_item_pairs(generated_mission)
 
@@ -154,18 +149,19 @@ def test_build_mission_item_pairs_falls_back_for_repeated_useful_items(
         "sample",
         lambda population, count: population[:count],
     )
+    monkeypatch.setattr(auction, "shuffle", lambda population: None)
 
     pairs = auction._build_mission_item_pairs(generated_mission)
 
     assert len(pairs) == 8
-    assert [pair[0]["id"] for pair in pairs[:6]] == [
-        "axe"
-    ] * 6
+    offered_ids = [item["id"] for pair in pairs for item in pair]
+    assert offered_ids.count("axe") == 1
+    assert len(offered_ids) == len(set(offered_ids))
 
 
-# ---------------------------------------------------------------------------
+
 # Beginning and starting a round
-# ---------------------------------------------------------------------------
+
 
 
 def test_host_can_begin_auction(auction_game):
@@ -249,19 +245,22 @@ def test_start_round_resets_previous_round(
     )
 
 
-# ---------------------------------------------------------------------------
+
 # Voting flow and validation
-# ---------------------------------------------------------------------------
+
 
 
 def test_player_can_vote_and_change_vote(voting_game):
     auction.auction_vote(payload(item="axe"))
-    assert voting_game["auction"]["votes"]["player-1"] == "axe"
+    assert voting_game["auction"]["selections"]["player-1"] == "axe"
+    assert voting_game["auction"]["votes"] == {}
 
     auction.auction_vote(payload(item="water-bottle"))
-    assert voting_game["auction"]["votes"] == {
-        "player-1": "water-bottle"
-    }
+    assert voting_game["auction"]["selections"]["player-1"] == "water-bottle"
+    assert voting_game["auction"]["votes"] == {}
+
+    auction.auction_finish_voting(payload())
+    assert voting_game["auction"]["votes"] == {"player-1": "water-bottle"}
 
 
 @pytest.mark.parametrize(
@@ -284,6 +283,9 @@ def test_player_can_change_vote_until_host_ends_round(voting_game):
     auction.auction_finish_voting(payload())
 
     auction.auction_vote(payload(item="water-bottle"))
+    assert voting_game["auction"]["votes"]["player-1"] == "axe"
+
+    auction.auction_finish_voting(payload())
 
     assert voting_game["auction"]["votes"]["player-1"] == "water-bottle"
 
@@ -451,7 +453,7 @@ def test_skip_replaces_vote_and_finishes_player(voting_game):
     assert "player-1" in voting_game["auction"]["finished_players"]
 
 
-def test_finished_player_cannot_replace_vote_with_skip(voting_game):
+def test_finished_player_can_replace_vote_with_skip(voting_game):
     auction.auction_vote(payload())
     auction.auction_finish_voting(payload())
 
@@ -460,9 +462,9 @@ def test_finished_player_cannot_replace_vote_with_skip(voting_game):
     assert voting_game["auction"]["votes"]["player-1"] == "skip"
 
 
-# ---------------------------------------------------------------------------
+
 # Round resolution outcomes
-# ---------------------------------------------------------------------------
+
 
 
 @pytest.mark.parametrize(
@@ -535,9 +537,9 @@ def test_resolution_cannot_charge_twice(voting_game):
     auction.socketio.start_background_task.assert_not_called()
 
 
-# ---------------------------------------------------------------------------
+
 # Broadcast and player-specific state
-# ---------------------------------------------------------------------------
+
 
 
 def test_broadcast_keeps_votes_anonymous(voting_game):
@@ -569,9 +571,9 @@ def test_personal_state_only_contains_own_vote(voting_game):
     assert "votes" not in state
 
 
-# ---------------------------------------------------------------------------
+
 # Timer and round advancement
-# ---------------------------------------------------------------------------
+
 
 
 def test_timer_resolves_round_when_deadline_is_reached(voting_game):
@@ -718,9 +720,9 @@ def test_invalid_advance_is_ignored(
     auction.socketio.start_background_task.assert_not_called()
 
 
-# ---------------------------------------------------------------------------
+
 # Host resolution permissions and round override
-# ---------------------------------------------------------------------------
+
 
 
 def test_host_can_resolve_round_when_all_players_have_finished(voting_game):
