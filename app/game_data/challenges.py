@@ -142,7 +142,7 @@ challenges_dict = {
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly it to the top of the cliff. You find a good landing spot and are able to continue your mission.", "used": False, "point_value": 100, "point_desc": "The helicopter is a quick, easy and safe way to reach the top of the cliff."},
                 "Ice Axes": {"use_desc": "Your team use the ice axes to wedge into the hard rock and pull themselves up. The ice axes were damaged in the process.", "used": True, "point_value": 60, "point_desc": "The ice axes were able to get your team over the cliff, but they took a lot of work to use in this kind of climbing. Beyond that, the ascent was pretty dangerous."},
                 "Rope": {"use_desc": "Your team uses the rope to secure yourselves to sections of the cliff and you successfully make the ascent. Being used in this way causes the rope to fray and become unusable.", "used": True, "point_value": 80, "point_desc": "The rope is able to get your team up the cliff successfully, but is a rather dangerous approach."},
-                "Grappling hook":{"use_desc": "Your team uses the grappling hook to haul yourselves up sections of the cliff.", "used": False, "point_value": 90, "point_desc": "The grappling hook is great at getting your team up the cliff, even if it is a bit unsafe."},
+                "Grappling Hook":{"use_desc": "Your team uses the grappling hook to haul yourselves up sections of the cliff.", "used": False, "point_value": 90, "point_desc": "The grappling hook is great at getting your team up the cliff, even if it is a bit unsafe."},
             }, 
             "failure_items": {
                 "Explosives": {"use_desc": "Your team set the explosive charges at the base of the cliff and move a safe distance away. The explosives go off and create a huge explosion. Rubble rains from the sky. A large section of the cliff that survived the explosion is now unsupported and begins to crack off. Your team try to run, but the stone crashes down, taking out the whole team.", "used": True, "point_value": 0, "point_desc": "That's a whole lot of birds with one stone. Your team really needs to be more careful when it comes to explosives. They can often have unintended repercussions."},
@@ -1160,6 +1160,7 @@ challenges_dict = {
             "viable_locations": ["Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Lock Picks": {"use_desc": "Your team find that there are small pieces of rock jammed in the hatch hinges. You use the lock picks to retrieve them and the hatch can now open. The lock picks are damaged in the process.", "used": True, "point_value": 60, "point_desc": "It's pretty finicky, getting the rocks out of the hinges, but it does repair functionality to the hatch."},
                 "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to realign the exit hatch and repair it.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairing the hatch."},
                 "Axe": {"use_desc": "You find that the hinges to the door have been knocked out of alignment. You use the blunt side of the axe blade to knock them back into alignment, allowing the door to open.", "used": False, "point_value": 90, "point_desc": "The axe allowed your team to successfully repair the door. It just took a bit of work to ensure that everything was lined up."},
                 "Welding Kit": {"use_desc": "You find that the hinges to the door have been knocked out of alignment. You use the welding kit to fuse them back in the correct position, allowing the door to open. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for handling a job like this."},
@@ -1322,6 +1323,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Lock Picks": {"use_desc": "Your team uses the lock picks on the gate lock and get past it.", "used": False, "point_value": 100, "point_desc": "The lock picks are ideal for subtly getting past locked gates."},
                 "Toolkit": {"use_desc": "Your team use the bolt cutters in the toolkit to break the gate lock and get by. The bolt cutters weren't designed for breaking that kind of lock and get damaged in the process.", "used": True, "point_value": 80, "point_desc": "Your team gets through the gate quickly, but you damaged the gate, making it obvious that someoone got past."},
                 "Map": {"use_desc": "Your team approach the building. You realise that the key to the door is still in the lock. You slide the map halfway under the door, and with some effort, get the key to fall free. It lands on the map and you are able to pull it back to your side and unlock the door. Your team then grabs the key to the gate and unlocks it.", "used": False, "point_value": 90, "point_desc": "You get past the gate quietly and without a lot of effort."},
                 "Compass": {"use_desc": "Your team take apart the compass and retrieve the needle. You use the needle like a lock pick and get past the locked gate. The compass is damaged in the process.", "used": True, "point_value": 50, "point_desc": "Using the compass needle as a lock pick takes a lot of time and finesse but it does work."},
@@ -1519,6 +1521,7 @@ challenges_dict = {
             "viable_locations": ["City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items": {
+                "Lock Picks": {"use_desc": "The mechanism to activate the walkway requires a key, fortunately your lock picks do the trick and the walkway extends.", "used": False, "point_value": 100, "point_desc": "Lock picks are and ideal way to allow your team to cross the walkway safely."},
                 "Map": {"use_desc": "Your team use the map to navigate around the obstacle.", "used": False, "point_value": 10, "point_desc": "Doubling back to avoid the obstacle takes a long time and a lot of energy."},
                 "Compass": {"use_desc": "Your team use the compass to navigate around the obstacle.", "used": False, "point_value": 5, "point_desc": "Doubling back to avoid the obstacle takes a long time and a lot of energy."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly right over the retracted loading walkway.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for passing over manmade obstacles."},
@@ -1540,6 +1543,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Lock Picks": {"use_desc": "Your team sneak to the central control system. The door is locked, so your team uses the lock picks to break in. From here you deactivate all the alarms.", "used": False, "point_value": 100, "point_desc": "The lock picks allow you to deactivate the alarms from the main control system, thereby reducing suspicion."},
                 "Toolkit": {"use_desc": "Your team find the fuse box that powers the alarms. You use the tools in the toolkit to uncouple the wires, cutting the power. The nearby section alarms loose power, preventing them from triggering.", "used": False, "point_value": 100, "point_desc": "The toolkit was a quick and effective solution that left no obvious hint of foul play."},
                 "Axe": {"use_desc": "You plunge the axe into the alarm wiring. The nearby section alarms loose power, preventing them from triggering.", "used": False, "point_value": 85, "point_desc": "You were successful in deactivating the alarms, but the damage you did is pretty obvious and may attract attention."},
                 "Water Bottle": {"use_desc": "Your team find a fuse box that powers the alarms. You pour water over the contents and the alarms loose power. The backup generator will switch on soon, but for now the alarms are off. The water is used up in the process.", "used": True, "point_value": 70, "point_desc": "A pretty quick, simple and stealthy way to cut the alarms. Water based damage is far less suspicious than other methods. Pity it's only temporary"},
@@ -1558,6 +1562,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Lock Picks": {"use_desc": "Your team sneak to the central control system. The door is locked, so your team uses the lock picks to break in. From here you deactivate all the cameras.", "used": False, "point_value": 90, "point_desc": "The lock picks allow you to deactivate the cameras from the main control system, thereby reducing suspicion."},
                 "Toolkit": {"use_desc": "Your team find the fuse box that powers the cameras. You use the tools in the toolkit to uncouple the wires, cutting the power. All the cameras go out.", "used": False, "point_value": 70, "point_desc": "You were successful in deactivating the cameras, but cutting the feeds will draw unwanted attention. It won't be long before someone is sent to find out what went wrong."},
                 "Axe": {"use_desc": "You plunge the axe into the camera wiring. All the cameras go out.", "used": False, "point_value": 75, "point_desc": "You were successful in deactivating the cameras, but cutting the feeds will draw unwanted attention. It won't be long before someone is sent to find out what went wrong."},
                 "Water Bottle": {"use_desc": "Your team find a fuse box that powers the cameras. You pour water over the contents and the cameras loose power. The backup generator will switch on soon, but for now the cameras are off. The water is used up in the process.", "used": True, "point_value": 70, "point_desc": "A pretty quick, simple and stealthy way to deactivate the cameras. Water based damage is far less suspicious than other methods. Pity it's only temporary"},
@@ -1599,6 +1604,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Lock Picks": {"use_desc": "Your team find a locked service door. You use your lock picks to get it open and get inside.", "used": False, "point_value": 100, "point_desc": "The lock picks are ideal from opening locked doors."},
                 "Explosives": {"use_desc": "Your team set the explosive charges against a wall and move a safe distance away. The explosives go off and create an explosion. Your team races through the hole in the wall before the guards arrive. The explosives are used up in the process.", "used": True, "point_value": 10, "point_desc": "Not what I had in mind. Now they know someone is inside and will be on high alert."},
                 "Scuba Gear": {"use_desc": "Your team find a flooded storm drain that leads inside. You don scuba gear and make your way inside. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear allows your team to find another way in."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight up. From the vantage point your team is able to spot a different entrance. Unfortunately, now the entire base knows you are here and you are forced to land miles away and walk back.", "used": False, "point_value": 20, "point_desc": "You did find another way in, but were significantly delayed by having to leave and walk back."},
@@ -1616,6 +1622,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Escape"],
             "items":{
+                "Lock Picks": {"use_desc": "Your team find a locked service door. You use your lock picks to get it open and get inside.", "used": False, "point_value": 100, "point_desc": "The lock picks are ideal from opening locked doors."},
                 "Explosives": {"use_desc": "Your team set the explosive charges against a wall and move a safe distance away. The explosives go off and create an explosion. Your team races through the hole in the wall before the guards arrive. The explosives are used up in the process.", "used": True, "point_value": 60, "point_desc": "Not what I had in mind, but decently effective. It gave away your position, but hopefully you can get away before that becomes a problem."},
                 "Scuba Gear": {"use_desc": "Your team find a flooded storm drain that leads outside. You don scuba gear and make your way out. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear allows your team to find another way out."},
                 "Fire Starter Kit": {"use_desc": "Your team creates a small flame using the fire starter kit. You bring it near to a smoke alarm to trigger it. The fire causes safety protocols and gates that would otherwise be closed, open. Your team escapes through a fire exit. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "Unfortunately, the manoeuvre did draw attention to your escape. But you were still able to find a new exit but using the fire starter kit."},
@@ -1633,6 +1640,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Lock Picks": {"use_desc": "Your team sneak to the central control system. The door is locked, so your team uses the lock picks to break in. From here you deactivate the laser grid.", "used": False, "point_value": 90, "point_desc": "The lock picks allow you to deactivate the gird from the main control system, thereby reducing suspicion."},
                 "Toolkit": {"use_desc": "You find the system that powers the laser grid and uncouple the wires. It deactivates the grid and you are able to slip by.", "used": False, "point_value": 80, "point_desc": "You were successful in getting by the grid, but the deactivated grid was quickly noticed."},
                 "Map": {"use_desc": "Your team check the schematics of the building. You use it to locate an unprotected service entrance that your team sneaks out through.", "used": False, "point_value": 100, "point_desc": "The map is ideal for getting past the laser grid stealthily."},
                 "Axe": {"use_desc": "Your team uses the axe blade to harmlessly deflect the lasers and get past.", "used": False, "point_value": 95, "point_desc": "The axe blade is ideal for dealing with laser based problems like this, but the fact that it's attached to an axe handle makes it hard to use."},
@@ -1828,6 +1836,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Lock Picks": {"use_desc": "Your team finds that small pieces of rock have become jammed in the reactor. You use the lock picks to extract them. The lock picks are damaged in the process.", "used": False, "point_value": 100, "point_desc": "The lock picks are ideal for repairing the damage to the reactor."},
                 "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the geo-thermal reactor.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs."},
                 "Boat": {"use_desc": "You use the engine from the boat to temporarily power the base instead. The boat is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Armoured Truck": {"use_desc": "You use the engine from the armoured truck to temporarily power the base instead. The truck is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
@@ -1846,6 +1855,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Lock Picks": {"use_desc": "Your team finds that small pieces of rock have become jammed in the reactor. You use the lock picks to extract them. The lock picks are damaged in the process.", "used": False, "point_value": 100, "point_desc": "The lock picks are ideal for repairing the damage to the reactor."},
                 "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the main reactor.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs."},
                 "Boat": {"use_desc": "You use the engine from the boat to temporarily power the base instead. The boat is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Armoured Truck": {"use_desc": "You use the engine from the armoured truck to temporarily power the base instead. The truck is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
@@ -1980,6 +1990,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Lock Picks": {"use_desc": "There is a secondary panel on the bomb, but it requires a key to open it. Your team use the lock picks to open it and deactivate the bomb.", "used": False, "point_value": 100, "point_desc": "The lock picks are ideal for getting past locks and helping you deactivate the bomb."},
                 "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to deactivate the bomb.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for defusing a bomb."},
                 "Map": {"use_desc": "Your team use the map to find a nearby secluded area. You move as quickly as you can and bring the bomb to it. When it goes off there is less damage than it otherwise would have.", "used": False, "point_value": 30, "point_desc": "You didn't deactivate the bomb but you did reduce its impact."},
                 "Water Bottle": {"use_desc": "Your team pour the water bottles over the bomb. The system fizzles and then shuts down. The water is used up in the process.", "used": True, "point_value": 70, "point_desc": "You did successfully deactivate the bomb, but there was no telling if that was going to work."},
@@ -2022,6 +2033,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Lock Picks": {"use_desc": "There is a secondary panel on the emergency controls, but it requires a key to open it. Your team use the lock picks to open it and deactivate the super weapon.", "used": False, "point_value": 100, "point_desc": "The lock picks are ideal for getting past locks and helping you deactivate the super weapon."},
                 "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to reactivate the emergency controls and power the weapon down.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs and helps you safely deactivate the super weapon."},
                 "Axe": {"use_desc": "You smash the axe into the control system and the weapon shuts down. The axe is damaged in the process.", "used": True, "point_value": 55, "point_desc": "That had a 50/50 chance of working and damaging the controls was a pretty risky manoeuvre, as once you broke them there would be no other way to deactivate the weapon. Still, it worked."},
                 "Water Bottle": {"use_desc": "Your team pour the water bottles over the controls. The system fizzles and then shuts down. The water is used up in the process.", "used": True, "point_value": 70, "point_desc": "You did successfully deactivate the super weapon, but there was no telling if that was going to work."},
