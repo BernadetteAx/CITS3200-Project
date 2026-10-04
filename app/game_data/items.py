@@ -22,8 +22,8 @@ items_dict = {
     "Heat Resistant Suit": {"desc": "A protective suit designed to reduce exposure to extreme heat and hazardous environments.", "cost": 140, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"},
     "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},
     "Map": {"desc": "A detailed paper map showing nearby terrain, landmarks and routes.", "cost": 30, "image": "icons8-map-64.png", "hotbar_image": "icons8-map-32.png"},
-    
     "Toolkit": {"desc": "A portable collection of tools for repairing equipment and carrying out basic mechanical work.", "cost": 100, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
+    
     "Shovel": {"desc": "A sturdy digging tool for moving soil, clearing debris and uncovering buried objects.", "cost": 60, "image": "shovel-32.png", "hotbar_image": "shovel-32.png"},
     "Lock Picks": {"desc": "A compact set of precision tools for opening mechanical locks.", "cost": 80, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
     "Stolen Uniforms": {"desc": "A collection of staff uniforms for disguising your team in restricted areas.", "cost": 120, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},

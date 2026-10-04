@@ -965,6 +965,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
+                "Toolkit": {"use_desc": "Your team find the fuse box that powers the base. You use the tools in the toolkit to uncouple the wires, cutting the power. With the guards distracted, your team slips away.", "used": False, "point_value": 100, "point_desc": "The toolkit was a quick and effective solution."},
                 "Map": {"use_desc": "Your team discover a concealed cave using the map. You lure your pursuers along and then duck into the cave. They lose you and your team is able to continue.", "used": False, "point_value": 100, "point_desc": "The map is ideal for letting your team give the pursuers the slip."},
                 "Explosives": {"use_desc": "Your team set the explosive charges and head off in the opposite direction. The explosives go off and create a huge explosion. Your pursuers are drawn to the source of the explosion and your team is able to sneak away in the other direction. The explosives are used up in the process.", "used": True, "point_value": 80, "point_desc": "A bit messy, but a decent solution. Explosions do tend to be pretty distracting."},
                 "Wire Cutters": {"use_desc": "Your team find the fuse box and cut the wires. It deactivates the base's power and simultaneously triggers a number of alarms. In the panic, your team is able to slip away.", "used": False, "point_value": 100, "point_desc": "The wire cutters were a quick and effective solution that didn't give away your position."},
@@ -1020,6 +1021,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
+                "Toolkit": {"use_desc": "Your team find the fuse box that powers the base. You use the tools in the toolkit to uncouple the wires, cutting the power. With the guards distracted, your team slips away.", "used": False, "point_value": 100, "point_desc": "The toolkit was a quick and effective solution."},
                 "Map": {"use_desc": "Your team use the map to find a hidden cave. Your team camp out in it whilst you wait for the guards to stop searching the area.", "used": False, "point_value": 80, "point_desc": "It's a good hidding spot and doesn't give yourselves away, but waiting takes a long time."},
                 "Axe": {"use_desc": "Your team get as high as they can and use the glint of the axe blade to signal one of the towers. They assume it is a signal from another nearby base. You use morse code to tell them to check the valley. Many guards are sent there, clearing the way for your team's exit.", "used": False, "point_value": 65, "point_desc": "Very risky manoeuvre. You are just lucky that there was a nearby base and that they were fooled."},
                 "Water Bottle": {"use_desc": "Your team find a fuse box that controls the power to the base. You pour water over the contents and the power shuts down temporarily. The backup generator will switch on, but for now the power is out. Your team uses the distraction to slip by. The water is used up in the process.", "used": True, "point_value": 90, "point_desc": "A pretty quick and simple way to create a diversion."},
@@ -1158,6 +1160,7 @@ challenges_dict = {
             "viable_locations": ["Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to realign the exit hatch and repair it.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairing the hatch."},
                 "Axe": {"use_desc": "You find that the hinges to the door have been knocked out of alignment. You use the blunt side of the axe blade to knock them back into alignment, allowing the door to open.", "used": False, "point_value": 90, "point_desc": "The axe allowed your team to successfully repair the door. It just took a bit of work to ensure that everything was lined up."},
                 "Welding Kit": {"use_desc": "You find that the hinges to the door have been knocked out of alignment. You use the welding kit to fuse them back in the correct position, allowing the door to open. The welding supplies are used up in the process.", "used": True, "point_value": 100, "point_desc": "The welding kit is ideal for handling a job like this."},
             },  
@@ -1174,6 +1177,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the rover.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairing both internal and external damage."},
                 "Compass": {"use_desc": "One of the systems that went down in 'Georgie' was his navigation. Your team is able to hook up the compass to his internal mechanisms and get him back on track. The compass is now in use.", "used": True, "point_value": 60, "point_desc": "The compass helped fix some of the inetrnal damage to the rover, but doesn't fix any external damage."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the rover. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the inner mechanisms of 'Georgie' but didn't manage to repair his chassis."},
                 "Handheld Radios": {"use_desc": "The rover has a series of wires that have been broken. Your team strips the wiring from the radios and uses it to repair the rover. The radios' are damaged in the process.", "used": True, "point_value": 90, "point_desc": "You managed to fix the inner mechanisms of 'Georgie' but didn't manage to repair his chassis."},
@@ -1192,6 +1196,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "City", "Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the solar panels. You then affix them back to the top of the base.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairing the solar panels and putting them back in place."},
                 "Axe": {"use_desc": "You use the axe blade to focus a beam of sunlight on one of the sections of the solar panel that is still working. Creating a tiny trickle of power. The axe is now in use.", "used": True, "point_value": 5, "point_desc": "The axe kind of works. It means you can redirect the light, so didn't need to reattach the panels and it focuses the light on the section that works. It is however a very small and very temporary fix."},
                 "Boat": {"use_desc": "You use the engine from the boat to temporarily power the base instead. The boat is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the solar panels. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the solar panels but didn't manage to reattach them to the roof."},
@@ -1212,6 +1217,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the vehicle.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairing both internal and external damage."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the vehicle. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the inner mechanisms of the vehicle but didn't manage to repair the external damage."},
                 "Helicopter": {"use_desc": "Your team decide to use the helicopter as your replacement vehicle. The chopper is now in use.", "used": True, "point_value": 90, "point_desc": "The helicopter is a good solution to the problem, but may not handle all the terrains quite as well as the original vehicle."},
                 "Armoured Truck": {"use_desc": "Your team decide to use the armoured truck as the new stand in for the broken vehicle. The truck is therefore unavailable for other use.", "used": True, "point_value": 100, "point_desc": "The truck is an ideal alternative to the original vehicle."},
@@ -1230,6 +1236,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the vehicle.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairing both internal and external damage."},
                 "Inflatable Raft": {"use_desc": "Your team decide to use the raft as your vehicle. The raft is now in use.", "used": True, "point_value": 5, "point_desc": "The raft is practically useless as it has no way to move your team quickly, but it is better than nothing."},
                 "Boat": {"use_desc": "Your team decide to use the boat as your replacement vehicle. The boat is now in use.", "used": True, "point_value": 90, "point_desc": "You didn't fix the vehicle, but the boat is a great alternative."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the vehicle. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the inner mechanisms of the vehicle but didn't manage to repair the external damage."},
@@ -1250,6 +1257,7 @@ challenges_dict = {
             "viable_locations": ["City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the split handrail and re-attach it to the wall.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repair."},
                 "Mountain Gear": {"use_desc": "Your team use the anchor points and connect them to the roof. You hang carabiners from them and pass a rope through them. It will give you something else to hang onto other than the rail. The mountain gear is now in use.", "used": True, "point_value": 50, "point_desc": "You didn't repair the handrail, but the rope over the walkway should be a good enough temporary substitute."},
                 "Grappling Hook": {"use_desc": "Your team tie the handrail back into position. The grappling hook rope is used up in the process.", "used": True, "point_value": 70, "point_desc": "An crude but effective solution."},
                 "Paraglider": {"use_desc": "Your team tie the handrail back into position using the paraglider ropes. The paraglider is now unusable.", "used": True, "point_value": 65, "point_desc": "An crude but effective solution."},
@@ -1314,6 +1322,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team use the bolt cutters in the toolkit to break the gate lock and get by. The bolt cutters weren't designed for breaking that kind of lock and get damaged in the process.", "used": True, "point_value": 80, "point_desc": "Your team gets through the gate quickly, but you damaged the gate, making it obvious that someoone got past."},
                 "Map": {"use_desc": "Your team approach the building. You realise that the key to the door is still in the lock. You slide the map halfway under the door, and with some effort, get the key to fall free. It lands on the map and you are able to pull it back to your side and unlock the door. Your team then grabs the key to the gate and unlocks it.", "used": False, "point_value": 90, "point_desc": "You get past the gate quietly and without a lot of effort."},
                 "Compass": {"use_desc": "Your team take apart the compass and retrieve the needle. You use the needle like a lock pick and get past the locked gate. The compass is damaged in the process.", "used": True, "point_value": 50, "point_desc": "Using the compass needle as a lock pick takes a lot of time and finesse but it does work."},
                 "Axe": {"use_desc": "You use the axe to break down the door to the building and get the key. You use it to unlock the gate and pass by unhindered.", "used": False, "point_value": 90, "point_desc": "With the axe breaking down the door is easy, just not very quite. But you do successfully pass the challenge."},
@@ -1531,6 +1540,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team find the fuse box that powers the alarms. You use the tools in the toolkit to uncouple the wires, cutting the power. The nearby section alarms loose power, preventing them from triggering.", "used": False, "point_value": 100, "point_desc": "The toolkit was a quick and effective solution that left no obvious hint of foul play."},
                 "Axe": {"use_desc": "You plunge the axe into the alarm wiring. The nearby section alarms loose power, preventing them from triggering.", "used": False, "point_value": 85, "point_desc": "You were successful in deactivating the alarms, but the damage you did is pretty obvious and may attract attention."},
                 "Water Bottle": {"use_desc": "Your team find a fuse box that powers the alarms. You pour water over the contents and the alarms loose power. The backup generator will switch on soon, but for now the alarms are off. The water is used up in the process.", "used": True, "point_value": 70, "point_desc": "A pretty quick, simple and stealthy way to cut the alarms. Water based damage is far less suspicious than other methods. Pity it's only temporary"},
                 "Fire Starter Kit": {"use_desc": "Your team figures that the best way to deactivate the alarms is to get your opponents to do it for you. You create a small flame and put it near a smoke detector. Alarms blare and your crew sneaks by. Eventually once they deactivate the fire alarm they realise that other alarms have been tripped, but toss it up to a system malfunction. The kindling is used up in the process.", "used": True, "point_value": 60, "point_desc": "A risky manoeuvre that luckily paid off. Still drew a lot of attention."},
@@ -1548,6 +1558,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team find the fuse box that powers the cameras. You use the tools in the toolkit to uncouple the wires, cutting the power. All the cameras go out.", "used": False, "point_value": 70, "point_desc": "You were successful in deactivating the cameras, but cutting the feeds will draw unwanted attention. It won't be long before someone is sent to find out what went wrong."},
                 "Axe": {"use_desc": "You plunge the axe into the camera wiring. All the cameras go out.", "used": False, "point_value": 75, "point_desc": "You were successful in deactivating the cameras, but cutting the feeds will draw unwanted attention. It won't be long before someone is sent to find out what went wrong."},
                 "Water Bottle": {"use_desc": "Your team find a fuse box that powers the cameras. You pour water over the contents and the cameras loose power. The backup generator will switch on soon, but for now the cameras are off. The water is used up in the process.", "used": True, "point_value": 70, "point_desc": "A pretty quick, simple and stealthy way to deactivate the cameras. Water based damage is far less suspicious than other methods. Pity it's only temporary"},
                 "Wire Cutters": {"use_desc": "Your team break open a fuse box that powers the security cameras. You cut the wires to the cameras, and thereby cut the feed.", "used": False, "point_value": 70, "point_desc": "You were successful in deactivating the cameras, but cutting the feeds will draw unwanted attention. It won't be long before someone is sent to find out what went wrong."},
@@ -1564,6 +1575,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team find the fuse box that powers the base. You use the tools in the toolkit to uncouple the wires, cutting the power. With the guards distracted, your team slips by.", "used": False, "point_value": 100, "point_desc": "The toolkit was a quick and effective solution."},
                 "Axe": {"use_desc": "You leave the axe at your current position and move a distance away. The blade of the axe glints in the light attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to slip by the checkpoint. The axe gets left behind in the process.", "used": True, "point_value": 75, "point_desc": "The axe successfully distracted the guards and allowed you to sneak by, but if they find the axe it will raise suspicion."},
                 "Explosives": {"use_desc": "Your team set the explosive charges and move a safe distance away. The explosives go off and create a huge explosion. Guards rush to the source of the explosion and your team is able to sneak by. The explosives are used up in the process.", "used": True, "point_value": 20, "point_desc": "You may not have given your position away, but now they'll be on high alert. Bombs don't just go off."},
                 "Wire Cutters": {"use_desc": "Your team find the fuse box and cut the wires. It deactivates the base's power and simultaneously triggers a number of alarms. In the panic, your team is able to slip by.", "used": False, "point_value": 90, "point_desc": "The base has backup power, so it's only temporary, but the wire cutters were a quick and effective solution that didn't give away your position."},
@@ -1621,6 +1633,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "You find the system that powers the laser grid and uncouple the wires. It deactivates the grid and you are able to slip by.", "used": False, "point_value": 80, "point_desc": "You were successful in getting by the grid, but the deactivated grid was quickly noticed."},
                 "Map": {"use_desc": "Your team check the schematics of the building. You use it to locate an unprotected service entrance that your team sneaks out through.", "used": False, "point_value": 100, "point_desc": "The map is ideal for getting past the laser grid stealthily."},
                 "Axe": {"use_desc": "Your team uses the axe blade to harmlessly deflect the lasers and get past.", "used": False, "point_value": 95, "point_desc": "The axe blade is ideal for dealing with laser based problems like this, but the fact that it's attached to an axe handle makes it hard to use."},
                 "Water Bottle": {"use_desc": "Your team find a fuse box that powers the laser grid. You pour water over the contents and the grid looses power. The backup generator will switch on soon, but for now the grid is down. The water is used up in the process.", "used": True, "point_value": 40, "point_desc": "A pretty quick, simple and stealthy way to drop the laser grid. Water based damage is far less suspicious than other methods. Pity it's only temporary."},
@@ -1643,6 +1656,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team use the bolt cutters in the toolkit to break the vault lock and get by. The bolt cutters weren't designed for breaking that kind of lock and get damaged in the process.", "used": True, "point_value": 80, "point_desc": "Your team gets through the goods quickly, but you damaged the vault, making it obvious that someoone got the goods."},
                 "Compass": {"use_desc": "Your team take apart the compass and retrieve the needle. You use the needle like a lock pick and get past the vault lock. The compass is damaged in the process.", "used": True, "point_value": 50, "point_desc": "Using the compass needle as a lock pick takes a lot of time and finesse but it does work."},
                 "Axe": {"use_desc": "You use the axe to smash the hinges of the vault. The axe is broken in the process.", "used": True, "point_value": 15, "point_desc": "It takes a long time to break the hinges and is not at all quiet. Even if it did work."},
                 "Mountain Gear": {"use_desc": "Your team loops the rope around several pillars and then attaches it via carabiner to the vault handle. With a lot of work and a lot of pulling, you manage to rip the door off. The rope frays in the process, rendering it unusable.", "used": True, "point_value": 25, "point_desc": "It takes a long time, is exhausting and very noisy, but you do eventually get the goods."},
@@ -1705,6 +1719,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "You find the system that powers the laser grid and uncouple the wires. It deactivates the grid and you are able to grab the goods.", "used": False, "point_value": 80, "point_desc": "You were successful in grabbing the goods, but there was evidence of your theft and the disappearance of the item was quickly noticed."},
                 "Axe": {"use_desc": "You detach the axe blade from the handle. You use the blade to reflect the lasers away as one of you reaches in and grabs the goods. The axe is rendered useless in the process.", "used": True, "point_value": 100, "point_desc": "The axe blade was an ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the goods have even been taken."},
                 "Water Bottle": {"use_desc": "Your team find a fuse box that powers the laser grid. You pour water over the contents, the grid looses power and you get the item. The water is used up in the process.", "used": True, "point_value": 90, "point_desc": "A pretty quick, simple and stealthy way to drop the laser grid. Unfortunately, by damaging the system it will be more obvious that a theft has occurred."},
                 "Mirror": {"use_desc": "You use the mirror to reflect the lasers away as one of you reaches in and grabs the goods.", "used": False, "point_value": 100, "point_desc": "The mirror was an ingenious solution, efficient, clean, and it left the system intact, making it hard to notice that the goods have even been taken."},
@@ -1723,6 +1738,7 @@ challenges_dict = {
             "viable_locations": ["City", "Desert", "Arctic Tundra"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Toolkit": {"use_desc": "Your team wedge a chisel between the drawers and put some force behind it. Eventually the case break open and you can get the item. The chisel is damaged in the process.", "used": True, "point_value": 80, "point_desc": "It takes a lot of work to get the case open, but you do get the goods."},
                 "Compass": {"use_desc": "Your team take apart the compass and retrieve the needle. You use the needle like a lock pick and get past the document case lock. The compass is damaged in the process.", "used": True, "point_value": 50, "point_desc": "Using the compass needle as a lock pick takes a lot of time and finesse but it does work."},
                 "Axe": {"use_desc": "You loudly smash open the case using the axe and get the documents.", "used": False, "point_value": 55, "point_desc": "You do get the documents but your method was very noisy and likely attracted some unwanted attention."},
                 "Explosives": {"use_desc": "Your team set a minute amount of the explosive charges against the locking mechanism of the document case. When they go off, the mechanism breaks and you get the goods.", "used": False, "point_value": 50, "point_desc": "Efficient but not at all stealthy. It wont be long before the theft is discovered."},
@@ -1744,6 +1760,7 @@ challenges_dict = {
             "viable_locations": ["Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the air recycling system.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the system. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the air recycling system, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
                 "Scuba Gear": {"use_desc": "You wear the regulators allowing you to breathe safely from the tank. The oxygen tank is used up in the process.", "used": True, "point_value": 40, "point_desc": "The regulators are an effective, but temporary solution. You didn't actually 'fix' anything."},
                 "Gas Mask and Knockout Gas": {"use_desc": "You wear the gas mask, filtering the air and making it breathable.", "used": False, "point_value": 40, "point_desc": "The gas mask is an effective, but temporary solution. You didn't actually 'fix' anything."},
@@ -1761,6 +1778,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the central heating.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs."},
                 "Thermal Clothing": {"use_desc": "Your team pull on their thermal clothing. The extra layers keep your team warm as they continue their mission.", "used": False, "point_value": 60, "point_desc": "The thermal clothing is keeps your team warm, and mobile, however it does not fix the original issue."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the system. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the central heating system, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
                 "Scuba Gear": {"use_desc": "Your team put on the wetsuits. The extra layer of the wetsuits keeps your team a little bit warmer.", "used": False, "point_value": 50, "point_desc": "The wetsuits don't actually resolve the heating issue. They however, do your keep your team warm. For now."},
@@ -1778,6 +1796,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the communications system.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the system. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the comms system, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
                 "Handheld Radios": {"use_desc": "Your team uses the handheld radios to communicate with one another. The radio's batteries are drained in the process.", "used": True, "point_value": 50, "point_desc": "Whilst it does temporarily allow for communication, the radios are only a temporary fix."},
             },  
@@ -1792,6 +1811,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the cooling system.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs."},
                 "Heat Resistant Suit": {"use_desc": "The heat resistant suit protects your team from the heat and allows them to safely continue their mission.", "used": True, "point_value": 40, "point_desc": "The heat resistant suit is meant for potecting against damaging heat, but it works well enough to keep your team cool. It does however do nothing to fix the cooling system itself."},
                 "Water Bottle": {"use_desc": "Your team pour the water from the water bottles over yourselves. As the water evapourates, it cools your team slightly. The water is used up in the process.", "used": True, "point_value": 5, "point_desc": "You didn't fix the system, so it will continue to be a problem. The water only helped a tiny, tiny amount. But it allows you team to keep working."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the system. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the cooling system, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
@@ -1808,6 +1828,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the geo-thermal reactor.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs."},
                 "Boat": {"use_desc": "You use the engine from the boat to temporarily power the base instead. The boat is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Armoured Truck": {"use_desc": "You use the engine from the armoured truck to temporarily power the base instead. The truck is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the reactor. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the geo-thermal reactor, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
@@ -1825,6 +1846,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to repair the main reactor.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs."},
                 "Boat": {"use_desc": "You use the engine from the boat to temporarily power the base instead. The boat is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Armoured Truck": {"use_desc": "You use the engine from the armoured truck to temporarily power the base instead. The truck is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
                 "Wire Cutters": {"use_desc": "Your team find a number of scrambled wires in the reactor. You use the wire cutters to trim them and reattach them in the correct places.", "used": False, "point_value": 90, "point_desc": "You managed to fix the main reactor, but if anything goes wrong again, the shorter wires will make it harder to deal with."},
@@ -1958,6 +1980,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to deactivate the bomb.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for defusing a bomb."},
                 "Map": {"use_desc": "Your team use the map to find a nearby secluded area. You move as quickly as you can and bring the bomb to it. When it goes off there is less damage than it otherwise would have.", "used": False, "point_value": 30, "point_desc": "You didn't deactivate the bomb but you did reduce its impact."},
                 "Water Bottle": {"use_desc": "Your team pour the water bottles over the bomb. The system fizzles and then shuts down. The water is used up in the process.", "used": True, "point_value": 70, "point_desc": "You did successfully deactivate the bomb, but there was no telling if that was going to work."},
                 "Wire Cutters": {"use_desc": "Your team cut the wires in the correct order and swiftly deactivate the bomb.", "used": False, "point_value": 100, "point_desc": "The wire cutters are ideal for defusing a bomb."},
@@ -1999,6 +2022,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist"],
             "items": {
+                "Toolkit": {"use_desc": "Your team pull out the toolkit. You use the equipment in it to reactivate the emergency controls and power the weapon down.", "used": False, "point_value": 100, "point_desc": "The toolkit is ideal for repairs and helps you safely deactivate the super weapon."},
                 "Axe": {"use_desc": "You smash the axe into the control system and the weapon shuts down. The axe is damaged in the process.", "used": True, "point_value": 55, "point_desc": "That had a 50/50 chance of working and damaging the controls was a pretty risky manoeuvre, as once you broke them there would be no other way to deactivate the weapon. Still, it worked."},
                 "Water Bottle": {"use_desc": "Your team pour the water bottles over the controls. The system fizzles and then shuts down. The water is used up in the process.", "used": True, "point_value": 70, "point_desc": "You did successfully deactivate the super weapon, but there was no telling if that was going to work."},
                 "Explosives": {"use_desc": "Your team set the explosive charges next to the control system and move a safe distance away. The explosives go off, destroying the controls and deactivating the super weapon. The explosives are used up in the process.", "used": True, "point_value": 50, "point_desc": "That had a 50/50 chance of working and damaging the controls was a pretty risky manoeuvre, as once you broke them there would be no other way to deactivate the weapon. Still, it worked."},
