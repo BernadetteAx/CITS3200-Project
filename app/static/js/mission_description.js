@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const continueBtn = document.getElementById("continueAuctionBtn");
 
     let briefingLoaded = false;
-    let typingFinished = false;
+    let briefingReady = false;
     let isHost = sessionStorage.getItem("isHost") === "true";
 
     // Ask the server for the mission assigned to this game.
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.gameSocket.connected && window.getPlayerId()) requestBriefing();
 
     function updateContinueButton() {
-        continueBtn.disabled = !typingFinished || !isHost;
+        continueBtn.disabled = !briefingReady || !isHost;
         continueBtn.textContent = isHost ? "CONTINUE TO ITEM SHOP" : "WAITING FOR HOST";
     }
 
@@ -38,13 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         isHost = data.isHost;
         buildVisualStory(data);
-        typeMissionDescription(data.description);
+        showMissionDescription(data.description);
     });
 
-    function typeMissionDescription(text) {
+    function showMissionDescription(text) {
         const pages = [];
         let page = "";
-        const limit = window.innerWidth < 700 ? 280 : Infinity;
+        const limit = 280;
         // Keep the data's own paragraph breaks ("\n\n") and line breaks ("\n");
         // only stray spaces around them are tidied. .mission-description uses
         // white-space: pre-wrap, so the typed newlines render as real breaks.
@@ -76,30 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
         previous.textContent = "← BACK";
         next.textContent = "NEXT →";
         previous.type = next.type = "button";
-        let typingTimer;
-        const visited = new Set();
         function renderPage() {
-            clearTimeout(typingTimer);
-            const fullText = pages[index];
-            missionDescription.textContent = fullText;
-            missionDescription.style.minHeight = `${missionDescription.offsetHeight}px`;
-            const animate = !visited.has(index) && window.gameVisuals.motionEnabled();
-            visited.add(index);
-            missionDescription.textContent = animate ? "" : fullText;
-            typingCursor.style.display = animate ? "inline" : "none";
-            typingFinished = !animate;
+            missionDescription.textContent = pages[index];
+            typingCursor.style.display = "none";
+            briefingReady = true;
             updateContinueButton();
-            let character = 0;
-            function typeCharacter() {
-                missionDescription.textContent = fullText.slice(0, ++character);
-                if (character < fullText.length) typingTimer = setTimeout(typeCharacter, 12);
-                else {
-                    typingCursor.style.display = "none";
-                    typingFinished = true;
-                    updateContinueButton();
-                }
-            }
-            if (animate) typingTimer = setTimeout(typeCharacter, 12);
             previous.disabled = index === 0;
             next.disabled = index === pages.length - 1;
             count.textContent = `${index + 1} / ${pages.length}`;
