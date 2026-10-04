@@ -9,23 +9,21 @@ items_dict = {
     "Paraglider": {"desc": "A lightweight fabric wing with a harness for gliding through the air from an elevated position.", "cost": 100, "image": "icons8-skydiving-gear-64.png", "hotbar_image": "icons8-skydiving-gear-32.png"},
     "Grappling Hook": {"desc": "A metal hook with several curved prongs attached to a line for catching onto ledges.", "cost": 100, "image": "icons8-crowbar-64.png", "hotbar_image": "icons8-crowbar-32.png"},
     "Helicopter": {"desc": "A powered aircraft capable of vertical takeoff and landing, with space to transport your team.", "cost": 400, "image": "icons8-helicopter-64.png", "hotbar_image": "icons8-helicopter-32.png"},
-    
-    "Scuba Gear": {"desc": "A set of diving equipment including an air tank, regulator, mask and fins for exploring underwater.", "cost": 100, "image": "icons8-snorkel-64.png", "hotbar_image": "icons8-snorkel-32.png"},
+    "Scuba Gear": {"desc": "A set of diving equipment including an air tank, regulator, mask and fins for exploring underwater.", "cost": 120, "image": "icons8-snorkel-64.png", "hotbar_image": "icons8-snorkel-32.png"},
     "Wire Cutters": {"desc": "A heavy-duty hand tool for cutting through wire and metal fencing.", "cost": 100, "image": "icons8-surgical-scissors-64.png", "hotbar_image": "icons8-surgical-scissors-32.png"},
     "Explosives": {"desc": "A demolition pack capable of breaking through solid barriers and clearing obstacles.", "cost": 100, "image": "icons8-grenade-64.png", "hotbar_image": "icons8-grenade-32.png"},
     "Water Bottle": {"desc": "A durable, refillable bottle filled with clean drinking water.", "cost": 100,"image": "sport-bottle-white-64.png", "hotbar_image": "sport-bottle-white-64.png"},
-    "Fuel": {"desc": "Keep the vehicle moving when every kilometre matters.", "cost": 40, "image": "icons8-petrol-64.png", "hotbar_image": "icons8-petrol-32.png"},
-    "Mountain Gear": {"desc": "A set of climbing equipment including a harness, helmet and carabiners for navigating steep terrain.", "cost": 120, "image": "icons8-mountain-64.png", "hotbar_image": "icons8-mountain-32.png"},
+    "Mountain Gear": {"desc": "A set of climbing equipment including a harness, helmet, carabiners, anchors and rope for navigating steep terrain.", "cost": 160, "image": "icons8-mountain-64.png", "hotbar_image": "icons8-mountain-32.png"},
     "Boat": {"desc": "A small motorboat with room for your team and equipment when travelling across water.", "cost": 300, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Axe": {"desc": "A sturdy axe for chopping wood, cutting through tangled vegetation and clearing obstacles.", "cost": 100, "image": "icons8-minecraft-axe-64.png", "hotbar_image": "icons8-minecraft-axe-32.png"},
     "Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
     "Inflatable Raft": {"desc": "A compact inflatable raft capable of carrying the team across water.", "cost": 140, "image": "icons8-raft-64.png", "hotbar_image": "icons8-raft-32.png"}, 
     "Thermal Clothing": {"desc": "Insulated clothing designed to protect the wearer from dangerously cold conditions.", "cost": 70, "image": "icons8-winter-clothes-64.png", "hotbar_image": "icons8-winter-clothes-32.png"},
-    "Snow Boots": {"desc": "Heavy insulated boots providing warmth and traction across snow and ice.", "cost": 60, "image": "icons8-winter-boots-64.png", "hotbar_image": "icons8-winter-boots-32.png"},
     "Heat Resistant Suit": {"desc": "A protective suit designed to reduce exposure to extreme heat and hazardous environments.", "cost": 140, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"},
     "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},
     "Map": {"desc": "A detailed paper map showing nearby terrain, landmarks and routes.", "cost": 30, "image": "icons8-map-64.png", "hotbar_image": "icons8-map-32.png"},
     "Toolkit": {"desc": "A portable collection of tools for repairing equipment and carrying out basic mechanical work.", "cost": 100, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
+    
     "Shovel": {"desc": "A sturdy digging tool for moving soil, clearing debris and uncovering buried objects.", "cost": 60, "image": "shovel-32.png", "hotbar_image": "shovel-32.png"},
     "Lock Picks": {"desc": "A compact set of precision tools for opening mechanical locks.", "cost": 80, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
     "Stolen Uniforms": {"desc": "A collection of staff uniforms for disguising your team in restricted areas.", "cost": 120, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},
@@ -36,7 +34,11 @@ items_dict = {
         
     # NEEDS IMAGE
     "Ice Skates": {"desc": "A pair of shoes with a blade attached to the bottom. They are ideal for moving across ice.", "cost": 60, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
-   
+    "Snow Mobile": {"desc": "A motorised vehicle, mounted on skis that is designed to travel across snow.", "cost": 250, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
+
+    # TO BE ADDED
+    # Still-suit
+    # Magnet
 
 
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
