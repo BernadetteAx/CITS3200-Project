@@ -25,8 +25,8 @@ items_dict = {
     "Toolkit": {"desc": "A portable collection of tools for repairing equipment and carrying out basic mechanical work.", "cost": 100, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
     "Shovel": {"desc": "A sturdy digging tool for moving soil, clearing debris and uncovering buried objects.", "cost": 60, "image": "shovel-32.png", "hotbar_image": "shovel-32.png"},
     "Lock Picks": {"desc": "A compact set of precision tools for opening mechanical locks.", "cost": 80, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
-    
     "Stolen Uniforms": {"desc": "A collection of staff uniforms for disguising your team in restricted areas.", "cost": 120, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},
+    
     "Welding Kit": {"desc": "A portable welding kit with protective equipment for joining metal and repairing damaged structures.", "cost": 150, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
     "Dune Buggy": {"desc": "A lightweight off-road vehicle with wide tyres for transporting your team across sandy terrain.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Blanket": {"desc": "A thick insulated emergency blanket used to retain body heat and provide shelter.", "cost": 30, "image": "icons8-blanket-64.png", "hotbar_image": "icons8-blanket-32.png"},
@@ -35,8 +35,6 @@ items_dict = {
     # NEEDS IMAGE
     "Ice Skates": {"desc": "A pair of shoes with a blade attached to the bottom. They are ideal for moving across ice.", "cost": 60, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
     "Snow Mobile": {"desc": "A motorised vehicle, mounted on skis that is designed to travel across snow.", "cost": 250, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
-
-
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
     "Car": {"desc": "A standard passenger car for transporting your team and equipment along roads.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Flare Gun": {"desc": "A handheld flare launcher used to send a highly visible distress signal.", "cost": 80, "image": "icons8-flare-64.png", "hotbar_image": "icons8-flare-32.png"},
