@@ -25,7 +25,6 @@ items_dict = {
     "Dune Buggy": {"desc": "A lightweight off-road vehicle with wide tyres for transporting your team across sandy terrain.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Blanket": {"desc": "A thick woollen blanket used to retain body heat.", "cost": 30, "image": "icons8-blanket-64.png", "hotbar_image": "icons8-blanket-32.png"},
     "Car": {"desc": "A standard passenger car for transporting your team and equipment along roads.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
-    
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
          
         
@@ -45,7 +44,5 @@ items_dict = {
     "Electrical Repair Kit": {"desc": "A set of insulated tools and components for repairing damaged electrical systems.", "cost": 100, "image": "icons8-electrical-64.png", "hotbar_image": "icons8-electrical-32.png"},
     "Crowbar": {"desc": "A strong metal lever useful for forcing open doors, moving debris and accessing damaged equipment.", "cost": 50, "image": "icons8-crowbar-64.png", "hotbar_image": "icons8-crowbar-32.png"},
     "Animal Deterrent": {"desc": "A portable device that produces noise and light intended to discourage dangerous animals from approaching.", "cost": 70, "image": "icons8-animal-deterrent-64.png", "hotbar_image": "icons8-animal-deterrent-32.png"},
-
-    # TO BE ADDED
-    # Still-suit
+    "Still-suit": {"desc": "A wearable suit that recycles water lost from the body, keeping the team cool and provding them with a water source.", "cost": 200, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"}
 }
