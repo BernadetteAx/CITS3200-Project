@@ -48,7 +48,7 @@ body.screen-fit { display: block; width: 100%; max-width: none; margin: 0; paddi
 .screen-fit .shop-banner { display: none; }
 .screen-fit .tie-warning { font-size: .5rem; margin: 0; padding: 8px; }
 .screen-fit .vote-progress { margin: 0; gap: 6px; }
-.screen-fit .hotbar-label { font-size: .4rem; line-height: 1.6; margin: 0 0 4px; }
+.screen-fit .hotbar-label { font-size: .45rem; line-height: 1.6; margin: 0 0 4px; }
 .screen-fit .mission-briefing { padding: 0; gap: 12px; }
 .screen-fit .mission-file, .screen-fit .visual-briefing { padding: 20px; position: static; }
 .screen-fit .story-art { aspect-ratio: 16 / 11; }
