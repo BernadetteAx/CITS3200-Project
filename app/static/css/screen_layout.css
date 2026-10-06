@@ -37,6 +37,7 @@ body.screen-fit { display: block; width: 100%; max-width: none; margin: 0; paddi
 .screen-fit .lobby-actions { margin-top: 0; gap: 12px; }
 .screen-fit .lobby-actions button { min-height: 44px; padding: 12px; }
 .screen-fit .helper-note { margin: 0; font-size: .45rem; }
+.screen-fit .mission-panel .mission-helper-note { margin-top: 10px; }
 .screen-fit .status-row { margin: 0; width: min(100%,720px); }
 .screen-fit .status-pill-box { padding: 8px 14px; }
 .screen-fit .auction-item-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
