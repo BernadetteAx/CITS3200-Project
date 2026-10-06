@@ -6,10 +6,10 @@ const progressFill = document.getElementById("progressFill");
 const finishBtn = document.getElementById("finishBtn");
 const skipBtn = document.getElementById("skipBtn");
 const endRoundBtn = document.getElementById("endRoundBtn");
-const timerValue = document.getElementById("timerValue");
-const timerPill = document.getElementById("timerPill");
 const countdownFill = document.getElementById("countdownFill");
 const countdownTrack = document.getElementById("countdownTrack");
+const countdownClock = document.getElementById("countdownClock");
+const countdownValue = document.getElementById("countdownValue");
 const inventory = document.getElementById("inventorySlots");
 const inventoryLabel = document.getElementById("inventoryLabel");
 const resultPopup = document.getElementById("resultPopup");
@@ -71,6 +71,10 @@ function render(state) {
   if (state.status !== "voting") {
     countdownFill.style.width = "0%";
     countdownTrack.setAttribute("aria-valuenow", "0");
+    // Voting closed: settle the clock instead of leaving it mid-panic.
+    countdownValue.textContent = "00:00";
+    countdownClock.classList.remove("urgent", "panic");
+    countdownFill.classList.remove("panic");
   } else {
     tickTimer();
   }
@@ -89,13 +93,19 @@ function tickTimer() {
     Math.max(0, (latestState.endsAt - Date.now() / 1000) / 60 * 100)
   );
 
-  timerValue.textContent =
+  // Countdown clock beside "?". The urgent (<=30s) and panic (<=10s)
+  // states are visual only — the server deadline (endsAt) is unchanged.
+  countdownValue.textContent =
     `${String(Math.floor(seconds / 60)).padStart(2, "0")}:` +
     `${String(seconds % 60).padStart(2, "0")}`;
+  countdownClock.classList.toggle("urgent", seconds <= 30);
+  countdownClock.classList.toggle("panic", seconds <= 10);
 
-  timerPill.classList.toggle("low", seconds <= 10);
+  // Top strip follows the clock: red + pulse from 30s, panic from 10s.
+  // Toggled in the same tick so both animations start in phase.
   countdownFill.style.width = `${percent}%`;
-  countdownFill.classList.toggle("low", seconds <= 10);
+  countdownFill.classList.toggle("low", seconds <= 30);
+  countdownFill.classList.toggle("panic", seconds <= 10);
   countdownTrack.setAttribute("aria-valuenow", String(seconds));
 }
 
