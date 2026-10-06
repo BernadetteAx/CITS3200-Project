@@ -84,6 +84,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off. It moves quickly over the terrain and after a while, the bear gives up the chase.", "used": False, "point_value": 100, "point_desc": "The snow mobile is ideal for making quick getaways across the snow."},
                 "Ice Skates": {"use_desc": "Before the bear can reach you, your team use a rock to break the blades of the ice skates off. You rip a strip of your jacket and wrap the lower half of the blade in it, allowing you to hold them like daggers. When the bear reaches you your team do their best to defend themselves with the small blades. They do very little damage to the coat of the polar bear, but when one of your team is knocked to the ground with the bear upon them, they manage to stab its eye and wedge the blade into the bear's open maw. The bear, in agony, and bleeding badly, retreats. Your team rip more of their jackets and use them as bandages to cover the injuries from the attack. The ice skates are damaged in the process.", "used": True, "point_value": 5, "point_desc": "Your team suffered terrible injuries at the hands of the bear and you had to seriously hurt the bear just to get it to leave. This was a disaster and it's a wonder that you're still alive."},
                 "Taser": {"use_desc": "The bear takes you down and you use the taser against it over and over until it eventually retreats. The taser battery is used up in the process.", "used": True, "point_value": 5, "point_desc": "Your team suffered serious injuries from the bear attack and the taser only just worked to get the bear to leave you alone."},
                 "Car": {"use_desc": "Your team pile into the car and take off. You attempt to outrun the bear, but the vehicle doesn't handle the snow very well. Eventually the bear gains and your team abandons the car. The bear is dristracted by it and focuses its energies on trying to eat the vehicle, giving your team an opportunity to escape. The car is lost in the process.", "used": True, "point_value": 40, "point_desc": "The car provided a small amount of protection to your team, but isn't designed to handle snow. Your team is lucky they weren't bear lunch."},
@@ -128,6 +129,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off. The vehicle moves easily over the terrain and soon enough you find yourselves clear of the blizzard.", "used": False, "point_value": 90, "point_desc": "The snow mobile is well suited for travel over snow, allowing your team to exit the blizzard quickly. Unfortunately, it provides next to no protection from the weather."},
                 "Car": {"use_desc": "Your team pile into the car to shelter from the blizzard. You are safe inside until the blizzard passes. You are even able to continue to move towards your destination.", "used": False, "point_value": 90, "point_desc": "The car is well suited to this sort of situation as it provides your team with shelter whilst allowing them to slowly move towards their destination."},
                 "Blanket": {"use_desc": "Your team wrap themselves in the blankets and trudge on.", "used": False, "point_value": 60, "point_desc": "The blankets keep you team warm as they walk, but they restrict their movements and provide very little protection from the weather."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and take off. Soon enough you find yourselves clear of the blizzard.", "used": False, "point_value": 80, "point_desc": "The dune buggy is not well suited for travel over snow and gets bogged on numerous occasions. Unfortunately, its open frame means that it provides no protection from the weather, but it does work to get you out of it faster."},
@@ -426,6 +428,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off around the edge of the lake. It moves quickly over the terrain and soon enough you reach the far side.", "used": False, "point_value": 100, "point_desc": "The snow mobile is ideal for moving quickly across the snow."},
                 "Car": {"use_desc": "Your team pile into the car. You know that you'll be too heavy to cross the lake, so you opt to drive slowly around the edge of it until you reach the far side. The long trip uses up all the car's fuel.", "used": True, "point_value": 60, "point_desc": "It takes a long time for your team to circle the lake and the car isn't great at handling the snowy terrain."},
                 "Blanket": {"use_desc": "Your team walk out across the ice. Whenever someone falls through your team pull them out and they rug up with a blanket.", "used": False, "point_value": 5, "point_desc": "The blankets don't actually help you to cross the frozen lake, they just prevent you from getting hypothermia when you do."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy adn drive it straight out across the ice. It's light-weight frame means that, at the speeds you're moving, it doesn't break through the ice. It is quite difficult to control however on the ice and before you reach the other side of the lake it twists out of control and goes rolling, damaging it.", "used": True, "point_value": 50, "point_desc": "The dune buggy got your team across the frozen lake quickly, but it wasn't designed for this kind of terrain and made its use here a risky one."},
@@ -761,6 +764,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off. The vehicle moves easily over the terrain and soon enough you find yourselves clear of the cold patch.", "used": False, "point_value": 90, "point_desc": "The snow mobile is well suited for travel over snow, allowing your team to exit the cold patch quickly. Unfortunately, it doesn't keep your team warm while you travel."},
                 "Car": {"use_desc": "Your team pile into the car to shelter from the weather. You are safe inside. You drive slowly out of the cold patch.", "used": False, "point_value": 90, "point_desc": "The car is well suited to this sort of situation as it provides your team with shelter whilst allowing them to slowly move out of the dangerous area."},
                 "Blanket": {"use_desc": "Your team wrap themselves in the blankets and trudge on.", "used": False, "point_value": 80, "point_desc": "The blankets keep you team warm as they walk, but they restrict the team's movements."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and take off. You quickly exit the patch of cold.", "used": False, "point_value": 60, "point_desc": "The dune buggy gets you out of the cold quickly, but it's open frame provides no protection from the weather. Not only that bt your team is chilled by the wind as you move."},
@@ -830,6 +834,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items": {
+                "Snow Mobile": {"use_desc": "Your team find a section of ice that juts out from your side of the crevasse. Your team pile into the snow mobile and take off, using the rock as a ramp. You clear the crevasse no problem, but the snow mobile doesn't exactly have suspension and rolls when it reaches the fair side, damaging it.", "used": True, "point_value": 95, "point_desc": "The snow mobile is a quick and easy way to get past the crevasse. The roll, however, could have caused your team some damage."},
                 "Car": {"use_desc": "Your team find a section of rock that juts out from your side of the crevasse. Your team pile into the car and take off, using the rock as a ramp. You clear the crevasse no problem, but the car, rolls when it reaches the fair side, damaging it.", "used": True, "point_value": 90, "point_desc": "The car is a quick and easy way to get past the crevasse. It's lighter frame makes it easier to jump long distances, but it isn't designed for snowy terrain. The roll could have caused your team some damage."},
                 "Dune Buggy": {"use_desc": "Your team find a section of rock that juts out from your side of the crevasse. Your team pile into the dune buggy and take off, using the rock as a ramp. You clear the crevasse no problem, but the dune buggy, rolls when it reaches the fair side, damaging it.", "used": True, "point_value": 90, "point_desc": "The dune buggy is a quick and easy way to get past the crevasse. It's light frame makes it easier to jump long distances, but it isn't designed for snowy terrain. The roll could have caused your team some damage."},
                 "Map": {"use_desc": "Your team use the map to navigate around the obstacle.", "used": False, "point_value": 10, "point_desc": "Doubling back to avoid the obstacle takes a long time and a lot of energy."},
@@ -856,9 +861,29 @@ challenges_dict = {
     "Find Shelter": {
         "Find Civilization": {
             "challenge_name": "Find Civilization",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Volcano"],
+            "viable_locations": ["Desert", "Jungle", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Car": {"use_desc": "Your team pile into the car and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across civilization. The car can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find civilization, but it took a long time and required you to use all the petrol in the tank."},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across civilization. The buggy can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find civilization, but it took a long time and required you to use all the petrol in the tank."},
+                "Compass": {"use_desc": "Your team use the compass to orient themselves. With your bearings found, your team is able to work out where they are and where the nearest civilization is. It's a long trek.", "used": False, "point_value": 70, "point_desc": "The compass helps your team find civilization far more swiftly than they otherwise would have, but it didn't help them travel there."},
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight up. From the vantage point your team is able to spot civilization and head straight for it.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for getting a better lay of the land and travelling fast."},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across civilization. The truck can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find civilization, but it took a long time and required you to use all the petrol in the tank."},
+                "Handheld Radios": {"use_desc": "Your team uses the radios and finds an active frequency. Depending on whether the signal strengthens or weakens, you are able to use it to navigate towards whatever radio tower is broadcasting and therefore towards civilization, where you can take shelter. The radios' batteries are used up in the process.", "used": True, "point_value": 70, "point_desc": "This is an effective solution but it takes a lot of trial and error before you find civilization."},
+                "Map": {"use_desc": "Your team is able to use the few landmarks nearby to orient themselves. Your team is able to use the map to work out where the nearest patch of civilization is and head towards it.", "used": False, "point_value": 100, "point_desc": "The map is ideal for helping your team navigate towards civilization."},
+            },  
+            "failure_items": {}, 
+            "desc": "Your team has been out in the open for too long. You'll need to find your way back to civilization if you have any hope of continuing your mission.", 
+            "continue_failure_desc": "Your team was unable to find their way to nearby civilization. One of your team knows of a location, but it's a long, long trek. You make it, but you entire team is exhausted and lost a lot of time.", 
+            "final_failure_desc": "Unable to find any nearby signs of civilization, your team is forced to keep moving. One of your team is familiar with a location, but it's a long, long distance away. Your team attempts to make the journey, but the exhaustion and time you lost earlier has caught up with you. You never make it to your destination."
+        }, 
+
+        "Find Civilization - Arctic Tundra": {
+            "challenge_name": "Find Civilization",
+            "viable_locations": ["Arctic Tundra"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across civilization. The vehicle can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find civilization, but it took a long time and required you to use all the petrol in the tank."},
                 "Car": {"use_desc": "Your team pile into the car and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across civilization. The car can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find civilization, but it took a long time and required you to use all the petrol in the tank."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across civilization. The buggy can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find civilization, but it took a long time and required you to use all the petrol in the tank."},
                 "Compass": {"use_desc": "Your team use the compass to orient themselves. With your bearings found, your team is able to work out where they are and where the nearest civilization is. It's a long trek.", "used": False, "point_value": 70, "point_desc": "The compass helps your team find civilization far more swiftly than they otherwise would have, but it didn't help them travel there."},
@@ -894,9 +919,29 @@ challenges_dict = {
 
         "Find Shelter": {
             "challenge_name": "Find Shelter",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
+            "viable_locations": ["Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Car": {"use_desc": "Your team pile into the car. It's as good a shelter as anything and allows your team a chance to regroup.", "used": False, "point_value": 95, "point_desc": "The car is ideal for this situation, if a little cramped."},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across shelter. The buggy can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find shelter, but it took a long time and required you to use all the petrol in the tank."},
+                "Compass": {"use_desc": "Your team use the compass to orient themselves. With your bearings found, your team is able to work out where they are and where the nearest shelter is. It's a long trek.", "used": False, "point_value": 70, "point_desc": "The compass helps your team find shelter far more swiftly than they otherwise would have, but it didn't help them travel there."},
+                "Tent": {"use_desc": "Your team pitch the tent and camp out inside. The tent acts as shelter for your team.", "used": False, "point_value": 100, "point_desc": "The tent acts as shelter for your team, allowing them to recuperate. Even better, your team didn't have to go anywhere."},
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight up. From the vantage point your team is able to spot shelter and head straight for it.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for getting a better lay of the land and travelling fast."},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. It's as good a shelter as anything and allows your team a chance to regroup.", "used": False, "point_value": 100, "point_desc": "The armoured truck is ideal for this sort of situation as it can handle the environmental challenges with ease."},
+                "Map": {"use_desc": "You use the map to orient yourself and work out where the nearest shelter would be. This helps your team get there efficiently.", "used": False, "point_value": 80, "point_desc": "The map is successful in ensuring that your team is on the fastest path, but doesn't help them get there."},
+            },  
+            "failure_items": {}, 
+            "desc": "Your team has been out in the open too long. Exposure to the elements is starting to slow you down. You'll need to take shelter if you hold out any hope of finishing your mission.", 
+            "continue_failure_desc": "Your team looses time as they search desperately for any structure to shelter them from the elements. But, without the proper equipment, there is nothing they can do. With no shelter, they are forced to continue the mission without rest.", 
+            "final_failure_desc": "Your team searches desperately for any structure they could use as shelter. Unfortunately, the time they lost earlier has left them exposed to the elements for longer than any human should be forced to endure. Without the needed supplies, your team will never be able to find shelter before it's too late. It isn't long before your entire team is lost."
+        },
+
+        "Find Shelter - Arctic Tundra": {
+            "challenge_name": "Find Shelter",
+            "viable_locations": ["Arctic Tundra"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across shelter. The vehicle can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find shelter, but it took a long time and required you to use all the petrol in the tank."},
                 "Car": {"use_desc": "Your team pile into the car. It's as good a shelter as anything and allows your team a chance to regroup.", "used": False, "point_value": 95, "point_desc": "The car is ideal for this situation, if a little cramped."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and drive it in no direction in particular. Without any information about where to go, you have an empty tank when you come across shelter. The buggy can no longer be driven.", "used": True, "point_value": 80, "point_desc": "You did find shelter, but it took a long time and required you to use all the petrol in the tank."},
                 "Compass": {"use_desc": "Your team use the compass to orient themselves. With your bearings found, your team is able to work out where they are and where the nearest shelter is. It's a long trek.", "used": False, "point_value": 70, "point_desc": "The compass helps your team find shelter far more swiftly than they otherwise would have, but it didn't help them travel there."},
@@ -1005,9 +1050,27 @@ challenges_dict = {
     "Getaway": {
         "Air Based Getaway": {
             "challenge_name": "Getaway",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
+            "viable_locations": ["Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Car": {"use_desc": "Your team pile into the car. Whilst the path is nowhere near as safe on the ground, you can still do it. The car is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The car is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy. Whilst the path is nowhere near as safe on the ground, you can still do it. The dune buggy is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The dune buggy is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Paraglider": {"use_desc": "Your team finds the highest point they can and paraglide silently away.", "used": False, "point_value": 80, "point_desc": "The paragliders quickly put some distance between you and your would be pursuers. They are particularly effective due to how silently they move, but once you reach the forested jungle, they become cumbersome and impractical. Fortunately by that point you are pretty much in the clear."},
+                "Helicopter": {"use_desc": "You quickly pile into the helicopter that is standing by and take off.", "used": False, "point_value": 90, "point_desc": "The helicopter is very efficient at putting some distance between you and your would be pursuers. It is very loud, which alerts the guards to your presences, but fortunately you're out of there before they get the chance to follow you."},
+            }, 
+            "failure_items": {},
+            "desc": "Your team is going to need to get away, and fast. The only way out, from your current position, is by air.", 
+            "continue_failure_desc": "Your team is forced to make a run for it. You manage to evade your pursuers, but the trip tires your team significantly and takes a long time.", 
+            "final_failure_desc": "Your team tries desperately to flee, but are too tired to escape by foot. It isn't long before your pursuers catch up to the team and take them captive. Your mission ends here."
+        },
+
+        "Air Based Getaway - Arctic Tundra": {
+            "challenge_name": "Getaway",
+            "viable_locations": ["Arctic Tundra"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off. It moves quickly over the terrain and your team gets away clean.", "used": False, "point_value": 50, "point_desc": "The car is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Car": {"use_desc": "Your team pile into the car. Whilst the path is nowhere near as safe on the ground, you can still do it. The car is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The car is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy. Whilst the path is nowhere near as safe on the ground, you can still do it. The dune buggy is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The dune buggy is able to get your team to safety, but it wasn't the ideal method of transport."},
                 "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
@@ -1040,7 +1103,7 @@ challenges_dict = {
         
         "Land Based Getaway": {
             "challenge_name": "Getaway",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
+            "viable_locations": ["Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Car": {"use_desc": "Your team pile into the car and tear off. The car is quick and manoeuvrable and your team gets away easily.", "used": False, "point_value": 100, "point_desc": "The car is well suited to get aways on land."},
@@ -1057,7 +1120,7 @@ challenges_dict = {
 
         "Mislead Pursuers": {
             "challenge_name": "Mislead Pursuers",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
+            "viable_locations": ["Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape"],
             "items":{
                 "Ice Skates": {"use_desc": "You leave the ice skates at your current position and move a distance away. The ice skate blades glints in the light and the guards swarm to the location, assuming it is your team. The ice skates get left behind in the process.", "used": True, "point_value": 100, "point_desc": "The ice skates successfully mislead your pursuers."},                 
@@ -1143,7 +1206,8 @@ challenges_dict = {
                 "Explosives": {"use_desc": "Your team set the explosive charges and head off in the opposite direction. The explosives go off and create a huge explosion. Your pursuers are drawn to the source of the explosion and your team is able to sneak away in the other direction. The explosives are used up in the process.", "used": True, "point_value": 20, "point_desc": "An explosion is pretty much the least stealthy thing I can imagine. You are sol lucky that no one spotted you, because giving away your presence was a very risky move."},
             },  
             "failure_items": {
-                "Car": {"use_desc": "Your team pile into the car and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly. The buggy is blown up.", "used": True, "point_value": 0, "point_desc": "What about a car struck you as particularly sneaky? Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed RPG and your team was no more. Let's try a subtler approach next time, huh?"},
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly. The snow mobile is blown up.", "used": True, "point_value": 0, "point_desc": "What about a snow mobile struck you as particularly sneaky? Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed RPG and your team was no more. Let's try a subtler approach next time, huh?"},
+                "Car": {"use_desc": "Your team pile into the car and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly. The car is blown up.", "used": True, "point_value": 0, "point_desc": "What about a car struck you as particularly sneaky? Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed RPG and your team was no more. Let's try a subtler approach next time, huh?"},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and stop for nothing. The vehicle draws a lot of attention as it tears away. You make it about 100m before your mission ends abruptly. The buggy is blown up.", "used": True, "point_value": 0, "point_desc": "What about a dune buggy struck you as particularly sneaky? Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed RPG and your team was no more. Let's try a subtler approach next time, huh?"},
                 "Welding Kit": {"use_desc": "Your team create a small fire with the intention of drawing the guards away. Unfortunately, all it does is get their attention. They are all over you before your team can get away.", "used": True, "point_value": 0, "point_desc": "Starting fires isn't exactly subtle. So yeah, you got caught. Maybe next time, a more stealthy approach?"},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and take off. The vehicle makes a lot of noise as it takes off. You barely make it off the ground before your mission ends abruptly. The helicopter is blown up.", "used": True, "point_value": 0, "point_desc": "What about an helicopter struck you as particularly sneaky? Didn't you hear the part where I said that you were outgunned? Well yeah, they got you. One well placed RPG and your team was no more. Let's try a subtler approach next time, huh?"},
@@ -1303,6 +1367,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Ocean", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team scavange parts from the snow mobile and practically rebuild 'Gerogie' from scratch. The snow mobile is used up in the process.", "used": True, "point_value": 100, "point_desc": "By using parts of the snow mobile, your team is able to repair both the internal and external damage to the rover."},
                 "Car": {"use_desc": "Your team scavange parts from the car and practically rebuild 'Gerogie' from scratch. The car is used up in the process.", "used": True, "point_value": 100, "point_desc": "By using parts of the car, your team is able to repair both the internal and external damage to the rover."},
                 "Dune Buggy": {"use_desc": "Your team scavange parts from the dune buggy and practically rebuild 'Gerogie' from scratch. The dune buggy is used up in the process.", "used": True, "point_value": 100, "point_desc": "By using parts of the dune buggy, your team is able to repair both the internal and external damage to the rover."},
                 "Armoured Truck": {"use_desc": "Your team scavange parts from the armoured truck and practically rebuild 'Gerogie' from scratch. The truck is used up in the process.", "used": True, "point_value": 100, "point_desc": "By using parts of the armoured truck, your team is able to repair both the internal and external damage to the rover."},
@@ -1351,6 +1416,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team scavange parts from the snow mobile and practically rebuild the vehicle from scratch. The snow mobile is used up in the process.", "used": True, "point_value": 100, "point_desc": "By using parts of the snow mobile your team is able to repair both the internal and external damage to the vehicle."},
                 "Car": {"use_desc": "Your team decide to use the car as the new stand in for the broken vehicle. The car is therefore unavailable for other use.", "used": True, "point_value": 90, "point_desc": "The car is a good alternative to the original vehicle."},
                 "Dune buggy": {"use_desc": "Your team decide to use the dune buggy as the new stand in for the broken vehicle. The buggy is therefore unavailable for other use.", "used": True, "point_value": 90, "point_desc": "The dune buggy is a good alternative to the original vehicle."},
                 "Boat": {"use_desc": "Your team scavange parts from the boat and practically rebuild the vehicle from scratch. The boat is used up in the process.", "used": True, "point_value": 100, "point_desc": "By using parts of the boat your team is able to repair both the internal and external damage to the vehicle."},
@@ -1373,6 +1439,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team scavange parts from the snow mobile and practically rebuild the vehicle from scratch. The snow mobile is used up in the process.", "used": True, "point_value": 100, "point_desc": "By using parts of the snow mobile your team is able to repair both the internal and external damage to the vehicle."},
                 "Car": {"use_desc": "Your team scavange parts from the car and practically rebuild the vehicle from scratch. The car is used up in the process.", "used": True, "point_value": 90, "point_desc": "By using parts of the car your team is able to repair both the internal and external damage to the vehicle."},
                 "Dune Buggy": {"use_desc": "Your team scavange parts from the dune buggy and practically rebuild the vehicle from scratch. The dune buggy is used up in the process.", "used": True, "point_value": 90, "point_desc": "By using parts of the dune buggy your team is able to repair both the internal and external damage to the vehicle."},
                 "Armoured Truck": {"use_desc": "Your team scavange parts from the armoured truck and practically rebuild the vehicle from scratch. The truck is used up in the process.", "used": True, "point_value": 90, "point_desc": "By using parts of the armoured truck your team is able to repair both the internal and external damage to the vehicle."},
@@ -1437,6 +1504,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Snow Mobile": {"use_desc": "The snow mobile is low enough to the ground that your team is able to slip through the blockade along with another car.", "used": False, "point_value": 20, "point_desc": "The snow mobile isn't really very sneaky and your team could very easily have been spotted. But it did the job."},
                 "Ice Skates": {"use_desc": "You leave the ice skates at your current position and move a distance away. The blades of the skates glint in the light and attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to slip by. The ice skates get left behind in the process.", "used": True, "point_value": 95, "point_desc": "The ice skates successfully distracted the guards and allowed you to sneak by, but if they find the skates, it will raise suspicion."},
                 "Taser": {"use_desc": "Your team sneak up and use the taser to knock out the guards round back. You are then able to sneak past the blockade.", "used": False, "point_value": 70, "point_desc": "The taser helps you to stealthily get past the blockade, but the bodies are likely to be noticed."},
                 "Car": {"use_desc": "The car is fast and your team manage to weave between parts of the blockade and get by. The car does get damaged in the process however.", "used": True, "point_value": 80, "point_desc": "The car gets you past the blockade, but it isn't a very subtle method."},
@@ -1467,6 +1535,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team ram the snow mobile into the gate over and over until it warps enough to allow you through. The snow mobile is damaged in the process.", "used": True, "point_value": 4, "point_desc": "Whilst you did eventually get through the gate it took a long time, as well as a lot of effort and noise."},
                 "Car": {"use_desc": "Your team use the car to ram open the gate. It takes a couple of times but eventually you're through. The car is damaged in the process.", "used": True, "point_value": 65, "point_desc": "The car got you past the gate but it cause a lot of damage and made a lot of noise."},
                 "Dune Buggy": {"use_desc": "Your team use the buggy to ram open the gate. It takes a couple of times but eventually you're through. The buggy is damaged in the process.", "used": True, "point_value": 60, "point_desc": "The buggy got you past the gate but it cause a lot of damage and made a lot of noise."},
                 "Welding Kit": {"use_desc": "Your team use the welding kit to melt the lock on the gate. The welding supplies are used up in the process.", "used": True, "point_value": 70, "point_desc": "It took a while for the metal to melt, and by destroying the lock it is obvious to anyone that someone has gotten past, but it did successfully get you past the gate."},
@@ -1495,6 +1564,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Snow Mobile": {"use_desc": "The snow mobile is low enough to the ground that your team is able to slip through the checkpoint along with another car.", "used": False, "point_value": 20, "point_desc": "The snow mobile isn't really very sneaky and your team could very easily have been spotted. But it did the job."},
                 "Ice Skates": {"use_desc": "You leave the ice skates at your current position and move a distance away. The blades of the skates glint in the light and attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to slip by. The ice skates get left behind in the process.", "used": True, "point_value": 95, "point_desc": "The ice skates successfully distracted the guards and allowed you to sneak by, but if they find the skates, it will raise suspicion."},
                 "Taser": {"use_desc": "Your team sneak up and use the taser to knock out the guards round back. You are then able to sneak past the checkpoint.", "used": False, "point_value": 70, "point_desc": "The taser helps you to stealthily get past the checkpoint, but the bodies are likely to be noticed."},
                 "Car": {"use_desc": "The car is fast and your team manage to weave between parts of the checkpoint and get by. The car does get damaged in the process however.", "used": True, "point_value": 80, "point_desc": "The car gets you past the checkpoint, but it isn't a very subtle method."},
@@ -1546,6 +1616,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team drive around the dam. The trip is long and all the fuel is used in the process.", "used": True, "point_value": 100, "point_desc": "The snow mobile helps your team make their way to the far side of the dam fairly quickly."},
                 "Ice Skates": {"use_desc": "You leave the ice skates at your current position and move a distance away. The blades of the skates glint in the light and attracts the guards' attention. They approach it, leaving their posts as your team uses the opportunity to slip across the dam wall. The ice skates get left behind in the process.", "used": True, "point_value": 95, "point_desc": "The ice skates successfully distracted the guards and allowed you to sneak by, but if they find the skates, it will raise suspicion."},
                 "Taser": {"use_desc": "Your team lure the guards to the fence, then use the taser to knock them out. You vault the gate and travel across the dam wall.", "used": False, "point_value": 80, "point_desc": "The taser helps you to get across the dam wall, but the bodies are likely to be noticed."},
                 "Car": {"use_desc": "Your team drive around the dam. The trip is long and all the fuel is used in the process.", "used": True, "point_value": 100, "point_desc": "The car helps your team make their way to the far side of the dam fairly quickly."},
@@ -1965,6 +2036,7 @@ challenges_dict = {
             "viable_locations": ["Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team scavange parts from the snow mobile and repair the system. The snow mobile is used up in the process.", "used": True, "point_value": 100, "point_desc": "The snow mobile provided you all the parts you needed to make full repairs to the system."},
                 "Taser": {"use_desc": "Your team give the system a spritz of energy from the taser and it whirrs back into working order. Just needed a kick.", "used": False, "point_value": 100, "point_desc": "The taser successfully repaired the system."},
                 "Car": {"use_desc": "Your team scavange parts from the car and repair the system. The car is used up in the process.", "used": True, "point_value": 100, "point_desc": "The car provided you all the parts you needed to make full repairs to the system."},
                 "Dune Buggy": {"use_desc": "Your team scavange parts from the dune buggy and repair the system. The dune buggy is used up in the process.", "used": True, "point_value": 100, "point_desc": "The dune buggy provided you all the parts you needed to make full repairs to the system."},
@@ -1989,6 +2061,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team scavange parts from the snow mobile and repair the system. The snow mobile is used up in the process.", "used": True, "point_value": 100, "point_desc": "The snow mobile provided you all the parts you needed to make full repairs to the system."},
                 "Taser": {"use_desc": "Your team give the system a spritz of energy from the taser and it whirrs back into working order. Just needed a kick.", "used": False, "point_value": 100, "point_desc": "The taser successfully repaired the system."},
                 "Car": {"use_desc": "Your team scavange parts from the car and repair the system. The car is used up in the process.", "used": True, "point_value": 100, "point_desc": "The car provided you all the parts you needed to make full repairs to the system."},
                 "Blanket": {"use_desc": "Your team wrap themselves in the blankets and continue the mission.", "used": False, "point_value": 20, "point_desc": "You didn't actually fix the issue. The blankets do keep you team warm, but they restrict their movements. This can only be a temporary solution."},
@@ -2015,6 +2088,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team scavange parts from the snow mobile and repair the system. The snow mobile is used up in the process.", "used": True, "point_value": 100, "point_desc": "The snow mobile provided you all the parts you needed to make full repairs to the system."},
                 "Taser": {"use_desc": "Your team give the system a spritz of energy from the taser and it whirrs back into working order. Just needed a kick.", "used": False, "point_value": 100, "point_desc": "The taser successfully repaired the system."},
                 "Car": {"use_desc": "Your team scavange parts from the car and repair the system. The car is used up in the process.", "used": True, "point_value": 100, "point_desc": "The car provided you all the parts you needed to make full repairs to the system."},
                 "Dune Buggy": {"use_desc": "Your team scavange parts from the dune buggy and repair the system. The dune buggy is used up in the process.", "used": True, "point_value": 100, "point_desc": "The dune buggy provided you all the parts you needed to make full repairs to the system."},
@@ -2036,6 +2110,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team scavange parts from the snow mobile and repair the system. The snow mobile is used up in the process.", "used": True, "point_value": 100, "point_desc": "The snow mobile provided you all the parts you needed to make full repairs to the system."},
                 "Taser": {"use_desc": "Your team give the system a spritz of energy from the taser and it whirrs back into working order. Just needed a kick.", "used": False, "point_value": 100, "point_desc": "The taser successfully repaired the system."},
                 "Car": {"use_desc": "Your team scavange parts from the car and repair the system. The car is used up in the process.", "used": True, "point_value": 100, "point_desc": "The car provided you all the parts you needed to make full repairs to the system."},
                 "Dune Buggy": {"use_desc": "Your team scavange parts from the dune buggy and repair the system. The dune buggy is used up in the process.", "used": True, "point_value": 100, "point_desc": "The dune buggy provided you all the parts you needed to make full repairs to the system."},
@@ -2059,6 +2134,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Ocean", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team scavange parts from the snow mobile and repair the system. The snow mobile is used up in the process.", "used": True, "point_value": 100, "point_desc": "The snow mobile provided you all the parts you needed to make full repairs to the system."},
                 "Taser": {"use_desc": "Your team give the reactor a spritz of energy from the taser and it whirrs back into working order. Just needed a kick.", "used": False, "point_value": 100, "point_desc": "The taser successfully repaired the reactor."},
                 "Car": {"use_desc": "Your team scavange parts from the car and repair the system. The car is used up in the process.", "used": True, "point_value": 100, "point_desc": "The car provided you all the parts you needed to make full repairs to the system."},
                 "Dune Buggy": {"use_desc": "You use the engine from the dune buggy to temporarily power the base instead. The buggy is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
@@ -2081,6 +2157,7 @@ challenges_dict = {
             "viable_locations": ["Desert", "Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Snow Mobile": {"use_desc": "Your team scavange parts from the snow mobile and repair the system. The snow mobile is used up in the process.", "used": True, "point_value": 100, "point_desc": "The snow mobile provided you all the parts you needed to make full repairs to the system."},
                 "Taser": {"use_desc": "Your team give the reactor a spritz of energy from the taser and it whirrs back into working order. Just needed a kick.", "used": False, "point_value": 100, "point_desc": "The taser successfully repaired the reactor."},
                 "Car": {"use_desc": "Your team scavange parts from the car and repair the system. The car is used up in the process.", "used": True, "point_value": 100, "point_desc": "The car provided you all the parts you needed to make full repairs to the system."},
                 "Dune Buggy": {"use_desc": "You use the engine from the dune buggy to temporarily power the base instead. The buggy is rendered useless in the process.", "used": True, "point_value": 40, "point_desc": "It's only a very temporary solution, but does give the base power."},
@@ -2104,15 +2181,35 @@ challenges_dict = {
     "Travel To Rendezvous": {
         "Air Based Travel": {
             "challenge_name": "Travel To Rendezvous Point",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
+            "viable_locations": ["Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Car": {"use_desc": "Your team pile into the car. Whilst the path is nowhere near as safe on the ground, you can still do it. The car is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The car is able to get your team to safety, but it wasn't the ideal method of transport."},
-                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy. Whilst the path is nowhere near as safe on the ground, you can still do it. The dune buggy is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The dune buggy is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Car": {"use_desc": "Your team pile into the car. Whilst the path is nowhere near as safe on the ground, you can still do it. The car is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The car is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy. Whilst the path is nowhere near as safe on the ground, you can still do it. The dune buggy is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The dune buggy is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},
                 "Map": {"use_desc": "Your team use the map to navigate to the rendezvous.", "used": False, "point_value": 5, "point_desc": "The map itself did not help your team travel faster or more safely but it did mean less time was wasted by going in the wrong directions."},
                 "Compass": {"use_desc": "Your team use the compass to navigate to the rendezvous.", "used": False, "point_value": 5, "point_desc": "The compass itself did not help your team travel faster or more safely but it did mean less time was wasted by going in the wrong directions."},
                 "Paraglider": {"use_desc": "Your team use the paraglider to make your way to the rendezvous by air.", "used": False, "point_value": 100, "point_desc": "The paraglider is ideal for air based travel."},
-                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and make your way to the rendezvous quickly and safely.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for air based travel"},
+            },  
+            "failure_items": {}, 
+            "desc": "Your team needs to travel to the agreed rendezvous point. From your current position, the fastest and safest way to get there is using air based transport.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to make the perilous journey on foot. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvous point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt the perilous journey on foot. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut. It's a hazardous path, one your team could barely manage in peak condition, and they are far from that. Exhausted from their earlier efforts, your team is sloppy. It isn't long before a slip up leads to catastrophe. Your team never makes it to their destination."
+        },
+
+        "Air Based Travel - Arctic Tundra": {
+            "challenge_name": "Travel To Rendezvous Point",
+            "viable_locations": ["Arctic Tundra"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{
+                "Snow Mobile": {"use_desc": "Your team pile into the snow mobile and take off. It moves quickly over the terrain and your team reaches the rendezvous point swiftly.", "used": False, "point_value": 50, "point_desc": "The snow mobile is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},
+                "Car": {"use_desc": "Your team pile into the car. Whilst the path is nowhere near as safe on the ground, you can still do it. The car is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The car is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy. Whilst the path is nowhere near as safe on the ground, you can still do it. The dune buggy is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The dune buggy is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},
+                "Map": {"use_desc": "Your team use the map to navigate to the rendezvous.", "used": False, "point_value": 5, "point_desc": "The map itself did not help your team travel faster or more safely but it did mean less time was wasted by going in the wrong directions."},
+                "Compass": {"use_desc": "Your team use the compass to navigate to the rendezvous.", "used": False, "point_value": 5, "point_desc": "The compass itself did not help your team travel faster or more safely but it did mean less time was wasted by going in the wrong directions."},
+                "Paraglider": {"use_desc": "Your team use the paraglider to make your way to the rendezvous by air.", "used": False, "point_value": 100, "point_desc": "The paraglider is ideal for air based travel."},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},
                 "Helicopter": {"use_desc": "Your team pile into the helicopter and make your way to the rendezvous quickly and safely.", "used": False, "point_value": 100, "point_desc": "The helicopter is ideal for air based travel"},
             },  
             "failure_items": {}, 
@@ -2142,7 +2239,7 @@ challenges_dict = {
 
         "Land Based Travel": {
             "challenge_name": "Travel To Rendezvous Point",
-            "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
+            "viable_locations": ["Jungle", "City", "Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Car": {"use_desc": "Your team pile into the car and tear off. The car is quick and manoeuvrable and your team reaches the rendezvous in no time.", "used": False, "point_value": 100, "point_desc": "The car is well suited to fast travel on land as its lighter frame helps it to move quickly."},

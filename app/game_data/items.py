@@ -35,8 +35,8 @@ items_dict = {
     "Heat Resistant Suit": {"desc": "A protective suit designed to reduce exposure to extreme heat and hazardous environments.", "cost": 140, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"},
     "Lock Picks": {"desc": "A compact set of precision tools for opening mechanical locks.", "cost": 80, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
     "Ice Skates": {"desc": "A pair of shoes with a blade attached to the bottom. They are ideal for moving across ice.", "cost": 60, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
-    
     "Snow Mobile": {"desc": "A motorised vehicle, mounted on skis that is designed to travel across snow.", "cost": 250, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
+    
     "Flare Gun": {"desc": "A handheld flare launcher used to send a highly visible distress signal.", "cost": 80, "image": "icons8-flare-64.png", "hotbar_image": "icons8-flare-32.png"},
     "Protective Goggles": {"desc": "Sealed protective goggles that shield the eyes from dust, sand, ash and debris.", "cost": 40, "image": "icons8-goggles-64.png", "hotbar_image": "icons8-goggles-32.png"},
     "Water Purifier": {"desc": "A portable purification system that makes contaminated water safer to drink.", "cost": 70, "image": "icons8-water-filter-64.png", "hotbar_image": "icons8-water-filter-32.png"},
