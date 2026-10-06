@@ -302,7 +302,7 @@
 }
 
 .mission-description {
-    display: inline;
+    display: block;
 
     margin: 0;
 
@@ -312,6 +312,63 @@
     line-height: 2.1;
 
     white-space: pre-wrap;
+}
+
+.mission-file .page-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 22px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--tile-border);
+}
+
+.mission-file .page-controls button {
+    min-width: 112px;
+    min-height: 44px;
+    margin: 0;
+    padding: 10px 16px;
+    border: 2px solid var(--correct);
+    border-radius: 3px;
+    background: rgba(61, 220, 132, 0.1);
+    color: var(--correct);
+    font-family: var(--font-press);
+    font-size: 0.5rem;
+    letter-spacing: 0.06em;
+    box-shadow: 0 0 14px rgba(61, 220, 132, 0.1);
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.mission-file .page-controls button:hover:not(:disabled) {
+    background: var(--correct);
+    color: #000;
+    transform: none;
+}
+
+.mission-file .page-controls button:focus-visible {
+    outline: 3px solid var(--accent-cyan);
+    outline-offset: 3px;
+}
+
+.mission-file .page-controls button:disabled {
+    border-color: var(--tile-border);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    box-shadow: none;
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.mission-file .page-controls span {
+    padding: 7px 10px;
+    border: 1px solid var(--tile-border);
+    color: var(--text-muted);
+    font-family: var(--font-press);
+    font-size: 0.45rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
 }
 
 .typing-cursor {

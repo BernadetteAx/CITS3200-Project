@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const previous = document.createElement("button");
         const next = document.createElement("button");
         const count = document.createElement("span");
-        previous.textContent = "← BACK";
-        next.textContent = "NEXT →";
+        previous.textContent = "BACK";
+        next.textContent = "NEXT";
         previous.type = next.type = "button";
         function renderPage() {
             missionDescription.textContent = pages[index];

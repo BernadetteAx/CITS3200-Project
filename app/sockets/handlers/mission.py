@@ -331,11 +331,10 @@ def _resolve(code, session, mission, item=None, timed_out=False):
 
         session["phase"] = "result_page"
 
-        broadcast_mission_state(code, session)
         socketio.emit("mission_outcome", outcome, room=code)
         socketio.emit(
-            "mission_complete",
-            session["mission_result"],
+            "mission_final_failure",
+            mission.get("challenge_descriptions", {}).get("final_failure_desc", ""),
             room=code
         )
         return
