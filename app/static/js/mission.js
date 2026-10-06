@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let journeyTimers = [];
   let journeyAnimationFrame = null;
   let activeTransitionState = null;
+  let finalFailureTimer = null;
+  let showingFinalFailure = false;
 
   const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
@@ -592,6 +594,10 @@ function playChallengeTransition(next) {
     }
   });
   journeyBriefingBtn.addEventListener("click", () => {
+    if (showingFinalFailure) {
+      window.location.replace("/result_page");
+      return;
+    }
     finishJourneyTransition();
   });
   document.getElementById("instructionsBtn").addEventListener("click", () => show(instructionsPopup));
@@ -605,6 +611,16 @@ function playChallengeTransition(next) {
       challengeDescs = data.challengeDescs;
     }
     render(data);
+  });
+  window.gameSocket.on("mission_final_failure", (description) => {
+    showingFinalFailure = true;
+    clearTimeout(finalFailureTimer);
+    missionTransition.classList.add("active", "final-failure");
+    journeyBriefingDesc.textContent = description || "Your team has reached the mission's failure limit.";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION FAILED · 3 FAILURES";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "VIEW RESULTS";
+    journeyBriefingBtn.setAttribute("aria-label", "Continue to mission results");
+    finalFailureTimer = setTimeout(() => window.location.replace("/result_page"), 7000);
   });
   window.gameSocket.on("mission_complete", () => window.location.replace("/result_page"));
 });
