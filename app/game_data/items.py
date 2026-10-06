@@ -16,26 +16,28 @@ items_dict = {
     "Mountain Gear": {"desc": "A set of climbing equipment including a harness, helmet, carabiners, anchors and rope for navigating steep terrain.", "cost": 160, "image": "icons8-mountain-64.png", "hotbar_image": "icons8-mountain-32.png"},
     "Boat": {"desc": "A small motorboat with room for your team and equipment when travelling across water.", "cost": 300, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Axe": {"desc": "A sturdy axe for chopping wood, cutting through tangled vegetation and clearing obstacles.", "cost": 100, "image": "icons8-minecraft-axe-64.png", "hotbar_image": "icons8-minecraft-axe-32.png"},
-    "Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
-    "Inflatable Raft": {"desc": "A compact inflatable raft capable of carrying the team across water.", "cost": 140, "image": "icons8-raft-64.png", "hotbar_image": "icons8-raft-32.png"}, 
-    "Thermal Clothing": {"desc": "Insulated clothing designed to protect the wearer from dangerously cold conditions.", "cost": 70, "image": "icons8-winter-clothes-64.png", "hotbar_image": "icons8-winter-clothes-32.png"},
-    "Heat Resistant Suit": {"desc": "A protective suit designed to reduce exposure to extreme heat and hazardous environments.", "cost": 140, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"},
     "Compass": {"desc": "A simple backup when technology fails.", "cost": 30, "image": "icons8-compass-64.png", "hotbar_image": "icons8-compass-32.png"},
     "Map": {"desc": "A detailed paper map showing nearby terrain, landmarks and routes.", "cost": 30, "image": "icons8-map-64.png", "hotbar_image": "icons8-map-32.png"},
     "Toolkit": {"desc": "A portable collection of tools for repairing equipment and carrying out basic mechanical work.", "cost": 100, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
     "Shovel": {"desc": "A sturdy digging tool for moving soil, clearing debris and uncovering buried objects.", "cost": 60, "image": "shovel-32.png", "hotbar_image": "shovel-32.png"},
-    "Lock Picks": {"desc": "A compact set of precision tools for opening mechanical locks.", "cost": 80, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
     "Stolen Uniforms": {"desc": "A collection of staff uniforms for disguising your team in restricted areas.", "cost": 120, "image": "icons8-german-hat-64.png", "hotbar_image": "icons8-german-hat-32.png"},
     "Welding Kit": {"desc": "A portable welding kit with protective equipment for joining metal and repairing damaged structures.", "cost": 150, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
     "Dune Buggy": {"desc": "A lightweight off-road vehicle with wide tyres for transporting your team across sandy terrain.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Blanket": {"desc": "A thick woollen blanket used to retain body heat.", "cost": 30, "image": "icons8-blanket-64.png", "hotbar_image": "icons8-blanket-32.png"},
-
+    "Car": {"desc": "A standard passenger car for transporting your team and equipment along roads.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
+    
+    "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
+         
         
     # NEEDS IMAGE
+    "Thermal Clothing": {"desc": "Insulated clothing designed to protect the wearer from dangerously cold conditions.", "cost": 70, "image": "icons8-winter-clothes-64.png", "hotbar_image": "icons8-winter-clothes-32.png"},
+    "Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
+    "Inflatable Raft": {"desc": "A compact inflatable raft capable of carrying the team across water.", "cost": 140, "image": "icons8-raft-64.png", "hotbar_image": "icons8-raft-32.png"}, 
+    "Heat Resistant Suit": {"desc": "A protective suit designed to reduce exposure to extreme heat and hazardous environments.", "cost": 140, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"},
+    "Lock Picks": {"desc": "A compact set of precision tools for opening mechanical locks.", "cost": 80, "image": "icons8-tools-64.png", "hotbar_image": "icons8-tools-32.png"},
+
     "Ice Skates": {"desc": "A pair of shoes with a blade attached to the bottom. They are ideal for moving across ice.", "cost": 60, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
     "Snow Mobile": {"desc": "A motorised vehicle, mounted on skis that is designed to travel across snow.", "cost": 250, "image": "icons8-winter-boots-32.png", "hotbar_image": "icons8-winter-boots-32.png"},
-    "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
-    "Car": {"desc": "A standard passenger car for transporting your team and equipment along roads.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Flare Gun": {"desc": "A handheld flare launcher used to send a highly visible distress signal.", "cost": 80, "image": "icons8-flare-64.png", "hotbar_image": "icons8-flare-32.png"},
     "Protective Goggles": {"desc": "Sealed protective goggles that shield the eyes from dust, sand, ash and debris.", "cost": 40, "image": "icons8-goggles-64.png", "hotbar_image": "icons8-goggles-32.png"},
     "Water Purifier": {"desc": "A portable purification system that makes contaminated water safer to drink.", "cost": 70, "image": "icons8-water-filter-64.png", "hotbar_image": "icons8-water-filter-32.png"},
