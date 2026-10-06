@@ -294,6 +294,7 @@ body {
 
     display: flex;
     justify-content: center;
+    gap: 16px;
 
     margin-top: 26px;
 }
@@ -304,7 +305,9 @@ body {
     justify-content: center;
     align-items: center;
 
-    width: 100%;
+    width: auto;
+    flex: 1 1 0;
+    min-width: 0;
     min-height: 56px;
 
     padding: 18px 24px;
@@ -313,7 +316,7 @@ body {
     color: #000000;
 
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
 
     font-family: var(--font-press);
     font-size: 0.85rem;
@@ -327,6 +330,10 @@ body {
     transition:
         transform 0.1s ease,
         background 0.1s ease;
+}
+
+.result-actions .result-button {
+    border-radius: 6px;
 }
 
 .result-button:hover {
