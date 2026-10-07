@@ -108,9 +108,9 @@ function applyState(next) {
 
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
         timerChallengeIndex = state.currentChallengeIndex;
-        challengeEndsAt = state.endsAt || Date.now() / 1000 + CHALLENGE_SECONDS;
         timedOutChallengeIndex = null;
       }
+      if (state.status === "active") challengeEndsAt = state.endsAt;
       if (state.status !== "active") {
         challengeEndsAt = null;
       }
@@ -463,6 +463,9 @@ function animateJourney(fromChallenge, toChallenge) {
     const finalState = pendingState || activeTransitionState;
     pendingState = null;
     if (finalState) applyState(finalState);
+    if (finalState?.status === "active" && finalState.endsAt == null) {
+      action("mission_start_timer");
+    }
     missionTransition.classList.remove("active");
     journeyRunner.style.opacity = "0";
     transitioning = false;
