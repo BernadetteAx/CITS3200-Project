@@ -213,9 +213,9 @@ def _resolve(code, session, mission, item=None, timed_out=False):
             if item["id"] == normalised_item and challenge["success_items"][success_item]["used"]:
                 mission["used_items"].append(item["id"])
         for failure_item in challenge["failure_items"].keys():
-                normalised_item = failure_item.lower().strip().replace(" ", "-")
-                if item["id"] == normalised_item and challenge["failure_items"][failure_item]["used"]:
-                    mission["used_items"].append(item["id"])     
+            normalised_item = failure_item.lower().strip().replace(" ", "-")
+            if item["id"] == normalised_item and challenge["failure_items"][failure_item]["used"]:
+                mission["used_items"].append(item["id"])     
         
 
         item_result = challenge["success_items"].get(item["name"])
