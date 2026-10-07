@@ -37,7 +37,7 @@
     //
     //   6 passed  -> PERFECT EXECUTION
     //   5 passed  -> A SUCCESSFUL MISSION
-    //   4 passed  -> JUST MADE IT
+    //   4 passed  -> MADE IT
     //   1-3 passed-> FAILED MISSION   (the sheet states 3; 1 and 2 are
     //                                  unstated and settle here)
     //   0 passed  -> CATASTROPHIC FAILURE
@@ -63,7 +63,7 @@
         },
         fair: {
             tier: "fair",
-            title: "JUST MADE IT",
+            title: "MADE IT",
             emblem: "emblem-fair-challenge-win.png",
             description:
                 "Your team completed the mission with a satisfactory performance across 4 challenges."
