@@ -377,7 +377,8 @@ def mission_advance(payload):
     mission["current_challenge_index"] += 1
     mission["outcome"] = None
     mission["votes"] = {}
-    mission["challenge_ends_at"] = time.time() + 60
+    # The next challenge timer starts after the team dismisses its briefing.
+    mission["challenge_ends_at"] = None
     if mission["current_challenge_index"] >= len(mission["challenges"]):
         mission["status"] = "complete"
         session["mission_result"] = {"score": mission["score"], "penalties": mission["penalties"], "outcomes": list(mission["outcome_log"])}
@@ -387,3 +388,14 @@ def mission_advance(payload):
         return
     mission["status"] = "active"
     broadcast_mission_state(code, session)
+
+
+@socketio.on("mission_start_timer")
+def mission_start_timer(payload):
+    code, session, mission = _action_session(payload)
+    player_id = _valid_player(session, payload) if session else None
+    if not session or not player_id or mission["status"] != "active":
+        return
+    if mission.get("challenge_ends_at") is None:
+        mission["challenge_ends_at"] = time.time() + 60
+        broadcast_mission_state(code, session)

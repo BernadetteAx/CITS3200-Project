@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let finalFailureTimer = null;
   let showingFinalFailure = false;
 
-  const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
   const JOURNEY_NODE_COUNT = 6;
 
@@ -109,9 +108,9 @@ function applyState(next) {
 
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
         timerChallengeIndex = state.currentChallengeIndex;
-        challengeEndsAt = state.endsAt || Date.now() / 1000 + CHALLENGE_SECONDS;
         timedOutChallengeIndex = null;
       }
+      if (state.status === "active") challengeEndsAt = state.endsAt;
       if (state.status !== "active") {
         challengeEndsAt = null;
       }
@@ -464,6 +463,9 @@ function animateJourney(fromChallenge, toChallenge) {
     const finalState = pendingState || activeTransitionState;
     pendingState = null;
     if (finalState) applyState(finalState);
+    if (finalState?.status === "active" && finalState.endsAt == null) {
+      action("mission_start_timer");
+    }
     missionTransition.classList.remove("active");
     journeyRunner.style.opacity = "0";
     transitioning = false;
@@ -536,14 +538,8 @@ function playChallengeTransition(next) {
     }, 350));
 
 
-    /* load the next challenge near the end of the journey. The user sees the destination before the actual challenge screen appears.*/
-    journeyTimers.push(setTimeout(() => {
-
-      applyState(next);
-
-    }, JOURNEY_TRAVEL_MS + 500));
-
-    journeyTimers.push(setTimeout(finishJourneyTransition, TRANSITION_MS));
+    // Keep the briefing visible after the journey animation ends. The team
+    // advances to the next challenge only when they press Skip.
   }
 
   function render(next) {
