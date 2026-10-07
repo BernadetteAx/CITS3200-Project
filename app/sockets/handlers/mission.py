@@ -96,7 +96,7 @@ def initialise_mission(session, generated_mission=None):
             "challenges": _normalise_challenges(generated_mission), "current_challenge_index": 0,
             "inventory": [dict(item) for item in session.get("purchased_items", [])], "used_items": [],
             "outcome_log": [], "score": 0, "penalties": 0, "status": "active", "outcome": None,
-            "votes": {}, "challenge_ends_at": time.time() + 60}
+            "votes": {}, "challenge_ends_at": None}
     return session["mission"]
 
 
@@ -309,11 +309,10 @@ def _resolve(code, session, mission, item=None, timed_out=False):
 
         session["phase"] = "result_page"
 
-        broadcast_mission_state(code, session)
         socketio.emit("mission_outcome", outcome, room=code)
         socketio.emit(
-            "mission_complete",
-            session["mission_result"],
+            "mission_final_failure",
+            challenge.get("final_failure_desc", ""),
             room=code
         )
 
@@ -334,7 +333,7 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         socketio.emit("mission_outcome", outcome, room=code)
         socketio.emit(
             "mission_final_failure",
-            mission.get("challenge_descriptions", {}).get("final_failure_desc", ""),
+            mission["challenges"][mission["current_challenge_index"]].get("final_failure_desc", ""),
             room=code
         )
         return
@@ -377,13 +376,44 @@ def mission_advance(payload):
     mission["current_challenge_index"] += 1
     mission["outcome"] = None
     mission["votes"] = {}
-    mission["challenge_ends_at"] = time.time() + 60
+    mission["challenge_ends_at"] = None
     if mission["current_challenge_index"] >= len(mission["challenges"]):
         mission["status"] = "complete"
         session["mission_result"] = {"score": mission["score"], "penalties": mission["penalties"], "outcomes": list(mission["outcome_log"])}
-        session["phase"] = "result_page"
-        broadcast_mission_state(code, session)
-        socketio.emit("mission_complete", session["mission_result"], room=code)
+        socketio.emit(
+            "mission_epilogue",
+            mission.get("challenge_descriptions", {}).get("mission_complete_desc", ""),
+            room=code,
+        )
         return
     mission["status"] = "active"
     broadcast_mission_state(code, session)
+
+
+@socketio.on("mission_start_timer")
+def mission_start_timer(payload):
+    code, session, mission = _action_session(payload)
+    player_id = _valid_player(session, payload) if session else None
+    if not session or not player_id or mission["status"] != "active":
+        return
+    if mission.get("challenge_ends_at") is None:
+        mission["challenge_ends_at"] = time.time() + 60
+        broadcast_mission_state(code, session)
+
+
+@socketio.on("mission_finish")
+def mission_finish(payload):
+    code = payload.get("sessionCode") if isinstance(payload, dict) else None
+    session = get_session(code)
+    player_id = _valid_player(session, payload) if session else None
+    mission = session.get("mission") if session else None
+    if (
+        not session
+        or session.get("phase") != "mission"
+        or not player_id
+        or not mission
+        or mission["status"] != "complete"
+    ):
+        return
+    session["phase"] = "result_page"
+    socketio.emit("mission_complete", session.get("mission_result", {}), room=code)

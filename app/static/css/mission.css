@@ -1341,10 +1341,11 @@ h1.challenge-progress {
 .briefing-description {
   font-size: 0.75rem;
   color: #ddd;
-  margin: 0;
+  width: min(100%, 90ch);
+  margin: 0 auto;
   line-height: 1.6;
   letter-spacing: 0.02em;
-  max-width: 90ch;
+  text-align: center;
 }
 
 .journey-briefing-btn {

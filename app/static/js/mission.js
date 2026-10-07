@@ -32,10 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let journeyTimers = [];
   let journeyAnimationFrame = null;
   let activeTransitionState = null;
-  let finalFailureTimer = null;
   let showingFinalFailure = false;
+  let showingMissionEnding = false;
 
-  const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
   const JOURNEY_NODE_COUNT = 6;
 
@@ -109,9 +108,9 @@ function applyState(next) {
 
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
         timerChallengeIndex = state.currentChallengeIndex;
-        challengeEndsAt = state.endsAt || Date.now() / 1000 + CHALLENGE_SECONDS;
         timedOutChallengeIndex = null;
       }
+      if (state.status === "active") challengeEndsAt = state.endsAt;
       if (state.status !== "active") {
         challengeEndsAt = null;
       }
@@ -464,11 +463,25 @@ function animateJourney(fromChallenge, toChallenge) {
     const finalState = pendingState || activeTransitionState;
     pendingState = null;
     if (finalState) applyState(finalState);
+    if (finalState?.status === "active" && finalState.endsAt == null) {
+      action("mission_start_timer");
+    }
     missionTransition.classList.remove("active");
     journeyRunner.style.opacity = "0";
     transitioning = false;
     activeTransitionState = null;
 
+  }
+
+  function playMissionStartTransition(next) {
+    transitioning = true;
+    activeTransitionState = next;
+    applyState(next);
+    missionTransition.classList.add("active");
+    journeyBriefingDesc.textContent = challengeDescs.mission_start_desc || next.missionDescription || "";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION START";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "SKIP";
+    journeyBriefingBtn.setAttribute("aria-label", "Skip mission briefing");
   }
 
 function playChallengeTransition(next) {
@@ -536,14 +549,7 @@ function playChallengeTransition(next) {
     }, 350));
 
 
-    /* load the next challenge near the end of the journey. The user sees the destination before the actual challenge screen appears.*/
-    journeyTimers.push(setTimeout(() => {
-
-      applyState(next);
-
-    }, JOURNEY_TRAVEL_MS + 500));
-
-    journeyTimers.push(setTimeout(finishJourneyTransition, TRANSITION_MS));
+    // Leave the briefing visible until the team presses Skip.
   }
 
   function render(next) {
@@ -552,6 +558,12 @@ function playChallengeTransition(next) {
 
       pendingState = next;
 
+      return;
+    }
+
+    if (!state && next.status === "active" && next.currentChallengeIndex === 0) {
+      lastChallengeIndex = next.currentChallengeIndex;
+      playMissionStartTransition(next);
       return;
     }
 
@@ -594,6 +606,10 @@ function playChallengeTransition(next) {
     }
   });
   journeyBriefingBtn.addEventListener("click", () => {
+    if (showingMissionEnding) {
+      action("mission_finish");
+      return;
+    }
     if (showingFinalFailure) {
       window.location.replace("/result_page");
       return;
@@ -614,13 +630,22 @@ function playChallengeTransition(next) {
   });
   window.gameSocket.on("mission_final_failure", (description) => {
     showingFinalFailure = true;
-    clearTimeout(finalFailureTimer);
+    showingMissionEnding = false;
+    hide(feedbackPopup);
     missionTransition.classList.add("active", "final-failure");
     journeyBriefingDesc.textContent = description || "Your team has reached the mission's failure limit.";
-    document.getElementById("journeyBriefingTitle").textContent = "MISSION FAILED · 3 FAILURES";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION FAILED";
     journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "VIEW RESULTS";
     journeyBriefingBtn.setAttribute("aria-label", "Continue to mission results");
-    finalFailureTimer = setTimeout(() => window.location.replace("/result_page"), 7000);
+  });
+  window.gameSocket.on("mission_epilogue", (description) => {
+    showingMissionEnding = true;
+    hide(feedbackPopup);
+    missionTransition.classList.add("active");
+    journeyBriefingDesc.textContent = description || "Your team has completed the mission.";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION COMPLETE";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "VIEW RESULTS";
+    journeyBriefingBtn.setAttribute("aria-label", "Continue to mission results");
   });
   window.gameSocket.on("mission_complete", () => window.location.replace("/result_page"));
 });
