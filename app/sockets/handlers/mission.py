@@ -91,6 +91,8 @@ def initialise_mission(session, generated_mission=None):
         session["mission"] = {"mission_name": generated_mission["mission"],
             "location": generated_mission.get("location", ""),
             "mission_description": generated_mission.get("mission_description", generated_mission.get("mission_desc", "")),
+            "challenge_descriptions": {key: value for key, value in generated_mission.items()
+                                       if key.endswith("_desc") and isinstance(value, str)},
             "challenges": _normalise_challenges(generated_mission), "current_challenge_index": 0,
             "inventory": [dict(item) for item in session.get("purchased_items", [])], "used_items": [],
             "outcome_log": [], "score": 0, "penalties": 0, "status": "active", "outcome": None,
@@ -119,8 +121,10 @@ def _state(session):
     for vote in mission.get("votes", {}).values():
         tally[vote] = tally.get(vote, 0) + 1
     return {"phase": session["phase"], "missionName": mission["mission_name"], "location": mission.get("location", ""),
-        "missionDescription": mission["mission_description"], "currentChallengeIndex": index,
+        "missionDescription": mission["mission_description"],
+        "challengeDescs": mission.get("challenge_descriptions", {}), "currentChallengeIndex": index,
         "totalChallenges": len(mission["challenges"]), "challenge": current, "inventory": inventory,
+        "inventorySlots": session.get("inventory_slots", inventory),
         "usedItems": list(mission["used_items"]), "outcomeLog": list(mission["outcome_log"]),
         "score": mission["score"], "penalties": mission["penalties"], "status": mission["status"], "outcome": mission["outcome"],
         "voteTally": tally, "voteCount": len(mission.get("votes", {})),
@@ -220,6 +224,12 @@ def _resolve(code, session, mission, item=None, timed_out=False):
 
         item_result = challenge["success_items"].get(item["name"])
         failure_result = challenge["failure_items"].get(item["name"])
+
+        # The vote winner is the item used for this challenge. Record it even
+        # when the challenge result describes it as reusable; the mission UI
+        # and results need to retain the team's winning choice after advancing.
+        if item["id"] not in mission["used_items"]:
+            mission["used_items"].append(item["id"])
 
         successful = item_result is not None
         instant_failure = failure_result is not None
@@ -332,11 +342,10 @@ def _resolve(code, session, mission, item=None, timed_out=False):
 
         session["phase"] = "result_page"
 
-        broadcast_mission_state(code, session)
         socketio.emit("mission_outcome", outcome, room=code)
         socketio.emit(
-            "mission_complete",
-            session["mission_result"],
+            "mission_final_failure",
+            mission.get("challenge_descriptions", {}).get("final_failure_desc", ""),
             room=code
         )
         return
@@ -379,7 +388,8 @@ def mission_advance(payload):
     mission["current_challenge_index"] += 1
     mission["outcome"] = None
     mission["votes"] = {}
-    mission["challenge_ends_at"] = time.time() + 60
+    # The next challenge timer starts after the team dismisses its briefing.
+    mission["challenge_ends_at"] = None
     if mission["current_challenge_index"] >= len(mission["challenges"]):
         mission["status"] = "complete"
         session["mission_result"] = {"score": mission["score"], "penalties": mission["penalties"], "outcomes": list(mission["outcome_log"])}
@@ -389,3 +399,14 @@ def mission_advance(payload):
         return
     mission["status"] = "active"
     broadcast_mission_state(code, session)
+
+
+@socketio.on("mission_start_timer")
+def mission_start_timer(payload):
+    code, session, mission = _action_session(payload)
+    player_id = _valid_player(session, payload) if session else None
+    if not session or not player_id or mission["status"] != "active":
+        return
+    if mission.get("challenge_ends_at") is None:
+        mission["challenge_ends_at"] = time.time() + 60
+        broadcast_mission_state(code, session)
