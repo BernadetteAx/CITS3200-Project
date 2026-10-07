@@ -187,6 +187,14 @@ body {
     letter-spacing: 0.08em;
 }
 
+/* Failed mission: score + achievement headings switch to the failure red.
+   Class is toggled by result_page.js; successful results are untouched. */
+.final-score.mission-failed h2,
+.final-score.mission-failed #final-score,
+.mission-achievement.mission-failed h2 {
+    color: var(--incorrect);
+}
+
 
 /* LEFTOVER MONEY */
 

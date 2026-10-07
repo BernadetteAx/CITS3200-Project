@@ -215,6 +215,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const missionFailed = Number(result.challengesFailed) >= 3
         || Number(result.challengesCompleted) < Number(result.totalChallenges);
+      // Presentation only: tint the score/achievement headings red on failure.
+      document.querySelector(".final-score")?.classList.toggle("mission-failed", missionFailed);
+      document.querySelector(".mission-achievement")?.classList.toggle("mission-failed", missionFailed);
       if (missionFailed) {
         const failureDialog = document.getElementById("missionFailureDialog");
         document.getElementById("missionFailureMessage").textContent =
