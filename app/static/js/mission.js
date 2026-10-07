@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let finalFailureTimer = null;
   let showingFinalFailure = false;
 
-  const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
   const JOURNEY_NODE_COUNT = 6;
 
@@ -536,14 +535,8 @@ function playChallengeTransition(next) {
     }, 350));
 
 
-    /* load the next challenge near the end of the journey. The user sees the destination before the actual challenge screen appears.*/
-    journeyTimers.push(setTimeout(() => {
-
-      applyState(next);
-
-    }, JOURNEY_TRAVEL_MS + 500));
-
-    journeyTimers.push(setTimeout(finishJourneyTransition, TRANSITION_MS));
+    // Keep the briefing visible after the journey animation ends. The team
+    // advances to the next challenge only when they press Skip.
   }
 
   function render(next) {
