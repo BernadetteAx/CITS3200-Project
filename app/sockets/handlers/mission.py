@@ -48,6 +48,7 @@ def _normalise_challenges(generated_mission):
             "id": f"challenge-{index}",
             "name": name,
             "type": challenge.get("type", ""),
+            "artKey": challenge.get("art_key", name),
             "description": description,
             "weight": weight,
             "continue_failure_desc": continue_failure_desc,

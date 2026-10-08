@@ -41,6 +41,11 @@ for (const location of ['Arctic Tundra', 'Desert', 'Jungle']) {
       location === 'Arctic Tundra' ? 'arctic' : location.toLowerCase());
   }
 }
+for (const [artKey, cell] of [['Air Based Getaway', 20], ['Water Based Getaway', 22], ['Air Based Travel', 20], ['Water Based Travel', 22]]) {
+  const run = game(artKey);
+  const scene = run.visuals.challengeVisual({name: artKey.includes('Travel') ? 'Travel To Rendezvous Point' : 'Getaway', type: artKey.includes('Travel') ? 'Travel To Rendezvous' : 'Getaway', artKey}, 'Jungle');
+  assert.equal(scene.cell, cell);
+}
 const firstRun = game('history-first');
 const first = firstRun.visuals.challengeVisual({ name: 'Building', challengeIndex: 0 }, 'Desert');
 const second = game('history-second').visuals.challengeVisual({ name: 'Building', challengeIndex: 0 }, 'Desert');

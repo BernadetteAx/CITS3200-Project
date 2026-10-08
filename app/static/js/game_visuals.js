@@ -183,7 +183,7 @@
 
   function challengeVisual(challenge, location = '', missionName = '', context = 'play') {
     const type = challenge.type || '';
-    const name = (challenge.name || '').toLowerCase();
+    const name = (challenge.artKey || challenge.name || '').toLowerCase();
     const source = `${biomeSources[location]}-challenges`;
     let theme = 16;
     if (/sinkhole|crevasse|earthquake/.test(name)) theme = 0;
