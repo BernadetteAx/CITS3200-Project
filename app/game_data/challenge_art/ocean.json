@@ -1,0 +1,239 @@
+{
+  "location": "Ocean",
+  "scenes": {
+    "Alert Another Team": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Contact Rescue Team": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Contact Stranded Teammate": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Colossal Wave": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Cyclone": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Shallow Reef": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Shark Attack": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Find Land": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Get Water": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Air Based Getaway": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Use Stealth": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Water Based Getaway": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Repair Collapsed Wall": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Repair Enviro-Dome": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Repair Exit Hatch": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Repair Rover": {
+      "source": "challenge-ocean-1-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-ocean-1-v1.png"
+    },
+    "Repair Solar Panels": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Repair Vehicle": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Split Handrail": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Sea Mines": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Ship Graveyard": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Deactivate Alarms": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Deactivate Security Cameras": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Find Another Entrance": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Find Another Exit": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Get Past the Laser Grid": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Break into the Vault": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Open the crate": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Pickpocket it": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Retrieve the Item from the Laser Grid": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Air Recycling System Offline": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Central Heating Offline": {
+      "source": "challenge-ocean-2-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-ocean-2-v1.png"
+    },
+    "Communications System Failure": {
+      "source": "challenge-ocean-3-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-ocean-3-v1.png"
+    },
+    "Geo-Thermal Reactor Failure": {
+      "source": "challenge-ocean-3-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-ocean-3-v1.png"
+    },
+    "Air Based Travel": {
+      "source": "challenge-ocean-3-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-ocean-3-v1.png"
+    },
+    "Water Based Travel": {
+      "source": "challenge-ocean-3-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-ocean-3-v1.png"
+    },
+    "Disable the Bomb Controls": {
+      "source": "challenge-ocean-3-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-ocean-3-v1.png"
+    },
+    "Destroy the Stolen Records": {
+      "source": "challenge-ocean-3-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-ocean-3-v1.png"
+    },
+    "Shut Down the Weapon": {
+      "source": "challenge-ocean-3-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-ocean-3-v1.png"
+    }
+  }
+}
