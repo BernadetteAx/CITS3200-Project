@@ -281,6 +281,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit is thick and covers most of your bodies. It protects your team from most of the bug bites as they run past the swarm.", "used": False, "point_value": 70, "point_desc": "Whilst the still suits help protect your team, they still leave your heads vulnerable to bites. Fortunatley you don't suffer enough for it to cause permanant damage."},
                 "Blanket": {"use_desc": "Your team wrap themselves in the blankets, protecting most of their bodies from insect bites and run past the swarm.", "used": False, "point_value": 20, "point_desc": "The blankets provide only very minimal coverage. Your team suffers numerous bites, but not enough to kill them."},
                 "Tent": {"use_desc": "Your team wrap themselves in the canvas of the tent, protecting most of their bodies from insect bites and run past the swarm.", "used": False, "point_value": 20, "point_desc": "The tent canvas provided only very minimal coverage. Your team suffers numerous bites, but not enough to kill them."},
                 "Welding Kit": {"use_desc": "Your team wave the welding torch around, frying the insects. Soon enough the swarm is no more and your team is able to pass safely. The welding supplies are used up in the process.", "used": True, "point_value": 95, "point_desc": "The flame is able to easily deal with the swarm of bugs and is well suited to the task. Unfortunately, a couple of bugs do get past, but their bites alone are not enough to inflict significant damage."},
@@ -391,6 +392,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit doesn't do much, but the extra layer between you and the temperature helps you move around the fire. The extreme heat damages the still suit beyond repair.", "used": True, "point_value": 70, "point_desc": "The still suit allows your team to survive the fire, but only acts as a second layer of skin. Some of it even melts onto your skin, burning you. So you live, but it isn't pretty."},
                 "Car": {"use_desc": "Your team pile into the car and make sure the windows are sealed up tight. You then drive around the edges of the flames. It's tricky to avoid the trees and the tires begin to melt in the heat, but you evntually make it past the fire. The car is damaged in the process.", "used": True, "point_value": 80, "point_desc": "The car protected your team from the smoke and the worst of the heat, but it wasn't well suited to  the terrain you were travelling on, and a change of wind direction could have pushed the flames right onto your team."},
                 "Blankets": {"use_desc": "Your team skirt the edge of the flames, whenever it gets too close you smother it using the blanket. The blanket is damaged in the process.", "used": True, "point_value": 30, "point_desc": "The blanket prevents your team from getting burnt, but does nothing to combat the heat or smoke and doesn't put the fire out."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and drive it straights through the fire. In the extreme heat, the dune buggy is rendered unuasbale.", "used": False, "point_value": 40, "point_desc": "The dune buggy provides no protection from the flames. Your team all suffer severe burns as you pass through the roaring fire. But, once your team has made it past the initial walls of flame and into the smoldering land beyond it, the buggy helps them move quickly."},
@@ -539,6 +541,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit doesn't do much, but the extra layer between you and the temperature helps you move around the lava spout. The extreme heat damages the still suit beyond repair.", "used": True, "point_value": 60, "point_desc": "The still suit allows your team to survive the lava spout, but only acts as a second layer of skin. Some of it even melts onto your skin, burning you. So you live, but it isn't pretty."},
                 "Crowbar": {"use_desc": "Your team climb up a rocky slope beside the lava spout. You find a large rock and, using the crowbar to lever it, get the rock to break free and roll down the slope. It comes to a rest over the lava spout. As the outer lava herders, the rock is held fast and covers the spout completely. Your team is able to pass by safely.", "used": False, "point_value": 100, "point_desc": "The corwbar is ideal as it allowed your team to get past the lava spout without any risk to themselves."},
                 "Map": {"use_desc": "Your team use the map to navigate around the obstacle. The map burns up from the heat.", "used": True, "point_value": 10, "point_desc": "Doubling back to avoid the obstacle takes a long time and a lot of energy."},
                 "Compass": {"use_desc": "Your team use the compass to navigate around the obstacle.", "used": False, "point_value": 5, "point_desc": "Doubling back to avoid the obstacle takes a long time and a lot of energy."},
@@ -568,7 +571,7 @@ challenges_dict = {
                 "Compass": {"use_desc": "your team use the compass to orient themselves. With a better idea of where they are, the team is able to continue the mission.", "used": False, "point_value": 100, "point_desc": "The compass is ideal for getting your team headed in the right direction."},              
             },  
             "failure_items": {}, 
-            "desc": "Your team is trying to progress, but keeps getting turned around by mirages cause by the desert heat. You'll need to find a way to know where your going.", 
+            "desc": "Your team is trying to progress, but keeps getting turned around by mirages caused by the desert heat. You'll need to find a way to know where your going.", 
             "continue_failure_desc": "Unable to find your way, your team is forced to wait for the heat of the day to subside. It takes a long, long time and your team is exhausted from waiting out in the heat.", 
             "final_failure_desc": "Your team has lost too much time to wait for the heat of the day to subside. They decide to trust their guts. They travel deep into the desert, but in the wrong direction. It isn't long before they are claimed by the desert heat."
         },
@@ -578,6 +581,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit is thick and protects your team from any scorpion stings as they pass the nest.", "used": False, "point_value": 100, "point_desc": "The still suit provides easy protection from the scorpions and is ideal for this challenge."},
                 "Flare Gun": {"use_desc": "Your move a distance away and fire, rather accurately I might add, at the nest. The burning red flare causes the scoprions to scatter, clearing a path through. The flare is used up in the process.", "used": True, "point_value": 100, "point_desc": "A very elegant shot that helped your team easily pass the scorpions."},
                 "Car": {"use_desc": "Your team pile into the car and tear off right past the scorpions. You get by unscathed.", "used": False, "point_value": 100, "point_desc": "The car is ideal for moving quickly and providing some protection for your team. Over short stretches, the car is fairly good at handling sand."},
                 "Blanket": {"use_desc": "You throw the blanket over the nest of scorpions. It covers it for long enough for your team to pass. But soon after, is crawling with scorpions, making in irretrievable.", "used": True, "point_value": 100, "point_desc": "A safe way to get past the scorpions without hurting them."},
@@ -716,6 +720,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "Your team pull on their still-suits. The extra layers protect your team when they bump up against coral.", "used": False, "point_value": 20, "point_desc": "The still-suits protect your team from bumps and scrapes, but gets waterlogged and very heavy and cumbersome to move in."},
                 "Duct Tape": {"use_desc": "Your team wrap their legs and arms in the duct tape. When they bump up against coral unexpectadely, the duct tape suffers the damage rather than them. The duct tape is used up in the process.", "used": True, "point_value": 40, "point_desc": "The duct tape didn't really help your team get past the shallow reef, but it did prevent you from suffering more injuries."},
                 "Protective Goggles": {"use_desc": "Your team don the protective goggle allowing them to see clearly underwater. They are able to easily spot risky pieces of coral and navigate safely through the water.", "used": False, "point_value": 90, "point_desc": "The goggles helped your team see better underwater, but it's didn't help you move much faster."},
                 "Map": {"use_desc": "Your team use the map to navigate around the obstacle. The map suffers water damage in the process.", "used": True, "point_value": 10, "point_desc": "Doubling back to avoid the obstacle takes a long time and a lot of energy."},
@@ -810,6 +815,7 @@ challenges_dict = {
             "viable_locations": ["Jungle"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit is thick and protects your team from the snake as they pass by.", "used": False, "point_value": 100, "point_desc": "The still suit provides easy protection from the snake without hurting it and is ideal for this challenge."},
                 "Flare Gun": {"use_desc": "Your team fire the flare gun in the space infront of the snake. It lands and burns brilliantly. The snake, surprised by the sudden arrival of a red ball of flame, retreats. The flare is used up in the process.", "used": True, "point_value": 100, "point_desc": "The flare successfully scared the snake off without hurting it."},
                 "Welding Kit": {"use_desc": "Your team wield the blue-hot flame of the welding torch as a weapon. The snake retreats into the undergrowth.", "used": False, "point_value": 90, "point_desc": "The welding kit kept you safe from the snake, but you did lose the snake in the undergrowth."},
                 "Map": {"use_desc": "Your team use the map to navigate around the obstacle.", "used": False, "point_value": 10, "point_desc": "Doubling back to avoid the obstacle takes a long time and a lot of energy."},
@@ -989,6 +995,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit recycles the water from your team's bodies. It keeps your team hydrated and allows them to continue without hinderance.", "used": False, "point_value": 100, "point_desc": "The still-suit is ideal for giving your team a renewable source of water."},
                 "Water Purifier": {"use_desc": "Your team stumble across an oasis that has practically dried up in the heat. You find a small patch of water remaining, too unclean to drink. You use the water purification tablets to make it drinkable and refresh yourselves. The water purifier is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water purification tablet is ideal as it allows your team to refresh themselves and keep cool."},
                 "Map": {"use_desc": "Your team pull out the map and use landmarks to orient yourselves. The map indicates that there is a small oasis nearby. Your team travel to it and refresh themselves.", "used": False, "point_value": 90, "point_desc": "The map is ideal for helping your team locate water, it just requires a bit of work to reach it."},
                 "Explosives": {"use_desc": "Your team find the lowest patch of desert that they can. There's got to be a water table somewhere. Your team rig up small amounts of the explosive and use it to slowly dig straight down. Eventually you see moisture pooling at the bottom. A little digging later and you've got water. The explosives are used up in the process.", "used": True, "point_value": 70, "point_desc": "You practically had to dig a hole to China, but it worked."},
@@ -1005,6 +1012,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit recycles the water from your team's bodies. It keeps your team hydrated and allows them to continue without hinderance.", "used": False, "point_value": 100, "point_desc": "The still-suit is ideal for giving your team a renewable source of water."},
                 "Crowbar": {"use_desc": "You stumble across a frozen river. You use the crowbar to break through the thick ice and gain access to the flowing water beneath. The crowbar is damaged in the process.", "used": True, "point_value": 75, "point_desc": "The crowbar was an effective tool for overcoming this obstacle."},
                 "Water Purifier": {"use_desc": "Your team come across a melted puddle of water, too unclean to drink. You use the purifier to make it drinkable and your there's just enough for all your team to have a drink. The water purifier is used up in the process.", "used": True, "point_value": 40, "point_desc": "The water purifier works, but wasn't the easiest method of getting water in the tundra."},
                 "Flare Gun": {"use_desc": "You fire the flare gun into a divet in some ice. It burns furiously, melting the ice into drinkable water. The flare is used up in the process.", "used": True, "point_value": 90, "point_desc": "The flare does a good enough job at giving your team access to water, although it is a little risky firing a projectile at ice, one never quite knows what to expect."},
@@ -1028,6 +1036,7 @@ challenges_dict = {
             "viable_locations": ["Jungle", "City"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit recycles the water from your team's bodies. It keeps your team hydrated and allows them to continue without hinderance.", "used": False, "point_value": 100, "point_desc": "The still-suit is ideal for giving your team a renewable source of water."},
                 "Water Purifier": {"use_desc": "Your team come across a deep pool of muddy water. You use the water purifier to clean it and refresh yourselves. The water purifier is used up in the process.", "used": True, "point_value": 100, "point_desc": "The purifier is ideal as it ensures that your team is able to drink their fill without any risk of illness."},
                 "Protective Goggles": {"use_desc": "It rained recently. Your team is able to collect the run-off from the leaves in your protective goggles.", "used": False, "point_value": 70, "point_desc": "The goggles are able to easily capture the water and allow your team to drink."},
                 "Stolen Uniforms": {"use_desc": "It rained recently. Your team is able to collect the run-off from the leaves in the hats that accompany the stolen uniforms.", "used": False, "point_value": 50, "point_desc": "It isn't exactly clean, but it does help your team get a decent source of water."},            
@@ -1048,6 +1057,7 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit recycles the water from your team's bodies. It keeps your team hydrated and allows them to continue without hinderance.", "used": False, "point_value": 100, "point_desc": "The still-suit is ideal for giving your team a renewable source of water."},
                 "Mirror": {"use_desc": "The mirror is a compact mirror, so has 2 surfaces. You break it so that you have 2 separate mirrors. One you situate above a patch of ocean, the other you use to direct a beam of sunlight at the patch of water. The heat from the light begins to evaporate the water and it condenses into drinkable water on the surface of the other mirror. You get next to nothing. The mirror is broken in the process.", "used": True, "point_value": 5, "point_desc": "You almost no water and it takes a very, very long time."},
                 "Fire Starter Kit": {"use_desc": "The fire starter kit comes in a metal tin. You fill the tin with ocean water and situate the lid above it. Beneath the tin you light a small flame. As the water evaporates it rises, and condenses on the lid where it collects into drinkable water. Not much, mind you, but enough.", "used": True, "point_value": 20, "point_desc": "This is an excruciatingly slow process and only gains you a small trickle of water."},
                 "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
@@ -1063,6 +1073,7 @@ challenges_dict = {
             "viable_locations": ["Volcano"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Still-suit": {"use_desc": "The still suit recycles the water from your team's bodies. It keeps your team hydrated and allows them to continue without hinderance.", "used": False, "point_value": 100, "point_desc": "The still-suit is ideal for giving your team a renewable source of water."},
                 "Water Purifier": {"use_desc": "Your team stumble across tiny stream that has practically dried up in the heat. You find a small puddle of water remaining, too unclean to drink. You use the water purification tablets to make it drinkable and refresh yourselves. The water purifier is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water purification tablet is ideal as it allows your team to obtain drinkable ater in the harsh terrain.."},
                 "Map": {"use_desc": "Your team pull out the map and use landmarks to orient yourselves. The map indicates that there is a small stream of running water nearby. Your team travel to it and refresh themselves.", "used": False, "point_value": 90, "point_desc": "The map is ideal for helping your team locate water, it just requires a bit of work to reach it."},
                 "Water Bottle": {"use_desc": "You drink from the water bottle, refreshing yourselves for the rest of the mission. The water is used up in the process.", "used": True, "point_value": 100, "point_desc": "The water bottle is an ideal and quick solution to dehydration."},
@@ -1282,6 +1293,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Survival", "Rescue"],
             "items":{
+                "Still-suit": {"use_desc": "Your team stuff the still-suits into the hole in the wall. The still-suits are now in use.", "used": True, "point_value": 10, "point_desc": "The still-suits successfully plug the hole, but is a very inelegant and impermanent solution."},
                 "Duct Tape": {"use_desc": "Your team strap enormous quanities of duct tape over the hole in the wall from both the inside and the outside. The duct tape does its job and patches the wall well. The duct tape is used up in the process.", "used": True, "point_value": 100, "point_desc": "The duct tape is durable and does a great job of patching up the base."},
                 "Car": {"use_desc": "You remove the roof off the car and affix it to the wall. In removing the roof, you damaged the car, making it unusable.", "used": True, "point_value": 95, "point_desc": "The roof from the car is ideal for repairing the wall as it is large and sturdy enough to withstand most things."},
                 "Blanket": {"use_desc": "Your team stuff the blanket into the hole in the wall. The blanket is now in use.", "used": True, "point_value": 10, "point_desc": "The blanket successfully plugs the hole, but is a very inelegant and impermanent solution."},
@@ -1335,6 +1347,7 @@ challenges_dict = {
             "viable_locations": ["Arctic Tundra", "Desert", "Jungle", "City", "Volcano"],
             "viable_mission_types": ["Survival"],
             "items":{
+                "Still-suit": {"use_desc": "Your team stuff the still-suits into the hole in the enviro-dome. The still-suits are now in use.", "used": True, "point_value": 10, "point_desc": "The still-suits successfully plug the hole, but is a very inelegant and impermanent solution."},
                 "Duct Tape": {"use_desc": "Your team strap enormous quanities of duct tape over the hole in the enviro-dome from both the inside and the outside. The duct tape does its job and patches the enviro-dome well. The duct tape is used up in the process.", "used": True, "point_value": 100, "point_desc": "The duct tape is durable and does a great job of patching up the base."},
                 "Car": {"use_desc": "You remove the roof off the car and affix it to the enviro-dome. In removing the roof, you damaged the car, making it unusable.", "used": True, "point_value": 95, "point_desc": "The roof from the car is ideal for repairing the enviro-dome as it is large and sturdy enough to withstand most things."},
                 "Blanket": {"use_desc": "Your team stuff the blanket into the hole in the enviro-dome. The blanket is now in use.", "used": True, "point_value": 10, "point_desc": "The blanket successfully plugs the hole, but is a very inelegant and impermanent solution."},
@@ -1748,7 +1761,6 @@ challenges_dict = {
             "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
-                "Duct Tape": {"use_desc": "Your team wrap their legs and arms in the duct tape. When they bump up against the ships unexpectadely, the duct tape suffers the damage rather than them. The duct tape is used up in the process.", "used": True, "point_value": 40, "point_desc": "The duct tape didn't really help your team get past the ship graveyard, but it did prevent you from suffering more injuries."},
                 "Map": {"use_desc": "Your team use the map to navigate around the obstacle. The map suffers water damage in the process.", "used": True, "point_value": 10, "point_desc": "Doubling back to avoid the obstacle takes a long time and a lot of energy."},
                 "Compass": {"use_desc": "Your team use the compass to navigate around the obstacle.", "used": False, "point_value": 5, "point_desc": "Doubling back to avoid the obstacle takes a long time and a lot of energy."},
                 "Inflatable Raft": {"use_desc": "Your team inflate the raft and climb aboard. You use your hands to push away from wreckage, but eventually the rafts springs a leak and your team has to swim the rest of the way. The raft is damaged in the process.", "used": True, "point_value": 70, "point_desc": "The inflatable raft helps you get most of the way, but isn't well suited to pointy terrain."},

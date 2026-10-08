@@ -41,7 +41,5 @@ items_dict = {
     "Water Purifier": {"desc": "A portable purification system that makes contaminated water safer to drink.", "cost": 70, "image": "icons8-water-filter-64.png", "hotbar_image": "icons8-water-filter-32.png"},
     "Duct Tape": {"desc": "Heavy-duty adhesive tape useful for temporary repairs to damaged equipment.", "cost": 25, "image": "icons8-duct-tape-64.png", "hotbar_image": "icons8-duct-tape-32.png"},
     "Crowbar": {"desc": "A strong metal lever useful for forcing open doors, moving debris and accessing damaged equipment.", "cost": 50, "image": "icons8-crowbar-64.png", "hotbar_image": "icons8-crowbar-32.png"},
-    
-    "Animal Deterrent": {"desc": "A portable device that produces noise and light intended to discourage dangerous animals from approaching.", "cost": 70, "image": "icons8-animal-deterrent-64.png", "hotbar_image": "icons8-animal-deterrent-32.png"},
     "Still-suit": {"desc": "A wearable suit that recycles water lost from the body, keeping the team cool and provding them with a water source.", "cost": 200, "image": "icons8-protective-suit-64.png", "hotbar_image": "icons8-protective-suit-32.png"}
 }
