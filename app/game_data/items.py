@@ -27,7 +27,6 @@ items_dict = {
     "Car": {"desc": "A standard passenger car for transporting your team and equipment along roads.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
          
-        
     # NEEDS IMAGE
     "Thermal Clothing": {"desc": "Insulated clothing designed to protect the wearer from dangerously cold conditions.", "cost": 70, "image": "icons8-winter-clothes-64.png", "hotbar_image": "icons8-winter-clothes-32.png"},
     "Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
