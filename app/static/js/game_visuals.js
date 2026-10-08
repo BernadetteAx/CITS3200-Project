@@ -143,7 +143,16 @@
   }
 
   async function paint(frame, cell, source = 'game', alt = null, preservePrevious = true) {
-    if (!frame || !assets[source]?.url) return;
+    if (!frame) return;
+    if (!assets[source]?.url) {
+      if (!preservePrevious) {
+        frame.querySelectorAll('.scene-layer').forEach(layer => layer.classList.remove('is-active'));
+        delete frame.dataset.visualKey;
+        delete frame.dataset.loadedVisual;
+        if (alt) frame.setAttribute('aria-label', alt);
+      }
+      return;
+    }
     const key = `${source}:${cell}`;
     if (frame.dataset.visualKey === key) return;
     frame.dataset.visualKey = key;
@@ -195,44 +204,8 @@
   function challengeVisual(challenge, location = '', missionName = '', context = 'play') {
     const exact = catalog.challengeArt?.[location]?.[challenge.artKey || challenge.name];
     if (exact) return {source: exact.source, cell: exact.cell, alt: `${challenge.artKey || challenge.name} in ${location}.`};
-    const type = challenge.type || '';
-    const name = (challenge.artKey || challenge.name || '').toLowerCase();
-    const source = `${biomeSources[location]}-challenges`;
-    let theme = 16;
-    if (/sinkhole|crevasse|earthquake/.test(name)) theme = 0;
-    else if (/guard|patrol|stealth|pursuer|pickpocket/.test(name)) theme = 2;
-    else if (/laser/.test(name)) theme = 3;
-    else if (/camera|alarm/.test(name)) theme = 5;
-    else if (type === 'Contact Teammate/s' || /contact|signal|alert/.test(name)) theme = 6;
-    else if (type === 'Find Water') theme = 8;
-    else if (type === 'Find Shelter') theme = 7;
-    else if (type === 'Make Repairs') theme = 12;
-    else if (type === 'System Failure' || /offline|reactor|failure/.test(name)) theme = 13;
-    else if (/air based/.test(name)) theme = 10;
-    else if (/water based|canal|sea mines|ship graveyard|fishing net/.test(name)) theme = 11;
-    else if (['Getaway', 'Travel To Rendezvous'].includes(type) || /land based|sand based|snow based|desert basin/.test(name)) theme = 9;
-    else if (/locked|entrance|exit|staff only/.test(name)) theme = 4;
-    else if (type === 'Steal') theme = 17;
-    else if (/building|fortefied|wall|blockade|checkpoint|gate|dam/.test(name)) theme = 1;
-    else if (/bear|crocodile|shark|snake|insect|scorpion/.test(name)) theme = 15;
-    else if (/ash|blizzard|cyclone|heat|fire|flood|storm|temperature|gas|mirage|lava/.test(name)) theme = 14;
-    let primary = assets[source] ? cells(source, theme * 2, theme * 2 + 1) : [];
-    if (theme === 15 && location !== 'Arctic Tundra') {
-      if (/crocodile|scorpion/.test(name)) primary = primary.slice(0, 1);
-      else if (/snake/.test(name)) primary = primary.slice(1);
-      else primary = [];
-    }
-    if (/deadly insects|marshland gases|frozen lake|fallen trees|thorn|kelp/.test(name)) primary = [];
-    const terrain = assets[source] && theme === 0 ? cells(source, 32, 33).map(scene => ({ ...scene, rank: 1 })) : [];
-    const preparation = [...cells('phases', 9, 17), ...[0, 1, 6, 7, 18, 19, 20, 21, 23, 26].map(cell => ({ source: 'phases', cell }))].map(scene => ({ ...scene, rank: 2 }));
-    // Reuse relevant artwork: uniqueness must never force an unrelated scene.
-    // Gameplay and results deliberately share the same assignment.
-    const key = `challenge-art-v2-${location}-${missionName}-${challenge.challengeIndex ?? name}`;
-    const candidates = primary.length ? primary : terrain.length ? terrain : preparation;
-    const selected = sceneRun.assigned[key] || candidates[nextVariant(key, candidates.length)];
-    sceneRun.assigned[key] = selected;
-    try { sessionStorage.setItem('cc-scene-run', JSON.stringify(sceneRun)); } catch { /* In-memory assignment remains valid. */ }
-    return { ...selected, alt: selected.source === 'phases' ? `The crew planning how to tackle ${challenge.name} in ${location}.` : `The crew assessing ${challenge.name} in ${location}.` };
+    // Unknown future challenges must not silently display a different hazard.
+    return {source: null, cell: 0, alt: `Artwork unavailable for ${challenge.name} in ${location}.`};
   }
 
   function createReel({ render, length, interval = 6500, initialIndex = 0 }) {

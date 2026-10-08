@@ -30,5 +30,8 @@ vm.runInContext(code.slice(code.indexOf('  function loadImage('), code.indexOf('
   const retry = ctx.paint(frame, 0, 'wave', 'Colossal Wave', false);
   pending[2].onload(); await retry;
   assert.equal(frame.dataset.loadedVisual, 'wave:0');
+  await ctx.paint(frame, 0, null, 'Unknown challenge', false);
+  assert.equal(frame.dataset.loadedVisual, undefined);
+  assert.ok(frame.layers.every(layer => !layer.classList.active));
   console.log('Challenge paint checks passed: loading, race, failure and retry.');
 })().catch(error => {console.error(error); process.exitCode = 1;});
