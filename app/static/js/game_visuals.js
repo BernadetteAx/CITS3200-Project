@@ -142,13 +142,18 @@
     return loaded.get(url);
   }
 
-  async function paint(frame, cell, source = 'game', alt = null) {
+  async function paint(frame, cell, source = 'game', alt = null, preservePrevious = true) {
     if (!frame || !assets[source]?.url) return;
     const key = `${source}:${cell}`;
     if (frame.dataset.visualKey === key) return;
     frame.dataset.visualKey = key;
     const { url, grid } = assets[source];
-    // Keep the current scene visible while the next atlas downloads.
+    // Decorative reels may crossfade, but a new challenge must not show the old hazard.
+    if (!preservePrevious) {
+      frame.querySelectorAll('.scene-layer').forEach(layer => layer.classList.remove('is-active'));
+      delete frame.dataset.loadedVisual;
+      if (alt) frame.setAttribute('aria-label', alt);
+    }
     if (!await loadImage(url)) { if (frame.dataset.visualKey === key) delete frame.dataset.visualKey; return; }
     if (frame.dataset.visualKey !== key) return;
     if (alt) frame.setAttribute('aria-label', alt);
@@ -253,7 +258,7 @@
 
   window.gameVisuals = { paint, itemArt, challengeVisual, missionVisual, locationVisual, planningVisual, createReel, nextVariant, motionEnabled: () => motion };
   document.querySelectorAll('.game-scene[data-scene]').forEach(frame => {
-    if (!frame.closest('[data-phase]') && frame.id !== 'previewArt') paint(frame, Number(frame.dataset.scene), frame.dataset.source || 'game');
+    if (!frame.closest('[data-phase]') && frame.id !== 'previewArt' && frame.id !== 'challengeScene') paint(frame, Number(frame.dataset.scene), frame.dataset.source || 'game');
   });
   const phaseScenes = { lobby: cells('phases', 0, 8), planning: cells('phases', 9, 17), shop: cells('phases', 18, 26), return: cells('phases', 27, 35) };
   document.querySelectorAll('[data-phase]').forEach(banner => {
