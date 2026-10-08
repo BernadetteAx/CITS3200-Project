@@ -88,6 +88,13 @@ def initialise_mission(session, generated_mission=None):
     """Create game-data mission state once, retaining the auction inventory."""
     if not session.get("mission"):
         generated_mission = generated_mission or example_mission
+        
+        # Validate required mission descriptions are present
+        required_descs = ["mission_start_desc", "mission_complete_desc", "final_failure_desc"]
+        for key in required_descs:
+            if key not in generated_mission:
+                raise ValueError(f"Mission missing required description: {key}")
+        
         session["mission"] = {"mission_name": generated_mission["mission"],
             "location": generated_mission.get("location", ""),
             "mission_description": generated_mission.get("mission_description", generated_mission.get("mission_desc", "")),
