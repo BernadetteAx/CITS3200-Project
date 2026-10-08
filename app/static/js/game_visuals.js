@@ -21,10 +21,22 @@
   const planningScenes = [{ source: 'preparation', cell: 0 }, { source: 'game', cell: 1 }, { source: 'game', cell: 0 }];
   const equipment = [
     ['Fire Starter Kit', 'Handheld Radios', 'Mirror', 'Gas Mask and Knockout Gas', 'Ice Axes', 'Armoured Truck', 'Rope', 'Paraglider', 'Helicopter', 'Grappling Hook', 'Scuba Gear', 'Wire Cutters', 'Explosives', 'Water Bottle', 'Fuel', 'Taser'],
-    ['Compass', 'Apple', 'Armoured Boots', 'Camping Tent', 'Hat', 'GPS', 'Map', 'Mountain Gear', 'Car', 'Toolkit', 'Shovel', 'Medical Supplies', 'Weapons', 'Axe', 'Boat', 'Lock Picks'],
+    ['Compass', 'Apple', 'Armoured Boots', 'Tent', 'Hat', 'GPS', 'Map', 'Mountain Gear', 'Car', 'Toolkit', 'Shovel', 'Medical Supplies', 'Weapons', 'Axe', 'Boat', 'Lock Picks'],
     ['Stolen Uniforms', 'Welding Kit', 'Dune Buggy'],
   ];
   function itemArt(item) {
+    // Individual illustrations share the atlas layout in every inventory surface.
+    if (item.image?.startsWith('briefing/items/')) {
+      const art = document.createElement('span');
+      art.className = 'equipment-art';
+      art.setAttribute('role', 'img');
+      art.setAttribute('aria-label', item.name);
+      art.dataset.item = item.name;
+      art.style.backgroundImage = `url("/static/images/${item.image}")`;
+      art.style.backgroundSize = 'contain';
+      art.style.backgroundPosition = 'center';
+      return art;
+    }
     const group = equipment.findIndex(names => names.includes(item.name));
     if (group < 0) {
       const fallback = document.createElement('img');

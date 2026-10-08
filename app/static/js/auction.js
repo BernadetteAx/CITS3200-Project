@@ -39,7 +39,7 @@ function render(state) {
     tile.dataset.state = selected ? "selected" : unavailable ? "unavailable" : "idle";
     tile.disabled = unavailable;
     tile.setAttribute("aria-pressed", String(selected));
-    tile.innerHTML = `<div class="item-image"><img src="/static/images/${item.image}" alt="${item.name}"></div><div class="item-name">${item.name}</div><div class="item-desc">${item.description}</div><div class="item-footer"><span class="cost-tag">$${item.cost}</span><span class="vote-check">${selected ? "✓ SELECTED" : "TAP TO SELECT"}</span></div>`;
+    tile.innerHTML = `<div class="item-image"></div><div class="item-name">${item.name}</div><div class="item-desc">${item.description}</div><div class="item-footer"><span class="cost-tag">$${item.cost}</span><span class="vote-check">${selected ? "✓ SELECTED" : "TAP TO SELECT"}</span></div>`;
     tile.querySelector('.item-image').replaceChildren(window.gameVisuals.itemArt(item));
     if (!unavailable) tile.addEventListener("click", () => action("auction_vote", { itemId: item.id }));
     itemGrid.appendChild(tile);
