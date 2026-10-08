@@ -634,7 +634,7 @@ function playChallengeTransition(next) {
     missionTransition.classList.add("active", "final-failure");
     journeyBriefingDesc.textContent = description || "Your team has reached the mission's failure limit.";
     document.getElementById("journeyBriefingTitle").textContent = "MISSION FAILED";
-    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "VIEW RESULTS";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "SEE RESULTS";
     journeyBriefingBtn.setAttribute("aria-label", "Continue to mission results");
   });
   window.gameSocket.on("mission_epilogue", (description) => {
@@ -643,7 +643,7 @@ function playChallengeTransition(next) {
     missionTransition.classList.add("active");
     journeyBriefingDesc.textContent = description || "Your team has completed the mission.";
     document.getElementById("journeyBriefingTitle").textContent = "MISSION COMPLETE";
-    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "VIEW RESULTS";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "CLAIM VICTORY";
     journeyBriefingBtn.setAttribute("aria-label", "Continue to mission results");
   });
   window.gameSocket.on("mission_complete", () => window.location.replace("/result_page"));
