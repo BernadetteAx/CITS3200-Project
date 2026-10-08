@@ -2,11 +2,13 @@ from flask import render_template
 from app import app
 from app.game_data.mission_structs import missions_list
 from app.game_data.location_info import location_info
+from app.game_data.challenge_artwork import CHALLENGE_ART
 
 
 @app.context_processor
 def visual_catalog():
     return {"game_visual_catalog": {
+        "challengeArt": CHALLENGE_ART,
         "missions": [{"name": mission["mission_name"], "locations": mission["location_options"]}
                      for mission in missions_list],
         "targets": {location: {"artifact": info["artifact_to_steal"], "jewel": info["jewel_to_steal"]}

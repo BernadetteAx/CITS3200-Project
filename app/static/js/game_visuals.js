@@ -15,6 +15,12 @@
   ['arctic', 'desert', 'jungle'].forEach(source => {
     assets[`${source}-challenges`] = { url: `${root}${source}-challenges-v1.png`, grid: 6 };
   });
+  // Explicit catalog entries register both existing and new challenge atlases.
+  Object.values(catalog.challengeArt || {}).forEach(scenes => {
+    Object.values(scenes).forEach(scene => {
+      assets[scene.source] = {url: `${root}${scene.file}`, grid: scene.grid};
+    });
+  });
   assets.phases = { url: `${root}crew-phases-v1.png`, grid: 6 };
   const originalLocations = { City: 3, Ocean: 4, Volcano: 5 };
   const originalObjectives = { 'Train Heist': 6, 'Artifact Heist': 7, 'Jewel Heist': 8, 'Steal Enemy Information': 9, 'Escape Enemy Base': 10, 'Break Out Another Team': 11, 'Extract Another Team': 12, 'Rescue Stranded Teammate': 13, 'Repair Research Base': 14, 'Get Rescued': 15 };
@@ -182,6 +188,8 @@
   }
 
   function challengeVisual(challenge, location = '', missionName = '', context = 'play') {
+    const exact = catalog.challengeArt?.[location]?.[challenge.artKey || challenge.name];
+    if (exact) return {source: exact.source, cell: exact.cell, alt: `${challenge.artKey || challenge.name} in ${location}.`};
     const type = challenge.type || '';
     const name = (challenge.artKey || challenge.name || '').toLowerCase();
     const source = `${biomeSources[location]}-challenges`;

@@ -1,0 +1,185 @@
+{
+  "location": "Desert",
+  "scenes": {
+    "Alert Another Team": {
+      "source": "desert-challenges",
+      "cell": 12,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Contact Rescue Team": {
+      "source": "desert-challenges",
+      "cell": 12,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Contact Stranded Teammate": {
+      "source": "desert-challenges",
+      "cell": 12,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Heat Wave": {
+      "source": "desert-challenges",
+      "cell": 29,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Nest of Scorpions": {
+      "source": "desert-challenges",
+      "cell": 30,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Sand Storm": {
+      "source": "desert-challenges",
+      "cell": 28,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Sinkhole": {
+      "source": "desert-challenges",
+      "cell": 0,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Find Shelter": {
+      "source": "desert-challenges",
+      "cell": 14,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Get Water": {
+      "source": "desert-challenges",
+      "cell": 16,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Air Based Getaway": {
+      "source": "desert-challenges",
+      "cell": 20,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Mislead Pursuers": {
+      "source": "desert-challenges",
+      "cell": 4,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Sand Based Getaway": {
+      "source": "desert-challenges",
+      "cell": 18,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Use Stealth": {
+      "source": "desert-challenges",
+      "cell": 4,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Repair Collapsed Wall": {
+      "source": "desert-challenges",
+      "cell": 24,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Repair Solar Panels": {
+      "source": "desert-challenges",
+      "cell": 25,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Blockade": {
+      "source": "desert-challenges",
+      "cell": 2,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Locked Gate": {
+      "source": "desert-challenges",
+      "cell": 8,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Checkpoint": {
+      "source": "desert-challenges",
+      "cell": 4,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Giant Wall": {
+      "source": "desert-challenges",
+      "cell": 2,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Deactivate Alarms": {
+      "source": "desert-challenges",
+      "cell": 11,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Deactivate Security Cameras": {
+      "source": "desert-challenges",
+      "cell": 10,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Distract Guards": {
+      "source": "desert-challenges",
+      "cell": 4,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Find Another Entrance": {
+      "source": "desert-challenges",
+      "cell": 8,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Find Another Exit": {
+      "source": "desert-challenges",
+      "cell": 9,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Get Past the Laser Grid": {
+      "source": "desert-challenges",
+      "cell": 6,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Open the crate": {
+      "source": "desert-challenges",
+      "cell": 34,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Retrieve the Item from the Laser Grid": {
+      "source": "desert-challenges",
+      "cell": 7,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Main Reactor Failure": {
+      "source": "desert-challenges",
+      "cell": 26,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Air Based Travel": {
+      "source": "desert-challenges",
+      "cell": 20,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    },
+    "Sand Based Travel": {
+      "source": "desert-challenges",
+      "cell": 18,
+      "grid": 6,
+      "file": "desert-challenges-v1.png"
+    }
+  }
+}
