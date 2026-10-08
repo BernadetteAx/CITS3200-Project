@@ -180,6 +180,108 @@
       "cell": 18,
       "grid": 6,
       "file": "desert-challenges-v1.png"
+    },
+    "Mirages": {
+      "source": "challenge-desert-1-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Quick Sand": {
+      "source": "challenge-desert-1-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Sand Dunes": {
+      "source": "challenge-desert-1-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Find Civilization": {
+      "source": "challenge-desert-1-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Repair Enviro-Dome": {
+      "source": "challenge-desert-1-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Repair Rover": {
+      "source": "challenge-desert-1-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Repair Vehicle": {
+      "source": "challenge-desert-1-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Sand Buried Access Hatch": {
+      "source": "challenge-desert-1-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Collapsed Bridge": {
+      "source": "challenge-desert-1-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Break into the Vault": {
+      "source": "challenge-desert-1-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Pickpocket it": {
+      "source": "challenge-desert-1-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Open the Document Case": {
+      "source": "challenge-desert-1-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Communications System Failure": {
+      "source": "challenge-desert-1-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Cooling Offline": {
+      "source": "challenge-desert-1-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Disable the Bomb Controls": {
+      "source": "challenge-desert-1-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Destroy the Stolen Records": {
+      "source": "challenge-desert-1-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-desert-1-v1.png"
+    },
+    "Shut Down the Weapon": {
+      "source": "challenge-desert-2-v1-scene-0",
+      "cell": 0,
+      "grid": 1,
+      "file": "challenge-desert-2-v1-scene-0.png"
     }
   }
 }
