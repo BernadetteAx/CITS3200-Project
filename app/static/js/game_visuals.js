@@ -171,13 +171,13 @@
     if (target && Number.isInteger(targetCells[location])) {
       const first = targetCells[location] + (target === 'jewel' ? 8 : 0);
       const selected = chooseVisual(cells('targets', first, first + 1), `objective-${location}-${name}-${pageVisit}-${variation}`)
-        || planningVisual(`objective-plan-${location}-${name}-${pageVisit}-${variation}`);
+        || { source: 'targets', cell: first };
       return { ...selected,
         alt: selected.source === 'targets' ? `${catalog.targets[location]?.[target] || 'The mission treasure'} secured inside a ${location.toLowerCase()} facility.` : `The crew planning the ${name} in ${location}.` };
     }
     const original = { cell: assets[biomeSources[location]] ? missionCells[name] ?? 0 : originalObjectives[name] ?? 0, source: assets[biomeSources[location]] ? biomeSources[location] : 'missions' };
     const selected = chooseVisual([original], `objective-${location}-${name}-${pageVisit}-${variation}`)
-      || planningVisual(`objective-plan-${location}-${name}-${pageVisit}-${variation}`);
+      || original;
     return { ...selected, alt: `Concept art for ${name}; the briefing describes the mission's ${location || 'field'} setting.` };
   }
 
@@ -212,8 +212,13 @@
     if (/deadly insects|marshland gases|frozen lake|fallen trees|thorn|kelp/.test(name)) primary = [];
     const terrain = assets[source] && theme === 0 ? cells(source, 32, 33).map(scene => ({ ...scene, rank: 1 })) : [];
     const preparation = [...cells('phases', 9, 17), ...[0, 1, 6, 7, 18, 19, 20, 21, 23, 26].map(cell => ({ source: 'phases', cell }))].map(scene => ({ ...scene, rank: 2 }));
-    const key = `challenge-${context}-${location}-${missionName}-${challenge.challengeIndex ?? name}`;
-    const selected = chooseVisual([...primary, ...terrain, ...preparation], key) || planningVisual();
+    // Reuse relevant artwork: uniqueness must never force an unrelated scene.
+    // Gameplay and results deliberately share the same assignment.
+    const key = `challenge-art-v2-${location}-${missionName}-${challenge.challengeIndex ?? name}`;
+    const candidates = primary.length ? primary : terrain.length ? terrain : preparation;
+    const selected = sceneRun.assigned[key] || candidates[nextVariant(key, candidates.length)];
+    sceneRun.assigned[key] = selected;
+    try { sessionStorage.setItem('cc-scene-run', JSON.stringify(sceneRun)); } catch { /* In-memory assignment remains valid. */ }
     return { ...selected, alt: selected.source === 'phases' ? `The crew planning how to tackle ${challenge.name} in ${location}.` : `The crew assessing ${challenge.name} in ${location}.` };
   }
 
