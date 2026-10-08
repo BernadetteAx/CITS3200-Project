@@ -198,6 +198,114 @@
       "cell": 22,
       "grid": 6,
       "file": "jungle-challenges-v1.png"
+    },
+    "Deadly Insects": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Deadly Marshland Gases": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Fallen Trees Block Path": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Fire": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Land Slide": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Quick Sand": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "River": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Rockfall": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Find Civilization": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Repair Enviro-Dome": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Collapsed Bridge": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Dam": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Break into the Vault": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Pickpocket it": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Communications System Failure": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Disable the Bomb Controls": {
+      "source": "challenge-jungle-1-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-jungle-1-v1.png"
+    },
+    "Destroy the Stolen Records": {
+      "source": "challenge-jungle-2-v1-scene-0",
+      "cell": 0,
+      "grid": 1,
+      "file": "challenge-jungle-2-v1-scene-0.png"
+    },
+    "Shut Down the Weapon": {
+      "source": "challenge-jungle-2-v1-scene-1",
+      "cell": 0,
+      "grid": 1,
+      "file": "challenge-jungle-2-v1-scene-1.png"
     }
   }
 }
