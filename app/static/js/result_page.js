@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (active) {
           const badge = document.createElement("span");
           badge.className = "inventory-badge";
-          badge.textContent = "[UTILIZED]";
+          badge.textContent = "[USED]";
           text.appendChild(badge);
         }
 
