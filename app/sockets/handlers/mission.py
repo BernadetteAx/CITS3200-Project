@@ -42,7 +42,7 @@ def _normalise_challenges(generated_mission):
         if not description or description.lower() in {"incomplete", "imcomplete"}:
             description = f"Your crew faces {name}. Check your equipment and choose how to continue. Taking the long way round costs your team points."
         description = description.replace("insert_item_here", "mission objective")
-        weight = generated_mission[f"w{index}"]
+        weight = generated_mission.get(f"w{index}", 1)
 
         challenges.append({
             "id": f"challenge-{index}",
