@@ -39,8 +39,8 @@ items_dict = {
     "Flare Gun": {"desc": "A handheld flare launcher able to fire 1 highly visible (water resistant) flare for attracting attention.", "cost": 80, "image": "icons8-flare-64.png", "hotbar_image": "icons8-flare-32.png"},
     "Protective Goggles": {"desc": "Sealed protective goggles with glass lenses that shield the eyes from dust, sand, ash and debris.", "cost": 40, "image": "icons8-goggles-64.png", "hotbar_image": "icons8-goggles-32.png"},
     "Water Purifier": {"desc": "A portable purification system that makes contaminated water safer to drink.", "cost": 70, "image": "icons8-water-filter-64.png", "hotbar_image": "icons8-water-filter-32.png"},
-    
     "Duct Tape": {"desc": "Heavy-duty adhesive tape useful for temporary repairs to damaged equipment.", "cost": 25, "image": "icons8-duct-tape-64.png", "hotbar_image": "icons8-duct-tape-32.png"},
+    
     "Electrical Repair Kit": {"desc": "A set of insulated tools and components for repairing damaged electrical systems.", "cost": 100, "image": "icons8-electrical-64.png", "hotbar_image": "icons8-electrical-32.png"},
     "Crowbar": {"desc": "A strong metal lever useful for forcing open doors, moving debris and accessing damaged equipment.", "cost": 50, "image": "icons8-crowbar-64.png", "hotbar_image": "icons8-crowbar-32.png"},
     "Animal Deterrent": {"desc": "A portable device that produces noise and light intended to discourage dangerous animals from approaching.", "cost": 70, "image": "icons8-animal-deterrent-64.png", "hotbar_image": "icons8-animal-deterrent-32.png"},
