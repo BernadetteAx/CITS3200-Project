@@ -400,7 +400,6 @@ def mission_start_timer(payload):
         mission["challenge_ends_at"] = time.time() + 60
         broadcast_mission_state(code, session)
 
-
 @socketio.on("mission_finish")
 def mission_finish(payload):
     code = payload.get("sessionCode") if isinstance(payload, dict) else None
@@ -417,3 +416,4 @@ def mission_finish(payload):
         return
     session["phase"] = "result_page"
     socketio.emit("mission_complete", session.get("mission_result", {}), room=code)
+

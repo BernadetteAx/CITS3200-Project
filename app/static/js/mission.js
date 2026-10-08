@@ -548,8 +548,7 @@ function playChallengeTransition(next) {
 
     }, 350));
 
-
-    // Leave the briefing visible until the team presses Skip.
+    // briefing visible after animation end, next challenge when you press skip
   }
 
   function render(next) {

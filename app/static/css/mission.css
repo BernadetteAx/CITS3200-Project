@@ -280,7 +280,7 @@ h1.challenge-progress {
   font-size: 0.68rem;
   color: #aaa;
   line-height: 1.8;
-  margin-top: 70px;
+  margin-top: 12px;
 }
 
 /* buttons (used from lobby) */
@@ -1345,6 +1345,10 @@ h1.challenge-progress {
   margin: 0 auto;
   line-height: 1.6;
   letter-spacing: 0.02em;
+  max-width: 90ch;
+  margin-left: auto;
+  margin-right: auto;
+
   text-align: center;
 }
 
