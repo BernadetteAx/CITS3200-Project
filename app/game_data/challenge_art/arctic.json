@@ -180,6 +180,102 @@
       "cell": 18,
       "grid": 6,
       "file": "arctic-challenges-v1.png"
+    },
+    "Frozen Lake": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Rockfall": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Find Civilization": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Repair Enviro-Dome": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Repair Rover": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Repair Vehicle": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Collapsed Bridge": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Dam": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Break into the Vault": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Pickpocket it": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Open the Document Case": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Central Heating Offline": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Communications System Failure": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Disable the Bomb Controls": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Destroy the Stolen Records": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Shut Down the Weapon": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
     }
   }
 }
