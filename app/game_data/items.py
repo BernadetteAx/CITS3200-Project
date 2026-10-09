@@ -26,9 +26,6 @@ items_dict = {
     "Blanket": {"desc": "A thick woollen blanket used to retain body heat.", "cost": 30, "image": "briefing/items/blanket-v1.png", "hotbar_image": "briefing/items/blanket-v1.png"},
     "Car": {"desc": "A standard passenger car for transporting your team and equipment along roads.", "cost": 250, "image": "icons8-sedan-64.png", "hotbar_image": "icons8-sedan-32.png"},
     "Taser": {"desc": "Provides a non-lethal defensive option.", "cost": 80, "image": "icons8-taser-64.png", "hotbar_image": "icons8-taser-32.png"},
-         
-        
-    # Item artwork is rendered consistently by gameVisuals.itemArt.
     "Thermal Clothing": {"desc": "Insulated clothing designed to protect the wearer from dangerously cold conditions.", "cost": 70, "image": "briefing/items/thermal-clothing-v1.png", "hotbar_image": "briefing/items/thermal-clothing-v1.png"},
     "Tent": {"desc": "A portable shelter for protecting your team from wind and rain.", "cost": 100, "image": "icons8-camping-tent-64.png", "hotbar_image": "icons8-camping-tent-32.png"},
     "Inflatable Raft": {"desc": "A compact inflatable raft capable of carrying the team across water.", "cost": 140, "image": "briefing/items/inflatable-raft-v1.png", "hotbar_image": "briefing/items/inflatable-raft-v1.png"},
@@ -39,10 +36,7 @@ items_dict = {
     "Flare Gun": {"desc": "A handheld flare launcher able to fire 1 highly visible (water resistant) flare for attracting attention.", "cost": 80, "image": "briefing/items/flare-gun-v1.png", "hotbar_image": "briefing/items/flare-gun-v1.png"},
     "Protective Goggles": {"desc": "Sealed protective goggles with glass lenses that shield the eyes from dust, sand, ash and debris.", "cost": 40, "image": "briefing/items/protective-goggles-v1.png", "hotbar_image": "briefing/items/protective-goggles-v1.png"},
     "Water Purifier": {"desc": "A portable purification system that makes contaminated water safer to drink.", "cost": 70, "image": "briefing/items/water-purifier-v1.png", "hotbar_image": "briefing/items/water-purifier-v1.png"},
-    
     "Duct Tape": {"desc": "Heavy-duty adhesive tape useful for temporary repairs to damaged equipment.", "cost": 25, "image": "briefing/items/duct-tape-v1.png", "hotbar_image": "briefing/items/duct-tape-v1.png"},
-    "Electrical Repair Kit": {"desc": "A set of insulated tools and components for repairing damaged electrical systems.", "cost": 100, "image": "briefing/items/electrical-repair-kit-v1.png", "hotbar_image": "briefing/items/electrical-repair-kit-v1.png"},
     "Crowbar": {"desc": "A strong metal lever useful for forcing open doors, moving debris and accessing damaged equipment.", "cost": 50, "image": "briefing/items/crowbar-v1.png", "hotbar_image": "briefing/items/crowbar-v1.png"},
-    "Animal Deterrent": {"desc": "A portable device that produces noise and light intended to discourage dangerous animals from approaching.", "cost": 70, "image": "briefing/items/animal-deterrent-v1.png", "hotbar_image": "briefing/items/animal-deterrent-v1.png"},
     "Still-suit": {"desc": "A wearable suit that recycles water lost from the body, keeping the team cool and provding them with a water source.", "cost": 200, "image": "briefing/items/still-suit-v1.png", "hotbar_image": "briefing/items/still-suit-v1.png"}
 }
