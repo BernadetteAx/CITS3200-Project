@@ -97,7 +97,7 @@ h1.lobby-title {
 }
 
 .lobby-card h2 {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.06em;
   margin: 0;
   text-align: center;
@@ -345,7 +345,7 @@ h1.lobby-title {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 6px;
   margin-top: 4px;
   transition: transform 0.1s ease, background 0.1s ease;
   align-self: center;

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const continueBtn = document.getElementById("continueAuctionBtn");
 
     let briefingLoaded = false;
-    let typingFinished = false;
+    let briefingReady = false;
     let isHost = sessionStorage.getItem("isHost") === "true";
 
     // Ask the server for the mission assigned to this game.
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.gameSocket.connected && window.getPlayerId()) requestBriefing();
 
     function updateContinueButton() {
-        continueBtn.disabled = !typingFinished || !isHost;
+        continueBtn.disabled = !briefingReady || !isHost;
         continueBtn.textContent = isHost ? "CONTINUE TO ITEM SHOP" : "WAITING FOR HOST";
     }
 
@@ -38,18 +38,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
         isHost = data.isHost;
         buildVisualStory(data);
-        typeMissionDescription(data.description);
+        showMissionDescription(data.description);
     });
 
-    function typeMissionDescription(text) {
+    function showMissionDescription(text) {
         const pages = [];
         let page = "";
-        const limit = window.innerWidth < 700 ? 280 : Infinity;
-        for (const word of (text || "").split(/\s+/)) {
-            if (page.length + word.length > limit) { pages.push(page.trim()); page = ""; }
-            page += `${word} `;
+        const limit = 280;
+        // Keep the data's own paragraph breaks ("\n\n") and line breaks ("\n");
+        // only stray spaces around them are tidied. .mission-description uses
+        // white-space: pre-wrap, so the typed newlines render as real breaks.
+        const paragraphs = (text || "").replace(/\r\n?/g, "\n").split(/[ \t]*\n[ \t]*\n\s*/)
+            .map((paragraph) => paragraph.replace(/[ \t]*\n[ \t]*/g, "\n").replace(/[ \t]+/g, " ").trim())
+            .filter(Boolean);
+        for (const paragraph of paragraphs) {
+            // Whole paragraphs stay together on a page when they fit.
+            if (page && page.length + 2 + paragraph.length <= limit) { page += `\n\n${paragraph}`; continue; }
+            if (paragraph.length <= limit) { if (page) pages.push(page); page = paragraph; continue; }
+            // A paragraph longer than the mobile limit is split by word anyway,
+            // so it flows on from the current page, keeping its line breaks.
+            paragraph.split("\n").forEach((line, lineIndex) => line.split(" ").forEach((word, wordIndex) => {
+                const separator = !page ? ""
+                    : lineIndex === 0 && wordIndex === 0 ? "\n\n"
+                    : wordIndex === 0 ? "\n" : " ";
+                if (page && page.length + separator.length + word.length > limit) { pages.push(page); page = word; }
+                else page += separator + word;
+            }));
         }
-        pages.push(page.trim());
+        pages.push(page);
         let index = 0;
         const controls = document.createElement("nav");
         controls.className = "page-controls";
@@ -57,33 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const previous = document.createElement("button");
         const next = document.createElement("button");
         const count = document.createElement("span");
-        previous.textContent = "← BACK";
-        next.textContent = "NEXT →";
+        previous.textContent = "BACK";
+        next.textContent = "NEXT";
         previous.type = next.type = "button";
-        let typingTimer;
-        const visited = new Set();
         function renderPage() {
-            clearTimeout(typingTimer);
-            const fullText = pages[index];
-            missionDescription.textContent = fullText;
-            missionDescription.style.minHeight = `${missionDescription.offsetHeight}px`;
-            const animate = !visited.has(index) && window.gameVisuals.motionEnabled();
-            visited.add(index);
-            missionDescription.textContent = animate ? "" : fullText;
-            typingCursor.style.display = animate ? "inline" : "none";
-            typingFinished = !animate;
+            missionDescription.textContent = pages[index];
+            typingCursor.style.display = "none";
+            briefingReady = true;
             updateContinueButton();
-            let character = 0;
-            function typeCharacter() {
-                missionDescription.textContent = fullText.slice(0, ++character);
-                if (character < fullText.length) typingTimer = setTimeout(typeCharacter, 12);
-                else {
-                    typingCursor.style.display = "none";
-                    typingFinished = true;
-                    updateContinueButton();
-                }
-            }
-            if (animate) typingTimer = setTimeout(typeCharacter, 12);
             previous.disabled = index === 0;
             next.disabled = index === pages.length - 1;
             count.textContent = `${index + 1} / ${pages.length}`;

@@ -50,6 +50,128 @@ body {
 
 .countdown-fill.low { background: var(--incorrect); }
 
+/* Countdown clock, on the same level as the fixed "?" button (top-left
+   vs. top-right). It sits inside .countdown-track in the markup but is
+   position: fixed, so the bar above keeps its original look.
+     > 30s  calm green
+     <= 30s urgent: red, heartbeat pulse once a second
+     <= 10s panic: faster, stronger pulse plus a small digit jitter */
+.auction-countdown {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  height: 48px;              /* matches the "?" button */
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--key-bg);
+  border: 2px solid var(--tile-border);
+  border-radius: 0;
+  font-family: var(--font-press);
+  transition: border-color 0.4s ease, background-color 0.4s ease;
+}
+
+.auction-countdown-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: #ccc;
+}
+
+.auction-countdown-value {
+  display: inline-block;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: var(--correct);
+  transition: color 0.4s ease;
+}
+
+.auction-countdown.urgent {
+  border-color: var(--incorrect);
+  animation: auction-urgency 1s ease-in-out infinite;
+}
+
+.auction-countdown.urgent .auction-countdown-label,
+.auction-countdown.urgent .auction-countdown-value { color: var(--incorrect); }
+
+.auction-countdown.panic {
+  background: #2a0d0d;
+  animation: auction-panic 0.5s ease-in-out infinite;
+}
+
+.auction-countdown.panic .auction-countdown-value {
+  animation: auction-jitter 0.3s steps(2, end) infinite;
+}
+
+@keyframes auction-urgency {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 rgba(255, 59, 59, 0); }
+  15%      { transform: scale(1.06); box-shadow: 0 0 12px rgba(255, 59, 59, 0.55); }
+  30%      { transform: scale(1);    box-shadow: 0 0 4px rgba(255, 59, 59, 0.25); }
+}
+
+@keyframes auction-panic {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 6px rgba(255, 59, 59, 0.4); }
+  50%      { transform: scale(1.09); box-shadow: 0 0 20px rgba(255, 59, 59, 0.85); }
+}
+
+/* Top strip, in step with the clock: same 30s/10s thresholds (auction.js
+   toggles both in one tick), same durations and peaks as auction-urgency
+   / auction-panic, and the same 0.4s colour fade. Two-class selectors so
+   theme_redesign_v2.css's .countdown-fill transition does not win. */
+.countdown-track .countdown-fill {
+  transition: width 1s linear, background-color 0.4s ease;
+}
+
+.countdown-track .countdown-fill.low {
+  animation: auction-strip-urgency 1s ease-in-out infinite;
+}
+
+.countdown-track .countdown-fill.low.panic {
+  animation: auction-strip-panic 0.5s ease-in-out infinite;
+}
+
+@keyframes auction-strip-urgency {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 59, 59, 0);     filter: brightness(1); }
+  15%      { box-shadow: 0 0 12px rgba(255, 59, 59, 0.75); filter: brightness(1.35); }
+  30%      { box-shadow: 0 0 4px rgba(255, 59, 59, 0.3);   filter: brightness(1); }
+}
+
+@keyframes auction-strip-panic {
+  0%, 100% { box-shadow: 0 0 6px rgba(255, 59, 59, 0.5);  filter: brightness(1); }
+  50%      { box-shadow: 0 0 20px rgba(255, 59, 59, 0.95); filter: brightness(1.5); }
+}
+
+@keyframes auction-jitter {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-1px, 1px); }
+  100% { transform: translate(1px, -1px); }
+}
+
+/* Below ~700px wide (and on short landscape phones) the title sits under
+   the clock/"?" row, so the page content starts just below that row. */
+@media (max-width: 700px), (orientation: landscape) and (max-height: 500px) {
+  body.screen-fit:has(.auction-countdown) .screen-stage { top: 80px; }
+}
+
+@media (max-width: 600px) {
+  .auction-countdown { top: 14px; left: 14px; height: 44px; }  /* "?" is 44px at 14px */
+  body.screen-fit:has(.auction-countdown) .screen-stage { top: 68px; }
+}
+
+@media (max-width: 480px) {
+  .auction-countdown { top: 12px; left: 12px; }               /* "?" is at 12px here */
+  body.screen-fit:has(.auction-countdown) .screen-stage { top: 66px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auction-countdown.urgent,
+  .auction-countdown.panic,
+  .auction-countdown.panic .auction-countdown-value,
+  .countdown-track .countdown-fill.low,
+  .countdown-track .countdown-fill.low.panic,
+  .budget-box { animation: none; }
+}
+
 header {
   width: 100%;
   max-width: 700px;
@@ -65,7 +187,7 @@ h1.lobby-title {
 }
 
 .lobby-subtext {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #ccc;
   letter-spacing: 0.05em;
   line-height: 1.8;
@@ -104,8 +226,50 @@ h1.lobby-title {
 
 .status-pill-box .label { color: #ccc; }
 .status-pill-box .value { color: var(--correct); letter-spacing: 0.06em; }
-.status-pill-box.timer .value { color: var(--warn); }
-.status-pill-box.timer.low .value { color: var(--incorrect); }
+
+/* Budget — the one centred, prominent element above the item card.
+   Plain rectangular border; only the box is centred, not the page. */
+.status-row:has(> .budget-box) { justify-content: center; }
+
+.budget-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: clamp(200px, 26vw, 300px);
+  max-width: 100%;
+  padding: 14px 28px;
+  /* Same panel + pixel glow border as the AVAILABLE ITEMS lobby card:
+     panel-glow is the shared keyframe in game_visuals.css, and it starts
+     on page load like the card's, so the two glow in step. */
+  background: var(--panel, #171a20);
+  border: 2px solid var(--tile-border);
+  border-radius: 0;
+  animation: panel-glow 4.8s ease-in-out infinite;
+}
+
+.budget-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: #ccc;
+}
+
+.budget-amount {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--correct);
+}
+
+.budget-coin {
+  width: 1.1em;
+  height: 1.1em;
+  flex: none;
+  image-rendering: pixelated;
+}
 
 /* auction card */
 .lobby-card {
@@ -176,7 +340,7 @@ h1.lobby-title {
 }
 
 .item-name {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
   line-height: 1.6;
 }
@@ -309,7 +473,7 @@ h1.lobby-title {
 
 .helper-note {
   text-align: center;
-  font-size: 0.68rem;
+  font-size: 0.82rem;
   color: #aaa;
   line-height: 1.8;
   margin-top: 2px;
@@ -332,7 +496,7 @@ h1.lobby-title {
 }
 
 .hotbar-label {
-  font-size: 0.65rem;
+  font-size: 0.80rem;
   color: #aaa;
   letter-spacing: 0.06em;
 }
@@ -364,6 +528,25 @@ h1.lobby-title {
   opacity: 0.4;
   border-style: dashed;
   background: transparent;
+}
+
+.hotbar-slot.blocked {
+  position: relative;
+  color: #8b9298;
+  background: #252a2f;
+  border-color: #454c53;
+  opacity: 0.85;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotbar-slot.blocked::before {
+  content: "×";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -54%);
+  font: 700 1.45rem/1 Arial, sans-serif;
 }
 
 /* instuctions and vote results */
@@ -466,7 +649,7 @@ h1.lobby-title {
 
 .result-btn {
   font-family: var(--font-press);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   background: #fff;
   color: #000;
   border: none;
@@ -493,7 +676,7 @@ h1.lobby-title {
   color: #fff;
   border: 2px solid var(--tile-border);
   font-family: var(--font-press);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   cursor: pointer;
   display: flex;
   align-items: center;

@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const countdownFill = document.getElementById("countdownFill");
   const countdownTrack = document.getElementById("countdownTrack");
   const missionTransition = document.getElementById("missionTransition");
+  const journeyBriefingDesc = document.getElementById("journeyBriefingDesc");
+  const journeyBriefingBtn = document.getElementById("journeyBriefingBtn");
   const challengeBlock = document.getElementById("challengeBlock");
   const CHALLENGE_SECONDS = 60;
   let timerChallengeIndex = null;
@@ -26,12 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
   let transitioning = false;
   let pendingState = null;
   let submittedVotes = {};
+  let challengeDescs = {};
+  let journeyTimers = [];
+  let journeyAnimationFrame = null;
+  let activeTransitionState = null;
+  let showingFinalFailure = false;
+  let showingMissionEnding = false;
 
-  const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
   const JOURNEY_NODE_COUNT = 6;
 
   const journeyPath = document.getElementById("journeyPathLine");
+  const journeyPathEnergy = document.getElementById("journeyPathEnergy");
   const journeyRunner = document.getElementById("journeyRunner");
   const journeyParticles = document.getElementById("journeyParticles");
   const arrivalBurst = document.getElementById("arrivalBurst");
@@ -100,9 +108,9 @@ function applyState(next) {
 
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
         timerChallengeIndex = state.currentChallengeIndex;
-        challengeEndsAt = state.endsAt || Date.now() / 1000 + CHALLENGE_SECONDS;
         timedOutChallengeIndex = null;
       }
+      if (state.status === "active") challengeEndsAt = state.endsAt;
       if (state.status !== "active") {
         challengeEndsAt = null;
       }
@@ -120,17 +128,26 @@ function applyState(next) {
     }
     state.inventory.forEach((item) => {
       const usable = active && submittedVote === undefined && !item.used;
+      const voteSubmittedForItem = active && submittedVote === item.id;
+      const usedForThisChallenge = state.outcome?.item?.id === item.id;
       const card = document.createElement("button");
       card.type = "button";
       card.className = "item-card";
       card.dataset.status = item.used ? "used" : "available";
       card.dataset.selected = String(selectedItemId === item.id);
+      card.dataset.voteSubmitted = String(voteSubmittedForItem);
       card.disabled = !usable;
       card.setAttribute("aria-pressed", String(selectedItemId === item.id));
-      card.innerHTML = `<span class="item-icon"><img src="/static/images/${item.image}" alt=""></span><span class="item-name"></span><span class="item-status-pill"></span>`;
+      card.innerHTML = `<span class="item-icon"></span><span class="item-name"></span><span class="item-status-pill"></span>`;
       card.querySelector('.item-icon').replaceChildren(window.gameVisuals.itemArt(item));
       card.querySelector(".item-name").textContent = item.name;
-      card.querySelector(".item-status-pill").textContent = item.used ? "Used" : "Owned";
+      card.querySelector(".item-status-pill").textContent = item.used
+        ? "Used"
+        : usedForThisChallenge
+          ? "Used"
+          : voteSubmittedForItem
+            ? "Vote submitted"
+            : "Owned";
       if (usable) card.addEventListener("click", () => {
         selectedItemId = selectedItemId === item.id ? null : item.id;
         applyState(state);
@@ -140,18 +157,28 @@ function applyState(next) {
 
     hotbarLabel.textContent = `TEAM INVENTORY · ${available.length}/${state.inventory.length} AVAILABLE · SCORE ${state.score}`;
     hotbarSlots.replaceChildren();
-    state.inventory.forEach((item) => {
+    (state.inventorySlots || state.inventory).forEach((item) => {
+      if (!item) {
+        const slot = document.createElement("div");
+        slot.className = "hotbar-slot blocked";
+        slot.textContent = "";
+        slot.title = "No item purchased this round";
+        slot.setAttribute("aria-label", slot.title);
+        hotbarSlots.appendChild(slot);
+        return;
+      }
       const slot = document.createElement("div");
       slot.className = "hotbar-slot filled";
       slot.dataset.status = item.used ? "used" : "available";
       slot.title = `${item.name}${item.used ? " (used)" : ""}`;
-      slot.innerHTML = `<img src="/static/images/${item.hotbar_image || item.image}" alt="${item.name}">`;
       slot.replaceChildren(window.gameVisuals.itemArt(item));
       hotbarSlots.appendChild(slot);
     });
 
     useItemBtn.disabled = !active || submittedVote !== undefined || !selectedItemId;
     continueBtn.disabled = !active || submittedVote !== undefined;
+    useItemBtn.dataset.submitted = String(submittedVote !== undefined && submittedVote !== "__continue__");
+    continueBtn.dataset.submitted = String(submittedVote === "__continue__");
     const tally = Object.entries(state.voteTally || {})
       .map(([id, count]) => `${id === "__continue__" ? "No item" : (state.inventory.find((item) => item.id === id)?.name || id)}: ${count}`)
       .join(" · ");
@@ -216,6 +243,12 @@ function applyState(next) {
 
   function setRunnerPosition(progress) {
     const point = getPathPosition(progress);
+
+    if (journeyPathEnergy && journeyPath) {
+      const pathLength = journeyPath.getTotalLength();
+      journeyPathEnergy.style.strokeDasharray = `${pathLength}`;
+      journeyPathEnergy.style.strokeDashoffset = `${pathLength * (1 - progress)}`;
+    }
 
     journeyRunner.style.left =
       `${point.x / 1000 * 100}%`;
@@ -401,7 +434,7 @@ function animateJourney(fromChallenge, toChallenge) {
 
       if (rawProgress < 1) {
 
-        requestAnimationFrame(frame);
+        journeyAnimationFrame = requestAnimationFrame(frame);
 
       } else {
         setRunnerPosition(endProgress);
@@ -414,12 +447,48 @@ function animateJourney(fromChallenge, toChallenge) {
       }
     }
 
-    requestAnimationFrame(frame);
+    journeyAnimationFrame = requestAnimationFrame(frame);
   }
 
-  function playChallengeTransition(next) {
+  function finishJourneyTransition() {
+    journeyTimers.forEach(clearTimeout);
+    journeyTimers = [];
+    if (journeyAnimationFrame !== null) {
+      cancelAnimationFrame(journeyAnimationFrame);
+      journeyAnimationFrame = null;
+    }
+    // Prefer the newest socket snapshot received during the animation so a
+    // skipped transition cannot restore an older inventory state.
+    const finalState = pendingState || activeTransitionState;
+    pendingState = null;
+    if (finalState) applyState(finalState);
+    if (finalState?.status === "active" && finalState.endsAt == null) {
+      action("mission_start_timer");
+    }
+    missionTransition.classList.remove("active");
+    journeyRunner.style.opacity = "0";
+    transitioning = false;
+    activeTransitionState = null;
+
+  }
+
+  function playMissionStartTransition(next) {
+    transitioning = true;
+    activeTransitionState = next;
+    applyState(next);
+    missionTransition.classList.add("active");
+    journeyBriefingDesc.textContent = challengeDescs.mission_start_desc || next.missionDescription || "";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION START";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "SKIP";
+    journeyBriefingBtn.setAttribute("aria-label", "Skip mission briefing");
+  }
+
+function playChallengeTransition(next) {
 
     transitioning = true;
+    activeTransitionState = next;
+    journeyTimers.forEach(clearTimeout);
+    journeyTimers = [];
 
     hide(feedbackPopup);
 
@@ -458,9 +527,14 @@ function animateJourney(fromChallenge, toChallenge) {
       getNodePathProgress(fromChallenge)
     );
 
+    // Display the appropriate intermission description
+    const descKey = `challenge_${fromChallenge}_to_${toChallenge}_desc`;
+    const briefingText = challengeDescs[descKey] || challengeDescs.mission_start_desc || state?.missionDescription || "";
+    journeyBriefingDesc.textContent = briefingText;
+    document.getElementById("journeyBriefingTitle").textContent = `CHALLENGE ${toChallenge}`;
 
     /*give the browser a moment to render the map before starting the actual movement.*/
-    setTimeout(() => {
+    journeyTimers.push(setTimeout(() => {
 
       journeyRunner.style.opacity = "1";
 
@@ -471,37 +545,9 @@ function animateJourney(fromChallenge, toChallenge) {
         toChallenge
       );
 
-    }, 350);
+    }, 350));
 
-
-    /* load the next challenge near the end of the journey. The user sees the destination before the actual challenge screen appears.*/
-    setTimeout(() => {
-
-      applyState(next);
-
-    }, JOURNEY_TRAVEL_MS + 500);
-
-    setTimeout(() => {
-
-      missionTransition.classList.remove("active");
-
-      journeyRunner.style.opacity = "0";
-
-      transitioning = false;
-
-      /* if another socket state arrived whilethe animation was playing, render it now. */
-      if (pendingState) {
-
-        const queued =
-          pendingState;
-
-        pendingState = null;
-
-        render(queued);
-
-      }
-
-    }, TRANSITION_MS);
+    // briefing visible after animation end, next challenge when you press skip
   }
 
   function render(next) {
@@ -510,6 +556,12 @@ function animateJourney(fromChallenge, toChallenge) {
 
       pendingState = next;
 
+      return;
+    }
+
+    if (!state && next.status === "active" && next.currentChallengeIndex === 0) {
+      lastChallengeIndex = next.currentChallengeIndex;
+      playMissionStartTransition(next);
       return;
     }
 
@@ -551,11 +603,47 @@ function animateJourney(fromChallenge, toChallenge) {
       action("mission_advance");
     }
   });
+  journeyBriefingBtn.addEventListener("click", () => {
+    if (showingMissionEnding) {
+      action("mission_finish");
+      return;
+    }
+    if (showingFinalFailure) {
+      window.location.replace("/result_page");
+      return;
+    }
+    finishJourneyTransition();
+  });
   document.getElementById("instructionsBtn").addEventListener("click", () => show(instructionsPopup));
   document.getElementById("instructionsClose").addEventListener("click", () => hide(instructionsPopup));
   instructionsPopup.addEventListener("click", (event) => {
     if (event.target === instructionsPopup) hide(instructionsPopup);
   });
-  window.gameSocket.on("mission_state", render);
+  window.gameSocket.on("mission_state", (data) => {
+    // Store challenge descriptions when received
+    if (data.challengeDescs) {
+      challengeDescs = data.challengeDescs;
+    }
+    render(data);
+  });
+  window.gameSocket.on("mission_final_failure", (description) => {
+    showingFinalFailure = true;
+    showingMissionEnding = false;
+    hide(feedbackPopup);
+    missionTransition.classList.add("active", "final-failure");
+    journeyBriefingDesc.textContent = description || "Your team has reached the mission's failure limit.";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION FAILED";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "SEE RESULTS";
+    journeyBriefingBtn.setAttribute("aria-label", "Continue to mission results");
+  });
+  window.gameSocket.on("mission_epilogue", (description) => {
+    showingMissionEnding = true;
+    hide(feedbackPopup);
+    missionTransition.classList.add("active");
+    journeyBriefingDesc.textContent = description || "Your team has completed the mission.";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION COMPLETE";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "CLAIM VICTORY";
+    journeyBriefingBtn.setAttribute("aria-label", "Continue to mission results");
+  });
   window.gameSocket.on("mission_complete", () => window.location.replace("/result_page"));
 });

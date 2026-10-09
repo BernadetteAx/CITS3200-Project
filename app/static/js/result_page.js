@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("previousChallengeResult").addEventListener("click", () => { challengePage--; renderChallengePage(); });
     document.getElementById("nextChallengeResult").addEventListener("click", () => { challengePage++; renderChallengePage(); });
     window.addEventListener("resize", renderChallengePage);
+    document.getElementById("missionFailureClose").addEventListener("click", () => {
+      document.getElementById("missionFailureDialog").close();
+    });
   
     function setText(id, value) {
       document.getElementById(id).textContent = value ?? "---";
@@ -105,7 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // Item Inventory - START
     // Renders ONE inventory list from itemsPurchased, marking each entry
-    // active when its id appears in itemsUsed. Replaces the former pair of
+    // active when its id appears in `used` — the items from passed
+    // challenges (see displayResults). Replaces the former pair of
     // "purchased" / "used" lists. The payload is read as-is; nothing here
     // changes result data or window.gameVisuals.
     function displayItems(purchased, used) {
@@ -144,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (active) {
           const badge = document.createElement("span");
           badge.className = "inventory-badge";
-          badge.textContent = "[ACTIVE]";
+          badge.textContent = "[USED]";
           text.appendChild(badge);
         }
 
@@ -156,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       purchased.forEach((item) => addEntry(item, usedIds.has(keyOf(item))));
 
-      // Defensive: a used item with no purchase record still shows, as active,
+      // Defensive: a utilized item with no purchase record still shows, as active,
       // rather than vanishing from the debrief.
       used.forEach((item) => {
         if (!rendered.has(keyOf(item))) addEntry(item, true);
@@ -200,10 +204,30 @@ document.addEventListener("DOMContentLoaded", () => {
       displayChallenges(result.challenges ?? [], result.location, result.missionName);
   
       // Item Inventory - START
-      displayItems(result.itemsPurchased ?? [], result.itemsUsed ?? []);
+      // Highlight only items that helped pass a challenge ("utilized"),
+      // not every item in itemsUsed. Presentation only: the payload and
+      // session data are read as-is. Duplicates collapse in displayItems.
+      const utilizedItems = (result.challenges ?? [])
+        .filter((challenge) => challenge?.success === true && challenge.itemUsed)
+        .map((challenge) => challenge.itemUsed);
+      displayItems(result.itemsPurchased ?? [], utilizedItems);
       // Item Inventory - END
+
+      const missionFailed = Number(result.challengesFailed) >= 3
+        || Number(result.challengesCompleted) < Number(result.totalChallenges);
+      // Presentation only: tint the score/achievement headings red on failure.
+      document.querySelector(".final-score")?.classList.toggle("mission-failed", missionFailed);
+      document.querySelector(".mission-achievement")?.classList.toggle("mission-failed", missionFailed);
+      if (missionFailed) {
+        const failureDialog = document.getElementById("missionFailureDialog");
+        document.getElementById("missionFailureMessage").textContent =
+          Number(result.challengesFailed) >= 3
+            ? "Your team reached the three-failure limit. The mission is over."
+            : "Your team was forced to end the mission early. Review the results below.";
+        if (!failureDialog.open) failureDialog.showModal();
+      }
   
-      message.textContent = "YOUR TEAM'S FINAL RESULTS";
+      message.textContent = "";
     }
   
     if (!socket) {

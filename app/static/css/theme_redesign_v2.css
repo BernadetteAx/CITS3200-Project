@@ -376,6 +376,14 @@ label { color: var(--text-muted); }
   box-shadow: none;
 }
 
+#finishBtn[data-submitted="true"],
+#skipBtn[data-submitted="true"] {
+  background: var(--correct);
+  border-color: var(--correct);
+  color: #06140d;
+  opacity: 1;
+}
+
 /* Rounded badge/chip treatment for small status tags (not buttons) —
    a standard, low-risk cartoon-UI pattern for READY/WAITING/cost tags. */
 .status-pill,
@@ -569,6 +577,10 @@ body:has(.auction-item-grid) .lobby-card {
   box-shadow: 0 0 0 2px var(--correct), 0 0 14px rgba(61, 220, 132, 0.35);
 }
 
+.item-tile[data-state="selected"]:disabled {
+  opacity: 1;
+}
+
 /* auction.css sizes this at `width: 70%; aspect-ratio: 1/1` — in a
    two-column grid that renders as a ~200px+ tall square PER item, the
    single biggest reason the auction page didn't fit in one screen.
@@ -655,6 +667,25 @@ body:has(.hotbar) {
   flex-shrink: 0;
 }
 
+.hotbar-slot.blocked {
+  position: relative;
+  color: #8b9298;
+  background: #252a2f;
+  border-color: #454c53;
+  opacity: 0.85;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotbar-slot.blocked::before {
+  content: "×";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -54%);
+  font: 700 1.45rem/1 Arial, sans-serif;
+}
+
 /* -------------------------------------------------------------------- */
 /* 9. MISSION PAGE — two-column, colourful item chips                    */
 /* -------------------------------------------------------------------- */
@@ -695,7 +726,7 @@ h1.challenge-progress {
 }
 
 .item-card {
-  padding: 1.1rem 0.8rem 0.9rem;
+  padding: 1.1rem 0.85rem 0.9rem;
   transition: transform var(--motion-med), box-shadow var(--motion-med), border-color var(--motion-med), background var(--motion-med);
 }
 

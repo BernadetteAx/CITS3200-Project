@@ -6,10 +6,10 @@ const progressFill = document.getElementById("progressFill");
 const finishBtn = document.getElementById("finishBtn");
 const skipBtn = document.getElementById("skipBtn");
 const endRoundBtn = document.getElementById("endRoundBtn");
-const timerValue = document.getElementById("timerValue");
-const timerPill = document.getElementById("timerPill");
 const countdownFill = document.getElementById("countdownFill");
 const countdownTrack = document.getElementById("countdownTrack");
+const countdownClock = document.getElementById("countdownClock");
+const countdownValue = document.getElementById("countdownValue");
 const inventory = document.getElementById("inventorySlots");
 const inventoryLabel = document.getElementById("inventoryLabel");
 const resultPopup = document.getElementById("resultPopup");
@@ -32,14 +32,14 @@ function render(state) {
   progressFill.style.width = `${state.playerCount ? state.voteCount / state.playerCount * 100 : 0}%`;
   itemGrid.innerHTML = "";
   state.items.forEach((item) => {
-    const selected = state.mySelection === item.id;
+    const selected = state.mySelection === item.id || state.myVote === item.id;
     const unavailable = state.status !== "voting" || item.cost > state.budget;
     const tile = document.createElement("button");
     tile.type = "button"; tile.className = "item-tile";
-    tile.dataset.state = unavailable ? "unavailable" : selected ? "selected" : "idle";
+    tile.dataset.state = selected ? "selected" : unavailable ? "unavailable" : "idle";
     tile.disabled = unavailable;
     tile.setAttribute("aria-pressed", String(selected));
-    tile.innerHTML = `<div class="item-image"><img src="/static/images/${item.image}" alt="${item.name}"></div><div class="item-name">${item.name}</div><div class="item-desc">${item.description}</div><div class="item-footer"><span class="cost-tag">$${item.cost}</span><span class="vote-check">${selected ? "✓ SELECTED" : "TAP TO SELECT"}</span></div>`;
+    tile.innerHTML = `<div class="item-image"></div><div class="item-name">${item.name}</div><div class="item-desc">${item.description}</div><div class="item-footer"><span class="cost-tag">$${item.cost}</span><span class="vote-check">${selected ? "✓ SELECTED" : "TAP TO SELECT"}</span></div>`;
     tile.querySelector('.item-image').replaceChildren(window.gameVisuals.itemArt(item));
     if (!unavailable) tile.addEventListener("click", () => action("auction_vote", { itemId: item.id }));
     itemGrid.appendChild(tile);
@@ -47,13 +47,34 @@ function render(state) {
   const voting = state.status === "voting";
   finishBtn.disabled = !voting || !state.mySelection;
   skipBtn.disabled = !voting;
+  finishBtn.dataset.submitted = String(state.myVote !== undefined && state.myVote !== null && state.myVote !== "skip");
+  skipBtn.dataset.submitted = String(state.myVote === "skip");
   endRoundBtn.hidden = sessionStorage.getItem("isHost") !== "true" || !voting;
   inventoryLabel.textContent = `TEAM INVENTORY · ${state.purchasedItems.length}/8 SLOTS FILLED`;
-  inventory.innerHTML = state.purchasedItems.map((item) => `<div class="hotbar-slot filled" title="${item.name}"><img src="/static/images/${item.hotbar_image}" alt="${item.name}"></div>`).join("") + Array.from({length: Math.max(0, 8 - state.purchasedItems.length)}, () => '<div class="hotbar-slot empty">＋</div>').join("");
-  inventory.querySelectorAll('.filled').forEach((slot, index) => slot.replaceChildren(window.gameVisuals.itemArt(state.purchasedItems[index])));
+  inventory.replaceChildren();
+  (state.slotItems || state.purchasedItems).forEach((item, index) => {
+    const slot = document.createElement("div");
+    if (item) {
+      slot.className = "hotbar-slot filled";
+      slot.title = item.name;
+      slot.replaceChildren(window.gameVisuals.itemArt(item));
+    } else {
+      const resolved = index + 1 < state.round || (index + 1 === state.round && state.status !== "voting" && state.status !== "waiting");
+      slot.className = `hotbar-slot ${resolved ? "blocked" : "empty"}`;
+      slot.textContent = "";
+      if (!resolved) slot.textContent = "＋";
+      slot.title = resolved ? "No item purchased this round" : "Shop round not completed";
+      slot.setAttribute("aria-label", slot.title);
+    }
+    inventory.appendChild(slot);
+  });
   if (state.status !== "voting") {
     countdownFill.style.width = "0%";
     countdownTrack.setAttribute("aria-valuenow", "0");
+    // Voting closed: settle the clock instead of leaving it mid-panic.
+    countdownValue.textContent = "00:00";
+    countdownClock.classList.remove("urgent", "panic");
+    countdownFill.classList.remove("panic");
   } else {
     tickTimer();
   }
@@ -72,13 +93,19 @@ function tickTimer() {
     Math.max(0, (latestState.endsAt - Date.now() / 1000) / 60 * 100)
   );
 
-  timerValue.textContent =
+  // Countdown clock beside "?". The urgent (<=30s) and panic (<=10s)
+  // states are visual only — the server deadline (endsAt) is unchanged.
+  countdownValue.textContent =
     `${String(Math.floor(seconds / 60)).padStart(2, "0")}:` +
     `${String(seconds % 60).padStart(2, "0")}`;
+  countdownClock.classList.toggle("urgent", seconds <= 30);
+  countdownClock.classList.toggle("panic", seconds <= 10);
 
-  timerPill.classList.toggle("low", seconds <= 10);
+  // Top strip follows the clock: red + pulse from 30s, panic from 10s.
+  // Toggled in the same tick so both animations start in phase.
   countdownFill.style.width = `${percent}%`;
-  countdownFill.classList.toggle("low", seconds <= 10);
+  countdownFill.classList.toggle("low", seconds <= 30);
+  countdownFill.classList.toggle("panic", seconds <= 10);
   countdownTrack.setAttribute("aria-valuenow", String(seconds));
 }
 
