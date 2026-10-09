@@ -102,7 +102,7 @@ function applyState(next) {
       image.src = `/static/images/${challenge.image}`;
       image.alt = challenge.name;
       const visual = window.gameVisuals.challengeVisual({ ...challenge, challengeIndex: state.currentChallengeIndex }, state.location, state.missionName);
-      window.gameVisuals.paint(document.getElementById("challengeScene"), visual.cell, visual.source, visual.alt);
+      window.gameVisuals.paint(document.getElementById("challengeScene"), visual.cell, visual.source, visual.alt, false);
 
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
         timerChallengeIndex = state.currentChallengeIndex;

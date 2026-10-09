@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         art.className = "game-scene result-challenge-art";
         art.setAttribute("role", "img");
         const visual = window.gameVisuals.challengeVisual(challenge, location, missionName, 'results');
-        window.gameVisuals.paint(art, visual.cell, visual.source, visual.alt);
+        window.gameVisuals.paint(art, visual.cell, visual.source, visual.alt, false);
   
         const info = document.createElement("div");
         info.className = "mission-info";
