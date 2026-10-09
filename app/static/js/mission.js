@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const itemGrid = document.getElementById("itemGrid");
-  const hotbarSlots = document.getElementById("hotbarSlots");
-  const hotbarLabel = document.getElementById("hotbarLabel");
   const useItemBtn = document.getElementById("useItemBtn");
   const continueBtn = document.getElementById("continueBtn");
   const feedbackPopup = document.getElementById("feedbackPopup");
@@ -153,26 +151,6 @@ function applyState(next) {
         applyState(state);
       });
       itemGrid.appendChild(card);
-    });
-
-    hotbarLabel.textContent = `TEAM INVENTORY · ${available.length}/${state.inventory.length} AVAILABLE · SCORE ${state.score}`;
-    hotbarSlots.replaceChildren();
-    (state.inventorySlots || state.inventory).forEach((item) => {
-      if (!item) {
-        const slot = document.createElement("div");
-        slot.className = "hotbar-slot blocked";
-        slot.textContent = "";
-        slot.title = "No item purchased this round";
-        slot.setAttribute("aria-label", slot.title);
-        hotbarSlots.appendChild(slot);
-        return;
-      }
-      const slot = document.createElement("div");
-      slot.className = "hotbar-slot filled";
-      slot.dataset.status = item.used ? "used" : "available";
-      slot.title = `${item.name}${item.used ? " (used)" : ""}`;
-      slot.replaceChildren(window.gameVisuals.itemArt(item));
-      hotbarSlots.appendChild(slot);
     });
 
     useItemBtn.disabled = !active || submittedVote !== undefined || !selectedItemId;
