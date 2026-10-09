@@ -51,15 +51,41 @@
       return fallback;
     }
     const cell = equipment[group].indexOf(item.name);
-    const grid = group === 2 ? 2 : 4;
     const art = document.createElement('span');
     art.className = 'equipment-art';
     art.setAttribute('role', 'img');
     art.setAttribute('aria-label', item.name);
     art.dataset.item = item.name;
-    art.style.backgroundImage = `url("${root}equipment-${['a', 'b', 'c'][group]}-v1.png")`;
-    art.style.backgroundSize = `${grid * 100}% ${grid * 100}%`;
-    art.style.backgroundPosition = `${cell % grid * 100 / (grid - 1)}% ${Math.floor(cell / grid) * 100 / (grid - 1)}%`;
+    // The second sheet's painted rows are not equal quarters. Use its
+    // actual boundaries so lower rows don't lose the tops of their items.
+    const columns = group === 2 ? [0, 627, 1254] : [0, 313, 627, 940, 1254];
+    const rows = group === 1 ? [0, 301, 607, 907, 1254] : columns;
+    const column = cell % (columns.length - 1);
+    const row = Math.floor(cell / (columns.length - 1));
+    const x = columns[column], y = rows[row];
+    const width = columns[column + 1] - x, height = rows[row + 1] - y;
+    const size = Math.max(width, height);
+    const namespace = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(namespace, 'svg');
+    // A small inset keeps artwork clear of card borders at every size.
+    const inset = size * 0.025;
+    svg.setAttribute('viewBox', `${-inset} ${-inset} ${size + inset * 2} ${size + inset * 2}`);
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    const crop = document.createElementNS(namespace, 'svg');
+    crop.setAttribute('x', (size - width) / 2);
+    crop.setAttribute('y', (size - height) / 2);
+    crop.setAttribute('width', width);
+    crop.setAttribute('height', height);
+    crop.setAttribute('viewBox', `${x} ${y} ${width} ${height}`);
+    crop.setAttribute('overflow', 'hidden');
+    const image = document.createElementNS(namespace, 'image');
+    image.setAttribute('href', `${root}equipment-${['a', 'b', 'c'][group]}-v1.png`);
+    image.setAttribute('width', 1254);
+    image.setAttribute('height', 1254);
+    crop.append(image);
+    svg.append(crop);
+    art.append(svg);
     return art;
   }
   function planningVisual(key = `briefing-plan-${pageVisit}`) {
