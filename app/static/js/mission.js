@@ -457,7 +457,7 @@ function animateJourney(fromChallenge, toChallenge) {
     missionTransition.classList.add("active");
     journeyBriefingDesc.textContent = challengeDescs.mission_start_desc || next.missionDescription || "";
     document.getElementById("journeyBriefingTitle").textContent = "MISSION START";
-    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "SKIP";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "NEXT";
     journeyBriefingBtn.setAttribute("aria-label", "Skip mission briefing");
   }
 

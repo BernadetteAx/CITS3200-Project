@@ -2068,7 +2068,7 @@ challenges_dict = {
                 "Axe": {"use_desc": "Your team uses the axe to break the wooden crate. It's easy enough to do, just a little loud.", "used": False, "point_value": 90, "point_desc": "The axe is effective at getting the goods from the crate, but creates a lot of noise in the process."},
             },  
             "failure_items": {}, 
-            "desc": "The item you seek is stored inside a crate. You'll need to find a way to open or break the crate if you want its contents.", 
+            "desc": "The item you seek is stored inside a wooden crate. You'll need to find a way to open or break the crate if you want its contents.", 
             "continue_failure_desc": "Without the proper supplies, you team is unable to devise a way to retrieve the item. You are forced to leave empty handed and behind schedule.", 
             "final_failure_desc": "Without the proper supplies, your team can't devise a simple solution to open the crate. The delirium brought on by exhaustion and desperation caused by running late has gotten the better of team and they try to break the crate open with nothing but their bare hands. The racket quickly draws attention and it isn't long before the entire team is captured. Your mission ends here."
         },
