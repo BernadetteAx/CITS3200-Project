@@ -694,6 +694,7 @@ challenges_dict = {
             "viable_locations": ["Desert"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
+                "Protective Goggles": {"use_desc": "Your team wear their protective goggles, keeping the pelting sand out of their eyes. Now able to see, they are able to easily navigate out of the sand storm.", "used": False, "point_value": 70, "point_desc": "The protective goggles allow your team to quickly navigate out of the sand storm, however they provided no protection from the weather."},
                 "Car": {"use_desc": "Your team pile into the car and take off. Soon enough you find yourselves clear of the sandstorm.", "used": False, "point_value": 90, "point_desc": "The car travels well enough over the sand and provides your team some protection from the elements."},
                 "Blanket": {"use_desc": "Your team cover your heads with the blankets to keep the sand out of your eyes and very slowly trudge on. Because of the blankets over your heads, you can't see far in front of you, so you walk slowly. Eventually you make your way out of the sandstorm.", "used": False, "point_value": 20, "point_desc": "The blankets provide very little protection from the weather and only help your team slightly in getting out of the storm."},
                 "Dune Buggy": {"use_desc": "Your team pile into the dune buggy and take off. Soon enough you find yourselves clear of the sandstorm.", "used": False, "point_value": 80, "point_desc": "The dune buggy is well suited for travel over sand so helps your team quickly exit the sand storm. Unfortunately, its open frame means that it provides no protection from the weather."},
@@ -1266,7 +1267,28 @@ challenges_dict = {
 
         "Water Based Getaway": {
             "challenge_name": "Getaway",
-            "viable_locations": ["Jungle", "City", "Ocean"],
+            "viable_locations": ["Jungle", "City"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{
+                "Car": {"use_desc": "Your team pile into the car. Whilst the path is nowhere near as safe on the ground, you can still do it. The car is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The car is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy. Whilst the path is nowhere near as safe on the ground, you can still do it. The dune buggy is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The dune buggy is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged during the escape.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to safety, but it wasn't the ideal method of transport."},
+                "Scuba Gear": {"use_desc": "Your team put on the scuba gear and descend below the water. Your team is able to get away without being noticed. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear was an ideal way to perform a water based getaway as it is allows for a very stealthy departure."},
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the water. With nowhere to land, your team is forced to abandon the chopper.", "used": True, "point_value": 100, "point_desc": "The helicopter is ideal for travel over water."},
+                "Paraglider": {"use_desc": "Your team wear the paragliders and use them to get a serious distance before you land.", "used": False, "point_value": 90, "point_desc": "The paragliders are pretty effective at getting some distance, but once you land, it's hard to get going again."},
+                "Boat": {"use_desc": "Your team pile into the boat and tear away.", "used": False, "point_value": 100, "point_desc": "The boat is ideal for quick getaways on the water."},
+            },  
+            "failure_items": {
+                "Inflatable Raft": {"use_desc": "Your team pile onto the raft, but have no way to paddle. Your team are sitting ducks and it isn't long before the enemy catches you.", "used": True, "point_value": 0, "point_desc": "You would have been better swimming for it. The raft acts like a giant bullseye pointing straight to your team. Let's just say that a raft, isn't exactly a quick getaway option."},
+            }, 
+            "desc": "Your team is going to need to get away, and fast. The only way out, is via the water.", 
+            "continue_failure_desc": "Your team is forced to swim for it. You manage to evade your pursuers, but the trip tires your team significantly and takes a long time.", 
+            "final_failure_desc": "Your team tries desperately to flee, but are exhausted. You manage to stay afloat, but it isn't long before your pursuers catch up to the team and take them captive. Your mission ends here."
+        },
+
+        "Water Based Getaway - Ocean": {
+            "challenge_name": "Getaway",
+            "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Scuba Gear": {"use_desc": "Your team put on the scuba gear and descend below the water. Your team is able to get away without being noticed. The oxygen tank is used up in the process.", "used": True, "point_value": 100, "point_desc": "The scuba gear was an ideal way to perform a water based getaway as it is allows for a very stealthy departure."},
@@ -2046,7 +2068,7 @@ challenges_dict = {
                 "Axe": {"use_desc": "Your team uses the axe to break the wooden crate. It's easy enough to do, just a little loud.", "used": False, "point_value": 90, "point_desc": "The axe is effective at getting the goods from the crate, but creates a lot of noise in the process."},
             },  
             "failure_items": {}, 
-            "desc": "The item you seek is stored inside a crate. You'll need to find a way to open or break the crate if you want its contents.", 
+            "desc": "The item you seek is stored inside a wooden crate. You'll need to find a way to open or break the crate if you want its contents.", 
             "continue_failure_desc": "Without the proper supplies, you team is unable to devise a way to retrieve the item. You are forced to leave empty handed and behind schedule.", 
             "final_failure_desc": "Without the proper supplies, your team can't devise a simple solution to open the crate. The delirium brought on by exhaustion and desperation caused by running late has gotten the better of team and they try to break the crate open with nothing but their bare hands. The racket quickly draws attention and it isn't long before the entire team is captured. Your mission ends here."
         },
@@ -2398,7 +2420,29 @@ challenges_dict = {
 
         "Water Based Travel": {
             "challenge_name": "Travel To Rendezvous Point",
-            "viable_locations": ["Jungle", "City", "Ocean"],
+            "viable_locations": ["Jungle", "City"],
+            "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
+            "items":{
+                "Car": {"use_desc": "Your team pile into the car. Whilst the path is nowhere near as safe on the ground, you can still do it. The car is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The car is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},
+                "Dune Buggy": {"use_desc": "Your team pile into the dune buggy. Whilst the path is nowhere near as safe on the ground, you can still do it. The dune buggy is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The dune buggy is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},
+                "Armoured Truck": {"use_desc": "Your team pile into the armoured truck. Whilst the path is nowhere near as safe on the ground, you can still do it. The armoured truck is damaged in the process.", "used": True, "point_value": 50, "point_desc": "The armoured truck is able to get your team to the rendezvous safely, but it wasn't the ideal method of transport."},   
+                "Map": {"use_desc": "Your team use the map to navigate to the rendezvous. The map suffers water damage.", "used": True, "point_value": 5, "point_desc": "The map itself did not help your team travel faster or more safely but it did mean less time was wasted by going in the wrong directions."},
+                "Compass": {"use_desc": "Your team use the compass to navigate to the rendezvous.", "used": False, "point_value": 5, "point_desc": "The compass itself did not help your team travel faster or more safely but it did mean less time was wasted by going in the wrong directions."},
+                "Inflatable Raft": {"use_desc": "Your team pile onto the raft, and use your hands to paddle. It takes a long time but eventually your team reaches the rendezvous. Your team, unable to deflate the raft, leave it behind.", "used": True, "point_value": 90, "point_desc": "The raft allowed your team to travel to the rendezvous safely, it just took a long time."},
+                "Scuba Gear": {"use_desc": "Your team put on the scuba gear and descend below the water. Your team is able to move quickly and reach the rendezvous. The oxygen tank is used up in the process.", "used": True, "point_value": 95, "point_desc": "The scuba gear was an ideal way to perform water based travel. It just takes longer than other methods of transport."},
+                "Helicopter": {"use_desc": "Your team pile into the helicopter and fly straight over the water. With nowhere to land, your team is forced to abandon the chopper.", "used": True, "point_value": 100, "point_desc": "The helicopter is well suited for travel over water."},
+                "Paraglider": {"use_desc": "Your team wear the paragliders and use them to get a serious distance before you land.", "used": False, "point_value": 90, "point_desc": "The paragliders are pretty effective at getting some distance, but they aren't the ideal option."},
+                "Boat": {"use_desc": "Your team pile into the boat and take off towards the rendezvous point. It allows you to make the journey quickly and safely.", "used": False, "point_value": 100, "point_desc": "The boat is an ideal option for travel over water."},
+            },  
+            "failure_items": {}, 
+            "desc": "Your team needs to travel to the agreed rendezvous point. From your current position, the fastest and safest way to get there is using water based transport.", 
+            "continue_failure_desc": "Without an appropriate method of transportation, your team is forced to swim the distance. It's a long way and not at all an easy trip. When your team eventually arrives at the rendezvous point they've lost a lot of time and are exhausted.", 
+            "final_failure_desc": "Without an appropriate method of transportation, your team is forced to attempt to swim the distance. The time they lost earlier is weighing on them and they know they'll have to move fast if they are to reach the rendezvous point on time. Your team makes the unwise decision to take a shortcut through rough waters. It's a hazardous path, one your team could barely manage in peak condition, and they are far from that. Exhausted from their earlier efforts, your team struggles to stay afloat in the raging waters. It isn't long before catastrophe. Your team never makes it to their destination."
+        },
+
+        "Water Based Travel - Ocean": {
+            "challenge_name": "Travel To Rendezvous Point",
+            "viable_locations": ["Ocean"],
             "viable_mission_types": ["Heist", "Escape", "Rescue Op", "Rescue", "Survival"],
             "items":{
                 "Map": {"use_desc": "Your team use the map to navigate to the rendezvous. The map suffers water damage.", "used": True, "point_value": 5, "point_desc": "The map itself did not help your team travel faster or more safely but it did mean less time was wasted by going in the wrong directions."},

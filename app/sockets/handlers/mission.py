@@ -226,11 +226,6 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         item_result = challenge["success_items"].get(item["name"])
         failure_result = challenge["failure_items"].get(item["name"])
 
-        # item is used when it can be applied in this situation
-        # unsupported item remains in the teams inventory
-        if (item_result is not None or failure_result is not None) and item["id"] not in mission["used_items"]:
-            mission["used_items"].append(item["id"])
-
         successful = item_result is not None
         instant_failure = failure_result is not None
 
