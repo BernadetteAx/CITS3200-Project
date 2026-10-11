@@ -15,16 +15,34 @@
   ['arctic', 'desert', 'jungle'].forEach(source => {
     assets[`${source}-challenges`] = { url: `${root}${source}-challenges-v1.png`, grid: 6 };
   });
+  // Explicit catalog entries register both existing and new challenge atlases.
+  Object.values(catalog.challengeArt || {}).forEach(scenes => {
+    Object.values(scenes).forEach(scene => {
+      assets[scene.source] = {url: `${root}${scene.file}`, grid: scene.grid};
+    });
+  });
   assets.phases = { url: `${root}crew-phases-v1.png`, grid: 6 };
   const originalLocations = { City: 3, Ocean: 4, Volcano: 5 };
   const originalObjectives = { 'Train Heist': 6, 'Artifact Heist': 7, 'Jewel Heist': 8, 'Steal Enemy Information': 9, 'Escape Enemy Base': 10, 'Break Out Another Team': 11, 'Extract Another Team': 12, 'Rescue Stranded Teammate': 13, 'Repair Research Base': 14, 'Get Rescued': 15 };
   const planningScenes = [{ source: 'preparation', cell: 0 }, { source: 'game', cell: 1 }, { source: 'game', cell: 0 }];
   const equipment = [
     ['Fire Starter Kit', 'Handheld Radios', 'Mirror', 'Gas Mask and Knockout Gas', 'Ice Axes', 'Armoured Truck', 'Rope', 'Paraglider', 'Helicopter', 'Grappling Hook', 'Scuba Gear', 'Wire Cutters', 'Explosives', 'Water Bottle', 'Fuel', 'Taser'],
-    ['Compass', 'Apple', 'Armoured Boots', 'Camping Tent', 'Hat', 'GPS', 'Map', 'Mountain Gear', 'Car', 'Toolkit', 'Shovel', 'Medical Supplies', 'Weapons', 'Axe', 'Boat', 'Lock Picks'],
+    ['Compass', 'Apple', 'Armoured Boots', 'Tent', 'Hat', 'GPS', 'Map', 'Mountain Gear', 'Car', 'Toolkit', 'Shovel', 'Medical Supplies', 'Weapons', 'Axe', 'Boat', 'Lock Picks'],
     ['Stolen Uniforms', 'Welding Kit', 'Dune Buggy'],
   ];
   function itemArt(item) {
+    // Individual illustrations share the atlas layout in every inventory surface.
+    if (item.image?.startsWith('briefing/items/')) {
+      const art = document.createElement('span');
+      art.className = 'equipment-art';
+      art.setAttribute('role', 'img');
+      art.setAttribute('aria-label', item.name);
+      art.dataset.item = item.name;
+      art.style.backgroundImage = `url("/static/images/${item.image}")`;
+      art.style.backgroundSize = 'contain';
+      art.style.backgroundPosition = 'center';
+      return art;
+    }
     const group = equipment.findIndex(names => names.includes(item.name));
     if (group < 0) {
       const fallback = document.createElement('img');
@@ -33,15 +51,41 @@
       return fallback;
     }
     const cell = equipment[group].indexOf(item.name);
-    const grid = group === 2 ? 2 : 4;
     const art = document.createElement('span');
     art.className = 'equipment-art';
     art.setAttribute('role', 'img');
     art.setAttribute('aria-label', item.name);
     art.dataset.item = item.name;
-    art.style.backgroundImage = `url("${root}equipment-${['a', 'b', 'c'][group]}-v1.png")`;
-    art.style.backgroundSize = `${grid * 100}% ${grid * 100}%`;
-    art.style.backgroundPosition = `${cell % grid * 100 / (grid - 1)}% ${Math.floor(cell / grid) * 100 / (grid - 1)}%`;
+    // The second sheet's painted rows are not equal quarters. Use its
+    // actual boundaries so lower rows don't lose the tops of their items.
+    const columns = group === 2 ? [0, 627, 1254] : [0, 313, 627, 940, 1254];
+    const rows = group === 1 ? [0, 301, 607, 907, 1254] : columns;
+    const column = cell % (columns.length - 1);
+    const row = Math.floor(cell / (columns.length - 1));
+    const x = columns[column], y = rows[row];
+    const width = columns[column + 1] - x, height = rows[row + 1] - y;
+    const size = Math.max(width, height);
+    const namespace = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(namespace, 'svg');
+    // A small inset keeps artwork clear of card borders at every size.
+    const inset = size * 0.025;
+    svg.setAttribute('viewBox', `${-inset} ${-inset} ${size + inset * 2} ${size + inset * 2}`);
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    const crop = document.createElementNS(namespace, 'svg');
+    crop.setAttribute('x', (size - width) / 2);
+    crop.setAttribute('y', (size - height) / 2);
+    crop.setAttribute('width', width);
+    crop.setAttribute('height', height);
+    crop.setAttribute('viewBox', `${x} ${y} ${width} ${height}`);
+    crop.setAttribute('overflow', 'hidden');
+    const image = document.createElementNS(namespace, 'image');
+    image.setAttribute('href', `${root}equipment-${['a', 'b', 'c'][group]}-v1.png`);
+    image.setAttribute('width', 1254);
+    image.setAttribute('height', 1254);
+    crop.append(image);
+    svg.append(crop);
+    art.append(svg);
     return art;
   }
   function planningVisual(key = `briefing-plan-${pageVisit}`) {
@@ -124,13 +168,27 @@
     return loaded.get(url);
   }
 
-  async function paint(frame, cell, source = 'game', alt = null) {
-    if (!frame || !assets[source]?.url) return;
+  async function paint(frame, cell, source = 'game', alt = null, preservePrevious = true) {
+    if (!frame) return;
+    if (!assets[source]?.url) {
+      if (!preservePrevious) {
+        frame.querySelectorAll('.scene-layer').forEach(layer => layer.classList.remove('is-active'));
+        delete frame.dataset.visualKey;
+        delete frame.dataset.loadedVisual;
+        if (alt) frame.setAttribute('aria-label', alt);
+      }
+      return;
+    }
     const key = `${source}:${cell}`;
     if (frame.dataset.visualKey === key) return;
     frame.dataset.visualKey = key;
     const { url, grid } = assets[source];
-    // Keep the current scene visible while the next atlas downloads.
+    // Decorative reels may crossfade, but a new challenge must not show the old hazard.
+    if (!preservePrevious) {
+      frame.querySelectorAll('.scene-layer').forEach(layer => layer.classList.remove('is-active'));
+      delete frame.dataset.loadedVisual;
+      if (alt) frame.setAttribute('aria-label', alt);
+    }
     if (!await loadImage(url)) { if (frame.dataset.visualKey === key) delete frame.dataset.visualKey; return; }
     if (frame.dataset.visualKey !== key) return;
     if (alt) frame.setAttribute('aria-label', alt);
@@ -159,50 +217,21 @@
     if (target && Number.isInteger(targetCells[location])) {
       const first = targetCells[location] + (target === 'jewel' ? 8 : 0);
       const selected = chooseVisual(cells('targets', first, first + 1), `objective-${location}-${name}-${pageVisit}-${variation}`)
-        || planningVisual(`objective-plan-${location}-${name}-${pageVisit}-${variation}`);
+        || { source: 'targets', cell: first };
       return { ...selected,
         alt: selected.source === 'targets' ? `${catalog.targets[location]?.[target] || 'The mission treasure'} secured inside a ${location.toLowerCase()} facility.` : `The crew planning the ${name} in ${location}.` };
     }
     const original = { cell: assets[biomeSources[location]] ? missionCells[name] ?? 0 : originalObjectives[name] ?? 0, source: assets[biomeSources[location]] ? biomeSources[location] : 'missions' };
     const selected = chooseVisual([original], `objective-${location}-${name}-${pageVisit}-${variation}`)
-      || planningVisual(`objective-plan-${location}-${name}-${pageVisit}-${variation}`);
+      || original;
     return { ...selected, alt: `Concept art for ${name}; the briefing describes the mission's ${location || 'field'} setting.` };
   }
 
   function challengeVisual(challenge, location = '', missionName = '', context = 'play') {
-    const type = challenge.type || '';
-    const name = (challenge.name || '').toLowerCase();
-    const source = `${biomeSources[location]}-challenges`;
-    let theme = 16;
-    if (/sinkhole|crevasse|earthquake/.test(name)) theme = 0;
-    else if (/guard|patrol|stealth|pursuer|pickpocket/.test(name)) theme = 2;
-    else if (/laser/.test(name)) theme = 3;
-    else if (/camera|alarm/.test(name)) theme = 5;
-    else if (type === 'Contact Teammate/s' || /contact|signal|alert/.test(name)) theme = 6;
-    else if (type === 'Find Water') theme = 8;
-    else if (type === 'Find Shelter') theme = 7;
-    else if (type === 'Make Repairs') theme = 12;
-    else if (type === 'System Failure' || /offline|reactor|failure/.test(name)) theme = 13;
-    else if (/air based/.test(name)) theme = 10;
-    else if (/water based|canal|sea mines|ship graveyard|fishing net/.test(name)) theme = 11;
-    else if (['Getaway', 'Travel To Rendezvous'].includes(type) || /land based|sand based|snow based|desert basin/.test(name)) theme = 9;
-    else if (/locked|entrance|exit|staff only/.test(name)) theme = 4;
-    else if (type === 'Steal') theme = 17;
-    else if (/building|fortefied|wall|blockade|checkpoint|gate|dam/.test(name)) theme = 1;
-    else if (/bear|crocodile|shark|snake|insect|scorpion/.test(name)) theme = 15;
-    else if (/ash|blizzard|cyclone|heat|fire|flood|storm|temperature|gas|mirage|lava/.test(name)) theme = 14;
-    let primary = assets[source] ? cells(source, theme * 2, theme * 2 + 1) : [];
-    if (theme === 15 && location !== 'Arctic Tundra') {
-      if (/crocodile|scorpion/.test(name)) primary = primary.slice(0, 1);
-      else if (/snake/.test(name)) primary = primary.slice(1);
-      else primary = [];
-    }
-    if (/deadly insects|marshland gases|frozen lake|fallen trees|thorn|kelp/.test(name)) primary = [];
-    const terrain = assets[source] && theme === 0 ? cells(source, 32, 33).map(scene => ({ ...scene, rank: 1 })) : [];
-    const preparation = [...cells('phases', 9, 17), ...[0, 1, 6, 7, 18, 19, 20, 21, 23, 26].map(cell => ({ source: 'phases', cell }))].map(scene => ({ ...scene, rank: 2 }));
-    const key = `challenge-${context}-${location}-${missionName}-${challenge.challengeIndex ?? name}`;
-    const selected = chooseVisual([...primary, ...terrain, ...preparation], key) || planningVisual();
-    return { ...selected, alt: selected.source === 'phases' ? `The crew planning how to tackle ${challenge.name} in ${location}.` : `The crew assessing ${challenge.name} in ${location}.` };
+    const exact = catalog.challengeArt?.[location]?.[challenge.artKey || challenge.name];
+    if (exact) return {source: exact.source, cell: exact.cell, alt: `${challenge.artKey || challenge.name} in ${location}.`};
+    // Unknown future challenges must not silently display a different hazard.
+    return {source: null, cell: 0, alt: `Artwork unavailable for ${challenge.name} in ${location}.`};
   }
 
   function createReel({ render, length, interval = 6500, initialIndex = 0 }) {
@@ -228,7 +257,7 @@
 
   window.gameVisuals = { paint, itemArt, challengeVisual, missionVisual, locationVisual, planningVisual, createReel, nextVariant, motionEnabled: () => motion };
   document.querySelectorAll('.game-scene[data-scene]').forEach(frame => {
-    if (!frame.closest('[data-phase]') && frame.id !== 'previewArt') paint(frame, Number(frame.dataset.scene), frame.dataset.source || 'game');
+    if (!frame.closest('[data-phase]') && frame.id !== 'previewArt' && frame.id !== 'challengeScene') paint(frame, Number(frame.dataset.scene), frame.dataset.source || 'game');
   });
   const phaseScenes = { lobby: cells('phases', 0, 8), planning: cells('phases', 9, 17), shop: cells('phases', 18, 26), return: cells('phases', 27, 35) };
   document.querySelectorAll('[data-phase]').forEach(banner => {

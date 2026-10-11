@@ -1,0 +1,269 @@
+{
+  "location": "Volcano",
+  "scenes": {
+    "Alert Another Team": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Contact Rescue Team": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Contact Stranded Teammate": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Ash": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Earthquake": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Extreme Heat": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Land Slide": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Lava Spout": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Rockfall": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Sinkhole": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Volcanic Gases": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Find Civilization": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Find Shelter": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Get Water": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Air Based Getaway": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Land Based Getaway": {
+      "source": "challenge-volcano-1-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-volcano-1-v1.png"
+    },
+    "Mislead Pursuers": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Use Stealth": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Repair Collapsed Wall": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Repair Enviro-Dome": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Repair Exit Hatch": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Repair Rover": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Repair Vehicle": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Split Handrail": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Giant Wall": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Deactivate Alarms": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Deactivate Security Cameras": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Distract Guards": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Find Another Entrance": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Find Another Exit": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Get Past the Laser Grid": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Break into the Vault": {
+      "source": "challenge-volcano-2-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-volcano-2-v1.png"
+    },
+    "Open the crate": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Pickpocket it": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Retrieve the Item from the Laser Grid": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Air Recycling System Offline": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Communications System Failure": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Cooling Offline": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Geo-Thermal Reactor Failure": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Air Based Travel": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Land Based Travel": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Disable the Bomb Controls": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Destroy the Stolen Records": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    },
+    "Shut Down the Weapon": {
+      "source": "challenge-volcano-3-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-volcano-3-v1.png"
+    }
+  }
+}

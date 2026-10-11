@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const itemGrid = document.getElementById("itemGrid");
-  const hotbarSlots = document.getElementById("hotbarSlots");
-  const hotbarLabel = document.getElementById("hotbarLabel");
   const useItemBtn = document.getElementById("useItemBtn");
   const continueBtn = document.getElementById("continueBtn");
   const feedbackPopup = document.getElementById("feedbackPopup");
@@ -32,8 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let journeyTimers = [];
   let journeyAnimationFrame = null;
   let activeTransitionState = null;
+  let showingFinalFailure = false;
+  let showingMissionEnding = false;
 
-  const TRANSITION_MS = 4500;
   const JOURNEY_TRAVEL_MS = 2000;
   const JOURNEY_NODE_COUNT = 6;
 
@@ -103,13 +102,13 @@ function applyState(next) {
       image.src = `/static/images/${challenge.image}`;
       image.alt = challenge.name;
       const visual = window.gameVisuals.challengeVisual({ ...challenge, challengeIndex: state.currentChallengeIndex }, state.location, state.missionName);
-      window.gameVisuals.paint(document.getElementById("challengeScene"), visual.cell, visual.source, visual.alt);
+      window.gameVisuals.paint(document.getElementById("challengeScene"), visual.cell, visual.source, visual.alt, false);
 
       if (state.status === "active" && timerChallengeIndex !== state.currentChallengeIndex) {
         timerChallengeIndex = state.currentChallengeIndex;
-        challengeEndsAt = state.endsAt || Date.now() / 1000 + CHALLENGE_SECONDS;
         timedOutChallengeIndex = null;
       }
+      if (state.status === "active") challengeEndsAt = state.endsAt;
       if (state.status !== "active") {
         challengeEndsAt = null;
       }
@@ -137,7 +136,7 @@ function applyState(next) {
       card.dataset.voteSubmitted = String(voteSubmittedForItem);
       card.disabled = !usable;
       card.setAttribute("aria-pressed", String(selectedItemId === item.id));
-      card.innerHTML = `<span class="item-icon"><img src="/static/images/${item.image}" alt=""></span><span class="item-name"></span><span class="item-status-pill"></span>`;
+      card.innerHTML = `<span class="item-icon"></span><span class="item-name"></span><span class="item-status-pill"></span>`;
       card.querySelector('.item-icon').replaceChildren(window.gameVisuals.itemArt(item));
       card.querySelector(".item-name").textContent = item.name;
       card.querySelector(".item-status-pill").textContent = item.used
@@ -152,27 +151,6 @@ function applyState(next) {
         applyState(state);
       });
       itemGrid.appendChild(card);
-    });
-
-    hotbarLabel.textContent = `TEAM INVENTORY · ${available.length}/${state.inventory.length} AVAILABLE · SCORE ${state.score}`;
-    hotbarSlots.replaceChildren();
-    (state.inventorySlots || state.inventory).forEach((item) => {
-      if (!item) {
-        const slot = document.createElement("div");
-        slot.className = "hotbar-slot blocked";
-        slot.textContent = "";
-        slot.title = "No item purchased this round";
-        slot.setAttribute("aria-label", slot.title);
-        hotbarSlots.appendChild(slot);
-        return;
-      }
-      const slot = document.createElement("div");
-      slot.className = "hotbar-slot filled";
-      slot.dataset.status = item.used ? "used" : "available";
-      slot.title = `${item.name}${item.used ? " (used)" : ""}`;
-      slot.innerHTML = `<img src="/static/images/${item.hotbar_image || item.image}" alt="${item.name}">`;
-      slot.replaceChildren(window.gameVisuals.itemArt(item));
-      hotbarSlots.appendChild(slot);
     });
 
     useItemBtn.disabled = !active || submittedVote !== undefined || !selectedItemId;
@@ -462,11 +440,25 @@ function animateJourney(fromChallenge, toChallenge) {
     const finalState = pendingState || activeTransitionState;
     pendingState = null;
     if (finalState) applyState(finalState);
+    if (finalState?.status === "active" && finalState.endsAt == null) {
+      action("mission_start_timer");
+    }
     missionTransition.classList.remove("active");
     journeyRunner.style.opacity = "0";
     transitioning = false;
     activeTransitionState = null;
 
+  }
+
+  function playMissionStartTransition(next) {
+    transitioning = true;
+    activeTransitionState = next;
+    applyState(next);
+    missionTransition.classList.add("active");
+    journeyBriefingDesc.textContent = challengeDescs.mission_start_desc || next.missionDescription || "";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION START";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "NEXT";
+    journeyBriefingBtn.setAttribute("aria-label", "Skip mission briefing");
   }
 
 function playChallengeTransition(next) {
@@ -533,15 +525,7 @@ function playChallengeTransition(next) {
 
     }, 350));
 
-
-    /* load the next challenge near the end of the journey. The user sees the destination before the actual challenge screen appears.*/
-    journeyTimers.push(setTimeout(() => {
-
-      applyState(next);
-
-    }, JOURNEY_TRAVEL_MS + 500));
-
-    journeyTimers.push(setTimeout(finishJourneyTransition, TRANSITION_MS));
+    // briefing visible after animation end, next challenge when you press skip
   }
 
   function render(next) {
@@ -550,6 +534,12 @@ function playChallengeTransition(next) {
 
       pendingState = next;
 
+      return;
+    }
+
+    if (!state && next.status === "active" && next.currentChallengeIndex === 0) {
+      lastChallengeIndex = next.currentChallengeIndex;
+      playMissionStartTransition(next);
       return;
     }
 
@@ -592,6 +582,14 @@ function playChallengeTransition(next) {
     }
   });
   journeyBriefingBtn.addEventListener("click", () => {
+    if (showingMissionEnding) {
+      action("mission_finish");
+      return;
+    }
+    if (showingFinalFailure) {
+      window.location.replace("/result_page");
+      return;
+    }
     finishJourneyTransition();
   });
   document.getElementById("instructionsBtn").addEventListener("click", () => show(instructionsPopup));
@@ -605,6 +603,25 @@ function playChallengeTransition(next) {
       challengeDescs = data.challengeDescs;
     }
     render(data);
+  });
+  window.gameSocket.on("mission_final_failure", (description) => {
+    showingFinalFailure = true;
+    showingMissionEnding = false;
+    hide(feedbackPopup);
+    missionTransition.classList.add("active", "final-failure");
+    journeyBriefingDesc.textContent = description || "Your team has reached the mission's failure limit.";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION FAILED";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "SEE RESULTS";
+    journeyBriefingBtn.setAttribute("aria-label", "Continue to mission results");
+  });
+  window.gameSocket.on("mission_epilogue", (description) => {
+    showingMissionEnding = true;
+    hide(feedbackPopup);
+    missionTransition.classList.add("active");
+    journeyBriefingDesc.textContent = description || "Your team has completed the mission.";
+    document.getElementById("journeyBriefingTitle").textContent = "MISSION COMPLETE";
+    journeyBriefingBtn.querySelector(".briefing-btn-text").textContent = "CLAIM VICTORY";
+    journeyBriefingBtn.setAttribute("aria-label", "Continue to mission results");
   });
   window.gameSocket.on("mission_complete", () => window.location.replace("/result_page"));
 });

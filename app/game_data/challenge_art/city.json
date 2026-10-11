@@ -1,0 +1,299 @@
+{
+  "location": "City",
+  "scenes": {
+    "Alert Another Team": {
+      "source": "challenge-city-1-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Contact Rescue Team": {
+      "source": "challenge-city-1-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Contact Stranded Teammate": {
+      "source": "challenge-city-1-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Blizzard": {
+      "source": "challenge-city-1-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Cyclone": {
+      "source": "challenge-city-1-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Fire": {
+      "source": "challenge-city-1-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Flash Flood": {
+      "source": "challenge-city-1-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Frozen Lake": {
+      "source": "challenge-city-1-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "River": {
+      "source": "challenge-city-1-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Sinkhole": {
+      "source": "challenge-city-1-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Temperature Drop": {
+      "source": "challenge-city-1-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Find Shelter": {
+      "source": "challenge-city-1-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Get Water": {
+      "source": "challenge-city-1-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Air Based Getaway": {
+      "source": "challenge-city-1-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Land Based Getaway": {
+      "source": "challenge-city-1-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Mislead Pursuers": {
+      "source": "challenge-city-1-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-city-1-v1.png"
+    },
+    "Use Stealth": {
+      "source": "challenge-city-2-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Water Based Getaway": {
+      "source": "challenge-city-2-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Repair Collapsed Wall": {
+      "source": "challenge-city-2-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Repair Enviro-Dome": {
+      "source": "challenge-city-2-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Repair Solar Panels": {
+      "source": "challenge-city-2-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Split Handrail": {
+      "source": "challenge-city-2-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Blockade": {
+      "source": "challenge-city-2-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Locked Gate": {
+      "source": "challenge-city-2-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Checkpoint": {
+      "source": "challenge-city-2-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Collapsed Bridge": {
+      "source": "challenge-city-2-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Dam": {
+      "source": "challenge-city-2-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Giant Wall": {
+      "source": "challenge-city-2-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Traffic": {
+      "source": "challenge-city-2-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Debris Filled Stairwell": {
+      "source": "challenge-city-2-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Retracted Loading Walkway": {
+      "source": "challenge-city-2-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Deactivate Alarms": {
+      "source": "challenge-city-2-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-city-2-v1.png"
+    },
+    "Deactivate Security Cameras": {
+      "source": "challenge-city-3-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Distract Guards": {
+      "source": "challenge-city-3-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Find Another Entrance": {
+      "source": "challenge-city-3-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Find Another Exit": {
+      "source": "challenge-city-3-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Get Past the Laser Grid": {
+      "source": "challenge-city-3-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Break into the Vault": {
+      "source": "challenge-city-3-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Open the crate": {
+      "source": "challenge-city-3-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Pickpocket it": {
+      "source": "challenge-city-3-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Retrieve the Item from the Laser Grid": {
+      "source": "challenge-city-3-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Open the Document Case": {
+      "source": "challenge-city-3-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Main Reactor Failure": {
+      "source": "challenge-city-3-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Air Based Travel": {
+      "source": "challenge-city-3-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Land Based Travel": {
+      "source": "challenge-city-3-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Water Based Travel": {
+      "source": "challenge-city-3-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Disable the Bomb Controls": {
+      "source": "challenge-city-3-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Destroy the Stolen Records": {
+      "source": "challenge-city-3-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-city-3-v1.png"
+    },
+    "Shut Down the Weapon": {
+      "source": "challenge-city-4-v1-scene-0",
+      "cell": 0,
+      "grid": 1,
+      "file": "challenge-city-4-v1-scene-0.png"
+    }
+  }
+}

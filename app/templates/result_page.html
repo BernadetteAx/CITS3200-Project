@@ -85,6 +85,14 @@
 
 {% block content %}
 
+<dialog class="mission-failure-dialog" id="missionFailureDialog" aria-labelledby="missionFailureTitle" aria-describedby="missionFailureMessage">
+    <div class="mission-failure-mark" aria-hidden="true"><span>!</span></div>
+    <p class="mission-failure-kicker">MISSION STATUS</p>
+    <h2 id="missionFailureTitle">GAME OVER</h2>
+    <p id="missionFailureMessage">Your team did not complete the mission.</p>
+    <button type="button" class="mission-failure-close" id="missionFailureClose">VIEW RESULTS</button>
+</dialog>
+
 <!-- Final score recorded by Mission -->
 <section class="final-score">
     <h2>FINAL SCORE</h2>

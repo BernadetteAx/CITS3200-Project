@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("previousChallengeResult").addEventListener("click", () => { challengePage--; renderChallengePage(); });
     document.getElementById("nextChallengeResult").addEventListener("click", () => { challengePage++; renderChallengePage(); });
     window.addEventListener("resize", renderChallengePage);
+    document.getElementById("missionFailureClose").addEventListener("click", () => {
+      document.getElementById("missionFailureDialog").close();
+    });
   
     function setText(id, value) {
       document.getElementById(id).textContent = value ?? "---";
@@ -48,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         art.className = "game-scene result-challenge-art";
         art.setAttribute("role", "img");
         const visual = window.gameVisuals.challengeVisual(challenge, location, missionName, 'results');
-        window.gameVisuals.paint(art, visual.cell, visual.source, visual.alt);
+        window.gameVisuals.paint(art, visual.cell, visual.source, visual.alt, false);
   
         const info = document.createElement("div");
         info.className = "mission-info";
@@ -145,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (active) {
           const badge = document.createElement("span");
           badge.className = "inventory-badge";
-          badge.textContent = "[UTILIZED]";
+          badge.textContent = "[USED]";
           text.appendChild(badge);
         }
 
@@ -209,6 +212,20 @@ document.addEventListener("DOMContentLoaded", () => {
         .map((challenge) => challenge.itemUsed);
       displayItems(result.itemsPurchased ?? [], utilizedItems);
       // Item Inventory - END
+
+      const missionFailed = Number(result.challengesFailed) >= 3
+        || Number(result.challengesCompleted) < Number(result.totalChallenges);
+      // Presentation only: tint the score/achievement headings red on failure.
+      document.querySelector(".final-score")?.classList.toggle("mission-failed", missionFailed);
+      document.querySelector(".mission-achievement")?.classList.toggle("mission-failed", missionFailed);
+      if (missionFailed) {
+        const failureDialog = document.getElementById("missionFailureDialog");
+        document.getElementById("missionFailureMessage").textContent =
+          Number(result.challengesFailed) >= 3
+            ? "Your team reached the three-failure limit. The mission is over."
+            : "Your team was forced to end the mission early. Review the results below.";
+        if (!failureDialog.open) failureDialog.showModal();
+      }
   
       message.textContent = "";
     }

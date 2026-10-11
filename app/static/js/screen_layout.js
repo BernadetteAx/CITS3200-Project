@@ -4,7 +4,7 @@
   const content = document.createElement('div');
   content.className = 'screen-content';
   for (const element of [...document.body.children]) {
-    if (element.matches('script, .game-ambience, .motion-toggle, .instructions-trigger, .result-popup, .error-popup, .countdown-track')) continue;
+    if (element.matches('script, .game-ambience, .motion-toggle, .instructions-trigger, .result-popup, .error-popup, .countdown-track, .mission-transition')) continue;
     content.append(element);
   }
   stage.append(content);

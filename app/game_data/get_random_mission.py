@@ -40,7 +40,8 @@ def get_mission():
         for challenge_name in challenges_dict[challenge_type]:
             challenge_dict = challenges_dict[challenge_type][challenge_name]
             if mission_location in challenge_dict["viable_locations"] and selected_mission_dict["mission_type"] in challenge_dict["viable_mission_types"]:
-                challenge_options.append(challenge_dict)
+                challenge_options.append({**challenge_dict, "art_key": challenge_name.split(" - ")[0].strip()
+                    if challenge_type in ("Getaway", "Travel To Rendezvous") else challenge_dict["challenge_name"]})
                 
         # Select a challenge
         selected_challenge_dict = challenge_options[random.randint(0, len(challenge_options)-1)]

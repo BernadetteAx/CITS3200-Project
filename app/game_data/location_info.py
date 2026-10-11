@@ -4,8 +4,8 @@ possible_locations = ["Arctic Tundra", "Arctic Tundra", "Desert", "Desert", "Jun
 location_info = {
     "Arctic Tundra": {
         "opening_sentence_location": "Your mission is to take place in the centre of the arctic tundra",
-        "artifact_to_steal": "Dagger of Irithmetẽ",
-        "artifact_desc": "Dagger of Irithmetẽ, an ornate blade fashioned from the tooth of a prehistoric predator. It is said that it is imbued it with the fury of the ancient ice spirits. But that's just a myth",
+        "artifact_to_steal": "Dagger of Irithmete",
+        "artifact_desc": "Dagger of Irithmete, an ornate blade fashioned from the tooth of a prehistoric predator. It is said that it is imbued it with the fury of the ancient ice spirits. But that's just a myth",
         "jewel_to_steal": "Heart of Ice",
         "jewel_desc": "Heart of Ice, a large diamond first discovered in 1886 by Jacques Bourget during one of his earliest expeditions. The jewel is now worth over 78 million dollars",
     },

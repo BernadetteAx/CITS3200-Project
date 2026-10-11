@@ -1,0 +1,281 @@
+{
+  "location": "Arctic Tundra",
+  "scenes": {
+    "Alert Another Team": {
+      "source": "arctic-challenges",
+      "cell": 12,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Contact Rescue Team": {
+      "source": "arctic-challenges",
+      "cell": 12,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Contact Stranded Teammate": {
+      "source": "arctic-challenges",
+      "cell": 12,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Arctic Bear": {
+      "source": "arctic-challenges",
+      "cell": 30,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Blizzard": {
+      "source": "arctic-challenges",
+      "cell": 28,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Ice Cliff": {
+      "source": "arctic-challenges",
+      "cell": 32,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Sinkhole": {
+      "source": "arctic-challenges",
+      "cell": 0,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Temperature Drop": {
+      "source": "arctic-challenges",
+      "cell": 28,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Narrow Crevasse": {
+      "source": "arctic-challenges",
+      "cell": 0,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Find Shelter": {
+      "source": "arctic-challenges",
+      "cell": 14,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Get Water": {
+      "source": "arctic-challenges",
+      "cell": 16,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Air Based Getaway": {
+      "source": "arctic-challenges",
+      "cell": 20,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Snow Based Getaway": {
+      "source": "arctic-challenges",
+      "cell": 18,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Use Stealth": {
+      "source": "arctic-challenges",
+      "cell": 4,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Repair Collapsed Wall": {
+      "source": "arctic-challenges",
+      "cell": 24,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Blockade": {
+      "source": "arctic-challenges",
+      "cell": 2,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Locked Gate": {
+      "source": "arctic-challenges",
+      "cell": 8,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Checkpoint": {
+      "source": "arctic-challenges",
+      "cell": 4,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Giant Wall": {
+      "source": "arctic-challenges",
+      "cell": 2,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Deactivate Alarms": {
+      "source": "arctic-challenges",
+      "cell": 11,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Deactivate Security Cameras": {
+      "source": "arctic-challenges",
+      "cell": 10,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Distract Guards": {
+      "source": "arctic-challenges",
+      "cell": 4,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Find Another Entrance": {
+      "source": "arctic-challenges",
+      "cell": 8,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Find Another Exit": {
+      "source": "arctic-challenges",
+      "cell": 9,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Get Past the Laser Grid": {
+      "source": "arctic-challenges",
+      "cell": 6,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Open the crate": {
+      "source": "arctic-challenges",
+      "cell": 34,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Retrieve the Item from the Laser Grid": {
+      "source": "arctic-challenges",
+      "cell": 7,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Geo-Thermal Reactor Failure": {
+      "source": "arctic-challenges",
+      "cell": 26,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Air Based Travel": {
+      "source": "arctic-challenges",
+      "cell": 20,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Snow Based Travel": {
+      "source": "arctic-challenges",
+      "cell": 18,
+      "grid": 6,
+      "file": "arctic-challenges-v1.png"
+    },
+    "Frozen Lake": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 0,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Rockfall": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 1,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Find Civilization": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 2,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Repair Enviro-Dome": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 3,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Repair Rover": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 4,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Repair Vehicle": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 5,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Collapsed Bridge": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 6,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Dam": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 7,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Break into the Vault": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 8,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Pickpocket it": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 9,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Open the Document Case": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 10,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Central Heating Offline": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 11,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Communications System Failure": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 12,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Disable the Bomb Controls": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 13,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Destroy the Stolen Records": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 14,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    },
+    "Shut Down the Weapon": {
+      "source": "challenge-arctic-1-v1",
+      "cell": 15,
+      "grid": 4,
+      "file": "challenge-arctic-1-v1.png"
+    }
+  }
+}

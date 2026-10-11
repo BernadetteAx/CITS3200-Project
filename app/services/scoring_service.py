@@ -51,6 +51,9 @@ def build_result_state(session):
             challenge_results[-1]["pointValue"] = outcome["pointValue"]
         # Challenge Card Detail - END
 
+        if challenge.get("artKey"):
+            challenge_results[-1]["artKey"] = challenge["artKey"]
+
         if challenge.get("type"):
             challenge_results[-1]["type"] = challenge["type"]
 
