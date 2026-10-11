@@ -34,6 +34,7 @@ def mission_game(sample_session, monkeypatch):
     mission.initialise_mission(sample_session)
     sample_session["mission"]["challenges"][0]["success_items"]["Axe"] = {
         "point_value": 35,
+        "used": True,
     }
     sample_session["mission"]["challenges"][0]["item_effects"]["Axe"] = {
         "point_value": 35,
@@ -125,6 +126,14 @@ def test_successful_item_records_adds_its_point_value(mission_game):
     )
 
 
+def test_missing_used_metadata_defaults_to_reusable(mission_game):
+    del mission_game["mission"]["challenges"][0]["success_items"]["Axe"]["used"]
+
+    mission.mission_use_item(payload(item="axe"))
+
+    assert mission_game["mission"]["used_items"] == []
+
+
 def test_mission_waits_for_all_connected_players(sample_session, monkeypatch):
     sample_session["phase"] = "mission"
     sample_session["purchased_items"] = [{"id": "axe", "name": "Axe"}]
@@ -150,7 +159,7 @@ def test_mission_waits_for_all_connected_players(sample_session, monkeypatch):
     assert state["votes"] == {"player-1": "axe", "player-2": "axe"}
 
 
-def test_unsuitable_item_does_not_add_points_or_penalty(mission_game):
+def test_unsuitable_item_adds_penalty_but_is_not_consumed(mission_game):
     mission.mission_use_item(payload(item="map"))
 
     state = mission_game["mission"]
@@ -158,7 +167,7 @@ def test_unsuitable_item_does_not_add_points_or_penalty(mission_game):
     assert state["status"] == "resolved"
     assert state["score"] == 0
     assert state["penalties"] == 1
-    assert state["used_items"] == ["map"]
+    assert state["used_items"] == []
     assert state["outcome"]["success"] is False
     assert state["outcome"]["penalty"] == 1
     assert state["outcome"]["pointsEarned"] == 0
@@ -224,7 +233,9 @@ def test_failure_item_immediately_ends_the_mission(mission_game):
     assert state["outcome"]["title"] == "Mission Failed"
     assert mission_game["mission_result"]["outcomes"] == state["outcome_log"]
     mission.socketio.emit.assert_any_call(
-        "mission_complete", mission_game["mission_result"], room="ABCD"
+        "mission_final_failure",
+        state["challenges"][0].get("final_failure_desc", ""),
+        room="ABCD",
     )
 
 
@@ -479,7 +490,9 @@ def test_completing_mission_records_final_results(
     )
 
     mission.socketio.emit.assert_any_call(
-        "mission_complete", result, room="ABCD"
+        "mission_final_failure",
+        state["challenges"][expected_index].get("final_failure_desc", ""),
+        room="ABCD",
     )
 
 
