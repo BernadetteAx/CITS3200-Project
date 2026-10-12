@@ -184,10 +184,29 @@ def test_reconnect_restores_phase_state(lobby_game, lobby_io, phase):
     )
 
     if phase == "mission":
-        lobby_io.mission_state.assert_called_once_with(lobby_game)
+        lobby_io.mission_state.assert_called_once_with(
+            lobby_game, "player-1"
+        )
     else:
         assert joined_data(lobby_io)["auctionStartTime"] == 1234
         lobby_io.mission_state.assert_not_called()
+
+
+def test_reconnect_in_mission_sends_auction_and_mission_state(
+    lobby_game, lobby_io
+):
+    lobby_game["phase"] = "mission"
+    lobby_game["auction"] = {"status": "complete"}
+    lobby_game["mission"] = {"status": "active"}
+
+    lobby.handle_join_session(join_payload(playerId="player-1"))
+
+    lobby_io.auction_state.assert_called_once_with(
+        lobby_game, "player-1"
+    )
+    lobby_io.mission_state.assert_called_once_with(
+        lobby_game, "player-1"
+    )
 
 
 @pytest.mark.parametrize("available", [True, False])
@@ -209,6 +228,68 @@ def test_results_arrival_sends_results_or_error(
             "result_error",
             {"message": "Results are not available for this game yet."},
         )
+
+
+def test_leave_session_removes_guest_and_broadcasts(
+    lobby_game, lobby_io
+):
+    lobby_io.request.sid = "socket-2"
+
+    result = lobby.handle_leave_session(
+        action_payload(player="player-2")
+    )
+
+    assert result == {"ok": True}
+    assert "player-2" not in lobby_game["players"]
+    lobby_io.leave_room.assert_called_once_with("ABCD")
+    lobby_io.broadcast.assert_called_once()
+
+
+@pytest.mark.parametrize(
+    "payload, sid",
+    [
+        (None, "socket-1"),
+        ({}, "socket-1"),
+        (action_payload(player="unknown"), "socket-1"),
+        (action_payload(player="player-1"), "wrong-socket"),
+    ],
+)
+def test_invalid_leave_session_is_rejected(
+    lobby_game, lobby_io, payload, sid
+):
+    lobby_io.request.sid = sid
+
+    result = lobby.handle_leave_session(payload)
+
+    assert result == {"ok": False}
+    assert set(lobby_game["players"]) == {"player-1", "player-2"}
+    lobby_io.leave_room.assert_not_called()
+    lobby_io.broadcast.assert_not_called()
+
+
+def test_host_leaving_reassigns_host_and_broadcasts_change(
+    lobby_game, lobby_io
+):
+    result = lobby.handle_leave_session(action_payload())
+
+    assert result == {"ok": True}
+    assert lobby_game["host_id"] == "player-2"
+    assert "player-1" not in lobby_game["players"]
+    lobby_io.leave_room.assert_called_once_with("ABCD")
+    lobby_io.broadcast.assert_any_call(
+        "host_changed", {"hostId": "player-2"}, room="ABCD"
+    )
+
+
+def test_last_player_leaving_deletes_session(lobby_game, lobby_io):
+    lobby_game["players"].pop("player-2")
+
+    result = lobby.handle_leave_session(action_payload())
+
+    assert result == {"ok": True}
+    assert "ABCD" not in sessions
+    lobby_io.leave_room.assert_called_once_with("ABCD")
+    lobby_io.broadcast.assert_not_called()
 
 
 @pytest.mark.parametrize("ready", [True, False])
@@ -252,7 +333,7 @@ def test_host_starts_when_everyone_ready(lobby_game, lobby_io):
     lobby.handle_start_game(action_payload())
 
     assert lobby_game["phase"] == "start_game"
-    lobby_io.initialise_auction.assert_called_once_with(lobby_game)
+    lobby_io.initialise_auction.assert_not_called()
     lobby_io.emit.assert_called_once_with(
         "game_started", {"phase": "start_game"}, room="ABCD"
     )
@@ -286,6 +367,13 @@ def test_empty_lobby_cannot_start(lobby_game, lobby_io):
 
     assert lobby_game["phase"] == "lobby"
     lobby_io.initialise_auction.assert_not_called()
+
+
+def test_start_game_unknown_session_creates_empty_lobby(lobby_io):
+    lobby.handle_start_game(action_payload())
+
+    assert sessions["ABCD"]["players"] == {}
+    lobby_io.emit.assert_not_called()
 
 
 def test_host_starts_auction_with_shared_timestamp(
@@ -373,6 +461,7 @@ def test_unknown_socket_disconnect_is_ignored(lobby_game, lobby_io):
 def test_intentional_leave_removes_player_and_updates_lobby(
     lobby_game, lobby_io
 ):
+    lobby_io.request.sid = "socket-2"
     lobby.handle_leave_session(action_payload(player="player-2"))
 
     assert set(lobby_game["players"]) == {"player-1"}
@@ -407,6 +496,7 @@ def test_intentional_host_leave_reassigns_host(lobby_game, lobby_io):
 def test_auction_leave_rechecks_progress(lobby_game, lobby_io):
     lobby_game["phase"] = "auction"
     lobby_game["auction"] = {"status": "voting"}
+    lobby_io.request.sid = "socket-2"
 
     lobby.handle_leave_session(action_payload(player="player-2"))
 
@@ -451,6 +541,7 @@ def test_reconnect_after_resolved_disconnect_keeps_current_state(
 
 
 def test_departed_player_does_not_block_start_game(lobby_game, lobby_io):
+    lobby_io.request.sid = "socket-2"
     lobby.handle_leave_session(action_payload(player="player-2"))
     lobby_game["players"]["player-1"]["ready"] = True
     lobby_io.emit.reset_mock()
@@ -524,6 +615,23 @@ def test_no_host_change_event_when_everyone_disconnected(
     ]
     assert "host_changed" not in events
     assert "lobby_state" in events
+
+
+def test_host_reassignment_without_connected_players_keeps_host(
+    lobby_game, lobby_io
+):
+    for player in lobby_game["players"].values():
+        player["connected"] = False
+
+    lobby.reassign_host_after_disconnect("ABCD", "player-1")
+
+    assert lobby_game["host_id"] == "player-1"
+    host_events = [
+        call.args[0]
+        for call in lobby_io.broadcast.call_args_list
+        if call.args[0] == "host_changed"
+    ]
+    assert host_events == []
 
 
 def test_lobby_broadcast_contains_public_player_data(

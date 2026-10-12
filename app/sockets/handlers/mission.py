@@ -42,7 +42,7 @@ def _normalise_challenges(generated_mission):
         if not description or description.lower() in {"incomplete", "imcomplete"}:
             description = f"Your crew faces {name}. Check your equipment and choose how to continue. Taking the long way round costs your team points."
         description = description.replace("insert_item_here", "mission objective")
-        weight = generated_mission[f"w{index}"]
+        weight = generated_mission.get(f"w{index}", 1)
 
         challenges.append({
             "id": f"challenge-{index}",
@@ -215,11 +215,11 @@ def _resolve(code, session, mission, item=None, timed_out=False):
         # If the item gets used up after it's use, include it in used items
         for success_item in challenge["success_items"].keys():
             normalised_item = success_item.lower().strip().replace(" ", "-")
-            if item["id"] == normalised_item and challenge["success_items"][success_item]["used"]:
+            if item["id"] == normalised_item and challenge["success_items"][success_item].get("used", False):
                 mission["used_items"].append(item["id"])
         for failure_item in challenge["failure_items"].keys():
             normalised_item = failure_item.lower().strip().replace(" ", "-")
-            if item["id"] == normalised_item and challenge["failure_items"][failure_item]["used"]:
+            if item["id"] == normalised_item and challenge["failure_items"][failure_item].get("used", False):
                 mission["used_items"].append(item["id"])     
         
 

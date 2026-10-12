@@ -78,6 +78,30 @@ def test_change_host_returns_none_when_everyone_disconnected(
     assert change_host(sample_session) is None
 
 
+def test_change_host_uses_first_connected_player_in_order(sample_session):
+    sample_session["players"]["player-1"]["connected"] = False
+    sample_session["players"]["player-2"]["connected"] = True
+    sample_session["players"]["player-3"] = {
+        "name": "Charlie",
+        "ready": False,
+        "connected": True,
+    }
+
+    result = change_host(sample_session)
+
+    assert result == "player-2"
+    assert sample_session["host_id"] == "player-2"
+
+
+def test_get_or_create_session_can_create_empty_session_from_missing_data():
+    session = get_or_create_session("EMPTY")
+
+    assert session["phase"] == "lobby"
+    assert session["host_id"] is None
+    assert session["players"] == {}
+    assert "EMPTY" in sessions
+
+
 def test_change_host_returns_none_when_no_players():
     session = get_or_create_session("ABCD")
 
